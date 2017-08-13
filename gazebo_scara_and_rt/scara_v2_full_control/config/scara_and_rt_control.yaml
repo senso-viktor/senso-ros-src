@@ -1,0 +1,40 @@
+scara_and_rt:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+
+  # Position Controllers SCARA ---------------------------------------
+  joint1_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint1
+    pid: {p: 500.0, i: 2, d: 10}
+
+  joint2_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint2
+    pid: {p: 500.0, i: 2, d: 10}
+
+  joint3_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_GripperBase
+    pid: {p: 1000.0, i: 5.0, d: 15.0}
+
+  joint4_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_Gripper
+    pid: {p: 1000.0, i: 5.0, d: 15.0}
+
+  joint5_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_GripperRight
+    pid: {p: 1000.0, i: 5.0, d: 15.0}
+
+
+
+  # Position Controllers ROTARY TABLE ---------------------------------
+  rt_joint1_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: base_link1_to_link1
+    pid: {p: 500.0, i: 2.0, d: 10.0}

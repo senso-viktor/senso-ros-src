@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<package>
+  <name>scara_v2_moveit_api</name>
+  <version>0.3.0</version>
+  <description>The scara_v2_moveit_api package</description>
+  <maintainer email="viktor@todo.todo">viktor</maintainer>
+  <license>TODO</license>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+
+  <build_depend>moveit_core</build_depend>
+  <build_depend>moveit_ros_planning_interface</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>pose_and_gripperState</build_depend>
+  <build_depend>genmsgs</build_depend>
+  <build_depend>scara_msgs</build_depend>
+  <build_depend>moveit_msgs</build_depend>
+
+
+
+  <run_depend>moveit_msgs</run_depend>
+  <run_depend>moveit_core</run_depend>
+  <run_depend>moveit_ros_planning_interface</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>message_runtime</run_depend>
+  <run_depend>pose_and_gripperState</run_depend>
+  <run_depend>genmsgs</run_depend>
+  <run_depend>scara_msgs</run_depend>
+
+
+
+
+  <export>
+  </export>
+</package>

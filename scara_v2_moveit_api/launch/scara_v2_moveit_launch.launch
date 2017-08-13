@@ -1,0 +1,7 @@
+<launch>
+
+    <include file="$(find scara_v2_moveit_config)/launch/demo.launch" />
+
+    <node name="move_group_interface2" pkg="scara_v2_moveit_api" type="move_group_interface2" respawn="false" output="screen"/>
+
+</launch>

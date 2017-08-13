@@ -1,0 +1,6 @@
+<launch>
+    <include file="$(find scara_v2_moveit_config)/launch/demo.launch" />
+    <node name="move_group_interface4_position_control" pkg="scara_v2_moveit_api" type="move_group_interface4_position_control" respawn="false" output="screen"/>
+    <!--<node name="cube_publisher" pkg="scara_v2_moveit_api" type="cube_publisher" respawn="false" output="screen"/>-->
+
+</launch>

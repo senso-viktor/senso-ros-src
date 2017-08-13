@@ -1,0 +1,6 @@
+<launch>
+    <!--<include file="$(find scara_v2_moveit_config)/launch/demo.launch" />-->
+    <node name="multiple_cube_publisher" pkg="scara_v2_moveit_api" type="multiple_cube_publisher" respawn="false" output="screen"/>
+    <node name="move_group_interface5_rt" pkg="scara_v2_moveit_api" type="move_group_interface5_rt" respawn="false" output="screen"/>
+    <node name="move_group_interface3_PICKandPLACE" pkg="scara_v2_moveit_api" type="move_group_interface3_PICKandPLACE" respawn="false" output="screen"/>
+</launch>

@@ -1,0 +1,3 @@
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find senso_scara_demo)/baugruppe_asm/urdf/baugruppe_asm.urdf'" />
+</launch>

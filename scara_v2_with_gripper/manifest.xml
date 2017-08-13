@@ -1,0 +1,6 @@
+<package>
+  <description brief="scara_v2_with_gripper">scara_v2_with_gripper</description>
+  <depend package="gazebo" />
+  <author>me</author>
+  <license>BSD</license>
+</package>

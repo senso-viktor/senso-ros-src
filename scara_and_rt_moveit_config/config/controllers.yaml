@@ -1,0 +1,13 @@
+controller_list:
+    - name: /scara/joint_trajectory_controller/follow_joint_trajectory
+      type: FollowJointTrajectory
+      default: true
+      joints:
+          - Joint1
+          - Joint2
+          - Joint_GripperBase
+    - name: /rt/joint_trajectory_controller/follow_joint_trajectory
+      type: FollowJointTrajectory
+      default: true
+      joints:
+          - base_link1_to_link1

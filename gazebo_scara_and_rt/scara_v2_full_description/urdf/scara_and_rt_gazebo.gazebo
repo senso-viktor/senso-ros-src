@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<robot>
+    <!-- ros_control plugin -->
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/scara_and_rt</robotNamespace>
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+        </plugin>
+    </gazebo>
+
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/rt</robotNamespace>
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+        </plugin>
+    </gazebo>
+
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/scara</robotNamespace>
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+        </plugin>
+    </gazebo>
+
+
+    <!--           TABLE           -->
+    <gazebo reference="BaseBox">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="CentralStop1">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/Red</material>
+    </gazebo>
+    <gazebo reference="CentralStop2">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/Red</material>
+    </gazebo>
+    <!-- ************************** -->
+
+    <!--__________PLACE BOX_________-->
+    <gazebo reference="placeBox">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/White</material>
+    </gazebo>
+    <gazebo reference="placeHole1">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="placeHole2">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="placeHole3">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="placeHole4">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="placeHole5">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="placeHole6">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="placeHole7">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="placeHole8">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <!--****************************-->
+
+    <!--____________PICK BOX________-->
+    <gazebo reference="base">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/White</material>
+    </gazebo>
+    <gazebo reference="base_link1">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/White</material>
+    </gazebo>
+    <gazebo reference="hole1">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/Black</material>
+    </gazebo>
+    <gazebo reference="hole2">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="hole3">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="hole4">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="hole5">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="hole6">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="hole7">
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="hole8">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <!---->
+    <gazebo reference="link1">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/White</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <!--<gazebo reference="base_link1_to_link1">-->
+    <!--<kp>10</kp>-->
+    <!--<kd>1000</kd>-->
+    <!--</gazebo>-->
+    <!--*************************************-->
+
+
+    <!--____________SCARA___________-->
+    <gazebo reference="ScaraBase">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/DarkGrey</material>
+    </gazebo>
+
+    <gazebo reference="ScaraLink1">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/DarkGrey</material>
+        <!--<mu1>0.2</mu1>-->
+        <!--<mu2>0.2</mu2>-->
+    </gazebo>
+
+    <gazebo reference="ScaraLink2">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/DarkGrey</material>
+        <!--<mu1>0.2</mu1>-->
+        <!--<mu2>0.2</mu2>-->
+    </gazebo>
+    <!-- *************************** -->
+
+
+    <!--____________GRIPPER_________ -->
+    <gazebo reference="GripperBase">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/Black</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+
+    <gazebo reference="GripperLeft">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/Black</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <gazebo reference="GripperRight">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/Black</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <!-- *************************** -->
+
+</robot>

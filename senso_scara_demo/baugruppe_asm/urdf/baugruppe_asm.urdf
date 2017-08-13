@@ -1,0 +1,260 @@
+<robot name="baugruppe_asm">
+
+  <link name = "world">
+      <origin xyz="0 0 0"></origin>
+  </link>
+
+
+  <link name="baseBox">
+    <visual>
+      <geometry>
+        <box size="1 1 1"></box>
+      </geometry>
+      <origin xyz="0.5 0 0"></origin>
+    </visual>
+  </link>
+  <joint name="world_to_baseBox" type="fixed">
+    <parent link="world"></parent>
+    <child link="baseBox"></child>
+    <origin xyz="0 0 50"></origin>
+    <axis xyz="1 0 0"></axis>
+  </joint>
+
+
+
+  <link name="robotBase">
+    <visual>
+      <geometry>
+        <box size="0.1 1 0.4"></box>
+      </geometry>
+      <origin xyz="0.05 0 0.2"></origin>
+    </visual>
+  </link>
+  <joint name="baseBox_to_robotBase" type="fixed">
+    <parent link="baseBox"></parent>
+    <child link="robotBase"></child>
+    <origin xyz="0 0 0.5"></origin>
+    <axis xyz="1 0 0"></axis>
+  </joint>
+
+
+
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0129142860655273 0.025 8.58970379741229E-19"
+        rpy="0 0 0" />
+      <mass
+        value="0.22068583470577" />
+      <inertia
+        ixx="0.000106880528372501"
+        ixy="4.82532700777947E-21"
+        ixz="-3.00066856808323E-21"
+        iyy="0.000165002910330844"
+        iyz="1.55289082629429E-21"
+        izz="0.000150074813085748" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://senso_scara_demo/baugruppe_asm/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://senso_scara_demo/baugruppe_asm/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="robotBase_to_base_link" type="fixed">
+    <parent link="robotBase"></parent>
+    <child link="base_link"></child>
+    <origin xyz="0.15 0 0.2"></origin>
+    <axis xyz="1 0 0"></axis>
+  </joint>
+
+
+
+
+
+  <link name="Link1_yellow">
+    <inertial>
+      <origin
+        xyz="0.1 0.025016 6.9389E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.74176" />
+      <inertia
+        ixx="0.00036662"
+        ixy="-5.2521E-21"
+        ixz="-2.4395E-19"
+        iyy="0.0040213"
+        iyz="-3.253E-20"
+        izz="0.0039643" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://senso_scara_demo/baugruppe_asm/meshes/Link1_yellow.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://senso_scara_demo/baugruppe_asm/meshes/Link1_yellow.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint1"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5708 4.6905E-17 0" />
+    <parent link="base_link" />
+    <child link="Link1_yellow" />
+    <axis xyz="0 1 0" />
+	<limit effort="0" lower="-1.484" upper="1.484" velocity="0"/>
+  </joint>
+
+
+
+
+
+  <link
+    name="Link2_red">
+    <inertial>
+      <origin
+        xyz="0.084906 0.018396 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.68137" />
+      <inertia
+        ixx="0.00051754"
+        ixy="0.00029292"
+        ixz="8.8091E-19"
+        iyy="0.002574"
+        iyz="-1.3553E-19"
+        izz="0.0027309" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://senso_scara_demo/baugruppe_asm/meshes/Link2_red.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://senso_scara_demo/baugruppe_asm/meshes/Link2_red.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Joint2" type="revolute">
+    <origin
+      xyz="0.2 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="Link1_yellow" />
+    <child
+      link="Link2_red" />
+    <axis
+      xyz="0 1 0" />
+	<limit effort="0" lower="-3.05" upper="3.05" velocity="0"/>
+  </joint>
+
+
+
+
+
+
+  <link
+    name="Link3_purple">
+    <inertial>
+      <origin
+        xyz="0.015 -0.0725 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.256" />
+      <inertia
+        ixx="0.00040267"
+        ixy="0.000144"
+        ixz="2.7105E-20"
+        iyy="0.00021867"
+        iyz="-5.421E-20"
+        izz="0.00052107" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://senso_scara_demo/baugruppe_asm/meshes/Link3_purple.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://senso_scara_demo/baugruppe_asm/meshes/Link3_purple.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint3"
+    type="prismatic">
+    <origin
+      xyz="0.15 -0.02 0"
+      rpy="0 -5.5511E-17 0" />
+    <parent
+      link="Link2_red" />
+    <child
+      link="Link3_purple" />
+    <axis
+      xyz="0 -1 0" />
+	<limit effort="0" lower="-0.03" upper="0.03" velocity="0"/>
+  </joint>
+</robot>

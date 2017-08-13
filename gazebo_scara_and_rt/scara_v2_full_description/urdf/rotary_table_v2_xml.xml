@@ -1,0 +1,438 @@
+<?xml version="1.0"?>
+
+<robot  name="rotary_table_v2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!--              Constants               -->
+    <xacro:property name="DEG2RAD" value="0.01745329252" />
+    <xacro:property name="RED2DEG" value="57.295779513" />
+    <xacro:property name="M_PI" value="3.141592" />
+
+    <!-- plugin -->
+    <gazebo>
+        <plugin filename="libgazebo_ros_control.so" name="ros_control">
+            <robotNamespace>/rotary_table_v2</robotNamespace>
+        </plugin>
+    </gazebo>
+
+    <!--_________ROTARY TABLE________-->
+    <gazebo reference="base">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/White</material>
+    </gazebo>
+    <gazebo reference="base_link1">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/White</material>
+    </gazebo>
+    <gazebo reference="hole1">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="hole2">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="hole3">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="hole4">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="hole5">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="hole6">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="hole7">
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="hole8">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <!---->
+    <gazebo reference="link1">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/White</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <!--****************************-->
+
+
+    <!--______RViz Material Color definitions_______-->
+    <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+    <material name="blue">
+        <color rgba="0 0 1 1"/>
+    </material>
+    <material name="red">
+        <color rgba="1 0 0 1"/>
+    </material>
+    <material name="green">
+        <color rgba="0 1 0 1"/>
+    </material>
+    <material name="sensoSilver">
+        <color rgba="0.839216 0.839216 0.839216 1"/>
+    </material>
+    <material name="sensoBlack">
+        <color rgba="0 0 0 1 "/>
+    </material>
+    <material name="sensoGray">
+        <color rgba="0.466667 0.533333 0.6 1 "/>
+    </material>
+    <material name="sensoDarkGray">
+        <color rgba="0.156863 0.156863 0.156863 1 "/>
+    </material>
+    <!--*****************************************************-->
+
+
+    <!--______________Link and Joint definitions____________-->
+    <link name="world"/>
+    <link name="base">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.15 0.1 0.02"/>
+            </geometry>
+            <material name="sensoBlack" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="0.15 0.1 0.02"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="world_to_base" type="fixed">
+        <parent link="world"/>
+        <child link="base"/>
+        <origin xyz="0 0 0.01" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+    </joint>
+
+
+    <link name="base_link1">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.01" radius="0.02"/>
+            </geometry>
+            <material name="sensoSilver" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.01" radius="0.02"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="base_to_base_link1" type="fixed">
+        <parent link="base"/>
+        <child link="base_link1"/>
+        <origin xyz="0.05 0 0.015" rpy="0 0 0"/>
+        <axis xyz="0 0 1" />
+    </joint>
+
+
+    <link name="link1">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.02" radius="0.06"/>
+            </geometry>
+            <material name="sensoSilver" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.02" radius="0.06"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="base_link1_to_link1" type="revolute">
+        <parent link="base_link1"/>
+        <child link="link1"/>
+        <origin xyz="0 0 0.015" rpy="0 0 0"/>
+        <axis xyz="0 0 1" />
+        <limit effort="1000" lower="0" upper="6.28" velocity="10"/>
+        <!--<limit effort="100" lower="0" upper="${2*M_PI}" velocity="0.5"/>-->
+    </joint>
+
+
+    <link name="hole1">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="0.1" />
+            <inertia ixx="1E-9" ixy="0" ixz="0"
+                     iyy="1E-9" iyz="0"
+                     izz="1E-9" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.005" radius="0.01"/>
+            </geometry>
+            <material name="blue" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.005" radius="0.01"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="link1_to_hole1" type="fixed">
+        <parent link="link1"/>
+        <child link="hole1"/>
+        <origin xyz="0.04 0 0.0125" rpy="0 0 0"/>
+    </joint>
+
+
+    <link name="hole2">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="0.1" />
+            <inertia ixx="1E-9" ixy="0" ixz="0"
+                     iyy="1E-9" iyz="0"
+                     izz="1E-9" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.005" radius="0.01"/>
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.005" radius="0.01"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="link1_to_hole2" type="fixed">
+        <parent link="link1"/>
+        <child link="hole2"/>
+        <origin xyz="0.02828 0.02828 0.0125" rpy="0 0 0"/>
+    </joint>
+
+
+
+    <link name="hole3">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="0.1" />
+            <inertia ixx="1E-9" ixy="0" ixz="0"
+                     iyy="1E-9" iyz="0"
+                     izz="1E-9" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.005" radius="0.01"/>
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.005" radius="0.01"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="link1_to_hole3" type="fixed">
+        <parent link="link1"/>
+        <child link="hole3"/>
+        <origin xyz="0 0.04 0.0125" rpy="0 0 0"/>
+    </joint>
+
+
+
+    <link name="hole4">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="0.1" />
+            <inertia ixx="1E-9" ixy="0" ixz="0"
+                     iyy="1E-9" iyz="0"
+                     izz="1E-9" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.005" radius="0.01"/>
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.005" radius="0.01"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="link1_to_hole4" type="fixed">
+        <parent link="link1"/>
+        <child link="hole4"/>
+        <origin xyz="-0.02828 0.02828 0.0125" rpy="0 0 0"/>
+    </joint>
+
+
+    <link name="hole5">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="0.1" />
+            <inertia ixx="1E-9" ixy="0" ixz="0"
+                     iyy="1E-9" iyz="0"
+                     izz="1E-9" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.005" radius="0.01"/>
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.005" radius="0.01"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="link1_to_hole5" type="fixed">
+        <parent link="link1"/>
+        <child link="hole5"/>
+        <origin xyz="-0.04 0 0.0125" rpy="0 0 0"/>
+    </joint>
+
+
+    <link name="hole6">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="0.1" />
+            <inertia ixx="1E-9" ixy="0" ixz="0"
+                     iyy="1E-9" iyz="0"
+                     izz="1E-9" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.005" radius="0.01"/>
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.005" radius="0.01"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="link1_to_hole6" type="fixed">
+        <parent link="link1"/>
+        <child link="hole6"/>
+        <origin xyz="-0.02828 -0.02828 0.0125" rpy="0 0 0"/>
+    </joint>
+
+
+    <link name="hole7">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="0.1" />
+            <inertia ixx="1E-9" ixy="0" ixz="0"
+                     iyy="1E-9" iyz="0"
+                     izz="1E-9" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.005" radius="0.01"/>
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.005" radius="0.01"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="link1_to_hole7" type="fixed">
+        <parent link="link1"/>
+        <child link="hole7"/>
+        <origin xyz="0 -0.04 0.0125" rpy="0 0 0"/>
+    </joint>
+
+
+    <link name="hole8">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="0.1" />
+            <inertia ixx="1E-9" ixy="0" ixz="0"
+                     iyy="1E-9" iyz="0"
+                     izz="1E-9" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.005" radius="0.01"/>
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.005" radius="0.01"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="link1_to_hole8" type="fixed">
+        <parent link="link1"/>
+        <child link="hole8"/>
+        <origin xyz="0.02828 -0.02828 0.0125" rpy="0 0 0"/>
+    </joint>
+    <!--*****************************************************-->
+
+
+    <!--____________________Transmision definitions________________-->
+    <!--___RT____-->
+    <transmission name="tran1rt">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="base_link1_to_link1">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor1">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+
+</robot>

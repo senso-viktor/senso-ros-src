@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: senso_scara_demo
+Description: Description of senso_scara_demo
+Version: 0.0.0
+Cflags: 
+Libs: -L/usr/local/lib 
+Requires: 

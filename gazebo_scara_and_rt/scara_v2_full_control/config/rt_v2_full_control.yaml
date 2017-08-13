@@ -1,0 +1,13 @@
+rotary_table_v2:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+
+  # Position Controllers ---------------------------------------
+  rt_joint1_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: base_link1_to_link1
+    pid: {p: 500.0, i: 2.0, d: 10.0}
+

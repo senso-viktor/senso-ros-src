@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<robot>
+    <!-- ros_control plugin -->
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/rotary_table_v2</robotNamespace>
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+        </plugin>
+    </gazebo>
+
+    <!--_________ROTARY TABLE________-->
+    <gazebo reference="base">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/White</material>
+    </gazebo>
+    <gazebo reference="base_link1">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/White</material>
+    </gazebo>
+    <gazebo reference="hole1">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="hole2">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="hole3">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="hole4">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="hole5">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="hole6">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="hole7">
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <gazebo reference="hole8">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/RedBright</material>
+    </gazebo>
+    <!---->
+    <gazebo reference="link1">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/White</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <!--****************************-->
+
+
+
+</robot>

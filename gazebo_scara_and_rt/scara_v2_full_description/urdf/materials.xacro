@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<robot>
+
+    <!--______RViz Material Color definitions_______-->
+    <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+    <material name="blue">
+        <color rgba="0 0 1 1"/>
+    </material>
+    <material name="red">
+        <color rgba="1 0 0 1"/>
+    </material>
+    <material name="green">
+        <color rgba="0 1 0 1"/>
+    </material>
+    <material name="sensoSilver">
+        <color rgba="0.839216 0.839216 0.839216 1"/>
+    </material>
+    <material name="sensoBlack">
+        <color rgba="0 0 0 1 "/>
+    </material>
+    <material name="sensoGray">
+        <color rgba="0.466667 0.533333 0.6 1 "/>
+    </material>
+    <material name="sensoDarkGray">
+        <color rgba="0.156863 0.156863 0.156863 1 "/>
+    </material>
+    <!--*******************************************-->
+
+</robot>

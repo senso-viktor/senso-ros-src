@@ -1,0 +1,32 @@
+scara_v2_full:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+
+  # Position Controllers ---------------------------------------
+  joint1_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint1
+    pid: {p: 500.0, i: 2.0, d: 10.0}
+
+  joint2_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint2
+    pid: {p: 500.0, i: 2.0, d: 10.0}
+
+  joint3_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_GripperBase
+    pid: {p: 1000.0, i: 5.0, d: 15.0}
+
+  jointGripper_rightFinger:
+    type: effort_controllers/JointPositionController
+    joint: Joint_Gripper
+    pid: {p: 500.0, i: 0.02, d: 0.05}
+
+#  jointGripper_leftFinger:
+#    type: effort_controllers/JointPositionController
+#    joint: Joint_GripperRight
+#    pid: {p: 500, i: 0.02, d: 0.05}

@@ -1,0 +1,6 @@
+<package>
+  <description brief="baugruppe_asm">baugruppe_asm</description>
+  <depend package="gazebo" />
+  <author>me</author>
+  <license>BSD</license>
+</package>

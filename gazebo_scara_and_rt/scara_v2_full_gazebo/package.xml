@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+  <name>scara_v2_full_gazebo</name>
+  <version>0.0.0</version>
+  <description>The scara_v2_full_gazebo package</description>
+  <maintainer email="viktordluhos@gmail.com">viktor</maintainer>
+  <license>BSD</license>
+  <author email="viktordluhos@gmail.com">viktor</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>gazebo_plugins</run_depend>
+  <run_depend>gazebo_ros</run_depend>
+  <run_depend>gazebo_ros_control</run_depend>
+  <run_depend>scara_v2_control</run_depend>
+  <run_depend>scara_v2_description</run_depend>
+  <run_depend>xacro</run_depend>
+
+  <export>
+  </export>
+</package>
+
