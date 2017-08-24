@@ -228,65 +228,65 @@ Visualization Manager:
       Frames:
         All Enabled: false
         BaseBox:
-          Value: true
+          Value: false
         CentralStop1:
-          Value: true
+          Value: false
         CentralStop2:
-          Value: true
+          Value: false
         GripperBase:
-          Value: true
+          Value: false
         GripperLeft:
-          Value: true
+          Value: false
         GripperRight:
-          Value: true
+          Value: false
         ScaraBase:
-          Value: true
+          Value: false
         ScaraLink1:
-          Value: true
+          Value: false
         ScaraLink2:
-          Value: true
+          Value: false
         base:
-          Value: true
+          Value: false
         base_link1:
-          Value: true
+          Value: false
         hole1:
-          Value: true
+          Value: false
         hole2:
-          Value: true
+          Value: false
         hole3:
-          Value: true
+          Value: false
         hole4:
-          Value: true
+          Value: false
         hole5:
-          Value: true
+          Value: false
         hole6:
-          Value: true
+          Value: false
         hole7:
-          Value: true
+          Value: false
         hole8:
-          Value: true
+          Value: false
         link1:
-          Value: true
+          Value: false
         placeBox:
-          Value: true
+          Value: false
         placeHole1:
-          Value: true
+          Value: false
         placeHole2:
-          Value: true
+          Value: false
         placeHole3:
-          Value: true
+          Value: false
         placeHole4:
-          Value: true
+          Value: false
         placeHole5:
-          Value: true
+          Value: false
         placeHole6:
-          Value: true
+          Value: false
         placeHole7:
-          Value: true
+          Value: false
         placeHole8:
-          Value: true
+          Value: false
         tool0:
-          Value: true
+          Value: false
         world:
           Value: false
       Marker Scale: 0.200000003

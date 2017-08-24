@@ -8,6 +8,8 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/opt/ros/kinetic/lib:."
-export ROSLISP_PACKAGE_DIRECTORIES="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/share/common-lisp"
+export LD_LIBRARY_PATH="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/lib:/home/viktordluhos/catkin_ws/devel/lib:/opt/ros/kinetic/lib:/opt/ros/kinetic/lib/x86_64-linux-gnu:/home/viktordluhos/Downloads/clion-2017.1/bin"
+export PKG_CONFIG_PATH="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PYTHONPATH="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/lib/python2.7/dist-packages:$PYTHONPATH"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/home/viktordluhos/catkin_ws/src:$ROS_PACKAGE_PATH"
