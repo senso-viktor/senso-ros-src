@@ -214,14 +214,21 @@ int main(int argc, char **argv) {
         mode_pub.publish(selectedMode);
 
         if ((joint_positions[0]-maxJointDeviation < actual_joint_positions[0]) && (actual_joint_positions[0] < joint_positions[0]+maxJointDeviation)){
-            if ((joint_positions[1]-maxJointDeviation < actual_joint_positions[1]) && (actual_joint_positions[1] < joint_positions[1]+maxJointDeviation))
-            ROS_WARN("!!!!!   In place  !!!!!!");
-            for (int i=0;i<joint_positions.size();i++){
-                ROS_ERROR("Desired joint %d value %f",i,joint_positions[i]);
-                ROS_ERROR("Joint %d value %f",i,actual_joint_positions[i]);
-            }
-            executionOK = true;
-        }
+            if ((joint_positions[1]-maxJointDeviation < actual_joint_positions[1]) && (actual_joint_positions[1] < joint_positions[1]+maxJointDeviation)){
+                if ((joint_positions[2]-maxJointDeviation < actual_joint_positions[2]) && (actual_joint_positions[2] < joint_positions[2]+maxJointDeviation)){
+                    ROS_WARN("!!!!!   In place  !!!!!!");
+                    for (int i=0;i<joint_positions.size();i++){
+                        ROS_ERROR("Desired joint %d value %f",i,joint_positions[i]);
+                        ROS_ERROR("Joint %d value %f",i,actual_joint_positions[i]);
+                        executionOK = true;
+                    }
+
+                } else
+                    ROS_INFO("Fuck 1");
+            }else
+            ROS_INFO("Fuck 2");
+        }else
+            ROS_INFO("Fuck 3");
 
 
         if (executionOK){
@@ -258,6 +265,7 @@ int main(int argc, char **argv) {
                             break;
                         } else{
                             ROS_ERROR("Bad plan");
+                            executionOK = true;
                             break;
                         }
                         ws1 = move_group.getCurrentPose();
@@ -283,20 +291,24 @@ int main(int argc, char **argv) {
         }
 
         //ROS_INFO("Size of planned trajectory %d",);
+
         if (my_plan.trajectory_.joint_trajectory.points.size() != last_trajectory_size){
             last_trajectory_size = my_plan.trajectory_.joint_trajectory.points.size();
 
             i=0;
         }
 
-        if (i< my_plan.trajectory_.joint_trajectory.points.size())
-        {
-            sendJointPoses(&pose_pub, &my_plan, i);
-            ROS_WARN("message GO! %f %f %f [%d/%d]",pos_and_vel.position.x, pos_and_vel.position.y, pos_and_vel.position.z,i,last_trajectory_size);
-            i++;
-        }else{
-            sendJointPoses(&pose_pub, &my_plan, last_trajectory_size-1);
-            ROS_ERROR("message stay!![%f %f %f]",pos_and_vel.position.x, pos_and_vel.position.y, pos_and_vel.position.z);
+        if (!executionOK){
+            if (i< my_plan.trajectory_.joint_trajectory.points.size())
+            {
+                sendJointPoses(&pose_pub, &my_plan, i);
+                ROS_WARN("message GO! %f %f %f [%d/%d]",pos_and_vel.position.x, pos_and_vel.position.y, pos_and_vel.position.z,i,last_trajectory_size);
+                i++;
+            }else{
+                sendJointPoses(&pose_pub, &my_plan, last_trajectory_size-1);
+                ROS_ERROR("message stay!![%f %f %f]",pos_and_vel.position.x, pos_and_vel.position.y, pos_and_vel.position.z);
+            }
+
         }
 
         ros::spinOnce();
