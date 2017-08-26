@@ -15,6 +15,7 @@
 #include "joint_limits_interface/joint_limits.h"
 #include <joint_limits_interface/joint_limits_urdf.h>
 #include <joint_limits_interface/joint_limits_rosparam.h>
+#include <std_msgs/Byte.h>
 #include "moveit_msgs/DisplayTrajectory.h"
 
 geometry_msgs::Pose pos_and_vel;
@@ -50,8 +51,11 @@ int main(int argc, char **argv) {
     sleep(2);
 
     ros::Publisher pose_pub = n1.advertise<geometry_msgs::Pose>("/planned_poses_and_velocities",1000);
+    ros::Publisher mode = n2.advertise<std_msgs::Byte>("/modeSelect",1000);
     ros::Subscriber trajectory_sub = n3.subscribe("/move_group/display_planned_path",1000,displayPathCallback);
 
+    std_msgs::Byte selectedMode;
+    selectedMode.data = 6;
 
 
     int last_size = -5;
@@ -60,6 +64,8 @@ int main(int argc, char **argv) {
 
 
         if (subs_ok){
+                mode.publish(selectedMode);
+
                if (trajectory1.trajectory[0].joint_trajectory.points.size() != last_size){
                     last_size = trajectory1.trajectory[0].joint_trajectory.points.size();
                     i=0;
@@ -75,6 +81,7 @@ int main(int argc, char **argv) {
                     pos_and_vel.orientation.z = trajectory1.trajectory[0].joint_trajectory.points[i].velocities[2];
                     pose_pub.publish(pos_and_vel);
                     ROS_WARN("message sent %d [of %d]!!",i,trajectory1.trajectory[0].joint_trajectory.points.size());
+                    ROS_WARN("message go on!! [%f %f %f]",pos_and_vel.position.x, pos_and_vel.position.y, pos_and_vel.position.z);
                     //ROS_INFO("%f %f %f", pos_and_vel.position.x,pos_and_vel.position.y,pos_and_vel.position.z);
                     i++;
                 }else{
@@ -88,9 +95,18 @@ int main(int argc, char **argv) {
                     pos_and_vel.orientation.y = trajectory1.trajectory[0].joint_trajectory.points[last_size-1].velocities[1];
                     pos_and_vel.orientation.z = trajectory1.trajectory[0].joint_trajectory.points[last_size-1].velocities[2];
                     pose_pub.publish(pos_and_vel);
-                    ROS_ERROR("message stay!!");
+                    ROS_ERROR("message stay!![%f %f %f]",pos_and_vel.position.x, pos_and_vel.position.y, pos_and_vel.position.z);
                     //ROS_INFO("%f %f %f", pos_and_vel.position.x,pos_and_vel.position.y,pos_and_vel.position.z);
                 }
+        }else{
+            pos_and_vel.position.x = 0.0;
+            pos_and_vel.position.y = 0.0;
+            pos_and_vel.position.z = 0.0;
+            pos_and_vel.orientation.x = 0.0;
+            pos_and_vel.orientation.y = 0.0;
+            pos_and_vel.orientation.z = 0.0;
+            pose_pub.publish(pos_and_vel);
+            ROS_ERROR("message stay on 0!! [%f %f %f]",pos_and_vel.position.x, pos_and_vel.position.y, pos_and_vel.position.z);
         }
 
         loop_rate.sleep();

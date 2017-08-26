@@ -20,9 +20,6 @@
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
     <param name="/use_gui" value="false"/>
     <param name="/publish_default_positions" value="false"/>
-    <!--<rosparam param="/source_list">[/move_group/fake_controller_joint_states]</rosparam>-->
-    <!--<rosparam param="/source_list">[/scara_and_rt/joint_states]</rosparam>-->
-    <!--<rosparam param="/source_list">[/sl_scara_joint_states]</rosparam>-->
     <rosparam param="/source_list">[/scara_jointStates]</rosparam>
 
   </node>
@@ -34,7 +31,7 @@
   <include file="$(find scara_and_rt_moveit_config)/launch/move_group.launch">
     <arg name="allow_trajectory_execution" value="true"/>
     <!--tu som zmenil z true na false-->
-    <arg name="fake_execution" value="false"/>
+    <arg name="fake_execution" value="true"/>
     <arg name="info" value="true"/>
     <arg name="debug" value="$(arg debug)"/>
   </include>

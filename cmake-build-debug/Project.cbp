@@ -5351,81 +5351,71 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="matlab_ROS_com_tryout">
-				<Option output="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/lib/scara_v2_moveit_api/matlab_ROS_com_tryout" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/lib/scara_v2_moveit_api"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add option="-DROS_BUILD_SHARED_LIBS=1"/>
-					<Add option="-DROS_PACKAGE_NAME=&quot;scara_v2_moveit_api&quot;"/>
-					<Add option="-DROSCONSOLE_BACKEND_LOG4CXX"/>
-					<Add directory="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/include"/>
-					<Add directory="/opt/ros/kinetic/include"/>
-					<Add directory="/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"/>
-					<Add directory="/usr/include/eigen3"/>
-					<Add directory="/usr/include/c++/5"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
-					<Add directory="/usr/include/c++/5/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 matlab_ROS_com_tryout"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="matlab_ROS_com_tryout/fast">
-				<Option output="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/lib/scara_v2_moveit_api/matlab_ROS_com_tryout" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/lib/scara_v2_moveit_api"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add option="-DROS_BUILD_SHARED_LIBS=1"/>
-					<Add option="-DROS_PACKAGE_NAME=&quot;scara_v2_moveit_api&quot;"/>
-					<Add option="-DROSCONSOLE_BACKEND_LOG4CXX"/>
-					<Add directory="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/include"/>
-					<Add directory="/opt/ros/kinetic/include"/>
-					<Add directory="/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"/>
-					<Add directory="/usr/include/eigen3"/>
-					<Add directory="/usr/include/c++/5"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
-					<Add directory="/usr/include/c++/5/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 matlab_ROS_com_tryout/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="moveit_ros_planning_gencfg">
-				<Option working_dir="/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 moveit_ros_planning_gencfg"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 			<Target title="scara_v2_moveit_api_genlisp">
 				<Option working_dir="/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api"/>
 				<Option type="4"/>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 scara_v2_moveit_api_genlisp"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="get_and_send_planned_path">
+				<Option output="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/lib/scara_v2_moveit_api/get_and_send_planned_path" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/lib/scara_v2_moveit_api"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DROS_BUILD_SHARED_LIBS=1"/>
+					<Add option="-DROS_PACKAGE_NAME=&quot;scara_v2_moveit_api&quot;"/>
+					<Add option="-DROSCONSOLE_BACKEND_LOG4CXX"/>
+					<Add directory="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/include"/>
+					<Add directory="/opt/ros/kinetic/include"/>
+					<Add directory="/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 get_and_send_planned_path"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="get_and_send_planned_path/fast">
+				<Option output="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/lib/scara_v2_moveit_api/get_and_send_planned_path" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/lib/scara_v2_moveit_api"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DROS_BUILD_SHARED_LIBS=1"/>
+					<Add option="-DROS_PACKAGE_NAME=&quot;scara_v2_moveit_api&quot;"/>
+					<Add option="-DROSCONSOLE_BACKEND_LOG4CXX"/>
+					<Add directory="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/include"/>
+					<Add directory="/opt/ros/kinetic/include"/>
+					<Add directory="/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 get_and_send_planned_path/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 clean"/>
@@ -6311,6 +6301,76 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="moveit_ros_planning_gencfg">
+				<Option working_dir="/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 moveit_ros_planning_gencfg"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="matlab_ROS_com_tryout">
+				<Option output="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/lib/scara_v2_moveit_api/matlab_ROS_com_tryout" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/lib/scara_v2_moveit_api"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DROS_BUILD_SHARED_LIBS=1"/>
+					<Add option="-DROS_PACKAGE_NAME=&quot;scara_v2_moveit_api&quot;"/>
+					<Add option="-DROSCONSOLE_BACKEND_LOG4CXX"/>
+					<Add directory="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/include"/>
+					<Add directory="/opt/ros/kinetic/include"/>
+					<Add directory="/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 matlab_ROS_com_tryout"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="matlab_ROS_com_tryout/fast">
+				<Option output="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/lib/scara_v2_moveit_api/matlab_ROS_com_tryout" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/lib/scara_v2_moveit_api"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DROS_BUILD_SHARED_LIBS=1"/>
+					<Add option="-DROS_PACKAGE_NAME=&quot;scara_v2_moveit_api&quot;"/>
+					<Add option="-DROSCONSOLE_BACKEND_LOG4CXX"/>
+					<Add directory="/home/viktordluhos/catkin_ws/src/cmake-build-debug/devel/include"/>
+					<Add directory="/opt/ros/kinetic/include"/>
+					<Add directory="/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 matlab_ROS_com_tryout/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
 		<Unit filename="/home/viktordluhos/catkin_ws/src/gazebo_ros_pkgs/gazebo_plugins/src/MultiCameraPlugin.cpp">
 			<Option target="MultiCameraPlugin"/>
@@ -6440,6 +6500,9 @@
 		</Unit>
 		<Unit filename="/home/viktordluhos/catkin_ws/src/scara_v2_moveit_api/src/cube_publisher.cpp">
 			<Option target="cube_publisher"/>
+		</Unit>
+		<Unit filename="/home/viktordluhos/catkin_ws/src/scara_v2_moveit_api/src/get_and_send_planned_path.cpp">
+			<Option target="get_and_send_planned_path"/>
 		</Unit>
 		<Unit filename="/home/viktordluhos/catkin_ws/src/scara_v2_moveit_api/src/gripper_control.cpp">
 			<Option target="gripper_control"/>

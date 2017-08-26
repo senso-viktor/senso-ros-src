@@ -96,17 +96,20 @@ add_executable(gripper_control ../scara_v2_moveit_api/src/gripper_control.cpp)
 target_link_libraries(gripper_control ${catkin_LIBRARIES})
 add_dependencies(gripper_control beginner_tutorials_generate_messages_cpp)
 
-add_executable(IK_test ../scara_v2_moveit_api/src/IK_test.cpp)
-target_link_libraries(IK_test ${catkin_LIBRARIES})
-
 add_executable(matlab_communication_tryout ../scara_v2_moveit_api/src/matlab_communication_tryout.cpp)
 target_link_libraries(matlab_communication_tryout ${catkin_LIBRARIES})
 
 add_executable(matlab_ROS_com_tryout ../scara_v2_moveit_api/src/matlab_ROS_com_tryout.cpp)
 target_link_libraries(matlab_ROS_com_tryout ${catkin_LIBRARIES})
 
+add_executable(IK_test ../scara_v2_moveit_api/src/IK_test.cpp)
+target_link_libraries(IK_test ${catkin_LIBRARIES})
+
 add_executable(real_scara_torq_sensor ../scara_v2_moveit_api/src/real_scara_torq_sensor.cpp)
 target_link_libraries(real_scara_torq_sensor ${catkin_LIBRARIES})
+
+add_executable(get_and_send_planned_path ../scara_v2_moveit_api/src/get_and_send_planned_path.cpp)
+target_link_libraries(get_and_send_planned_path ${catkin_LIBRARIES})
 
 add_executable(linear_interpolation ../scara_v2_moveit_api/src/linear_interpolation.cpp)
 target_link_libraries(linear_interpolation ${catkin_LIBRARIES})

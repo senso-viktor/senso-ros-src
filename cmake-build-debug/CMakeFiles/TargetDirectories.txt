@@ -331,9 +331,8 @@
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/move_group_interface5_rt.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/octomap_msgs_generate_messages_lisp.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/scara_v2_moveit_api_generate_messages_nodejs.dir
-/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir
-/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/scara_v2_moveit_api_genlisp.dir
+/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/get_and_send_planned_path.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/octomap_msgs_generate_messages_cpp.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/object_recognition_msgs_generate_messages_nodejs.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/move_group_interface2.dir
@@ -375,3 +374,5 @@
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/gripper_control.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/edit_cache.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/matlab_communication_tryout.dir
+/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir
+/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir

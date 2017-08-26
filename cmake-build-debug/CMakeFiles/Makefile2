@@ -245,12 +245,12 @@ gtest/preinstall:
 gtest/CMakeFiles/gtest_main.dir/all: gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=83 "Built target gtest_main"
 .PHONY : gtest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
 gtest/CMakeFiles/gtest_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 gtest/CMakeFiles/gtest_main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gtest/CMakeFiles/gtest_main.dir/rule
@@ -2503,7 +2503,7 @@ gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_genlisp.dir/all: gazebo_ros_p
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_genlisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 10
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_genlisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_genlisp.dir/rule
@@ -3920,7 +3920,7 @@ gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_gennodejs.dir/all: gazebo_ros
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_gennodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 11
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_gennodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_gennodejs.dir/rule
@@ -4014,12 +4014,12 @@ gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/al
 gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/all: gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/_gazebo_msgs_generate_messages_check_deps_LinkState.dir/all
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build.make gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build.make gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=25,26,27,28,29,30,31,32,33,34,35 "Built target gazebo_msgs_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=25,26,27,28,29,30,31,32,33,34 "Built target gazebo_msgs_generate_messages_lisp"
 .PHONY : gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 10
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule
@@ -4212,12 +4212,12 @@ gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/
 gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/all: gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/_gazebo_msgs_generate_messages_check_deps_LinkState.dir/all
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build.make gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build.make gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=36,37,38,39,40,41,42,43,44,45 "Built target gazebo_msgs_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=35,36,37,38,39,40,41,42,43,44,45 "Built target gazebo_msgs_generate_messages_nodejs"
 .PHONY : gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 11
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule
@@ -4947,7 +4947,7 @@ clean: gazebo_ros_pkgs/gazebo_ros/CMakeFiles/dynamic_reconfigure_generate_messag
 gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_gencfg.dir/all:
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_gencfg.dir/build.make gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_gencfg.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_gencfg.dir/build.make gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_gencfg.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_gencfg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=66 "Built target gazebo_ros_gencfg"
 .PHONY : gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_gencfg.dir/all
 
 # Include target in all.
@@ -4957,7 +4957,7 @@ all: gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_gencfg.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_gencfg.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_gencfg.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_gencfg.dir/rule
@@ -5082,7 +5082,7 @@ gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_paths_plugin.dir/all: gazebo_ro
 gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_paths_plugin.dir/all: gazebo_ros_pkgs/gazebo_ros/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/all
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_paths_plugin.dir/build.make gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_paths_plugin.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_paths_plugin.dir/build.make gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_paths_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=74 "Built target gazebo_ros_paths_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_paths_plugin"
 .PHONY : gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_paths_plugin.dir/all
 
 # Include target in all.
@@ -5217,7 +5217,7 @@ gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_api_plugin.dir/all: gazebo_ros_
 gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_api_plugin.dir/all: gazebo_ros_pkgs/gazebo_ros/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/all
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_api_plugin.dir/build.make gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_api_plugin.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_api_plugin.dir/build.make gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_api_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_api_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=58 "Built target gazebo_ros_api_plugin"
 .PHONY : gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_api_plugin.dir/all
 
 # Include target in all.
@@ -5227,7 +5227,7 @@ all: gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_api_plugin.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_api_plugin.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 53
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 55
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_api_plugin.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_ros/CMakeFiles/gazebo_ros_api_plugin.dir/rule
@@ -5599,7 +5599,7 @@ clean: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/set_model_state-test.dir/clean
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_template.dir/all:
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_template.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_template.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_template.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_template.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=78 "Built target gazebo_ros_template"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_template"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_template.dir/all
 
 # Include target in all.
@@ -5609,7 +5609,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_template.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_template.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_template.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_template.dir/rule
@@ -5636,7 +5636,7 @@ clean: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_template.dir/clean
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_vacuum_gripper.dir/all:
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_vacuum_gripper.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_vacuum_gripper.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_vacuum_gripper.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_vacuum_gripper.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=80 "Built target gazebo_ros_vacuum_gripper"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_vacuum_gripper"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_vacuum_gripper.dir/all
 
 # Include target in all.
@@ -5646,7 +5646,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_vacuum_gripper.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_vacuum_gripper.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_vacuum_gripper.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_vacuum_gripper.dir/rule
@@ -5706,7 +5706,7 @@ clean: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/run_tests_gazebo_plugins_rostes
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_range.dir/all:
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_range.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_range.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_range.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_range.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_range"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=76 "Built target gazebo_ros_range"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_range.dir/all
 
 # Include target in all.
@@ -5716,7 +5716,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_range.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_range.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_range.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_range.dir/rule
@@ -5743,7 +5743,7 @@ clean: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_range.dir/clean
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_hand_of_god.dir/all:
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_hand_of_god.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_hand_of_god.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_hand_of_god.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_hand_of_god.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_hand_of_god"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=67 "Built target gazebo_ros_hand_of_god"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_hand_of_god.dir/all
 
 # Include target in all.
@@ -5753,7 +5753,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_hand_of_god.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_hand_of_god.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_hand_of_god.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_hand_of_god.dir/rule
@@ -5817,7 +5817,7 @@ clean: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_skid_steer_drive.dir
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_tricycle_drive.dir/all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_utils.dir/all
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_tricycle_drive.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_tricycle_drive.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_tricycle_drive.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_tricycle_drive.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_tricycle_drive"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=78 "Built target gazebo_ros_tricycle_drive"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_tricycle_drive.dir/all
 
 # Include target in all.
@@ -5827,7 +5827,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_tricycle_drive.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_tricycle_drive.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_tricycle_drive.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_tricycle_drive.dir/rule
@@ -6078,7 +6078,7 @@ gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/all: gazebo_
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/bond_generate_messages_py.dir/all
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=57,58 "Built target gazebo_plugins_gencfg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=57 "Built target gazebo_plugins_gencfg"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/all
 
 # Include target in all.
@@ -6088,7 +6088,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 55
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 54
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/rule
@@ -6147,7 +6147,7 @@ clean: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/polled_camera_generate_messages
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_laser.dir/all:
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_laser.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_laser.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_laser.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_laser.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_laser"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=71 "Built target gazebo_ros_laser"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_laser.dir/all
 
 # Include target in all.
@@ -6157,7 +6157,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_laser.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_laser.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_laser.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_laser.dir/rule
@@ -6184,7 +6184,7 @@ clean: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_laser.dir/clean
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_imu_sensor.dir/all:
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_imu_sensor.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_imu_sensor.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_imu_sensor.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_imu_sensor.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=69 "Built target gazebo_ros_imu_sensor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=68 "Built target gazebo_ros_imu_sensor"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_imu_sensor.dir/all
 
 # Include target in all.
@@ -6413,7 +6413,7 @@ clean: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/nodelet_generate_messages_nodej
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_ft_sensor.dir/all:
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_ft_sensor.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_ft_sensor.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_ft_sensor.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_ft_sensor.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=66 "Built target gazebo_ros_ft_sensor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_ft_sensor"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_ft_sensor.dir/all
 
 # Include target in all.
@@ -6423,7 +6423,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_ft_sensor.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_ft_sensor.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_ft_sensor.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_ft_sensor.dir/rule
@@ -6450,7 +6450,7 @@ clean: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_ft_sensor.dir/clean
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/hokuyo_node.dir/all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/all
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/hokuyo_node.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/hokuyo_node.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/hokuyo_node.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/hokuyo_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=83 "Built target hokuyo_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target hokuyo_node"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/hokuyo_node.dir/all
 
 # Include target in all.
@@ -6460,7 +6460,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/hokuyo_node.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/hokuyo_node.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 56
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 54
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/hokuyo_node.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/hokuyo_node.dir/rule
@@ -6520,7 +6520,7 @@ gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_depth_camera.dir/all: gazeb
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_depth_camera.dir/all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_camera_utils.dir/all
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_depth_camera.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_depth_camera.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_depth_camera.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_depth_camera.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_depth_camera"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=62 "Built target gazebo_ros_depth_camera"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_depth_camera.dir/all
 
 # Include target in all.
@@ -6654,7 +6654,7 @@ gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_openni_kinect.dir/all: gaze
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_openni_kinect.dir/all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_camera_utils.dir/all
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_openni_kinect.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_openni_kinect.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_openni_kinect.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_openni_kinect.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=73 "Built target gazebo_ros_openni_kinect"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=72 "Built target gazebo_ros_openni_kinect"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_openni_kinect.dir/all
 
 # Include target in all.
@@ -6664,7 +6664,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_openni_kinect.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_openni_kinect.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 57
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 56
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_openni_kinect.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_openni_kinect.dir/rule
@@ -6755,7 +6755,7 @@ clean: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/bond_generate_messages_eus.dir/
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_imu.dir/all:
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_imu.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_imu.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_imu.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_imu.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=68 "Built target gazebo_ros_imu"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_imu"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_imu.dir/all
 
 # Include target in all.
@@ -6765,7 +6765,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_imu.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_imu.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_imu.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_imu.dir/rule
@@ -6904,7 +6904,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/camera_synchronizer.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/camera_synchronizer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 56
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 55
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/camera_synchronizer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/camera_synchronizer.dir/rule
@@ -6941,7 +6941,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/vision_reconfigure.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/vision_reconfigure.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 56
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 55
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/vision_reconfigure.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/vision_reconfigure.dir/rule
@@ -7077,7 +7077,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_camera_utils.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_camera_utils.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 56
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 55
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_camera_utils.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_camera_utils.dir/rule
@@ -7232,7 +7232,7 @@ clean: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/pub_joint_trajectory_test.dir/c
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_elevator.dir/all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_plugins_gencfg.dir/all
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_elevator.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_elevator.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_elevator.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_elevator.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=64 "Built target gazebo_ros_elevator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_elevator"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_elevator.dir/all
 
 # Include target in all.
@@ -7242,7 +7242,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_elevator.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_elevator.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 56
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 54
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_elevator.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_elevator.dir/rule
@@ -7307,7 +7307,7 @@ gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_camera.dir/all: gazebo_ros_
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_camera.dir/all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_camera_utils.dir/all
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_camera.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_camera.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_camera.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_camera.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_camera"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=60 "Built target gazebo_ros_camera"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_camera.dir/all
 
 # Include target in all.
@@ -7381,7 +7381,7 @@ clean: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_block_laser.dir/clea
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_planar_move.dir/all:
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_planar_move.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_planar_move.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_planar_move.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_planar_move.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=75 "Built target gazebo_ros_planar_move"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=74 "Built target gazebo_ros_planar_move"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_planar_move.dir/all
 
 # Include target in all.
@@ -7452,7 +7452,7 @@ gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_multicamera.dir/all: gazebo
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_multicamera.dir/all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/MultiCameraPlugin.dir/all
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_multicamera.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_multicamera.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_multicamera.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_multicamera.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=72 "Built target gazebo_ros_multicamera"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_multicamera"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_multicamera.dir/all
 
 # Include target in all.
@@ -7462,7 +7462,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_multicamera.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_multicamera.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 58
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 56
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_multicamera.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_multicamera.dir/rule
@@ -7580,7 +7580,7 @@ gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_pose_trajectory.dir/a
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_pose_trajectory.dir/all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/bond_generate_messages_py.dir/all
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_pose_trajectory.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_pose_trajectory.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_pose_trajectory.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_pose_trajectory.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_joint_pose_trajectory"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=69 "Built target gazebo_ros_joint_pose_trajectory"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_pose_trajectory.dir/all
 
 # Include target in all.
@@ -7590,7 +7590,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_pose_trajectory.
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_pose_trajectory.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 53
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 54
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_pose_trajectory.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_pose_trajectory.dir/rule
@@ -7617,7 +7617,7 @@ clean: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_pose_trajector
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_gpu_laser.dir/all:
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_gpu_laser.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_gpu_laser.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_gpu_laser.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_gpu_laser.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=67 "Built target gazebo_ros_gpu_laser"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_gpu_laser"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_gpu_laser.dir/all
 
 # Include target in all.
@@ -7627,7 +7627,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_gpu_laser.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_gpu_laser.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_gpu_laser.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_gpu_laser.dir/rule
@@ -7654,7 +7654,7 @@ clean: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_gpu_laser.dir/clean
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_video.dir/all:
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_video.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_video.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_video.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_video.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_video"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=80 "Built target gazebo_ros_video"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_video.dir/all
 
 # Include target in all.
@@ -7664,7 +7664,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_video.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_video.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_video.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_video.dir/rule
@@ -7691,7 +7691,7 @@ clean: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_video.dir/clean
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_p3d.dir/all:
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_p3d.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_p3d.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_p3d.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_p3d.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_p3d"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=73 "Built target gazebo_ros_p3d"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_p3d.dir/all
 
 # Include target in all.
@@ -7701,7 +7701,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_p3d.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_p3d.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_p3d.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_p3d.dir/rule
@@ -7728,7 +7728,7 @@ clean: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_p3d.dir/clean
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_f3d.dir/all:
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_f3d.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_f3d.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_f3d.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_f3d.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_f3d"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=64 "Built target gazebo_ros_f3d"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_f3d.dir/all
 
 # Include target in all.
@@ -7738,7 +7738,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_f3d.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_f3d.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_f3d.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_f3d.dir/rule
@@ -7856,7 +7856,7 @@ gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_bumper.dir/all: gazebo_ros_
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_bumper.dir/all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/bond_generate_messages_py.dir/all
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_bumper.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_bumper.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_bumper.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_bumper.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=60 "Built target gazebo_ros_bumper"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_bumper"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_bumper.dir/all
 
 # Include target in all.
@@ -7866,7 +7866,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_bumper.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_bumper.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 54
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 53
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_bumper.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_bumper.dir/rule
@@ -7893,7 +7893,7 @@ clean: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_bumper.dir/clean
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_projector.dir/all:
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_projector.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_projector.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_projector.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_projector.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_projector"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=75 "Built target gazebo_ros_projector"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_projector.dir/all
 
 # Include target in all.
@@ -7903,7 +7903,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_projector.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_projector.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_projector.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_projector.dir/rule
@@ -7963,7 +7963,7 @@ gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_prosilica.dir/all: gazebo_r
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_prosilica.dir/all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_camera_utils.dir/all
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_prosilica.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_prosilica.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_prosilica.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_prosilica.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=76 "Built target gazebo_ros_prosilica"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_prosilica"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_prosilica.dir/all
 
 # Include target in all.
@@ -7973,7 +7973,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_prosilica.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_prosilica.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 57
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 55
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_prosilica.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_prosilica.dir/rule
@@ -8128,7 +8128,7 @@ gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_trajectory.dir/all: g
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_trajectory.dir/all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/bond_generate_messages_py.dir/all
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_trajectory.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_trajectory.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_trajectory.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_trajectory.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=71 "Built target gazebo_ros_joint_trajectory"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=70 "Built target gazebo_ros_joint_trajectory"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_trajectory.dir/all
 
 # Include target in all.
@@ -8256,7 +8256,7 @@ gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_state_publisher.dir/a
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_state_publisher.dir/all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/bond_generate_messages_py.dir/all
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_state_publisher.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_state_publisher.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_state_publisher.dir/build.make gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_state_publisher.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=70 "Built target gazebo_ros_joint_state_publisher"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_joint_state_publisher"
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_state_publisher.dir/all
 
 # Include target in all.
@@ -8266,7 +8266,7 @@ all: gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_state_publisher.
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_state_publisher.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 54
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 53
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_state_publisher.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_plugins/CMakeFiles/gazebo_ros_joint_state_publisher.dir/rule
@@ -8324,7 +8324,7 @@ gazebo_ros_pkgs/gazebo_ros_control/preinstall:
 gazebo_ros_pkgs/gazebo_ros_control/CMakeFiles/gazebo_ros_control.dir/all:
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_ros_control/CMakeFiles/gazebo_ros_control.dir/build.make gazebo_ros_pkgs/gazebo_ros_control/CMakeFiles/gazebo_ros_control.dir/depend
 	$(MAKE) -f gazebo_ros_pkgs/gazebo_ros_control/CMakeFiles/gazebo_ros_control.dir/build.make gazebo_ros_pkgs/gazebo_ros_control/CMakeFiles/gazebo_ros_control.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=62 "Built target gazebo_ros_control"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gazebo_ros_control"
 .PHONY : gazebo_ros_pkgs/gazebo_ros_control/CMakeFiles/gazebo_ros_control.dir/all
 
 # Include target in all.
@@ -8334,7 +8334,7 @@ all: gazebo_ros_pkgs/gazebo_ros_control/CMakeFiles/gazebo_ros_control.dir/all
 
 # Build rule for subdir invocation for target.
 gazebo_ros_pkgs/gazebo_ros_control/CMakeFiles/gazebo_ros_control.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_pkgs/gazebo_ros_control/CMakeFiles/gazebo_ros_control.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : gazebo_ros_pkgs/gazebo_ros_control/CMakeFiles/gazebo_ros_control.dir/rule
@@ -8751,7 +8751,7 @@ scara_v2_moveit_api/all: scara_v2_moveit_api/CMakeFiles/tf_readout.dir/all
 scara_v2_moveit_api/all: scara_v2_moveit_api/CMakeFiles/real_scara_torq_sensor.dir/all
 scara_v2_moveit_api/all: scara_v2_moveit_api/CMakeFiles/move_group_interface3_PICKandPLACE.dir/all
 scara_v2_moveit_api/all: scara_v2_moveit_api/CMakeFiles/move_group_interface5_rt.dir/all
-scara_v2_moveit_api/all: scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/all
+scara_v2_moveit_api/all: scara_v2_moveit_api/CMakeFiles/get_and_send_planned_path.dir/all
 scara_v2_moveit_api/all: scara_v2_moveit_api/CMakeFiles/move_group_interface2.dir/all
 scara_v2_moveit_api/all: scara_v2_moveit_api/CMakeFiles/move_group_interface4_position_control.dir/all
 scara_v2_moveit_api/all: scara_v2_moveit_api/CMakeFiles/move_group_interface6_async_PICKandPLACE.dir/all
@@ -8763,6 +8763,7 @@ scara_v2_moveit_api/all: scara_v2_moveit_api/CMakeFiles/multiple_cube_publisher.
 scara_v2_moveit_api/all: scara_v2_moveit_api/CMakeFiles/cube_publisher.dir/all
 scara_v2_moveit_api/all: scara_v2_moveit_api/CMakeFiles/gripper_control.dir/all
 scara_v2_moveit_api/all: scara_v2_moveit_api/CMakeFiles/matlab_communication_tryout.dir/all
+scara_v2_moveit_api/all: scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/all
 
 .PHONY : scara_v2_moveit_api/all
 
@@ -8776,9 +8777,8 @@ scara_v2_moveit_api/clean: scara_v2_moveit_api/CMakeFiles/scara_v2_moveit_api_ge
 scara_v2_moveit_api/clean: scara_v2_moveit_api/CMakeFiles/move_group_interface5_rt.dir/clean
 scara_v2_moveit_api/clean: scara_v2_moveit_api/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/clean
 scara_v2_moveit_api/clean: scara_v2_moveit_api/CMakeFiles/scara_v2_moveit_api_generate_messages_nodejs.dir/clean
-scara_v2_moveit_api/clean: scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/clean
-scara_v2_moveit_api/clean: scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/clean
 scara_v2_moveit_api/clean: scara_v2_moveit_api/CMakeFiles/scara_v2_moveit_api_genlisp.dir/clean
+scara_v2_moveit_api/clean: scara_v2_moveit_api/CMakeFiles/get_and_send_planned_path.dir/clean
 scara_v2_moveit_api/clean: scara_v2_moveit_api/CMakeFiles/octomap_msgs_generate_messages_cpp.dir/clean
 scara_v2_moveit_api/clean: scara_v2_moveit_api/CMakeFiles/object_recognition_msgs_generate_messages_nodejs.dir/clean
 scara_v2_moveit_api/clean: scara_v2_moveit_api/CMakeFiles/move_group_interface2.dir/clean
@@ -8817,6 +8817,8 @@ scara_v2_moveit_api/clean: scara_v2_moveit_api/CMakeFiles/scara_v2_moveit_api_ge
 scara_v2_moveit_api/clean: scara_v2_moveit_api/CMakeFiles/cube_publisher.dir/clean
 scara_v2_moveit_api/clean: scara_v2_moveit_api/CMakeFiles/gripper_control.dir/clean
 scara_v2_moveit_api/clean: scara_v2_moveit_api/CMakeFiles/matlab_communication_tryout.dir/clean
+scara_v2_moveit_api/clean: scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/clean
+scara_v2_moveit_api/clean: scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/clean
 
 .PHONY : scara_v2_moveit_api/clean
 
@@ -8999,7 +9001,6 @@ scara_v2_moveit_api/CMakeFiles/move_group_interface3_PICKandPLACE.dir/all: scara
 scara_v2_moveit_api/CMakeFiles/move_group_interface3_PICKandPLACE.dir/all: scara_v2_moveit_api/CMakeFiles/moveit_ros_manipulation_gencfg.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface3_PICKandPLACE.dir/all: scara_v2_moveit_api/CMakeFiles/octomap_msgs_generate_messages_py.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface3_PICKandPLACE.dir/all: scara_v2_moveit_api/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/all
-scara_v2_moveit_api/CMakeFiles/move_group_interface3_PICKandPLACE.dir/all: scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface3_PICKandPLACE.dir/all: scara_v2_moveit_api/CMakeFiles/octomap_msgs_generate_messages_cpp.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface3_PICKandPLACE.dir/all: scara_v2_moveit_api/CMakeFiles/object_recognition_msgs_generate_messages_nodejs.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface3_PICKandPLACE.dir/all: scara_v2_moveit_api/CMakeFiles/object_recognition_msgs_generate_messages_lisp.dir/all
@@ -9018,6 +9019,7 @@ scara_v2_moveit_api/CMakeFiles/move_group_interface3_PICKandPLACE.dir/all: scara
 scara_v2_moveit_api/CMakeFiles/move_group_interface3_PICKandPLACE.dir/all: scara_v2_moveit_api/CMakeFiles/moveit_msgs_generate_messages_nodejs.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface3_PICKandPLACE.dir/all: scara_v2_moveit_api/CMakeFiles/shape_msgs_generate_messages_lisp.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface3_PICKandPLACE.dir/all: scara_v2_moveit_api/CMakeFiles/moveit_msgs_generate_messages_py.dir/all
+scara_v2_moveit_api/CMakeFiles/move_group_interface3_PICKandPLACE.dir/all: scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/all
 	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/move_group_interface3_PICKandPLACE.dir/build.make scara_v2_moveit_api/CMakeFiles/move_group_interface3_PICKandPLACE.dir/depend
 	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/move_group_interface3_PICKandPLACE.dir/build.make scara_v2_moveit_api/CMakeFiles/move_group_interface3_PICKandPLACE.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=87 "Built target move_group_interface3_PICKandPLACE"
@@ -9187,7 +9189,6 @@ scara_v2_moveit_api/CMakeFiles/move_group_interface5_rt.dir/all: scara_msgs/CMak
 scara_v2_moveit_api/CMakeFiles/move_group_interface5_rt.dir/all: scara_v2_moveit_api/CMakeFiles/moveit_ros_manipulation_gencfg.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface5_rt.dir/all: scara_v2_moveit_api/CMakeFiles/octomap_msgs_generate_messages_py.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface5_rt.dir/all: scara_v2_moveit_api/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/all
-scara_v2_moveit_api/CMakeFiles/move_group_interface5_rt.dir/all: scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface5_rt.dir/all: scara_v2_moveit_api/CMakeFiles/octomap_msgs_generate_messages_cpp.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface5_rt.dir/all: scara_v2_moveit_api/CMakeFiles/object_recognition_msgs_generate_messages_nodejs.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface5_rt.dir/all: scara_v2_moveit_api/CMakeFiles/object_recognition_msgs_generate_messages_lisp.dir/all
@@ -9206,6 +9207,7 @@ scara_v2_moveit_api/CMakeFiles/move_group_interface5_rt.dir/all: scara_v2_moveit
 scara_v2_moveit_api/CMakeFiles/move_group_interface5_rt.dir/all: scara_v2_moveit_api/CMakeFiles/moveit_msgs_generate_messages_nodejs.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface5_rt.dir/all: scara_v2_moveit_api/CMakeFiles/shape_msgs_generate_messages_lisp.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface5_rt.dir/all: scara_v2_moveit_api/CMakeFiles/moveit_msgs_generate_messages_py.dir/all
+scara_v2_moveit_api/CMakeFiles/move_group_interface5_rt.dir/all: scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/all
 	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/move_group_interface5_rt.dir/build.make scara_v2_moveit_api/CMakeFiles/move_group_interface5_rt.dir/depend
 	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/move_group_interface5_rt.dir/build.make scara_v2_moveit_api/CMakeFiles/move_group_interface5_rt.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target move_group_interface5_rt"
@@ -9308,75 +9310,6 @@ clean: scara_v2_moveit_api/CMakeFiles/scara_v2_moveit_api_generate_messages_node
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir
-
-# All Build rule for target.
-scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/all:
-	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/build.make scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/depend
-	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/build.make scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target matlab_ROS_com_tryout"
-.PHONY : scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/all
-
-# Include target in all.
-all: scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
-.PHONY : scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/rule
-
-# Convenience name for target.
-matlab_ROS_com_tryout: scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/rule
-
-.PHONY : matlab_ROS_com_tryout
-
-# clean rule for target.
-scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/clean:
-	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/build.make scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/clean
-.PHONY : scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/clean
-
-# clean rule for target.
-clean: scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir
-
-# All Build rule for target.
-scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/all:
-	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/build.make scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/depend
-	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/build.make scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target moveit_ros_planning_gencfg"
-.PHONY : scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/all
-
-# Build rule for subdir invocation for target.
-scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
-.PHONY : scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/rule
-
-# Convenience name for target.
-moveit_ros_planning_gencfg: scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/rule
-
-.PHONY : moveit_ros_planning_gencfg
-
-# clean rule for target.
-scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/clean:
-	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/build.make scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/clean
-.PHONY : scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/clean
-
-# clean rule for target.
-clean: scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
 # Target rules for target scara_v2_moveit_api/CMakeFiles/scara_v2_moveit_api_genlisp.dir
 
 # All Build rule for target.
@@ -9405,6 +9338,43 @@ scara_v2_moveit_api/CMakeFiles/scara_v2_moveit_api_genlisp.dir/clean:
 
 # clean rule for target.
 clean: scara_v2_moveit_api/CMakeFiles/scara_v2_moveit_api_genlisp.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target scara_v2_moveit_api/CMakeFiles/get_and_send_planned_path.dir
+
+# All Build rule for target.
+scara_v2_moveit_api/CMakeFiles/get_and_send_planned_path.dir/all:
+	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/get_and_send_planned_path.dir/build.make scara_v2_moveit_api/CMakeFiles/get_and_send_planned_path.dir/depend
+	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/get_and_send_planned_path.dir/build.make scara_v2_moveit_api/CMakeFiles/get_and_send_planned_path.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=81 "Built target get_and_send_planned_path"
+.PHONY : scara_v2_moveit_api/CMakeFiles/get_and_send_planned_path.dir/all
+
+# Include target in all.
+all: scara_v2_moveit_api/CMakeFiles/get_and_send_planned_path.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+scara_v2_moveit_api/CMakeFiles/get_and_send_planned_path.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 scara_v2_moveit_api/CMakeFiles/get_and_send_planned_path.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
+.PHONY : scara_v2_moveit_api/CMakeFiles/get_and_send_planned_path.dir/rule
+
+# Convenience name for target.
+get_and_send_planned_path: scara_v2_moveit_api/CMakeFiles/get_and_send_planned_path.dir/rule
+
+.PHONY : get_and_send_planned_path
+
+# clean rule for target.
+scara_v2_moveit_api/CMakeFiles/get_and_send_planned_path.dir/clean:
+	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/get_and_send_planned_path.dir/build.make scara_v2_moveit_api/CMakeFiles/get_and_send_planned_path.dir/clean
+.PHONY : scara_v2_moveit_api/CMakeFiles/get_and_send_planned_path.dir/clean
+
+# clean rule for target.
+clean: scara_v2_moveit_api/CMakeFiles/get_and_send_planned_path.dir/clean
 
 .PHONY : clean
 
@@ -9801,7 +9771,6 @@ scara_v2_moveit_api/CMakeFiles/move_group_interface4_position_control.dir/all: s
 scara_v2_moveit_api/CMakeFiles/move_group_interface4_position_control.dir/all: scara_v2_moveit_api/CMakeFiles/moveit_ros_manipulation_gencfg.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface4_position_control.dir/all: scara_v2_moveit_api/CMakeFiles/octomap_msgs_generate_messages_py.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface4_position_control.dir/all: scara_v2_moveit_api/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/all
-scara_v2_moveit_api/CMakeFiles/move_group_interface4_position_control.dir/all: scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface4_position_control.dir/all: scara_v2_moveit_api/CMakeFiles/octomap_msgs_generate_messages_cpp.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface4_position_control.dir/all: scara_v2_moveit_api/CMakeFiles/object_recognition_msgs_generate_messages_nodejs.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface4_position_control.dir/all: scara_v2_moveit_api/CMakeFiles/object_recognition_msgs_generate_messages_lisp.dir/all
@@ -9820,6 +9789,7 @@ scara_v2_moveit_api/CMakeFiles/move_group_interface4_position_control.dir/all: s
 scara_v2_moveit_api/CMakeFiles/move_group_interface4_position_control.dir/all: scara_v2_moveit_api/CMakeFiles/moveit_msgs_generate_messages_nodejs.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface4_position_control.dir/all: scara_v2_moveit_api/CMakeFiles/shape_msgs_generate_messages_lisp.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface4_position_control.dir/all: scara_v2_moveit_api/CMakeFiles/moveit_msgs_generate_messages_py.dir/all
+scara_v2_moveit_api/CMakeFiles/move_group_interface4_position_control.dir/all: scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/all
 	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/move_group_interface4_position_control.dir/build.make scara_v2_moveit_api/CMakeFiles/move_group_interface4_position_control.dir/depend
 	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/move_group_interface4_position_control.dir/build.make scara_v2_moveit_api/CMakeFiles/move_group_interface4_position_control.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=88 "Built target move_group_interface4_position_control"
@@ -10048,7 +10018,6 @@ scara_v2_moveit_api/CMakeFiles/move_group_interface6_async_PICKandPLACE.dir/all:
 scara_v2_moveit_api/CMakeFiles/move_group_interface6_async_PICKandPLACE.dir/all: scara_v2_moveit_api/CMakeFiles/moveit_ros_manipulation_gencfg.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface6_async_PICKandPLACE.dir/all: scara_v2_moveit_api/CMakeFiles/octomap_msgs_generate_messages_py.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface6_async_PICKandPLACE.dir/all: scara_v2_moveit_api/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/all
-scara_v2_moveit_api/CMakeFiles/move_group_interface6_async_PICKandPLACE.dir/all: scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface6_async_PICKandPLACE.dir/all: scara_v2_moveit_api/CMakeFiles/octomap_msgs_generate_messages_cpp.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface6_async_PICKandPLACE.dir/all: scara_v2_moveit_api/CMakeFiles/object_recognition_msgs_generate_messages_nodejs.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface6_async_PICKandPLACE.dir/all: scara_v2_moveit_api/CMakeFiles/object_recognition_msgs_generate_messages_lisp.dir/all
@@ -10067,6 +10036,7 @@ scara_v2_moveit_api/CMakeFiles/move_group_interface6_async_PICKandPLACE.dir/all:
 scara_v2_moveit_api/CMakeFiles/move_group_interface6_async_PICKandPLACE.dir/all: scara_v2_moveit_api/CMakeFiles/moveit_msgs_generate_messages_nodejs.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface6_async_PICKandPLACE.dir/all: scara_v2_moveit_api/CMakeFiles/shape_msgs_generate_messages_lisp.dir/all
 scara_v2_moveit_api/CMakeFiles/move_group_interface6_async_PICKandPLACE.dir/all: scara_v2_moveit_api/CMakeFiles/moveit_msgs_generate_messages_py.dir/all
+scara_v2_moveit_api/CMakeFiles/move_group_interface6_async_PICKandPLACE.dir/all: scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/all
 	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/move_group_interface6_async_PICKandPLACE.dir/build.make scara_v2_moveit_api/CMakeFiles/move_group_interface6_async_PICKandPLACE.dir/depend
 	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/move_group_interface6_async_PICKandPLACE.dir/build.make scara_v2_moveit_api/CMakeFiles/move_group_interface6_async_PICKandPLACE.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=89 "Built target move_group_interface6_async_PICKandPLACE"
@@ -10795,7 +10765,7 @@ clean: scara_v2_moveit_api/CMakeFiles/cube_publisher.dir/clean
 scara_v2_moveit_api/CMakeFiles/gripper_control.dir/all:
 	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/gripper_control.dir/build.make scara_v2_moveit_api/CMakeFiles/gripper_control.dir/depend
 	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/gripper_control.dir/build.make scara_v2_moveit_api/CMakeFiles/gripper_control.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num=81 "Built target gripper_control"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target gripper_control"
 .PHONY : scara_v2_moveit_api/CMakeFiles/gripper_control.dir/all
 
 # Include target in all.
@@ -10805,7 +10775,7 @@ all: scara_v2_moveit_api/CMakeFiles/gripper_control.dir/all
 
 # Build rule for subdir invocation for target.
 scara_v2_moveit_api/CMakeFiles/gripper_control.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 scara_v2_moveit_api/CMakeFiles/gripper_control.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
 .PHONY : scara_v2_moveit_api/CMakeFiles/gripper_control.dir/rule
@@ -10859,6 +10829,75 @@ scara_v2_moveit_api/CMakeFiles/matlab_communication_tryout.dir/clean:
 
 # clean rule for target.
 clean: scara_v2_moveit_api/CMakeFiles/matlab_communication_tryout.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir
+
+# All Build rule for target.
+scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/all:
+	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/build.make scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/depend
+	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/build.make scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target moveit_ros_planning_gencfg"
+.PHONY : scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/all
+
+# Build rule for subdir invocation for target.
+scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
+.PHONY : scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/rule
+
+# Convenience name for target.
+moveit_ros_planning_gencfg: scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/rule
+
+.PHONY : moveit_ros_planning_gencfg
+
+# clean rule for target.
+scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/clean:
+	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/build.make scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/clean
+.PHONY : scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/clean
+
+# clean rule for target.
+clean: scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir
+
+# All Build rule for target.
+scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/all:
+	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/build.make scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/depend
+	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/build.make scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles --progress-num= "Built target matlab_ROS_com_tryout"
+.PHONY : scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/all
+
+# Include target in all.
+all: scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles 0
+.PHONY : scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/rule
+
+# Convenience name for target.
+matlab_ROS_com_tryout: scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/rule
+
+.PHONY : matlab_ROS_com_tryout
+
+# clean rule for target.
+scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/clean:
+	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/build.make scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/clean
+.PHONY : scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/clean
+
+# clean rule for target.
+clean: scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/clean
 
 .PHONY : clean
 

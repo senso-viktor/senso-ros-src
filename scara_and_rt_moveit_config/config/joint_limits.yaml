@@ -4,19 +4,19 @@
 joint_limits:
   Joint1:
     has_velocity_limits: false
-    max_velocity: 0
+    max_velocity: 0.5
     has_acceleration_limits: false
-    max_acceleration: 0
+    max_acceleration: 0.4
   Joint2:
     has_velocity_limits: false
-    max_velocity: 0
+    max_velocity: 0.8
     has_acceleration_limits: false
-    max_acceleration: 0
+    max_acceleration: 1.0
   Joint_GripperBase:
-    has_velocity_limits: true
-    max_velocity: 1
+    has_velocity_limits: false
+    max_velocity: 0.05
     has_acceleration_limits: false
-    max_acceleration: 0
+    max_acceleration: 0.05
   base_link1_to_link1:
     has_velocity_limits: false
     max_velocity: 0

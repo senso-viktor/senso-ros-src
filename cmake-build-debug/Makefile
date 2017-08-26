@@ -3169,32 +3169,6 @@ scara_v2_moveit_api_generate_messages_nodejs/fast:
 .PHONY : scara_v2_moveit_api_generate_messages_nodejs/fast
 
 #=============================================================================
-# Target rules for targets named matlab_ROS_com_tryout
-
-# Build rule for target.
-matlab_ROS_com_tryout: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 matlab_ROS_com_tryout
-.PHONY : matlab_ROS_com_tryout
-
-# fast build rule for target.
-matlab_ROS_com_tryout/fast:
-	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/build.make scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/build
-.PHONY : matlab_ROS_com_tryout/fast
-
-#=============================================================================
-# Target rules for targets named moveit_ros_planning_gencfg
-
-# Build rule for target.
-moveit_ros_planning_gencfg: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 moveit_ros_planning_gencfg
-.PHONY : moveit_ros_planning_gencfg
-
-# fast build rule for target.
-moveit_ros_planning_gencfg/fast:
-	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/build.make scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/build
-.PHONY : moveit_ros_planning_gencfg/fast
-
-#=============================================================================
 # Target rules for targets named scara_v2_moveit_api_genlisp
 
 # Build rule for target.
@@ -3206,6 +3180,19 @@ scara_v2_moveit_api_genlisp: cmake_check_build_system
 scara_v2_moveit_api_genlisp/fast:
 	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/scara_v2_moveit_api_genlisp.dir/build.make scara_v2_moveit_api/CMakeFiles/scara_v2_moveit_api_genlisp.dir/build
 .PHONY : scara_v2_moveit_api_genlisp/fast
+
+#=============================================================================
+# Target rules for targets named get_and_send_planned_path
+
+# Build rule for target.
+get_and_send_planned_path: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 get_and_send_planned_path
+.PHONY : get_and_send_planned_path
+
+# fast build rule for target.
+get_and_send_planned_path/fast:
+	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/get_and_send_planned_path.dir/build.make scara_v2_moveit_api/CMakeFiles/get_and_send_planned_path.dir/build
+.PHONY : get_and_send_planned_path/fast
 
 #=============================================================================
 # Target rules for targets named octomap_msgs_generate_messages_cpp
@@ -3701,6 +3688,32 @@ matlab_communication_tryout/fast:
 	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/matlab_communication_tryout.dir/build.make scara_v2_moveit_api/CMakeFiles/matlab_communication_tryout.dir/build
 .PHONY : matlab_communication_tryout/fast
 
+#=============================================================================
+# Target rules for targets named moveit_ros_planning_gencfg
+
+# Build rule for target.
+moveit_ros_planning_gencfg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 moveit_ros_planning_gencfg
+.PHONY : moveit_ros_planning_gencfg
+
+# fast build rule for target.
+moveit_ros_planning_gencfg/fast:
+	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/build.make scara_v2_moveit_api/CMakeFiles/moveit_ros_planning_gencfg.dir/build
+.PHONY : moveit_ros_planning_gencfg/fast
+
+#=============================================================================
+# Target rules for targets named matlab_ROS_com_tryout
+
+# Build rule for target.
+matlab_ROS_com_tryout: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 matlab_ROS_com_tryout
+.PHONY : matlab_ROS_com_tryout
+
+# fast build rule for target.
+matlab_ROS_com_tryout/fast:
+	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/build.make scara_v2_moveit_api/CMakeFiles/matlab_ROS_com_tryout.dir/build
+.PHONY : matlab_ROS_com_tryout/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -3945,9 +3958,8 @@ help:
 	@echo "... move_group_interface5_rt"
 	@echo "... octomap_msgs_generate_messages_lisp"
 	@echo "... scara_v2_moveit_api_generate_messages_nodejs"
-	@echo "... matlab_ROS_com_tryout"
-	@echo "... moveit_ros_planning_gencfg"
 	@echo "... scara_v2_moveit_api_genlisp"
+	@echo "... get_and_send_planned_path"
 	@echo "... octomap_msgs_generate_messages_cpp"
 	@echo "... object_recognition_msgs_generate_messages_nodejs"
 	@echo "... move_group_interface2"
@@ -3986,6 +3998,8 @@ help:
 	@echo "... cube_publisher"
 	@echo "... gripper_control"
 	@echo "... matlab_communication_tryout"
+	@echo "... moveit_ros_planning_gencfg"
+	@echo "... matlab_ROS_com_tryout"
 .PHONY : help
 
 
