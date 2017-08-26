@@ -45,6 +45,7 @@
       <config projectName="Project" targetName="roscpp_generate_messages_nodejs" />
       <config projectName="Project" targetName="rosgraph_msgs_generate_messages_eus" />
       <config projectName="Project" targetName="std_srvs_generate_messages_cpp" />
+      <config projectName="Project" targetName="IK_test_real_scara" />
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_SetLinkProperties" />
       <config projectName="Project" targetName="bond_generate_messages_cpp" />
       <config projectName="Project" targetName="gazebo_ros_multicamera" />
@@ -284,25 +285,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b700e8e-8037-495d-aed6-fe331801a34d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scara_v2_moveit_api/src/IK_test_real_scara.cpp" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scara_v2_moveit_api/src/moveit_display_time.cpp" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/Project.cbp" afterPath="$PROJECT_DIR$/cmake-build-debug/Project.cbp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/gtest/CMakeFiles/gtest.dir/progress.make" afterPath="$PROJECT_DIR$/cmake-build-debug/gtest/CMakeFiles/gtest.dir/progress.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/gtest/CMakeFiles/gtest_main.dir/progress.make" afterPath="$PROJECT_DIR$/cmake-build-debug/gtest/CMakeFiles/gtest_main.dir/progress.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_and_rt_moveit_config/config/joint_limits.yaml" afterPath="$PROJECT_DIR$/scara_and_rt_moveit_config/config/joint_limits.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/demo_matlab_mfile.launch" afterPath="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/demo_matlab_mfile.launch" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/demo_rviz.launch" afterPath="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/demo_rviz.launch" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/moveit.rviz" afterPath="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/moveit.rviz" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/ompl_planning_pipeline.launch.xml" afterPath="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/ompl_planning_pipeline.launch.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_v2_moveit_api/CMakeLists.txt" afterPath="$PROJECT_DIR$/scara_v2_moveit_api/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_v2_moveit_api/src/IK_test.cpp" afterPath="$PROJECT_DIR$/scara_v2_moveit_api/src/IK_test.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_v2_moveit_api/src/get_and_send_planned_path.cpp" afterPath="$PROJECT_DIR$/scara_v2_moveit_api/src/get_and_send_planned_path.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_v2_moveit_api/src/move_group_interface1.cpp" afterPath="$PROJECT_DIR$/scara_v2_moveit_api/src/move_group_interface1.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_v2_with_gripper/urdf/scara_and_rt_urdf.xacro" afterPath="$PROJECT_DIR$/scara_v2_with_gripper/urdf/scara_and_rt_urdf.xacro" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -325,64 +316,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="move_group_interface6_async_PICKandPLACE.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/move_group_interface6_async_PICKandPLACE.cpp">
+      <file leaf-file-name="IK_test_real_scara.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/IK_test_real_scara.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="974" column="79" lean-forward="true" selection-start-line="974" selection-start-column="54" selection-end-line="974" selection-end-column="79" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gripper_control.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/gripper_control.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1200">
-              <caret line="60" column="20" lean-forward="false" selection-start-line="60" selection-start-column="11" selection-end-line="60" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="get_and_send_planned_path.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/get_and_send_planned_path.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="60" column="23" lean-forward="true" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
+            <state relative-caret-position="163">
+              <caret line="246" column="19" lean-forward="false" selection-start-line="246" selection-start-column="19" selection-end-line="246" selection-end-column="19" />
               <folding>
-                <element signature="e#1#21#0" expanded="true" />
+                <element signature="e#83#103#0" expanded="true" />
+                <element signature="e#1209#1818#0" expanded="false" />
+                <element signature="e#1819#2930#0" expanded="false" />
+                <element signature="e#2932#4376#0" expanded="false" />
+                <element signature="e#4377#4768#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scara_and_rt_urdf.xacro" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scara_v2_with_gripper/urdf/scara_and_rt_urdf.xacro">
+      <file leaf-file-name="get_and_send_planned_path.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/get_and_send_planned_path.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="169" column="40" lean-forward="true" selection-start-line="169" selection-start-column="40" selection-end-line="169" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="move_group_interface3_PICKandPLACE.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/move_group_interface3_PICKandPLACE.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1560">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="move_group_interface.h" pinned="false" current-in-tab="false">
-        <entry file="file:///opt/ros/kinetic/include/moveit/move_group_interface/move_group_interface.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="806" column="21" lean-forward="false" selection-start-line="806" selection-start-column="2" selection-end-line="806" selection-end-column="21" />
-              <folding />
+            <state relative-caret-position="543">
+              <caret line="66" column="16" lean-forward="false" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="43" />
+              <folding>
+                <element signature="e#1#21#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -403,13 +360,18 @@
       <find>pushbutt</find>
       <find>jointStatesCallback</find>
       <find>node</find>
-      <find>mode</find>
       <find>planning</find>
-      <find>executionOK</find>
       <find>ExecuteTrajectoryActionResult</find>
       <find>trajectoryExecutionCallback</find>
-      <find>subs_ok</find>
+      <find>displa</find>
       <find>current_joint_values</find>
+      <find>nn</find>
+      <find>rate</find>
+      <find>loop</find>
+      <find>executionOK</find>
+      <find>ROS_INFO</find>
+      <find>mode</find>
+      <find>subs_ok</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -441,13 +403,14 @@
         <option value="$PROJECT_DIR$/scara_v2_moveit_api/src/matlab_communication_tryout.cpp" />
         <option value="$PROJECT_DIR$/scara_v2_moveit_api/src/moveit_display_time.cpp" />
         <option value="$PROJECT_DIR$/scara_v2_moveit_api/src/real_scara_torq_sensor.cpp" />
-        <option value="$PROJECT_DIR$/scara_v2_moveit_api/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/scara_v2_moveit_api/src/IK_test.cpp" />
         <option value="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/demo_matlab_mfile.launch" />
         <option value="$PROJECT_DIR$/scara_v2_moveit_api/src/move_group_interface1.cpp" />
         <option value="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/ompl_planning_pipeline.launch.xml" />
         <option value="$PROJECT_DIR$/scara_v2_with_gripper/urdf/scara_and_rt_urdf.xacro" />
         <option value="$PROJECT_DIR$/scara_v2_moveit_api/src/get_and_send_planned_path.cpp" />
+        <option value="$PROJECT_DIR$/scara_v2_moveit_api/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/scara_v2_moveit_api/src/IK_test_real_scara.cpp" />
       </list>
     </option>
   </component>
@@ -635,6 +598,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/scara_v2_moveit_api/src" />
       <recent name="$PROJECT_DIR$/scara_v2_with_gripper/urdf" />
       <recent name="$PROJECT_DIR$/cmake-build-debug/senso_scara_demo/baugruppe_asm" />
     </key>
@@ -1742,6 +1706,10 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="false" name="IK_test_real_scara" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project" TARGET_NAME="IK_test_real_scara" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Project" RUN_TARGET_NAME="IK_test_real_scara">
+      <envs />
+      <method />
+    </configuration>
     <configuration default="false" name="linear_interpolation" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project" TARGET_NAME="linear_interpolation" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Project" RUN_TARGET_NAME="linear_interpolation">
       <envs />
       <method />
@@ -1930,7 +1898,7 @@
       <envs />
       <method />
     </configuration>
-    <list size="274">
+    <list size="275">
       <item index="0" class="java.lang.String" itemvalue="Application.Build All" />
       <item index="1" class="java.lang.String" itemvalue="Application.clean_test_results" />
       <item index="2" class="java.lang.String" itemvalue="Application.download_extra_data" />
@@ -2158,53 +2126,54 @@
       <item index="224" class="java.lang.String" itemvalue="Application.get_and_send_planned_path" />
       <item index="225" class="java.lang.String" itemvalue="Application.gripper_control" />
       <item index="226" class="java.lang.String" itemvalue="Application.IK_test" />
-      <item index="227" class="java.lang.String" itemvalue="Application.linear_interpolation" />
-      <item index="228" class="java.lang.String" itemvalue="Application.matlab_communication_tryout" />
-      <item index="229" class="java.lang.String" itemvalue="Application.matlab_ROS_com_tryout" />
-      <item index="230" class="java.lang.String" itemvalue="Application.move_group_interface1" />
-      <item index="231" class="java.lang.String" itemvalue="Application.move_group_interface2" />
-      <item index="232" class="java.lang.String" itemvalue="Application.move_group_interface3_PICKandPLACE" />
-      <item index="233" class="java.lang.String" itemvalue="Application.move_group_interface4_position_control" />
-      <item index="234" class="java.lang.String" itemvalue="Application.move_group_interface5_rt" />
-      <item index="235" class="java.lang.String" itemvalue="Application.move_group_interface6_async_PICKandPLACE" />
-      <item index="236" class="java.lang.String" itemvalue="Application.moveit_msgs_generate_messages_cpp" />
-      <item index="237" class="java.lang.String" itemvalue="Application.moveit_msgs_generate_messages_eus" />
-      <item index="238" class="java.lang.String" itemvalue="Application.moveit_msgs_generate_messages_lisp" />
-      <item index="239" class="java.lang.String" itemvalue="Application.moveit_msgs_generate_messages_nodejs" />
-      <item index="240" class="java.lang.String" itemvalue="Application.moveit_msgs_generate_messages_py" />
-      <item index="241" class="java.lang.String" itemvalue="Application.moveit_ros_manipulation_gencfg" />
-      <item index="242" class="java.lang.String" itemvalue="Application.moveit_ros_planning_gencfg" />
-      <item index="243" class="java.lang.String" itemvalue="Application.multiple_cube_publisher" />
-      <item index="244" class="java.lang.String" itemvalue="Application.object_recognition_msgs_generate_messages_cpp" />
-      <item index="245" class="java.lang.String" itemvalue="Application.object_recognition_msgs_generate_messages_eus" />
-      <item index="246" class="java.lang.String" itemvalue="Application.object_recognition_msgs_generate_messages_lisp" />
-      <item index="247" class="java.lang.String" itemvalue="Application.object_recognition_msgs_generate_messages_nodejs" />
-      <item index="248" class="java.lang.String" itemvalue="Application.object_recognition_msgs_generate_messages_py" />
-      <item index="249" class="java.lang.String" itemvalue="Application.octomap_msgs_generate_messages_cpp" />
-      <item index="250" class="java.lang.String" itemvalue="Application.octomap_msgs_generate_messages_eus" />
-      <item index="251" class="java.lang.String" itemvalue="Application.octomap_msgs_generate_messages_lisp" />
-      <item index="252" class="java.lang.String" itemvalue="Application.octomap_msgs_generate_messages_nodejs" />
-      <item index="253" class="java.lang.String" itemvalue="Application.octomap_msgs_generate_messages_py" />
-      <item index="254" class="java.lang.String" itemvalue="Application.real_scara_torq_sensor" />
-      <item index="255" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_gencpp" />
-      <item index="256" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages" />
-      <item index="257" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages_cpp" />
-      <item index="258" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages_eus" />
-      <item index="259" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages_lisp" />
-      <item index="260" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages_nodejs" />
-      <item index="261" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages_py" />
-      <item index="262" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_geneus" />
-      <item index="263" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_genlisp" />
-      <item index="264" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_gennodejs" />
-      <item index="265" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_genpy" />
-      <item index="266" class="java.lang.String" itemvalue="Application.shape_msgs_generate_messages_cpp" />
-      <item index="267" class="java.lang.String" itemvalue="Application.shape_msgs_generate_messages_eus" />
-      <item index="268" class="java.lang.String" itemvalue="Application.shape_msgs_generate_messages_lisp" />
-      <item index="269" class="java.lang.String" itemvalue="Application.shape_msgs_generate_messages_nodejs" />
-      <item index="270" class="java.lang.String" itemvalue="Application.shape_msgs_generate_messages_py" />
-      <item index="271" class="java.lang.String" itemvalue="Application.tf_readout" />
-      <item index="272" class="java.lang.String" itemvalue="Application.gtest" />
-      <item index="273" class="java.lang.String" itemvalue="Application.gtest_main" />
+      <item index="227" class="java.lang.String" itemvalue="Application.IK_test_real_scara" />
+      <item index="228" class="java.lang.String" itemvalue="Application.linear_interpolation" />
+      <item index="229" class="java.lang.String" itemvalue="Application.matlab_communication_tryout" />
+      <item index="230" class="java.lang.String" itemvalue="Application.matlab_ROS_com_tryout" />
+      <item index="231" class="java.lang.String" itemvalue="Application.move_group_interface1" />
+      <item index="232" class="java.lang.String" itemvalue="Application.move_group_interface2" />
+      <item index="233" class="java.lang.String" itemvalue="Application.move_group_interface3_PICKandPLACE" />
+      <item index="234" class="java.lang.String" itemvalue="Application.move_group_interface4_position_control" />
+      <item index="235" class="java.lang.String" itemvalue="Application.move_group_interface5_rt" />
+      <item index="236" class="java.lang.String" itemvalue="Application.move_group_interface6_async_PICKandPLACE" />
+      <item index="237" class="java.lang.String" itemvalue="Application.moveit_msgs_generate_messages_cpp" />
+      <item index="238" class="java.lang.String" itemvalue="Application.moveit_msgs_generate_messages_eus" />
+      <item index="239" class="java.lang.String" itemvalue="Application.moveit_msgs_generate_messages_lisp" />
+      <item index="240" class="java.lang.String" itemvalue="Application.moveit_msgs_generate_messages_nodejs" />
+      <item index="241" class="java.lang.String" itemvalue="Application.moveit_msgs_generate_messages_py" />
+      <item index="242" class="java.lang.String" itemvalue="Application.moveit_ros_manipulation_gencfg" />
+      <item index="243" class="java.lang.String" itemvalue="Application.moveit_ros_planning_gencfg" />
+      <item index="244" class="java.lang.String" itemvalue="Application.multiple_cube_publisher" />
+      <item index="245" class="java.lang.String" itemvalue="Application.object_recognition_msgs_generate_messages_cpp" />
+      <item index="246" class="java.lang.String" itemvalue="Application.object_recognition_msgs_generate_messages_eus" />
+      <item index="247" class="java.lang.String" itemvalue="Application.object_recognition_msgs_generate_messages_lisp" />
+      <item index="248" class="java.lang.String" itemvalue="Application.object_recognition_msgs_generate_messages_nodejs" />
+      <item index="249" class="java.lang.String" itemvalue="Application.object_recognition_msgs_generate_messages_py" />
+      <item index="250" class="java.lang.String" itemvalue="Application.octomap_msgs_generate_messages_cpp" />
+      <item index="251" class="java.lang.String" itemvalue="Application.octomap_msgs_generate_messages_eus" />
+      <item index="252" class="java.lang.String" itemvalue="Application.octomap_msgs_generate_messages_lisp" />
+      <item index="253" class="java.lang.String" itemvalue="Application.octomap_msgs_generate_messages_nodejs" />
+      <item index="254" class="java.lang.String" itemvalue="Application.octomap_msgs_generate_messages_py" />
+      <item index="255" class="java.lang.String" itemvalue="Application.real_scara_torq_sensor" />
+      <item index="256" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_gencpp" />
+      <item index="257" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages" />
+      <item index="258" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages_cpp" />
+      <item index="259" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages_eus" />
+      <item index="260" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages_lisp" />
+      <item index="261" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages_nodejs" />
+      <item index="262" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages_py" />
+      <item index="263" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_geneus" />
+      <item index="264" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_genlisp" />
+      <item index="265" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_gennodejs" />
+      <item index="266" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_genpy" />
+      <item index="267" class="java.lang.String" itemvalue="Application.shape_msgs_generate_messages_cpp" />
+      <item index="268" class="java.lang.String" itemvalue="Application.shape_msgs_generate_messages_eus" />
+      <item index="269" class="java.lang.String" itemvalue="Application.shape_msgs_generate_messages_lisp" />
+      <item index="270" class="java.lang.String" itemvalue="Application.shape_msgs_generate_messages_nodejs" />
+      <item index="271" class="java.lang.String" itemvalue="Application.shape_msgs_generate_messages_py" />
+      <item index="272" class="java.lang.String" itemvalue="Application.tf_readout" />
+      <item index="273" class="java.lang.String" itemvalue="Application.gtest" />
+      <item index="274" class="java.lang.String" itemvalue="Application.gtest_main" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -2234,7 +2203,7 @@
       <workItem from="1503485687760" duration="816000" />
       <workItem from="1503551723945" duration="19737000" />
       <workItem from="1503653773811" duration="3717000" />
-      <workItem from="1503735020632" duration="10103000" />
+      <workItem from="1503735020632" duration="19264000" />
     </task>
     <task id="LOCAL-00001" summary="First commit from CLion">
       <created>1502626241736</created>
@@ -2257,11 +2226,18 @@
       <option name="project" value="LOCAL" />
       <updated>1503741761539</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Prvy uspesny test hybania s ramenom cez moveit (v pritomnosti kolizneho objektu). Frekvencia 15Hz">
+      <created>1503748336632</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1503748336632</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75611000" />
+    <option name="totallyTimeSpent" value="84772000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1212" extended-state="6" />
@@ -2296,27 +2272,14 @@
     <MESSAGE value="First commit from CLion" />
     <MESSAGE value="real scara colision detection" />
     <MESSAGE value="get and send planned path OK!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="get and send planned path OK!!!" />
+    <MESSAGE value="Prvy uspesny test hybania s ramenom cez moveit (v pritomnosti kolizneho objektu). Frekvencia 15Hz" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prvy uspesny test hybania s ramenom cez moveit (v pritomnosti kolizneho objektu). Frekvencia 15Hz" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gazebo_scara_and_rt/scara_v2_full_description/urdf/rotary_table_v2_gazebo.gazebo">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="847">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gazebo_scara_and_rt/scara_v2_full_description/urdf/rotary_table_v2_urdf.xacro">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="53" column="30" lean-forward="true" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gazebo_scara_and_rt/scara_v2_full_gazebo/package.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -2536,41 +2499,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scara_and_rt_moveit_config/launch/demo_rviz.launch">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/moveit_display_time.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///opt/ros/kinetic/include/ros/init.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="354">
           <caret line="137" column="18" lean-forward="true" selection-start-line="137" selection-start-column="18" selection-end-line="137" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/jointState_publisher.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="63" column="8" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="119" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/gripper_control.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="60" column="20" lean-forward="false" selection-start-line="60" selection-start-column="11" selection-end-line="60" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2581,35 +2513,6 @@
           <folding>
             <element signature="e#41#61#0" expanded="true" />
             <element signature="e#1170#1601#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2080">
-          <caret line="104" column="62" lean-forward="false" selection-start-line="104" selection-start-column="62" selection-end-line="104" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/move_group_interface6_async_PICKandPLACE.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="974" column="79" lean-forward="true" selection-start-line="974" selection-start-column="54" selection-end-line="974" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/IK_test.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="27" column="39" lean-forward="true" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
-          <folding>
-            <element signature="e#83#103#0" expanded="false" />
-            <element signature="e#1103#1712#0" expanded="false" />
-            <element signature="e#1713#2820#0" expanded="false" />
-            <element signature="e#2822#4264#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2656,28 +2559,110 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/move_group_interface1.cpp">
+    <entry file="file://$PROJECT_DIR$/scara_v2_with_gripper/urdf/scara_and_rt_urdf.xacro">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="63" column="5" lean-forward="true" selection-start-line="59" selection-start-column="24" selection-end-line="63" selection-end-column="5" />
+        <state relative-caret-position="140">
+          <caret line="169" column="40" lean-forward="false" selection-start-line="169" selection-start-column="40" selection-end-line="169" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scara_v2_with_gripper/urdf/scara_and_rt_urdf.xacro">
+    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/moveit_display_time.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="169" column="40" lean-forward="true" selection-start-line="169" selection-start-column="40" selection-end-line="169" selection-end-column="40" />
+        <state relative-caret-position="100">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="673">
+          <caret line="108" column="40" lean-forward="false" selection-start-line="108" selection-start-column="40" selection-end-line="108" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scara_and_rt_moveit_config/launch/demo_rviz.launch">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="25" column="62" lean-forward="true" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/gripper_control.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="843">
+          <caret line="60" column="20" lean-forward="false" selection-start-line="60" selection-start-column="11" selection-end-line="60" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/jointState_publisher.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="603">
+          <caret line="63" column="8" lean-forward="true" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="119" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/move_group_interface1.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="54" column="35" lean-forward="true" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/IK_test.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="219" column="29" lean-forward="false" selection-start-line="219" selection-start-column="29" selection-end-line="219" selection-end-column="29" />
+          <folding>
+            <element signature="e#1103#1712#0" expanded="false" />
+            <element signature="e#1713#2820#0" expanded="false" />
+            <element signature="e#2822#4264#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/move_group_interface6_async_PICKandPLACE.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="1093" column="65" lean-forward="true" selection-start-line="1093" selection-start-column="65" selection-end-line="1093" selection-end-column="65" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/get_and_send_planned_path.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="60" column="23" lean-forward="true" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
+        <state relative-caret-position="543">
+          <caret line="66" column="16" lean-forward="false" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="43" />
           <folding>
             <element signature="e#1#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/unistd.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="446" column="20" lean-forward="false" selection-start-line="446" selection-start-column="20" selection-end-line="446" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/IK_test_real_scara.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="246" column="19" lean-forward="false" selection-start-line="246" selection-start-column="19" selection-end-line="246" selection-end-column="19" />
+          <folding>
+            <element signature="e#83#103#0" expanded="true" />
+            <element signature="e#1209#1818#0" expanded="false" />
+            <element signature="e#1819#2930#0" expanded="false" />
+            <element signature="e#2932#4376#0" expanded="false" />
+            <element signature="e#4377#4768#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -105,6 +105,9 @@ target_link_libraries(matlab_ROS_com_tryout ${catkin_LIBRARIES})
 add_executable(IK_test ../scara_v2_moveit_api/src/IK_test.cpp)
 target_link_libraries(IK_test ${catkin_LIBRARIES})
 
+add_executable(IK_test_real_scara ../scara_v2_moveit_api/src/IK_test_real_scara.cpp)
+target_link_libraries(IK_test_real_scara ${catkin_LIBRARIES})
+
 add_executable(real_scara_torq_sensor ../scara_v2_moveit_api/src/real_scara_torq_sensor.cpp)
 target_link_libraries(real_scara_torq_sensor ${catkin_LIBRARIES})
 

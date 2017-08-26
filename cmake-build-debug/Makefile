@@ -3234,6 +3234,19 @@ move_group_interface2/fast:
 .PHONY : move_group_interface2/fast
 
 #=============================================================================
+# Target rules for targets named IK_test_real_scara
+
+# Build rule for target.
+IK_test_real_scara: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 IK_test_real_scara
+.PHONY : IK_test_real_scara
+
+# fast build rule for target.
+IK_test_real_scara/fast:
+	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/IK_test_real_scara.dir/build.make scara_v2_moveit_api/CMakeFiles/IK_test_real_scara.dir/build
+.PHONY : IK_test_real_scara/fast
+
+#=============================================================================
 # Target rules for targets named object_recognition_msgs_generate_messages_lisp
 
 # Build rule for target.
@@ -3963,6 +3976,7 @@ help:
 	@echo "... octomap_msgs_generate_messages_cpp"
 	@echo "... object_recognition_msgs_generate_messages_nodejs"
 	@echo "... move_group_interface2"
+	@echo "... IK_test_real_scara"
 	@echo "... object_recognition_msgs_generate_messages_lisp"
 	@echo "... shape_msgs_generate_messages_cpp"
 	@echo "... scara_v2_moveit_api_gencpp"
