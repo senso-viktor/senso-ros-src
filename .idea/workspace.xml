@@ -40,8 +40,8 @@
       <config projectName="Project" targetName="moveit_msgs_generate_messages_cpp" />
       <config projectName="Project" targetName="tf2_msgs_generate_messages_nodejs" />
       <config projectName="Project" targetName="matlab_ROS_com_tryout" />
-      <config projectName="Project" targetName="actionlib_generate_messages_py" />
       <config projectName="Project" targetName="gazebo_ros_gpu_laser" />
+      <config projectName="Project" targetName="actionlib_generate_messages_py" />
       <config projectName="Project" targetName="roscpp_generate_messages_nodejs" />
       <config projectName="Project" targetName="rosgraph_msgs_generate_messages_eus" />
       <config projectName="Project" targetName="std_srvs_generate_messages_cpp" />
@@ -111,8 +111,9 @@
       <config projectName="Project" targetName="scara_v2_moveit_api_gennodejs" />
       <config projectName="Project" targetName="gazebo_ros_video" />
       <config projectName="Project" targetName="roscpp_generate_messages_cpp" />
-      <config projectName="Project" targetName="nodelet_generate_messages_eus" />
       <config projectName="Project" targetName="polled_camera_generate_messages_cpp" />
+      <config projectName="Project" targetName="nodelet_generate_messages_eus" />
+      <config projectName="Project" targetName="scara_gui" />
       <config projectName="Project" targetName="gazebo_msgs_generate_messages_cpp" />
       <config projectName="Project" targetName="IK_test" />
       <config projectName="Project" targetName="diagnostic_msgs_generate_messages_nodejs" />
@@ -161,8 +162,8 @@
       <config projectName="Project" targetName="actionlib_msgs_generate_messages_eus" />
       <config projectName="Project" targetName="nodelet_generate_messages_cpp" />
       <config projectName="Project" targetName="polled_camera_generate_messages_nodejs" />
-      <config projectName="Project" targetName="object_recognition_msgs_generate_messages_nodejs" />
       <config projectName="Project" targetName="move_group_interface1" />
+      <config projectName="Project" targetName="object_recognition_msgs_generate_messages_nodejs" />
       <config projectName="Project" targetName="run_tests_gazebo_plugins_rostest_test_set_model_state_test_set_model_state_test.test" />
       <config projectName="Project" targetName="move_group_interface2" />
       <config projectName="Project" targetName="scara_v2_moveit_api_genpy" />
@@ -186,8 +187,8 @@
       <config projectName="Project" targetName="geometry_msgs_generate_messages_nodejs" />
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_SpawnModel" />
       <config projectName="Project" targetName="actionlib_generate_messages_lisp" />
-      <config projectName="Project" targetName="controller_manager_msgs_generate_messages_py" />
       <config projectName="Project" targetName="actionlib_msgs_generate_messages_cpp" />
+      <config projectName="Project" targetName="controller_manager_msgs_generate_messages_py" />
       <config projectName="Project" targetName="moveit_ros_manipulation_gencfg" />
       <config projectName="Project" targetName="gripper_control" />
       <config projectName="Project" targetName="actionlib_msgs_generate_messages_py" />
@@ -235,8 +236,8 @@
       <config projectName="Project" targetName="gazebo_ros_diff_drive" />
       <config projectName="Project" targetName="control_toolbox_generate_messages_nodejs" />
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_SetLinkState" />
-      <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_GetPhysicsProperties" />
       <config projectName="Project" targetName="doxygen" />
+      <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_GetPhysicsProperties" />
       <config projectName="Project" targetName="dynamic_reconfigure_generate_messages_lisp" />
       <config projectName="Project" targetName="std_msgs_generate_messages_eus" />
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_GetLinkProperties" />
@@ -285,8 +286,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b700e8e-8037-495d-aed6-fe331801a34d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scara_gui/pictures/Sensodrive-LogoE.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scara_gui/CMakeLists.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scara_gui/include/scara_gui/mainwindow.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scara_gui/package.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scara_gui/scara_gui_plugin.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scara_gui/src/main.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scara_gui/src/mainwindow.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scara_gui/user_interface/mainwindow.ui" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_v2_moveit_api/src/IK_test_real_scara.cpp" afterPath="$PROJECT_DIR$/scara_v2_moveit_api/src/IK_test_real_scara.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.1/CMakeSystem.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.1/CMakeSystem.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeError.log" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeError.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeRuleHashes.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeRuleHashes.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clean_test_results.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clean_test_results.dir/build.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/download_extra_data.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/download_extra_data.dir/build.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/doxygen.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/doxygen.dir/build.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/run_tests.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/run_tests.dir/build.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/tests.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/tests.dir/build.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CTestTestfile.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CTestTestfile.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/Project.cbp" afterPath="$PROJECT_DIR$/cmake-build-debug/Project.cbp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/catkin_generated/order_packages.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/catkin_generated/order_packages.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/catkin_generated/setup_cached.sh" afterPath="$PROJECT_DIR$/cmake-build-debug/catkin_generated/setup_cached.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/gtest/CMakeFiles/gtest.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/gtest/CMakeFiles/gtest.dir/build.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/gtest/CMakeFiles/gtest.dir/progress.make" afterPath="$PROJECT_DIR$/cmake-build-debug/gtest/CMakeFiles/gtest.dir/progress.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/gtest/CMakeFiles/gtest_main.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/gtest/CMakeFiles/gtest_main.dir/build.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/gtest/CMakeFiles/gtest_main.dir/progress.make" afterPath="$PROJECT_DIR$/cmake-build-debug/gtest/CMakeFiles/gtest_main.dir/progress.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/gtest/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/gtest/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/gtest/gtest.cbp" afterPath="$PROJECT_DIR$/cmake-build-debug/gtest/gtest.cbp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/senso_scara_demo/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/senso_scara_demo/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/senso_scara_demo/senso_scara_demo.cbp" afterPath="$PROJECT_DIR$/cmake-build-debug/senso_scara_demo/senso_scara_demo.cbp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -302,37 +340,38 @@
       <file leaf-file-name="demo_matlab_mfile.launch" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scara_and_rt_moveit_config/launch/demo_matlab_mfile.launch">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="21" column="60" lean-forward="false" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
+            <state relative-caret-position="440">
+              <caret line="22" column="54" lean-forward="false" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="54" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IK_test_real_scara.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/IK_test_real_scara.cpp">
+      <file leaf-file-name="mainwindow.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scara_gui/src/mainwindow.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="293" column="0" lean-forward="false" selection-start-line="293" selection-start-column="0" selection-end-line="293" selection-end-column="0" />
+            <state relative-caret-position="65">
+              <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
               <folding>
-                <element signature="e#83#103#0" expanded="true" />
-                <element signature="e#1209#1818#0" expanded="false" />
-                <element signature="e#1819#2930#0" expanded="false" />
-                <element signature="e#2932#4376#0" expanded="false" />
-                <element signature="e#4377#4768#0" expanded="false" />
+                <element signature="e#3029#3221#0" expanded="false" />
+                <element signature="e#3222#3413#0" expanded="false" />
+                <element signature="e#3414#3604#0" expanded="false" />
+                <element signature="e#3605#4158#0" expanded="false" />
+                <element signature="e#4159#4331#0" expanded="false" />
+                <element signature="e#4332#5295#0" expanded="false" />
+                <element signature="e#8880#10360#0" expanded="false" />
+                <element signature="e#10361#10489#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="get_and_send_planned_path.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/get_and_send_planned_path.cpp">
+      <file leaf-file-name="mainwindow.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scara_gui/include/scara_gui/mainwindow.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
-              <caret line="66" column="16" lean-forward="false" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="43" />
-              <folding>
-                <element signature="e#1#21#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="549">
+              <caret line="75" column="55" lean-forward="false" selection-start-line="75" selection-start-column="55" selection-end-line="75" selection-end-column="55" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -365,6 +404,9 @@
       <find>ROS_INFO</find>
       <find>mode</find>
       <find>subs_ok</find>
+      <find>actual_joint_positions</find>
+      <find>rad</find>
+      <find>jointControl_Values</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -404,6 +446,8 @@
         <option value="$PROJECT_DIR$/scara_v2_moveit_api/src/get_and_send_planned_path.cpp" />
         <option value="$PROJECT_DIR$/scara_v2_moveit_api/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/scara_v2_moveit_api/src/IK_test_real_scara.cpp" />
+        <option value="$PROJECT_DIR$/scara_gui/include/scara_gui/mainwindow.h" />
+        <option value="$PROJECT_DIR$/scara_gui/src/mainwindow.cpp" />
       </list>
     </option>
   </component>
@@ -465,7 +509,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="scara_v2_with_gripper" />
+              <option name="myItemId" value="scara_gui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -483,29 +527,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="scara_v2_with_gripper" />
+              <option name="myItemId" value="scara_gui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="urdf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scara_v2_moveit_api" />
+              <option name="myItemId" value="user_interface" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -523,11 +549,37 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="scara_v2_moveit_api" />
+              <option name="myItemId" value="scara_gui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scara_gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="include" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scara_gui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -546,28 +598,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="scara_and_rt_moveit_config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scara_and_rt_moveit_config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="launch" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -588,6 +618,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1251,6 +1282,10 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="false" name="scara_gui" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project" TARGET_NAME="scara_gui" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Project" RUN_TARGET_NAME="scara_gui">
+      <envs />
+      <method />
+    </configuration>
     <configuration default="false" name="polled_camera_generate_messages_cpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project" TARGET_NAME="polled_camera_generate_messages_cpp" CONFIG_NAME="Debug">
       <envs />
       <method />
@@ -1891,7 +1926,7 @@
       <envs />
       <method />
     </configuration>
-    <list size="275">
+    <list size="276">
       <item index="0" class="java.lang.String" itemvalue="Application.Build All" />
       <item index="1" class="java.lang.String" itemvalue="Application.clean_test_results" />
       <item index="2" class="java.lang.String" itemvalue="Application.download_extra_data" />
@@ -2007,166 +2042,167 @@
       <item index="112" class="java.lang.String" itemvalue="Application.nodelet_generate_messages_lisp" />
       <item index="113" class="java.lang.String" itemvalue="Application.nodelet_generate_messages_nodejs" />
       <item index="114" class="java.lang.String" itemvalue="Application.nodelet_generate_messages_py" />
-      <item index="115" class="java.lang.String" itemvalue="Application.polled_camera_generate_messages_cpp" />
-      <item index="116" class="java.lang.String" itemvalue="Application.polled_camera_generate_messages_eus" />
-      <item index="117" class="java.lang.String" itemvalue="Application.polled_camera_generate_messages_lisp" />
-      <item index="118" class="java.lang.String" itemvalue="Application.polled_camera_generate_messages_nodejs" />
-      <item index="119" class="java.lang.String" itemvalue="Application.polled_camera_generate_messages_py" />
-      <item index="120" class="java.lang.String" itemvalue="Application.pub_joint_trajectory_test" />
-      <item index="121" class="java.lang.String" itemvalue="Application.run_tests_gazebo_plugins" />
-      <item index="122" class="java.lang.String" itemvalue="Application.run_tests_gazebo_plugins_rostest" />
-      <item index="123" class="java.lang.String" itemvalue="Application.run_tests_gazebo_plugins_rostest_test_range_range_plugin.test" />
-      <item index="124" class="java.lang.String" itemvalue="Application.run_tests_gazebo_plugins_rostest_test_set_model_state_test_set_model_state_test.test" />
-      <item index="125" class="java.lang.String" itemvalue="Application.set_model_state-test" />
-      <item index="126" class="java.lang.String" itemvalue="Application.vision_reconfigure" />
-      <item index="127" class="java.lang.String" itemvalue="Application.dynamic_reconfigure_gencfg" />
-      <item index="128" class="java.lang.String" itemvalue="Application.dynamic_reconfigure_generate_messages_cpp" />
-      <item index="129" class="java.lang.String" itemvalue="Application.dynamic_reconfigure_generate_messages_eus" />
-      <item index="130" class="java.lang.String" itemvalue="Application.dynamic_reconfigure_generate_messages_lisp" />
-      <item index="131" class="java.lang.String" itemvalue="Application.dynamic_reconfigure_generate_messages_nodejs" />
-      <item index="132" class="java.lang.String" itemvalue="Application.dynamic_reconfigure_generate_messages_py" />
-      <item index="133" class="java.lang.String" itemvalue="Application.gazebo_ros_api_plugin" />
-      <item index="134" class="java.lang.String" itemvalue="Application.gazebo_ros_gencfg" />
-      <item index="135" class="java.lang.String" itemvalue="Application.gazebo_ros_paths_plugin" />
-      <item index="136" class="java.lang.String" itemvalue="Application.control_toolbox_gencfg" />
-      <item index="137" class="java.lang.String" itemvalue="Application.control_toolbox_generate_messages_cpp" />
-      <item index="138" class="java.lang.String" itemvalue="Application.control_toolbox_generate_messages_eus" />
-      <item index="139" class="java.lang.String" itemvalue="Application.control_toolbox_generate_messages_lisp" />
-      <item index="140" class="java.lang.String" itemvalue="Application.control_toolbox_generate_messages_nodejs" />
-      <item index="141" class="java.lang.String" itemvalue="Application.control_toolbox_generate_messages_py" />
-      <item index="142" class="java.lang.String" itemvalue="Application.controller_manager_msgs_generate_messages_cpp" />
-      <item index="143" class="java.lang.String" itemvalue="Application.controller_manager_msgs_generate_messages_eus" />
-      <item index="144" class="java.lang.String" itemvalue="Application.controller_manager_msgs_generate_messages_lisp" />
-      <item index="145" class="java.lang.String" itemvalue="Application.controller_manager_msgs_generate_messages_nodejs" />
-      <item index="146" class="java.lang.String" itemvalue="Application.controller_manager_msgs_generate_messages_py" />
-      <item index="147" class="java.lang.String" itemvalue="Application.default_robot_hw_sim" />
-      <item index="148" class="java.lang.String" itemvalue="Application.gazebo_ros_control" />
-      <item index="149" class="java.lang.String" itemvalue="Application.actionlib_generate_messages_cpp" />
-      <item index="150" class="java.lang.String" itemvalue="Application.actionlib_generate_messages_eus" />
-      <item index="151" class="java.lang.String" itemvalue="Application.actionlib_generate_messages_lisp" />
-      <item index="152" class="java.lang.String" itemvalue="Application.actionlib_generate_messages_nodejs" />
-      <item index="153" class="java.lang.String" itemvalue="Application.actionlib_generate_messages_py" />
-      <item index="154" class="java.lang.String" itemvalue="Application.actionlib_msgs_generate_messages_cpp" />
-      <item index="155" class="java.lang.String" itemvalue="Application.actionlib_msgs_generate_messages_eus" />
-      <item index="156" class="java.lang.String" itemvalue="Application.actionlib_msgs_generate_messages_lisp" />
-      <item index="157" class="java.lang.String" itemvalue="Application.actionlib_msgs_generate_messages_nodejs" />
-      <item index="158" class="java.lang.String" itemvalue="Application.actionlib_msgs_generate_messages_py" />
-      <item index="159" class="java.lang.String" itemvalue="Application.geometry_msgs_generate_messages_cpp" />
-      <item index="160" class="java.lang.String" itemvalue="Application.geometry_msgs_generate_messages_eus" />
-      <item index="161" class="java.lang.String" itemvalue="Application.geometry_msgs_generate_messages_lisp" />
-      <item index="162" class="java.lang.String" itemvalue="Application.geometry_msgs_generate_messages_nodejs" />
-      <item index="163" class="java.lang.String" itemvalue="Application.geometry_msgs_generate_messages_py" />
-      <item index="164" class="java.lang.String" itemvalue="Application.map_msgs_generate_messages_cpp" />
-      <item index="165" class="java.lang.String" itemvalue="Application.map_msgs_generate_messages_eus" />
-      <item index="166" class="java.lang.String" itemvalue="Application.map_msgs_generate_messages_lisp" />
-      <item index="167" class="java.lang.String" itemvalue="Application.map_msgs_generate_messages_nodejs" />
-      <item index="168" class="java.lang.String" itemvalue="Application.map_msgs_generate_messages_py" />
-      <item index="169" class="java.lang.String" itemvalue="Application.nav_msgs_generate_messages_cpp" />
-      <item index="170" class="java.lang.String" itemvalue="Application.nav_msgs_generate_messages_eus" />
-      <item index="171" class="java.lang.String" itemvalue="Application.nav_msgs_generate_messages_lisp" />
-      <item index="172" class="java.lang.String" itemvalue="Application.nav_msgs_generate_messages_nodejs" />
-      <item index="173" class="java.lang.String" itemvalue="Application.nav_msgs_generate_messages_py" />
-      <item index="174" class="java.lang.String" itemvalue="Application.roscpp_generate_messages_cpp" />
-      <item index="175" class="java.lang.String" itemvalue="Application.roscpp_generate_messages_eus" />
-      <item index="176" class="java.lang.String" itemvalue="Application.roscpp_generate_messages_lisp" />
-      <item index="177" class="java.lang.String" itemvalue="Application.roscpp_generate_messages_nodejs" />
-      <item index="178" class="java.lang.String" itemvalue="Application.roscpp_generate_messages_py" />
-      <item index="179" class="java.lang.String" itemvalue="Application.rosgraph_msgs_generate_messages_cpp" />
-      <item index="180" class="java.lang.String" itemvalue="Application.rosgraph_msgs_generate_messages_eus" />
-      <item index="181" class="java.lang.String" itemvalue="Application.rosgraph_msgs_generate_messages_lisp" />
-      <item index="182" class="java.lang.String" itemvalue="Application.rosgraph_msgs_generate_messages_nodejs" />
-      <item index="183" class="java.lang.String" itemvalue="Application.rosgraph_msgs_generate_messages_py" />
-      <item index="184" class="java.lang.String" itemvalue="Application.sensor_msgs_generate_messages_cpp" />
-      <item index="185" class="java.lang.String" itemvalue="Application.sensor_msgs_generate_messages_eus" />
-      <item index="186" class="java.lang.String" itemvalue="Application.sensor_msgs_generate_messages_lisp" />
-      <item index="187" class="java.lang.String" itemvalue="Application.sensor_msgs_generate_messages_nodejs" />
-      <item index="188" class="java.lang.String" itemvalue="Application.sensor_msgs_generate_messages_py" />
-      <item index="189" class="java.lang.String" itemvalue="Application.std_msgs_generate_messages_cpp" />
-      <item index="190" class="java.lang.String" itemvalue="Application.std_msgs_generate_messages_eus" />
-      <item index="191" class="java.lang.String" itemvalue="Application.std_msgs_generate_messages_lisp" />
-      <item index="192" class="java.lang.String" itemvalue="Application.std_msgs_generate_messages_nodejs" />
-      <item index="193" class="java.lang.String" itemvalue="Application.std_msgs_generate_messages_py" />
-      <item index="194" class="java.lang.String" itemvalue="Application.tf2_msgs_generate_messages_cpp" />
-      <item index="195" class="java.lang.String" itemvalue="Application.tf2_msgs_generate_messages_eus" />
-      <item index="196" class="java.lang.String" itemvalue="Application.tf2_msgs_generate_messages_lisp" />
-      <item index="197" class="java.lang.String" itemvalue="Application.tf2_msgs_generate_messages_nodejs" />
-      <item index="198" class="java.lang.String" itemvalue="Application.tf2_msgs_generate_messages_py" />
-      <item index="199" class="java.lang.String" itemvalue="Application.tf_generate_messages_cpp" />
-      <item index="200" class="java.lang.String" itemvalue="Application.tf_generate_messages_eus" />
-      <item index="201" class="java.lang.String" itemvalue="Application.tf_generate_messages_lisp" />
-      <item index="202" class="java.lang.String" itemvalue="Application.tf_generate_messages_nodejs" />
-      <item index="203" class="java.lang.String" itemvalue="Application.tf_generate_messages_py" />
-      <item index="204" class="java.lang.String" itemvalue="Application.visualization_msgs_generate_messages_cpp" />
-      <item index="205" class="java.lang.String" itemvalue="Application.visualization_msgs_generate_messages_eus" />
-      <item index="206" class="java.lang.String" itemvalue="Application.visualization_msgs_generate_messages_lisp" />
-      <item index="207" class="java.lang.String" itemvalue="Application.visualization_msgs_generate_messages_nodejs" />
-      <item index="208" class="java.lang.String" itemvalue="Application.visualization_msgs_generate_messages_py" />
-      <item index="209" class="java.lang.String" itemvalue="Application._scara_msgs_generate_messages_check_deps_pose_and_gripperState" />
-      <item index="210" class="java.lang.String" itemvalue="Application.scara_msgs_gencpp" />
-      <item index="211" class="java.lang.String" itemvalue="Application.scara_msgs_generate_messages" />
-      <item index="212" class="java.lang.String" itemvalue="Application.scara_msgs_generate_messages_cpp" />
-      <item index="213" class="java.lang.String" itemvalue="Application.scara_msgs_generate_messages_eus" />
-      <item index="214" class="java.lang.String" itemvalue="Application.scara_msgs_generate_messages_lisp" />
-      <item index="215" class="java.lang.String" itemvalue="Application.scara_msgs_generate_messages_nodejs" />
-      <item index="216" class="java.lang.String" itemvalue="Application.scara_msgs_generate_messages_py" />
-      <item index="217" class="java.lang.String" itemvalue="Application.scara_msgs_geneus" />
-      <item index="218" class="java.lang.String" itemvalue="Application.scara_msgs_genlisp" />
-      <item index="219" class="java.lang.String" itemvalue="Application.scara_msgs_gennodejs" />
-      <item index="220" class="java.lang.String" itemvalue="Application.scara_msgs_genpy" />
-      <item index="221" class="java.lang.String" itemvalue="Application._scara_v2_moveit_api_generate_messages_check_deps_pose_and_gripperState" />
-      <item index="222" class="java.lang.String" itemvalue="Application._scara_v2_moveit_api_generate_messages_check_deps_SimpleService" />
-      <item index="223" class="java.lang.String" itemvalue="Application.cube_publisher" />
-      <item index="224" class="java.lang.String" itemvalue="Application.get_and_send_planned_path" />
-      <item index="225" class="java.lang.String" itemvalue="Application.gripper_control" />
-      <item index="226" class="java.lang.String" itemvalue="Application.IK_test" />
-      <item index="227" class="java.lang.String" itemvalue="Application.IK_test_real_scara" />
-      <item index="228" class="java.lang.String" itemvalue="Application.linear_interpolation" />
-      <item index="229" class="java.lang.String" itemvalue="Application.matlab_communication_tryout" />
-      <item index="230" class="java.lang.String" itemvalue="Application.matlab_ROS_com_tryout" />
-      <item index="231" class="java.lang.String" itemvalue="Application.move_group_interface1" />
-      <item index="232" class="java.lang.String" itemvalue="Application.move_group_interface2" />
-      <item index="233" class="java.lang.String" itemvalue="Application.move_group_interface3_PICKandPLACE" />
-      <item index="234" class="java.lang.String" itemvalue="Application.move_group_interface4_position_control" />
-      <item index="235" class="java.lang.String" itemvalue="Application.move_group_interface5_rt" />
-      <item index="236" class="java.lang.String" itemvalue="Application.move_group_interface6_async_PICKandPLACE" />
-      <item index="237" class="java.lang.String" itemvalue="Application.moveit_msgs_generate_messages_cpp" />
-      <item index="238" class="java.lang.String" itemvalue="Application.moveit_msgs_generate_messages_eus" />
-      <item index="239" class="java.lang.String" itemvalue="Application.moveit_msgs_generate_messages_lisp" />
-      <item index="240" class="java.lang.String" itemvalue="Application.moveit_msgs_generate_messages_nodejs" />
-      <item index="241" class="java.lang.String" itemvalue="Application.moveit_msgs_generate_messages_py" />
-      <item index="242" class="java.lang.String" itemvalue="Application.moveit_ros_manipulation_gencfg" />
-      <item index="243" class="java.lang.String" itemvalue="Application.moveit_ros_planning_gencfg" />
-      <item index="244" class="java.lang.String" itemvalue="Application.multiple_cube_publisher" />
-      <item index="245" class="java.lang.String" itemvalue="Application.object_recognition_msgs_generate_messages_cpp" />
-      <item index="246" class="java.lang.String" itemvalue="Application.object_recognition_msgs_generate_messages_eus" />
-      <item index="247" class="java.lang.String" itemvalue="Application.object_recognition_msgs_generate_messages_lisp" />
-      <item index="248" class="java.lang.String" itemvalue="Application.object_recognition_msgs_generate_messages_nodejs" />
-      <item index="249" class="java.lang.String" itemvalue="Application.object_recognition_msgs_generate_messages_py" />
-      <item index="250" class="java.lang.String" itemvalue="Application.octomap_msgs_generate_messages_cpp" />
-      <item index="251" class="java.lang.String" itemvalue="Application.octomap_msgs_generate_messages_eus" />
-      <item index="252" class="java.lang.String" itemvalue="Application.octomap_msgs_generate_messages_lisp" />
-      <item index="253" class="java.lang.String" itemvalue="Application.octomap_msgs_generate_messages_nodejs" />
-      <item index="254" class="java.lang.String" itemvalue="Application.octomap_msgs_generate_messages_py" />
-      <item index="255" class="java.lang.String" itemvalue="Application.real_scara_torq_sensor" />
-      <item index="256" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_gencpp" />
-      <item index="257" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages" />
-      <item index="258" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages_cpp" />
-      <item index="259" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages_eus" />
-      <item index="260" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages_lisp" />
-      <item index="261" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages_nodejs" />
-      <item index="262" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages_py" />
-      <item index="263" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_geneus" />
-      <item index="264" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_genlisp" />
-      <item index="265" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_gennodejs" />
-      <item index="266" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_genpy" />
-      <item index="267" class="java.lang.String" itemvalue="Application.shape_msgs_generate_messages_cpp" />
-      <item index="268" class="java.lang.String" itemvalue="Application.shape_msgs_generate_messages_eus" />
-      <item index="269" class="java.lang.String" itemvalue="Application.shape_msgs_generate_messages_lisp" />
-      <item index="270" class="java.lang.String" itemvalue="Application.shape_msgs_generate_messages_nodejs" />
-      <item index="271" class="java.lang.String" itemvalue="Application.shape_msgs_generate_messages_py" />
-      <item index="272" class="java.lang.String" itemvalue="Application.tf_readout" />
-      <item index="273" class="java.lang.String" itemvalue="Application.gtest" />
-      <item index="274" class="java.lang.String" itemvalue="Application.gtest_main" />
+      <item index="115" class="java.lang.String" itemvalue="Application.scara_gui" />
+      <item index="116" class="java.lang.String" itemvalue="Application.polled_camera_generate_messages_cpp" />
+      <item index="117" class="java.lang.String" itemvalue="Application.polled_camera_generate_messages_eus" />
+      <item index="118" class="java.lang.String" itemvalue="Application.polled_camera_generate_messages_lisp" />
+      <item index="119" class="java.lang.String" itemvalue="Application.polled_camera_generate_messages_nodejs" />
+      <item index="120" class="java.lang.String" itemvalue="Application.polled_camera_generate_messages_py" />
+      <item index="121" class="java.lang.String" itemvalue="Application.pub_joint_trajectory_test" />
+      <item index="122" class="java.lang.String" itemvalue="Application.run_tests_gazebo_plugins" />
+      <item index="123" class="java.lang.String" itemvalue="Application.run_tests_gazebo_plugins_rostest" />
+      <item index="124" class="java.lang.String" itemvalue="Application.run_tests_gazebo_plugins_rostest_test_range_range_plugin.test" />
+      <item index="125" class="java.lang.String" itemvalue="Application.run_tests_gazebo_plugins_rostest_test_set_model_state_test_set_model_state_test.test" />
+      <item index="126" class="java.lang.String" itemvalue="Application.set_model_state-test" />
+      <item index="127" class="java.lang.String" itemvalue="Application.vision_reconfigure" />
+      <item index="128" class="java.lang.String" itemvalue="Application.dynamic_reconfigure_gencfg" />
+      <item index="129" class="java.lang.String" itemvalue="Application.dynamic_reconfigure_generate_messages_cpp" />
+      <item index="130" class="java.lang.String" itemvalue="Application.dynamic_reconfigure_generate_messages_eus" />
+      <item index="131" class="java.lang.String" itemvalue="Application.dynamic_reconfigure_generate_messages_lisp" />
+      <item index="132" class="java.lang.String" itemvalue="Application.dynamic_reconfigure_generate_messages_nodejs" />
+      <item index="133" class="java.lang.String" itemvalue="Application.dynamic_reconfigure_generate_messages_py" />
+      <item index="134" class="java.lang.String" itemvalue="Application.gazebo_ros_api_plugin" />
+      <item index="135" class="java.lang.String" itemvalue="Application.gazebo_ros_gencfg" />
+      <item index="136" class="java.lang.String" itemvalue="Application.gazebo_ros_paths_plugin" />
+      <item index="137" class="java.lang.String" itemvalue="Application.control_toolbox_gencfg" />
+      <item index="138" class="java.lang.String" itemvalue="Application.control_toolbox_generate_messages_cpp" />
+      <item index="139" class="java.lang.String" itemvalue="Application.control_toolbox_generate_messages_eus" />
+      <item index="140" class="java.lang.String" itemvalue="Application.control_toolbox_generate_messages_lisp" />
+      <item index="141" class="java.lang.String" itemvalue="Application.control_toolbox_generate_messages_nodejs" />
+      <item index="142" class="java.lang.String" itemvalue="Application.control_toolbox_generate_messages_py" />
+      <item index="143" class="java.lang.String" itemvalue="Application.controller_manager_msgs_generate_messages_cpp" />
+      <item index="144" class="java.lang.String" itemvalue="Application.controller_manager_msgs_generate_messages_eus" />
+      <item index="145" class="java.lang.String" itemvalue="Application.controller_manager_msgs_generate_messages_lisp" />
+      <item index="146" class="java.lang.String" itemvalue="Application.controller_manager_msgs_generate_messages_nodejs" />
+      <item index="147" class="java.lang.String" itemvalue="Application.controller_manager_msgs_generate_messages_py" />
+      <item index="148" class="java.lang.String" itemvalue="Application.default_robot_hw_sim" />
+      <item index="149" class="java.lang.String" itemvalue="Application.gazebo_ros_control" />
+      <item index="150" class="java.lang.String" itemvalue="Application.actionlib_generate_messages_cpp" />
+      <item index="151" class="java.lang.String" itemvalue="Application.actionlib_generate_messages_eus" />
+      <item index="152" class="java.lang.String" itemvalue="Application.actionlib_generate_messages_lisp" />
+      <item index="153" class="java.lang.String" itemvalue="Application.actionlib_generate_messages_nodejs" />
+      <item index="154" class="java.lang.String" itemvalue="Application.actionlib_generate_messages_py" />
+      <item index="155" class="java.lang.String" itemvalue="Application.actionlib_msgs_generate_messages_cpp" />
+      <item index="156" class="java.lang.String" itemvalue="Application.actionlib_msgs_generate_messages_eus" />
+      <item index="157" class="java.lang.String" itemvalue="Application.actionlib_msgs_generate_messages_lisp" />
+      <item index="158" class="java.lang.String" itemvalue="Application.actionlib_msgs_generate_messages_nodejs" />
+      <item index="159" class="java.lang.String" itemvalue="Application.actionlib_msgs_generate_messages_py" />
+      <item index="160" class="java.lang.String" itemvalue="Application.geometry_msgs_generate_messages_cpp" />
+      <item index="161" class="java.lang.String" itemvalue="Application.geometry_msgs_generate_messages_eus" />
+      <item index="162" class="java.lang.String" itemvalue="Application.geometry_msgs_generate_messages_lisp" />
+      <item index="163" class="java.lang.String" itemvalue="Application.geometry_msgs_generate_messages_nodejs" />
+      <item index="164" class="java.lang.String" itemvalue="Application.geometry_msgs_generate_messages_py" />
+      <item index="165" class="java.lang.String" itemvalue="Application.map_msgs_generate_messages_cpp" />
+      <item index="166" class="java.lang.String" itemvalue="Application.map_msgs_generate_messages_eus" />
+      <item index="167" class="java.lang.String" itemvalue="Application.map_msgs_generate_messages_lisp" />
+      <item index="168" class="java.lang.String" itemvalue="Application.map_msgs_generate_messages_nodejs" />
+      <item index="169" class="java.lang.String" itemvalue="Application.map_msgs_generate_messages_py" />
+      <item index="170" class="java.lang.String" itemvalue="Application.nav_msgs_generate_messages_cpp" />
+      <item index="171" class="java.lang.String" itemvalue="Application.nav_msgs_generate_messages_eus" />
+      <item index="172" class="java.lang.String" itemvalue="Application.nav_msgs_generate_messages_lisp" />
+      <item index="173" class="java.lang.String" itemvalue="Application.nav_msgs_generate_messages_nodejs" />
+      <item index="174" class="java.lang.String" itemvalue="Application.nav_msgs_generate_messages_py" />
+      <item index="175" class="java.lang.String" itemvalue="Application.roscpp_generate_messages_cpp" />
+      <item index="176" class="java.lang.String" itemvalue="Application.roscpp_generate_messages_eus" />
+      <item index="177" class="java.lang.String" itemvalue="Application.roscpp_generate_messages_lisp" />
+      <item index="178" class="java.lang.String" itemvalue="Application.roscpp_generate_messages_nodejs" />
+      <item index="179" class="java.lang.String" itemvalue="Application.roscpp_generate_messages_py" />
+      <item index="180" class="java.lang.String" itemvalue="Application.rosgraph_msgs_generate_messages_cpp" />
+      <item index="181" class="java.lang.String" itemvalue="Application.rosgraph_msgs_generate_messages_eus" />
+      <item index="182" class="java.lang.String" itemvalue="Application.rosgraph_msgs_generate_messages_lisp" />
+      <item index="183" class="java.lang.String" itemvalue="Application.rosgraph_msgs_generate_messages_nodejs" />
+      <item index="184" class="java.lang.String" itemvalue="Application.rosgraph_msgs_generate_messages_py" />
+      <item index="185" class="java.lang.String" itemvalue="Application.sensor_msgs_generate_messages_cpp" />
+      <item index="186" class="java.lang.String" itemvalue="Application.sensor_msgs_generate_messages_eus" />
+      <item index="187" class="java.lang.String" itemvalue="Application.sensor_msgs_generate_messages_lisp" />
+      <item index="188" class="java.lang.String" itemvalue="Application.sensor_msgs_generate_messages_nodejs" />
+      <item index="189" class="java.lang.String" itemvalue="Application.sensor_msgs_generate_messages_py" />
+      <item index="190" class="java.lang.String" itemvalue="Application.std_msgs_generate_messages_cpp" />
+      <item index="191" class="java.lang.String" itemvalue="Application.std_msgs_generate_messages_eus" />
+      <item index="192" class="java.lang.String" itemvalue="Application.std_msgs_generate_messages_lisp" />
+      <item index="193" class="java.lang.String" itemvalue="Application.std_msgs_generate_messages_nodejs" />
+      <item index="194" class="java.lang.String" itemvalue="Application.std_msgs_generate_messages_py" />
+      <item index="195" class="java.lang.String" itemvalue="Application.tf2_msgs_generate_messages_cpp" />
+      <item index="196" class="java.lang.String" itemvalue="Application.tf2_msgs_generate_messages_eus" />
+      <item index="197" class="java.lang.String" itemvalue="Application.tf2_msgs_generate_messages_lisp" />
+      <item index="198" class="java.lang.String" itemvalue="Application.tf2_msgs_generate_messages_nodejs" />
+      <item index="199" class="java.lang.String" itemvalue="Application.tf2_msgs_generate_messages_py" />
+      <item index="200" class="java.lang.String" itemvalue="Application.tf_generate_messages_cpp" />
+      <item index="201" class="java.lang.String" itemvalue="Application.tf_generate_messages_eus" />
+      <item index="202" class="java.lang.String" itemvalue="Application.tf_generate_messages_lisp" />
+      <item index="203" class="java.lang.String" itemvalue="Application.tf_generate_messages_nodejs" />
+      <item index="204" class="java.lang.String" itemvalue="Application.tf_generate_messages_py" />
+      <item index="205" class="java.lang.String" itemvalue="Application.visualization_msgs_generate_messages_cpp" />
+      <item index="206" class="java.lang.String" itemvalue="Application.visualization_msgs_generate_messages_eus" />
+      <item index="207" class="java.lang.String" itemvalue="Application.visualization_msgs_generate_messages_lisp" />
+      <item index="208" class="java.lang.String" itemvalue="Application.visualization_msgs_generate_messages_nodejs" />
+      <item index="209" class="java.lang.String" itemvalue="Application.visualization_msgs_generate_messages_py" />
+      <item index="210" class="java.lang.String" itemvalue="Application._scara_msgs_generate_messages_check_deps_pose_and_gripperState" />
+      <item index="211" class="java.lang.String" itemvalue="Application.scara_msgs_gencpp" />
+      <item index="212" class="java.lang.String" itemvalue="Application.scara_msgs_generate_messages" />
+      <item index="213" class="java.lang.String" itemvalue="Application.scara_msgs_generate_messages_cpp" />
+      <item index="214" class="java.lang.String" itemvalue="Application.scara_msgs_generate_messages_eus" />
+      <item index="215" class="java.lang.String" itemvalue="Application.scara_msgs_generate_messages_lisp" />
+      <item index="216" class="java.lang.String" itemvalue="Application.scara_msgs_generate_messages_nodejs" />
+      <item index="217" class="java.lang.String" itemvalue="Application.scara_msgs_generate_messages_py" />
+      <item index="218" class="java.lang.String" itemvalue="Application.scara_msgs_geneus" />
+      <item index="219" class="java.lang.String" itemvalue="Application.scara_msgs_genlisp" />
+      <item index="220" class="java.lang.String" itemvalue="Application.scara_msgs_gennodejs" />
+      <item index="221" class="java.lang.String" itemvalue="Application.scara_msgs_genpy" />
+      <item index="222" class="java.lang.String" itemvalue="Application._scara_v2_moveit_api_generate_messages_check_deps_pose_and_gripperState" />
+      <item index="223" class="java.lang.String" itemvalue="Application._scara_v2_moveit_api_generate_messages_check_deps_SimpleService" />
+      <item index="224" class="java.lang.String" itemvalue="Application.cube_publisher" />
+      <item index="225" class="java.lang.String" itemvalue="Application.get_and_send_planned_path" />
+      <item index="226" class="java.lang.String" itemvalue="Application.gripper_control" />
+      <item index="227" class="java.lang.String" itemvalue="Application.IK_test" />
+      <item index="228" class="java.lang.String" itemvalue="Application.IK_test_real_scara" />
+      <item index="229" class="java.lang.String" itemvalue="Application.linear_interpolation" />
+      <item index="230" class="java.lang.String" itemvalue="Application.matlab_communication_tryout" />
+      <item index="231" class="java.lang.String" itemvalue="Application.matlab_ROS_com_tryout" />
+      <item index="232" class="java.lang.String" itemvalue="Application.move_group_interface1" />
+      <item index="233" class="java.lang.String" itemvalue="Application.move_group_interface2" />
+      <item index="234" class="java.lang.String" itemvalue="Application.move_group_interface3_PICKandPLACE" />
+      <item index="235" class="java.lang.String" itemvalue="Application.move_group_interface4_position_control" />
+      <item index="236" class="java.lang.String" itemvalue="Application.move_group_interface5_rt" />
+      <item index="237" class="java.lang.String" itemvalue="Application.move_group_interface6_async_PICKandPLACE" />
+      <item index="238" class="java.lang.String" itemvalue="Application.moveit_msgs_generate_messages_cpp" />
+      <item index="239" class="java.lang.String" itemvalue="Application.moveit_msgs_generate_messages_eus" />
+      <item index="240" class="java.lang.String" itemvalue="Application.moveit_msgs_generate_messages_lisp" />
+      <item index="241" class="java.lang.String" itemvalue="Application.moveit_msgs_generate_messages_nodejs" />
+      <item index="242" class="java.lang.String" itemvalue="Application.moveit_msgs_generate_messages_py" />
+      <item index="243" class="java.lang.String" itemvalue="Application.moveit_ros_manipulation_gencfg" />
+      <item index="244" class="java.lang.String" itemvalue="Application.moveit_ros_planning_gencfg" />
+      <item index="245" class="java.lang.String" itemvalue="Application.multiple_cube_publisher" />
+      <item index="246" class="java.lang.String" itemvalue="Application.object_recognition_msgs_generate_messages_cpp" />
+      <item index="247" class="java.lang.String" itemvalue="Application.object_recognition_msgs_generate_messages_eus" />
+      <item index="248" class="java.lang.String" itemvalue="Application.object_recognition_msgs_generate_messages_lisp" />
+      <item index="249" class="java.lang.String" itemvalue="Application.object_recognition_msgs_generate_messages_nodejs" />
+      <item index="250" class="java.lang.String" itemvalue="Application.object_recognition_msgs_generate_messages_py" />
+      <item index="251" class="java.lang.String" itemvalue="Application.octomap_msgs_generate_messages_cpp" />
+      <item index="252" class="java.lang.String" itemvalue="Application.octomap_msgs_generate_messages_eus" />
+      <item index="253" class="java.lang.String" itemvalue="Application.octomap_msgs_generate_messages_lisp" />
+      <item index="254" class="java.lang.String" itemvalue="Application.octomap_msgs_generate_messages_nodejs" />
+      <item index="255" class="java.lang.String" itemvalue="Application.octomap_msgs_generate_messages_py" />
+      <item index="256" class="java.lang.String" itemvalue="Application.real_scara_torq_sensor" />
+      <item index="257" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_gencpp" />
+      <item index="258" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages" />
+      <item index="259" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages_cpp" />
+      <item index="260" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages_eus" />
+      <item index="261" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages_lisp" />
+      <item index="262" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages_nodejs" />
+      <item index="263" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_generate_messages_py" />
+      <item index="264" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_geneus" />
+      <item index="265" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_genlisp" />
+      <item index="266" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_gennodejs" />
+      <item index="267" class="java.lang.String" itemvalue="Application.scara_v2_moveit_api_genpy" />
+      <item index="268" class="java.lang.String" itemvalue="Application.shape_msgs_generate_messages_cpp" />
+      <item index="269" class="java.lang.String" itemvalue="Application.shape_msgs_generate_messages_eus" />
+      <item index="270" class="java.lang.String" itemvalue="Application.shape_msgs_generate_messages_lisp" />
+      <item index="271" class="java.lang.String" itemvalue="Application.shape_msgs_generate_messages_nodejs" />
+      <item index="272" class="java.lang.String" itemvalue="Application.shape_msgs_generate_messages_py" />
+      <item index="273" class="java.lang.String" itemvalue="Application.tf_readout" />
+      <item index="274" class="java.lang.String" itemvalue="Application.gtest" />
+      <item index="275" class="java.lang.String" itemvalue="Application.gtest_main" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -2196,7 +2232,10 @@
       <workItem from="1503485687760" duration="816000" />
       <workItem from="1503551723945" duration="19737000" />
       <workItem from="1503653773811" duration="3717000" />
-      <workItem from="1503735020632" duration="21312000" />
+      <workItem from="1503735020632" duration="21413000" />
+      <workItem from="1503822733212" duration="1252000" />
+      <workItem from="1503897374705" duration="629000" />
+      <workItem from="1503901844829" duration="2778000" />
     </task>
     <task id="LOCAL-00001" summary="First commit from CLion">
       <created>1502626241736</created>
@@ -2233,11 +2272,18 @@
       <option name="project" value="LOCAL" />
       <updated>1503760304422</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Prvy uspesny test hybania s ramenom cez C program (v pritomnosti kolizneho objektu). Frekvencia 15Hz">
+      <created>1503765853031</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1503765853031</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86820000" />
+    <option name="totallyTimeSpent" value="91580000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1212" extended-state="6" />
@@ -2246,19 +2292,19 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17347866" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910246" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910246" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -2277,31 +2323,12 @@
     <option name="LAST_COMMIT_MESSAGE" value="Prvy uspesny test hybania s ramenom cez C program (v pritomnosti kolizneho objektu). Frekvencia 15Hz" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gazebo_scara_and_rt/scara_v2_full_gazebo/package.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gazebo_scara_and_rt/scara_v2_full_description/package.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gazebo_scara_and_rt/scara_v2_full_description/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gazebo_scara_and_rt/scara_v2_full_description/launch/xacro_scara_display.launch">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -2489,7 +2516,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
           <caret line="36" column="16" lean-forward="false" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2511,10 +2537,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2720">
           <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
-          <folding>
-            <element signature="e#41#61#0" expanded="true" />
-            <element signature="e#1170#1601#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2522,15 +2544,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scara_and_rt_moveit_config/launch/demo_matlab_mfile.launch">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="21" column="60" lean-forward="false" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2538,7 +2551,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="806" column="21" lean-forward="false" selection-start-line="806" selection-start-column="2" selection-end-line="806" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2546,7 +2558,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1560">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2554,9 +2565,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="27" column="43" lean-forward="false" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
-          <folding>
-            <marker date="1503747251621" expanded="true" signature="11:1110" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2564,23 +2572,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="169" column="40" lean-forward="false" selection-start-line="169" selection-start-column="40" selection-end-line="169" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/moveit_display_time.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/moveit_display_time.cpp" />
     <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="673">
           <caret line="108" column="40" lean-forward="false" selection-start-line="108" selection-start-column="40" selection-end-line="108" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2588,7 +2587,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
           <caret line="25" column="62" lean-forward="true" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2596,7 +2594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="843">
           <caret line="60" column="20" lean-forward="false" selection-start-line="60" selection-start-column="11" selection-end-line="60" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2604,7 +2601,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="603">
           <caret line="63" column="8" lean-forward="true" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="119" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2612,7 +2608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="54" column="35" lean-forward="true" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2620,11 +2615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
           <caret line="219" column="29" lean-forward="false" selection-start-line="219" selection-start-column="29" selection-end-line="219" selection-end-column="29" />
-          <folding>
-            <element signature="e#1103#1712#0" expanded="false" />
-            <element signature="e#1713#2820#0" expanded="false" />
-            <element signature="e#2822#4264#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2632,13 +2622,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="369">
           <caret line="1093" column="65" lean-forward="true" selection-start-line="1093" selection-start-column="65" selection-end-line="1093" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/get_and_send_planned_path.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
+        <state relative-caret-position="1320">
           <caret line="66" column="16" lean-forward="false" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="43" />
           <folding>
             <element signature="e#1#21#0" expanded="true" />
@@ -2650,20 +2639,59 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="446" column="20" lean-forward="false" selection-start-line="446" selection-start-column="20" selection-end-line="446" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/linear_interpolation.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5080">
+          <caret line="254" column="54" lean-forward="false" selection-start-line="254" selection-start-column="54" selection-end-line="254" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/IK_test_real_scara.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="293" column="0" lean-forward="false" selection-start-line="293" selection-start-column="0" selection-end-line="293" selection-end-column="0" />
+        <state relative-caret-position="20">
+          <caret line="215" column="74" lean-forward="false" selection-start-line="215" selection-start-column="52" selection-end-line="215" selection-end-column="74" />
           <folding>
-            <element signature="e#83#103#0" expanded="true" />
             <element signature="e#1209#1818#0" expanded="false" />
             <element signature="e#1819#2930#0" expanded="false" />
             <element signature="e#2932#4376#0" expanded="false" />
             <element signature="e#4377#4768#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scara_gui/include/scara_gui/mainwindow.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="549">
+          <caret line="75" column="55" lean-forward="false" selection-start-line="75" selection-start-column="55" selection-end-line="75" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scara_and_rt_moveit_config/launch/demo_matlab_mfile.launch">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="22" column="54" lean-forward="false" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scara_gui/src/mainwindow.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding>
+            <element signature="e#3029#3221#0" expanded="false" />
+            <element signature="e#3222#3413#0" expanded="false" />
+            <element signature="e#3414#3604#0" expanded="false" />
+            <element signature="e#3605#4158#0" expanded="false" />
+            <element signature="e#4159#4331#0" expanded="false" />
+            <element signature="e#4332#5295#0" expanded="false" />
+            <element signature="e#8880#10360#0" expanded="false" />
+            <element signature="e#10361#10489#0" expanded="false" />
           </folding>
         </state>
       </provider>

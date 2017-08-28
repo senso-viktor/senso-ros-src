@@ -1,19 +1,43 @@
-/home/viktordluhos/Downloads/clion-2017.1/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/viktordluhos/catkin_ws/src
+/home/viktordluhos/clion-2017.1/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/viktordluhos/catkin_ws/src
+-- The C compiler identification is GNU 5.4.0
+-- The CXX compiler identification is GNU 5.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
 -- Using CATKIN_DEVEL_PREFIX: /home/viktordluhos/catkin_ws/src/cmake-build-debug/devel
 -- Using CMAKE_PREFIX_PATH: /home/viktordluhos/catkin_ws/devel;/opt/ros/kinetic
 -- This workspace overlays: /home/viktordluhos/catkin_ws/devel;/opt/ros/kinetic
+-- Found PythonInterp: /usr/bin/python (found version "2.7.12") 
 -- Using PYTHON_EXECUTABLE: /usr/bin/python
 -- Using Debian Python package layout
 -- Using empy: /usr/bin/empy
 -- Using CATKIN_ENABLE_TESTING: ON
 -- Call enable_testing()
 -- Using CATKIN_TEST_RESULTS_DIR: /home/viktordluhos/catkin_ws/src/cmake-build-debug/test_results
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
 -- Found gtest sources under '/usr/src/gtest': gtests will be built
 -- Using Python nosetests: /usr/bin/nosetests-2.7
 -- catkin 0.7.6
 -- BUILD_SHARED_LIBS is on
 -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- ~~  traversing 13 packages in topological order:
+-- ~~  traversing 14 packages in topological order:
 -- ~~  - gazebo_dev
 -- ~~  - gazebo_ros_pkgs (metapackage)
 -- ~~  - scara_and_rt_moveit_config
@@ -21,6 +45,7 @@
 -- ~~  - scara_v2_full_description
 -- ~~  - scara_v2_full_gazebo
 -- ~~  - gazebo_msgs
+-- ~~  - scara_gui
 -- ~~  - scara_msgs
 -- ~~  - senso_scara_demo
 -- ~~  - gazebo_ros
@@ -45,6 +70,8 @@
 -- ==> add_subdirectory(gazebo_ros_pkgs/gazebo_msgs)
 -- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
 -- gazebo_msgs: 9 messages, 23 services
+-- +++ processing catkin package: 'scara_gui'
+-- ==> add_subdirectory(scara_gui)
 -- +++ processing catkin package: 'scara_msgs'
 -- ==> add_subdirectory(scara_msgs)
 -- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
@@ -73,7 +100,7 @@
 --   date_time
 --   chrono
 --   atomic
-CMake Warning at /home/viktordluhos/Downloads/clion-2017.1/bin/cmake/share/cmake-3.7/Modules/FindProtobuf.cmake:387 (message):
+CMake Warning at /home/viktordluhos/clion-2017.1/bin/cmake/share/cmake-3.7/Modules/FindProtobuf.cmake:387 (message):
   Protobuf compiler version doesn't match library version 2.6.1
 Call Stack (most recent call first):
   /usr/lib/x86_64-linux-gnu/cmake/gazebo/gazebo-config.cmake:114 (find_package)
@@ -83,9 +110,31 @@ Call Stack (most recent call first):
   gazebo_ros_pkgs/gazebo_ros/CMakeLists.txt:4 (find_package)
 
 
+-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found version "2.6.1") 
 -- Boost version: 1.58.0
+-- Looking for OGRE...
+-- OGRE_PREFIX_WATCH changed.
+-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.1") 
+-- Checking for module 'OGRE'
+--   Found OGRE, version 1.9.0
+-- Found Ogre Ghadamon (1.9.0)
+-- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+-- Looking for OGRE_Paging...
+-- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+-- Looking for OGRE_Terrain...
+-- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+-- Looking for OGRE_Property...
+-- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+-- Looking for OGRE_RTShaderSystem...
+-- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+-- Looking for OGRE_Volume...
+-- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+-- Looking for OGRE_Overlay...
+-- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
 -- Gazebo version: 7.0
 -- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- Checking for module 'libxml-2.0'
+--   Found libxml-2.0, version 2.9.3
 -- Boost version: 1.58.0
 -- Found the following Boost libraries:
 --   thread
@@ -93,6 +142,7 @@ Call Stack (most recent call first):
 --   system
 --   date_time
 --   atomic
+-- Found TinyXML: /usr/lib/x86_64-linux-gnu/libtinyxml.so  
 -- +++ processing catkin package: 'gazebo_plugins'
 -- ==> add_subdirectory(gazebo_ros_pkgs/gazebo_plugins)
 -- Boost version: 1.58.0
@@ -107,7 +157,7 @@ Call Stack (most recent call first):
 --   date_time
 --   chrono
 --   atomic
-CMake Warning at /home/viktordluhos/Downloads/clion-2017.1/bin/cmake/share/cmake-3.7/Modules/FindProtobuf.cmake:387 (message):
+CMake Warning at /home/viktordluhos/clion-2017.1/bin/cmake/share/cmake-3.7/Modules/FindProtobuf.cmake:387 (message):
   Protobuf compiler version doesn't match library version 2.6.1
 Call Stack (most recent call first):
   /usr/lib/x86_64-linux-gnu/cmake/gazebo/gazebo-config.cmake:114 (find_package)
@@ -118,8 +168,29 @@ Call Stack (most recent call first):
 
 
 -- Boost version: 1.58.0
+-- Looking for OGRE...
+-- Found Ogre Ghadamon (1.9.0)
+-- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+-- Looking for OGRE_Paging...
+-- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+-- Looking for OGRE_Terrain...
+-- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+-- Looking for OGRE_Property...
+-- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+-- Looking for OGRE_RTShaderSystem...
+-- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+-- Looking for OGRE_Volume...
+-- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+-- Looking for OGRE_Overlay...
+-- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
 -- Gazebo version: 7.0
 -- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- Checking for module 'OGRE'
+--   Found OGRE, version 1.9.0
+-- Checking for module 'OGRE-Terrain'
+--   Found OGRE-Terrain, version 1.9.0
+-- Checking for module 'OGRE-Paging'
+--   Found OGRE-Paging, version 1.9.0
 -- Boost version: 1.58.0
 -- Found the following Boost libraries:
 --   thread
@@ -141,7 +212,7 @@ Call Stack (most recent call first):
 --   date_time
 --   chrono
 --   atomic
-CMake Warning at /home/viktordluhos/Downloads/clion-2017.1/bin/cmake/share/cmake-3.7/Modules/FindProtobuf.cmake:387 (message):
+CMake Warning at /home/viktordluhos/clion-2017.1/bin/cmake/share/cmake-3.7/Modules/FindProtobuf.cmake:387 (message):
   Protobuf compiler version doesn't match library version 2.6.1
 Call Stack (most recent call first):
   /usr/lib/x86_64-linux-gnu/cmake/gazebo/gazebo-config.cmake:114 (find_package)
@@ -155,6 +226,7 @@ Call Stack (most recent call first):
 -- Gazebo version: 7.0
 -- +++ processing catkin package: 'scara_v2_moveit_api'
 -- ==> add_subdirectory(scara_v2_moveit_api)
+-- Checking for one of the modules 'eigen3'
 -- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
 -- Boost version: 1.58.0
 -- Found the following Boost libraries:
