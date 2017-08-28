@@ -14,6 +14,8 @@ find_package(Boost REQUIRED system filesystem date_time thread)
 add_message_files(
         FILES
         pose_and_gripperState.msg
+#        pose_and_gripperState1.msg
+        robot_info.msg
 )
 
 generate_messages(

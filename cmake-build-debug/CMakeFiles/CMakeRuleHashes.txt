@@ -38,6 +38,7 @@ f0bc3022f9e2afd42bfa6c833483cf06 devel/include/gazebo_plugins/GazeboRosOpenniKin
 243d4ae58a08f3aeaf5a777bb0f23db1 devel/include/gazebo_plugins/HokuyoConfig.h
 20ec1f7e383015267feea7d5194753d1 devel/include/gazebo_ros/PhysicsConfig.h
 5f2a40f140b33c020e93c265c02aed71 devel/include/scara_msgs/pose_and_gripperState.h
+8561763815d391fe76e0a1ca79fad25b devel/include/scara_msgs/robot_info.h
 e32d449328742e61fc82de1cd3958f76 devel/include/scara_v2_moveit_api/SimpleService.h
 5eddfb6de15934783059254524de772e devel/include/scara_v2_moveit_api/pose_and_gripperState.h
 44cb9be5c0cdd17b79deaa3ad4ee435d devel/lib/python2.7/dist-packages/gazebo_msgs/msg/_ContactState.py
@@ -76,6 +77,7 @@ e0e087273a28bcf98f9cdd7e4b0fa045 devel/lib/python2.7/dist-packages/gazebo_msgs/s
 961f5c0cb6d14912df0c894467986d40 devel/lib/python2.7/dist-packages/gazebo_msgs/srv/__init__.py
 be7a7471f9d7bfe9610dd20269993dc7 devel/lib/python2.7/dist-packages/scara_msgs/msg/__init__.py
 c9f4ffa78b9ed723643c9a208d33c5f8 devel/lib/python2.7/dist-packages/scara_msgs/msg/_pose_and_gripperState.py
+d0484f2b54f60aadc865a130f36ebbb7 devel/lib/python2.7/dist-packages/scara_msgs/msg/_robot_info.py
 6866e9d415c88efc7ca2bac83aea4b29 devel/lib/python2.7/dist-packages/scara_v2_moveit_api/msg/__init__.py
 b7876d000257bb8b27c23667d333a39f devel/lib/python2.7/dist-packages/scara_v2_moveit_api/msg/_pose_and_gripperState.py
 1389bfa5ddc8eca00afb981ae9343d64 devel/lib/python2.7/dist-packages/scara_v2_moveit_api/srv/_SimpleService.py
@@ -113,6 +115,7 @@ cfeedd95416938350152f2947c266dc3 devel/share/common-lisp/ros/gazebo_msgs/srv/Set
 cd5cea897245a449c2378fdb26d9945d devel/share/common-lisp/ros/gazebo_msgs/srv/SetPhysicsProperties.lisp
 c8f4f37dbff4a02b0a5ca91eab49c9d9 devel/share/common-lisp/ros/gazebo_msgs/srv/SpawnModel.lisp
 2c473596afcfa0f228cb95eaf759b6fc devel/share/common-lisp/ros/scara_msgs/msg/pose_and_gripperState.lisp
+76fa9630a82f8942a48d8c34babb59a3 devel/share/common-lisp/ros/scara_msgs/msg/robot_info.lisp
 11aa4a4c68bd4bce7483d8a03c540a87 devel/share/common-lisp/ros/scara_v2_moveit_api/msg/pose_and_gripperState.lisp
 5df53b1444f6eabb35f161b831e19d93 devel/share/common-lisp/ros/scara_v2_moveit_api/srv/SimpleService.lisp
 b1d457a3502aeb0a7cd958dc39221f1f devel/share/gennodejs/ros/gazebo_msgs/msg/ContactState.js
@@ -148,6 +151,7 @@ ace17af239195df6836d34586854750f devel/share/gennodejs/ros/gazebo_msgs/srv/SetLi
 0c7b1b2ea6e10ab8c8433e53839275bc devel/share/gennodejs/ros/gazebo_msgs/srv/SetPhysicsProperties.js
 cde6783ba8a311a50fd48e1478f5fada devel/share/gennodejs/ros/gazebo_msgs/srv/SpawnModel.js
 f0553e1d6d0c7d496ca141db15c2b8dd devel/share/gennodejs/ros/scara_msgs/msg/pose_and_gripperState.js
+d03aad0f3a97eb20ca931b44375dccee devel/share/gennodejs/ros/scara_msgs/msg/robot_info.js
 59c3eb0b894a07749683f0dffb45d12e devel/share/gennodejs/ros/scara_v2_moveit_api/msg/pose_and_gripperState.js
 5512d2da5eee61b58c60c8d32e4076a4 devel/share/gennodejs/ros/scara_v2_moveit_api/srv/SimpleService.js
 b00218cdbcadc40b6cf6e1bd79dea2f9 devel/share/roseus/ros/gazebo_msgs/manifest.l
@@ -185,6 +189,7 @@ a7b596f8e50c9cc0410d721ace88ce13 devel/share/roseus/ros/gazebo_msgs/srv/SetLinkS
 cc4573fd45a4f886b2b158299f127e1a devel/share/roseus/ros/gazebo_msgs/srv/SpawnModel.l
 960b42910102a07c6567f48d66fce1a2 devel/share/roseus/ros/scara_msgs/manifest.l
 9ee78ac74087db9b468e5c74dec0e969 devel/share/roseus/ros/scara_msgs/msg/pose_and_gripperState.l
+56f36b9bc95857efa2e59196d2bd9b14 devel/share/roseus/ros/scara_msgs/msg/robot_info.l
 b8f2bfb410e7afdb2c17cf59d939796d devel/share/roseus/ros/scara_v2_moveit_api/manifest.l
 34fcaaf81cdc37f8d02bb95d5cec1ee3 devel/share/roseus/ros/scara_v2_moveit_api/msg/pose_and_gripperState.l
 bcfde4cd996313a97688b66fb4d17b9e devel/share/roseus/ros/scara_v2_moveit_api/srv/SimpleService.l
@@ -235,6 +240,7 @@ a7dfc6254a050de472feec2523a77447 gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/gazebo_m
 94403f7727b0fe21b899b896d3b90e19 scara_gui/include/scara_gui/moc_mainwindow.cpp
 c3a071120e04914be54304a1b714cbf4 scara_gui/ui_mainwindow.h
 b267914fbce049eb8d13148b90606565 scara_msgs/CMakeFiles/_scara_msgs_generate_messages_check_deps_pose_and_gripperState
+236f56a818edaacdf9637969b093b248 scara_msgs/CMakeFiles/_scara_msgs_generate_messages_check_deps_robot_info
 a8f638eb395b01b437abe86c182767d8 scara_msgs/CMakeFiles/scara_msgs_generate_messages_cpp
 a8f638eb395b01b437abe86c182767d8 scara_msgs/CMakeFiles/scara_msgs_generate_messages_eus
 a8f638eb395b01b437abe86c182767d8 scara_msgs/CMakeFiles/scara_msgs_generate_messages_lisp

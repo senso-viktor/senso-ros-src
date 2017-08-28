@@ -2,10 +2,11 @@ cmake_minimum_required(VERSION 2.8.3)
 project(scara_gui)
 
 find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  rqt_gui
-  rqt_gui_cpp
-  std_msgs
+        roscpp
+        rqt_gui
+        rqt_gui_cpp
+        std_msgs
+        scara_msgs
 )
 find_package(Qt5Widgets REQUIRED)
 
@@ -15,6 +16,7 @@ set(${PROJECT_NAME}_cpp_UIS  user_interface/mainwindow.ui)
 
 qt5_wrap_cpp(${PROJECT_NAME}_cpp_MOCS ${${PROJECT_NAME}_cpp_HDRS})
 qt5_wrap_ui(${PROJECT_NAME}_cpp_UIS_H ${${PROJECT_NAME}_cpp_UIS})
+
 
 catkin_package(
     INCLUDE_DIRS include

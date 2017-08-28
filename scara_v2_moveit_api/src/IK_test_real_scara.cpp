@@ -33,6 +33,7 @@ double x_offset, y_offset, z_offset;
 geometry_msgs::Point point;
 bool executionOK = true;
 geometry_msgs::Pose pos_and_vel;
+geometry_msgs::Point acc;
 
 geometry_msgs::Point getPoseFromTF(std::string source, std::string target) {
 
@@ -128,7 +129,7 @@ void jointStatesCallback (const sensor_msgs::JointState jointStates){
 
 }
 
-void sendJointPoses(ros::Publisher *pub, moveit::planning_interface::MoveGroupInterface::Plan *plan, int i){
+void sendJointPoses(ros::Publisher *pose_and_vel_pub,ros::Publisher *accel_pub, moveit::planning_interface::MoveGroupInterface::Plan *plan, int i){
 
     if (i == 999){
         pos_and_vel.position.x = 0.0;
@@ -137,6 +138,9 @@ void sendJointPoses(ros::Publisher *pub, moveit::planning_interface::MoveGroupIn
         pos_and_vel.orientation.x =  0.0;
         pos_and_vel.orientation.y =  0.0;
         pos_and_vel.orientation.z =  0.0;
+        acc.x = 0.0;
+        acc.y = 0.0;
+        acc.z = 0.0;
     }else{
         pos_and_vel.position.x = plan->trajectory_.joint_trajectory.points[i].positions[0];
         pos_and_vel.position.y = plan->trajectory_.joint_trajectory.points[i].positions[1];
@@ -144,9 +148,13 @@ void sendJointPoses(ros::Publisher *pub, moveit::planning_interface::MoveGroupIn
         pos_and_vel.orientation.x = plan->trajectory_.joint_trajectory.points[i].velocities[0];
         pos_and_vel.orientation.y = plan->trajectory_.joint_trajectory.points[i].velocities[1];
         pos_and_vel.orientation.z = plan->trajectory_.joint_trajectory.points[i].velocities[2];
+        acc.x = plan->trajectory_.joint_trajectory.points[i].accelerations[0];
+        acc.y = plan->trajectory_.joint_trajectory.points[i].accelerations[1];
+        acc.z = plan->trajectory_.joint_trajectory.points[i].accelerations[2];
     }
 
-    pub->publish(pos_and_vel);
+    pose_and_vel_pub->publish(pos_and_vel);
+    accel_pub->publish(acc);
 
 }
 
@@ -156,7 +164,7 @@ int main(int argc, char **argv) {
 
 
     ros::init(argc, argv, "move_group_interface_tutorial");
-    ros::NodeHandle n1,n2,nn;
+    ros::NodeHandle n1,nn1,n2,nn;
     ros::AsyncSpinner spinner(1);
     spinner.start();
     ros::Rate loop_rate(15);
@@ -172,6 +180,7 @@ int main(int argc, char **argv) {
 
 
     ros::Publisher pose_pub = n1.advertise<geometry_msgs::Pose>("/planned_poses_and_velocities",1000);
+    ros::Publisher acc_pub = nn1.advertise<geometry_msgs::Point>("/planned_accelerations",1000);
     ros::Publisher mode_pub = n2.advertise<std_msgs::Byte>("/modeSelect",1000);
     ros::Subscriber subscribe_realJointValues = nn.subscribe("joint_states",1000,jointStatesCallback);
 
@@ -200,7 +209,7 @@ int main(int argc, char **argv) {
     int i = 0 ;
 
     for (int j = 0; j < 50; j++){
-        sendJointPoses(&pose_pub, &my_plan, 999);
+        sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
         mode_pub.publish(selectedMode);
         ROS_INFO("Init matlab");
         usleep(50000);
@@ -301,11 +310,11 @@ int main(int argc, char **argv) {
         if (!executionOK){
             if (i< my_plan.trajectory_.joint_trajectory.points.size())
             {
-                sendJointPoses(&pose_pub, &my_plan, i);
+                sendJointPoses(&pose_pub,&acc_pub, &my_plan, i);
                 ROS_WARN("message GO! %f %f %f [%d/%d]",pos_and_vel.position.x, pos_and_vel.position.y, pos_and_vel.position.z,i,last_trajectory_size);
                 i++;
             }else{
-                sendJointPoses(&pose_pub, &my_plan, last_trajectory_size-1);
+                sendJointPoses(&pose_pub,&acc_pub, &my_plan, last_trajectory_size-1);
                 ROS_ERROR("message stay!![%f %f %f]",pos_and_vel.position.x, pos_and_vel.position.y, pos_and_vel.position.z);
             }
 
