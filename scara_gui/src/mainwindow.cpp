@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     int argc;
     char **argv;
     ros::init(argc, argv, "scara_gui_node");
-    ros::NodeHandle n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11;
+    ros::NodeHandle n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12;
     ros::NodeHandle nn1,nn2,nn3,nn4;
     ros::Rate loop_rate(10);
 
@@ -49,7 +49,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ROS_INFO("Init publisher gripperState");
     stop_pub = n10.advertise<std_msgs::Bool>("stopState",1000);
     ROS_INFO("Init publisher stop");
-    mode_pub = n11.advertise<std_msgs::Int32>("modeSelect",1000);
+    start_pub = n11.advertise<std_msgs::Bool>("startState",1000);
+    ROS_INFO("Init publisher start");
+    mode_pub = n12.advertise<std_msgs::Int32>("modeSelect",1000);
     ROS_INFO("Init publisher mode");
 
     ROS_INFO("...............................................");
@@ -98,12 +100,15 @@ void MainWindow::on_jointControl_Start_PushButton_3_clicked(){
         gripperState_msg.data = true;
     else
         gripperState_msg.data = false;
-    stopState_msg.data = false;
 
-    for (int i=0;i<100;i++){
+    stopState_msg.data = false;
+    startState_msg.data = true;
+
+    for (int i=0;i<10;i++){
         jointControl_pub.publish(jointControl_Values_msg);
         gripperState_pub.publish(gripperState_msg);
-        stop_pub.publish(stopState_msg);
+        //stop_pub.publish(stopState_msg);
+        start_pub.publish(startState_msg);
     }
 
 }
@@ -137,16 +142,19 @@ void MainWindow::on_jointControl_Gripper_Checkbox_3_toggled(bool checked){
     else
         gripperState_msg.data = false;
 
-    for (int i=0;i<100;i++){
+    for (int i=0;i<10;i++){
         gripperState_pub.publish(gripperState_msg);
     }
 
 }
 
 void MainWindow::on_jointControl_Stop_PushButton_4_clicked(){
+
     stopState_msg.data = true;
+    startState_msg.data = false;
     for (int i=0;i<100;i++){
-        stop_pub.publish(stopState_msg);
+        //stop_pub.publish(stopState_msg);
+        start_pub.publish(startState_msg);
     }
 
 }
@@ -169,10 +177,12 @@ void MainWindow::on_jointControl_Reset_PushButton_3_clicked(){
     jointControl_Values_msg.point.z = 0.0;
     gripperState_msg.data = false;
     stopState_msg.data = false;
+    startState_msg.data = true;
     for (int i=0;i<100;i++){
         jointControl_pub.publish(jointControl_Values_msg);
         gripperState_pub.publish(gripperState_msg);
-        stop_pub.publish(stopState_msg);
+        //stop_pub.publish(stopState_msg);
+        start_pub.publish(startState_msg);
     }
 
 
