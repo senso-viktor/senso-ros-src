@@ -11,6 +11,25 @@ int main(int argc, char **argv){
     ros::NodeHandle n1,n2,n3,n4,n5,n6;
     ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6;
     ros::Rate loop_rate(5);
+    ros::AsyncSpinner spinner(1);
+    spinner.start();
+
+    //interaction with moveit
+    moveit::planning_interface::MoveGroupInterface::Plan my_plan;
+    moveit::core::RobotStatePtr current_state;
+    static const std::string PLANNING_GROUP = "scara_arm";
+    moveit::planning_interface::MoveGroupInterface move_group(PLANNING_GROUP);
+    moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
+    const robot_state::JointModelGroup *joint_model_group = move_group.getCurrentState()->getJointModelGroup(
+            PLANNING_GROUP);
+
+    //Na overenie limitov klbov
+    robot_model_loader::RobotModelLoader robot_model_loader("robot_description");
+    robot_model::RobotModelPtr kinematic_model = robot_model_loader.getModel();
+    robot_state::RobotStatePtr kinematic_state(new robot_state::RobotState(kinematic_model));
+    kinematic_state->setToDefaultValues();
+
+
 
     //Publishers
 //    ros::Publisher infoPublisher = n1.advertise<scara_v2_moveit_api::scara_basic_info>("scara/basic_info", 1000);
@@ -41,10 +60,26 @@ int main(int argc, char **argv){
                 //Break while loop when the mode has changed
                 if (current_mode != 1)
                     break;
+
                 if (start_state){
                     ROS_INFO("Joint control tab started");
-                    ROS_INFO("Desired joints : %f %f %f",jointControl_jointValues[0],jointControl_jointValues[1],jointControl_jointValues[2]);
-                    ROS_INFO("gripper state %d",gripper_state);
+//                    ROS_INFO("Desired joints : %f %f %f",jointControl_jointValues[0],jointControl_jointValues[1],jointControl_jointValues[2]);
+//                    ROS_INFO("gripper state %d",gripper_state);
+                    if (valuesChanged()){
+                        ROS_INFO("Desired joints : %f %f %f",jointControl_jointValues[0],jointControl_jointValues[1],jointControl_jointValues[2]);
+                        move_group.setJointValueTarget(jointControl_jointValues);
+                        kinematic_state->setJointGroupPositions(joint_model_group, jointControl_jointValues);
+                        if (!kinematic_state->satisfiesBounds()){
+                            ROS_ERROR("Bad input joint values");
+                            start_state = false;
+                            break;
+                        }
+                        jointModeControll(&move_group, my_plan);
+                    }else{
+                        ROS_WARN("executing plan");
+                    }
+
+
                 }else{
                     ROS_INFO("Joint control tab stopped");
                 }
@@ -113,7 +148,7 @@ int main(int argc, char **argv){
             }
             break;
         default:
-            ROS_INFO("No mode selected!");
+            //ROS_INFO("No mode selected!");
             break;
     }
 

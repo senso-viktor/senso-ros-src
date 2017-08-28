@@ -183,10 +183,10 @@
         <item row="2" column="1">
          <widget class="QSlider" name="jointControl_J3_Slider_3">
           <property name="minimum">
-           <number>-157</number>
+           <number>0</number>
           </property>
           <property name="maximum">
-           <number>157</number>
+           <number>5</number>
           </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>

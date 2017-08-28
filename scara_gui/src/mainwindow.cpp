@@ -12,14 +12,14 @@
 
 
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+        QMainWindow(parent),
+        ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     int argc;
     char **argv;
     ros::init(argc, argv, "scara_gui_node");
-    ros::NodeHandle n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12;
+    ros::NodeHandle n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11;
     ros::NodeHandle nn1,nn2,nn3,nn4;
     ros::Rate loop_rate(10);
 
@@ -47,21 +47,19 @@ MainWindow::MainWindow(QWidget *parent) :
     ROS_INFO("Init publisher setNumOfAttempts");
     gripperState_pub = n9.advertise<std_msgs::Bool>("gripperState",1000);
     ROS_INFO("Init publisher gripperState");
-    stop_pub = n10.advertise<std_msgs::Bool>("stopState",1000);
+    start_pub = n10.advertise<std_msgs::Bool>("startState",1000);
     ROS_INFO("Init publisher stop");
-    start_pub = n11.advertise<std_msgs::Bool>("startState",1000);
-    ROS_INFO("Init publisher start");
-    mode_pub = n12.advertise<std_msgs::Int32>("modeSelect",1000);
+    mode_pub = n11.advertise<std_msgs::Int32>("modeSelect",1000);
     ROS_INFO("Init publisher mode");
 
     ROS_INFO("...............................................");
     ROS_INFO("...............................................");
 
     //Subscribers
-        //demo_rviz.launch
+    //demo_rviz.launch
     jointStates_sub = nn1.subscribe("move_group/fake_controller_joint_states",1000,&MainWindow::jointStatesCallback, this);
     ROS_INFO("Init subscriber jointStates");
-        //demo_matlab_mfile
+    //demo_matlab_mfile
     //jointStates_sub = nn1.subscribe("scara_jointStates",1000,&MainWindow::jointStatesCallback, this);
 
     actualAcc_sub = nn2.subscribe("actualAcceleration",1000,&MainWindow::actualAccCallback, this);
@@ -100,14 +98,11 @@ void MainWindow::on_jointControl_Start_PushButton_3_clicked(){
         gripperState_msg.data = true;
     else
         gripperState_msg.data = false;
-
-    stopState_msg.data = false;
     startState_msg.data = true;
 
-    for (int i=0;i<10;i++){
+    for (int i=0;i<100;i++){
         jointControl_pub.publish(jointControl_Values_msg);
         gripperState_pub.publish(gripperState_msg);
-        //stop_pub.publish(stopState_msg);
         start_pub.publish(startState_msg);
     }
 
@@ -142,18 +137,15 @@ void MainWindow::on_jointControl_Gripper_Checkbox_3_toggled(bool checked){
     else
         gripperState_msg.data = false;
 
-    for (int i=0;i<10;i++){
+    for (int i=0;i<100;i++){
         gripperState_pub.publish(gripperState_msg);
     }
 
 }
 
 void MainWindow::on_jointControl_Stop_PushButton_4_clicked(){
-
-    stopState_msg.data = true;
     startState_msg.data = false;
     for (int i=0;i<100;i++){
-        //stop_pub.publish(stopState_msg);
         start_pub.publish(startState_msg);
     }
 
@@ -176,12 +168,10 @@ void MainWindow::on_jointControl_Reset_PushButton_3_clicked(){
     jointControl_Values_msg.point.y = 0.0;
     jointControl_Values_msg.point.z = 0.0;
     gripperState_msg.data = false;
-    stopState_msg.data = false;
     startState_msg.data = true;
     for (int i=0;i<100;i++){
         jointControl_pub.publish(jointControl_Values_msg);
         gripperState_pub.publish(gripperState_msg);
-        //stop_pub.publish(stopState_msg);
         start_pub.publish(startState_msg);
     }
 
@@ -200,12 +190,12 @@ void MainWindow::on_positionControlCustom_Start_PushButton_3_clicked(){
         gripperState_msg.data = true;
     else
         gripperState_msg.data = false;
-    stopState_msg.data = false;
+    //stopState_msg.data = false;
 
     for (int i=0;i<100;i++){
         positionControl_pub.publish(positionControl_Values_msg);
         gripperState_pub.publish(gripperState_msg);
-        stop_pub.publish(stopState_msg);
+        //stop_pub.publish(stopState_msg);
     }
 
 
@@ -213,9 +203,9 @@ void MainWindow::on_positionControlCustom_Start_PushButton_3_clicked(){
 }
 
 void MainWindow::on_positionControlCustom_Stop_PushButton_4_clicked(){
-    stopState_msg.data = true;
+    //stopState_msg.data = true;
     for (int i=0;i<100;i++){
-        stop_pub.publish(stopState_msg);
+        //stop_pub.publish(stopState_msg);
     }
 }
 
@@ -231,11 +221,11 @@ void MainWindow::on_positionControlCustom_Reset_PushButton_5_clicked(){
     positionControl_Values_msg.y = 0.58;
     positionControl_Values_msg.z = 1.0196;
     gripperState_msg.data = false;
-    stopState_msg.data = false;
+    //stopState_msg.data = false;
     for (int i=0;i<100;i++){
         positionControl_pub.publish(positionControl_Values_msg);
         gripperState_pub.publish(gripperState_msg);
-        stop_pub.publish(stopState_msg);
+        //stop_pub.publish(stopState_msg);
     }
 }
 
@@ -286,11 +276,11 @@ void MainWindow::on_positionControl2_Stop_PushButton_3_clicked(){
 //*************************** Get information ********************************//
 void MainWindow::on_basicInfo_GetInfo_PushButton_3_clicked(){
     //ROS
-        //Publish
-        getInfoState_msg.data = true;
-        for (int i=0;i<100;i++) {
-            getInfo_pub.publish(getInfoState_msg);
-        }
+    //Publish
+    getInfoState_msg.data = true;
+    for (int i=0;i<100;i++) {
+        getInfo_pub.publish(getInfoState_msg);
+    }
 }
 //****************************************************************************//
 
@@ -356,7 +346,7 @@ void MainWindow::on_workingModes_3_tabBarClicked(int index){
 //********************** Callbacks ************************************//
 void MainWindow::jointStatesCallback(const sensor_msgs::JointState jointState){
 
-    ROS_INFO("Subscribe jointStates");
+    //ROS_INFO("Subscribe jointStates");
     ui->status_joint1pos_rad_3->display(jointState.position[1]);
     ui->status_joint2pos_rad_3->display(jointState.position[2]);
     ui->status_joint3pos_rad_3->display(jointState.position[3]);
@@ -434,7 +424,3 @@ void MainWindow::actualPoseCallback(const geometry_msgs::Pose pose){
 void MainWindow::actualAccCallback(const geometry_msgs::Pose pose){
 
 }
-
-
-
-

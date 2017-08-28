@@ -18,12 +18,12 @@
 const double PI = 3.14159265;
 
 namespace Ui {
-class MainWindow;
+    class MainWindow;
 }
 
 class MainWindow : public QMainWindow
 {
-    Q_OBJECT
+Q_OBJECT
 
 public:
     explicit MainWindow(QWidget *parent = 0);
@@ -85,7 +85,7 @@ private:
     bool gripperState = false;
     bool newJointStates = false;
 
-    std_msgs::Bool gripperState_msg, stopState_msg, demoState_msg,getInfoState_msg, startState_msg;
+    std_msgs::Bool gripperState_msg, startState_msg, demoState_msg,getInfoState_msg;
     std_msgs::Float64 setParamFloat_msg;
     std_msgs::Int32 setParamInt_msg, modeSelect_msg;
     scara_msgs::robot_info robotInfo;
@@ -94,9 +94,8 @@ private:
     geometry_msgs::Pose actualPose_msg;
     sensor_msgs::JointState actualJointStates;
 
-    ros::Publisher jointControl_pub, positionControl_pub, demo_pub, getInfo_pub, setVel_pub, setAcc_pub, setPlanTime_pub, setNumOfAttempts_pub;
-    ros::Publisher stop_pub, start_pub, mode_pub, gripperState_pub;
-    ros::Subscriber getInfo_sub, jointStates_sub, actualPose_sub, actualAcc_sub;
+    ros::Publisher jointControl_pub, positionControl_pub, demo_pub, getInfo_pub, setVel_pub, setAcc_pub, setPlanTime_pub, setNumOfAttempts_pub, gripperState_pub, start_pub, mode_pub;
+    ros::Subscriber jointControlValues_sub, positionControlValues_sub, demoValues_sub, getInfo_sub, jointStates_sub, actualPose_sub, actualAcc_sub;
 
 
 
