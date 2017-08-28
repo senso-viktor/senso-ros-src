@@ -3078,6 +3078,19 @@ controller_manager_msgs_generate_messages_lisp/fast:
 .PHONY : controller_manager_msgs_generate_messages_lisp/fast
 
 #=============================================================================
+# Target rules for targets named scara_menu
+
+# Build rule for target.
+scara_menu: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 scara_menu
+.PHONY : scara_menu
+
+# fast build rule for target.
+scara_menu/fast:
+	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/scara_menu.dir/build.make scara_v2_moveit_api/CMakeFiles/scara_menu.dir/build
+.PHONY : scara_menu/fast
+
+#=============================================================================
 # Target rules for targets named tf_readout
 
 # Build rule for target.
@@ -3990,6 +4003,7 @@ help:
 	@echo "... control_toolbox_generate_messages_eus"
 	@echo "... controller_manager_msgs_generate_messages_eus"
 	@echo "... controller_manager_msgs_generate_messages_lisp"
+	@echo "... scara_menu"
 	@echo "... tf_readout"
 	@echo "... real_scara_torq_sensor"
 	@echo "... moveit_ros_manipulation_gencfg"

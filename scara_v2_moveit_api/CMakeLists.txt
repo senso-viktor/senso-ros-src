@@ -120,4 +120,7 @@ target_link_libraries(linear_interpolation ${catkin_LIBRARIES})
 add_executable(tf_readout ../scara_v2_moveit_api/src/tf_readout.cpp)
 target_link_libraries(tf_readout ${catkin_LIBRARIES})
 
+add_executable(scara_menu ../scara_v2_moveit_api/src/scara_menu.cpp)
+target_link_libraries(scara_menu ${catkin_LIBRARIES})
+
 

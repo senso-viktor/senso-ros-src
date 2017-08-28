@@ -331,6 +331,7 @@
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/install/local.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/install.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/rebuild_cache.dir
+/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/scara_menu.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/tf_readout.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/real_scara_torq_sensor.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/moveit_ros_manipulation_gencfg.dir
