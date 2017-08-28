@@ -34,7 +34,7 @@ bool jointModeControll (moveit::planning_interface::MoveGroupInterface *move_gro
         return false;
     }
     move_group->asyncExecute(my_plan);
-    move_group->asyncMove();
+    //move_group->asyncMove();
 
 }
 
@@ -61,7 +61,7 @@ void gripperStateCallback(const std_msgs::Bool gripperState_msg){
 
 void jointControlCallback(const geometry_msgs::PointStamped pointStamped){
 
-    //ROS_INFO("joint control values callback");
+    //ROS_INFO("joint control values callback %f %f %f",pointStamped.point.x,pointStamped.point.y,pointStamped.point.z);
     jointControl_jointValues[0] = pointStamped.point.x;
     jointControl_jointValues[1] = pointStamped.point.y;
     jointControl_jointValues[2] = pointStamped.point.z;
@@ -69,17 +69,19 @@ void jointControlCallback(const geometry_msgs::PointStamped pointStamped){
 
 bool valuesChanged(){
 
-    if (jointControl_jointValues[0] == jointControl_lastJointValues[0])
-        return false;
-    else if (jointControl_jointValues[1] == jointControl_lastJointValues[1])
-        return false;
-    else if (jointControl_jointValues[2] == jointControl_lastJointValues[2])
-        return false;
-    else{
+    //ROS_INFO("fuck 1 %f %f %f",jointControl_jointValues[0],jointControl_jointValues[1],jointControl_jointValues[2]);
+    //ROS_INFO("fuck 2 %f %f %f",jointControl_lastJointValues[0],jointControl_lastJointValues[1],jointControl_lastJointValues[2]);
+
+
+    if ((jointControl_jointValues[0] != jointControl_lastJointValues[0]) || (jointControl_jointValues[1] != jointControl_lastJointValues[1]) || (jointControl_jointValues[2] != jointControl_lastJointValues[2])){
+        //ROS_ERROR("change!");
         jointControl_lastJointValues[0] = jointControl_jointValues[0];
         jointControl_lastJointValues[1] = jointControl_jointValues[1];
         jointControl_lastJointValues[2] = jointControl_jointValues[2];
         return true;
+    }else{
+        //ROS_ERROR("no change!");
+        return false;
     }
 
 }

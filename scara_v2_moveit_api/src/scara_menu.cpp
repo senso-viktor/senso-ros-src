@@ -56,32 +56,31 @@ int main(int argc, char **argv){
             break;
 
         case 1:
-            while (ros::ok()){
+            while (ros::ok()) {
                 //Break while loop when the mode has changed
                 if (current_mode != 1)
                     break;
 
-                if (start_state){
+                if (start_state) {
                     ROS_INFO("Joint control tab started");
+                    sleep(0.5);
 //                    ROS_INFO("Desired joints : %f %f %f",jointControl_jointValues[0],jointControl_jointValues[1],jointControl_jointValues[2]);
 //                    ROS_INFO("gripper state %d",gripper_state);
-                    if (valuesChanged()){
-                        ROS_INFO("Desired joints : %f %f %f",jointControl_jointValues[0],jointControl_jointValues[1],jointControl_jointValues[2]);
+                    if (valuesChanged()) {
+                        ROS_WARN("Desired joints : %f %f %f", jointControl_jointValues[0], jointControl_jointValues[1],
+                                 jointControl_jointValues[2]);
                         move_group.setJointValueTarget(jointControl_jointValues);
                         kinematic_state->setJointGroupPositions(joint_model_group, jointControl_jointValues);
-                        if (!kinematic_state->satisfiesBounds()){
+                        if (!kinematic_state->satisfiesBounds()) {
                             ROS_ERROR("Bad input joint values");
                             start_state = false;
                             break;
                         }
                         jointModeControll(&move_group, my_plan);
-                    }else{
-                        ROS_WARN("executing plan");
                     }
-
-
                 }else{
-                    ROS_INFO("Joint control tab stopped");
+                    ROS_ERROR("Movement stopped!!");
+                    move_group.stop();
                 }
                 ros::spinOnce();
                 loop_rate.sleep();

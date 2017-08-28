@@ -97,6 +97,7 @@ private:
     ros::Publisher jointControl_pub, positionControl_pub, demo_pub, getInfo_pub, setVel_pub, setAcc_pub, setPlanTime_pub, setNumOfAttempts_pub, gripperState_pub, start_pub, mode_pub;
     ros::Subscriber jointControlValues_sub, positionControlValues_sub, demoValues_sub, getInfo_sub, jointStates_sub, actualPose_sub, actualAcc_sub;
 
+    //dorobit reset publisher...
 
 
 };
