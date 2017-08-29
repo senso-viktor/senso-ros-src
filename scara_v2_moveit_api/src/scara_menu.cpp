@@ -29,15 +29,20 @@ int main(int argc, char **argv){
     robot_state::RobotStatePtr kinematic_state(new robot_state::RobotState(kinematic_model));
     kinematic_state->setToDefaultValues();
 
+    //Pre position control
+    getOffsets();
+
 
 
     //Publishers
+    ros::Publisher actualPose_pub = n1.advertise<geometry_msgs::Pose>("actualPose",1000);
 //    ros::Publisher infoPublisher = n1.advertise<scara_v2_moveit_api::scara_basic_info>("scara/basic_info", 1000);
     //Subscriber
     ros::Subscriber modeSelect_sub = nn1.subscribe("modeSelect",1000,modeSelectCallback);
     ros::Subscriber startState_sub = nn2.subscribe("startState",1000, startStateCallback);
     ros::Subscriber gripperState_sub = nn3.subscribe("gripperState",1000, gripperStateCallback);
     ros::Subscriber jointControl_sub = nn4.subscribe("jointControl",1000, jointControlCallback);
+    ros::Subscriber positionControl_sub = nn5.subscribe("positionControl",1000,positionControlCallback);
 
 
     while (ros::ok()){
@@ -47,8 +52,12 @@ int main(int argc, char **argv){
         case 0:
             while (ros::ok()){
                 //Break while loop when the mode has changed
-                if (current_mode != 0)
+                if (current_mode != 0){
+                    start_state = false;
+                    move_group.stop();
                     break;
+                }
+
                 ROS_INFO("Information tab - do nothing");
                 ros::spinOnce();
                 loop_rate.sleep();
@@ -58,8 +67,16 @@ int main(int argc, char **argv){
         case 1:
             while (ros::ok()) {
                 //Break while loop when the mode has changed
-                if (current_mode != 1)
+                if (current_mode != 1){
+                    start_state = false;
+                    move_group.stop();
                     break;
+                }
+                sendEndEffectorPose(&actualPose_pub, &move_group);
+//                for (int i = 0;i<move_group.getCurrentJointValues().size();i++){
+//                    std::vector<double> jointVal = move_group.getCurrentJointValues();
+//                    ROS_INFO("Joint%d = %f",i,jointVal[i]);
+//                }
 
                 if (start_state) {
                     ROS_INFO("Joint control tab started");
@@ -80,6 +97,9 @@ int main(int argc, char **argv){
                     }
                 }else{
                     ROS_ERROR("Movement stopped!!");
+                    //Otestovat
+                    jointControl_lastJointValues[0] = 9.99;
+                    //
                     move_group.stop();
                 }
                 ros::spinOnce();
@@ -88,16 +108,63 @@ int main(int argc, char **argv){
             break;
         case 2:
             while (ros::ok()){
-
                 //Break while loop when the mode has changed
-                if (current_mode != 2)
+                if (current_mode != 2){
+                    start_state = false;
+                    move_group.stop();
                     break;
+                }
+                sendEndEffectorPose(&actualPose_pub, &move_group);
+//                for (int i = 0;i<move_group.getCurrentJointValues().size();i++){
+//                    std::vector<double> jointVal = move_group.getCurrentJointValues();
+//                    ROS_INFO("Joint%d = %f",i,jointVal[i]);
+//                }
 
-                ROS_INFO("Position control tab ...");
+                if (start_state) {
+                    ROS_INFO("Position control start request");
+                    if (positionsChanged()){
+                        while (ros::ok()){
+                            if (countIK(positionControl_values[0], positionControl_values[1], positionControl_values[2], IK_mode)){
+                                move_group.setJointValueTarget(joint_positions);
+                                kinematic_state->setJointGroupPositions(joint_model_group, joint_positions);
+                                if (kinematic_state->satisfiesBounds()){
+                                    IK_mode = 1;
+                                    success = move_group.plan(my_plan);
+                                    if (success){
+                                        ROS_INFO("Succesful plan!.. now moving to place");
+                                        move_group.asyncExecute(my_plan);
+                                        break;
+                                    } else{
+                                        ROS_ERROR("Bad plan");
+                                        start_state = false;
+                                        break;
+                                    }
+                                }else{
+                                    ROS_WARN("Colision warining! changing mode");
+                                    IK_mode++;
+                                    if (IK_mode >3){
+                                        ROS_INFO("Cannot solve IK please enter new positions");
+                                        start_state = false;
+                                        break;
+                                    }
+                                }
+                            }else{
+                                ROS_ERROR("No solution found");
+                                ROS_INFO("Cannot solve IK please enter new positions");
+                                start_state = false;
+                                break;
+                            }
+                        }
+                     }
+                }else {
+                    ROS_ERROR("Movement stopped!!");
+                    move_group.stop();
+                }
                 ros::spinOnce();
                 loop_rate.sleep();
             }
             break;
+
         case 3:
             while (ros::ok()){
 

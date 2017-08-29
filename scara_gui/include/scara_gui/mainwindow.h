@@ -15,7 +15,7 @@
 #include "scara_msgs/robot_info.h"
 
 
-const double PI = 3.14159265;
+const double RAD_TO_DEG = 57.2957795130;
 
 namespace Ui {
     class MainWindow;

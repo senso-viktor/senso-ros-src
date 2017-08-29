@@ -63,10 +63,8 @@ MainWindow::MainWindow(QWidget *parent) :
     //jointStates_sub = nn1.subscribe("scara_jointStates",1000,&MainWindow::jointStatesCallback, this);
 
     actualAcc_sub = nn2.subscribe("actualAcceleration",1000,&MainWindow::actualAccCallback, this);
-
     getInfo_sub = nn3.subscribe("getInfoValues",1000,&MainWindow::getInfoCallback, this);
     ROS_INFO("Init subscriber getInfo");
-
     actualPose_sub = nn4.subscribe("actualPose",1000,&MainWindow::actualPoseCallback, this);
     ROS_INFO("Init subscriber actualPose");
 
@@ -144,6 +142,7 @@ void MainWindow::on_jointControl_Gripper_Checkbox_3_toggled(bool checked){
 }
 
 void MainWindow::on_jointControl_Stop_PushButton_4_clicked(){
+
     startState_msg.data = false;
     for (int i=0;i<100;i++){
         start_pub.publish(startState_msg);
@@ -190,12 +189,12 @@ void MainWindow::on_positionControlCustom_Start_PushButton_3_clicked(){
         gripperState_msg.data = true;
     else
         gripperState_msg.data = false;
-    //stopState_msg.data = false;
+    startState_msg.data = true;
 
     for (int i=0;i<100;i++){
         positionControl_pub.publish(positionControl_Values_msg);
         gripperState_pub.publish(gripperState_msg);
-        //stop_pub.publish(stopState_msg);
+        start_pub.publish(startState_msg);
     }
 
 
@@ -203,9 +202,10 @@ void MainWindow::on_positionControlCustom_Start_PushButton_3_clicked(){
 }
 
 void MainWindow::on_positionControlCustom_Stop_PushButton_4_clicked(){
-    //stopState_msg.data = true;
+
+    startState_msg.data = false;
     for (int i=0;i<100;i++){
-        //stop_pub.publish(stopState_msg);
+        start_pub.publish(startState_msg);
     }
 }
 
@@ -221,11 +221,11 @@ void MainWindow::on_positionControlCustom_Reset_PushButton_5_clicked(){
     positionControl_Values_msg.y = 0.58;
     positionControl_Values_msg.z = 1.0196;
     gripperState_msg.data = false;
-    //stopState_msg.data = false;
+    startState_msg.data = true;
     for (int i=0;i<100;i++){
         positionControl_pub.publish(positionControl_Values_msg);
         gripperState_pub.publish(gripperState_msg);
-        //stop_pub.publish(stopState_msg);
+        start_pub.publish(startState_msg);
     }
 }
 
@@ -347,12 +347,13 @@ void MainWindow::on_workingModes_3_tabBarClicked(int index){
 void MainWindow::jointStatesCallback(const sensor_msgs::JointState jointState){
 
     //ROS_INFO("Subscribe jointStates");
-    ui->status_joint1pos_rad_3->display(jointState.position[1]);
-    ui->status_joint2pos_rad_3->display(jointState.position[2]);
-    ui->status_joint3pos_rad_3->display(jointState.position[3]);
-    ui->status_joint1pos_deg_3->display(jointState.position[1]*180/PI);
-    ui->status_joint2pos_deg_3->display(jointState.position[2]*180/PI);
-    ui->status_joint3pos_deg_3->display(jointState.position[3]*180/PI);
+    ROS_INFO("Joint states %f %f %f",jointState.position[1], jointState.position[2], jointState.position[3]);
+    ui->status_joint1pos_rad_3->display(jointState.position[0]*RAD_TO_DEG);
+    ui->status_joint2pos_rad_3->display(jointState.position[1]*RAD_TO_DEG);
+    ui->status_joint3pos_rad_3->display(jointState.position[2]*100.0);
+    ui->status_joint1pos_deg_3->display(jointState.position[0]);
+    ui->status_joint2pos_deg_3->display(jointState.position[1]);
+    ui->status_joint3pos_deg_3->display(jointState.position[2]*100.0);
 
     //Neskor doplnit rychlosti a momenty
     if (jointState.velocity.size() == 4){
