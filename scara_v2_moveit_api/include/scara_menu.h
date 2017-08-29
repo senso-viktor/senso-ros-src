@@ -10,6 +10,7 @@
 #include "stdio.h"
 #include "std_msgs/Bool.h"
 #include "std_msgs/Int32.h"
+#include "std_msgs/Byte.h"
 #include "geometry_msgs/PointStamped.h"
 #include "geometry_msgs/Point.h"
 #include "geometry_msgs/Pose.h"
@@ -24,7 +25,10 @@ bool gripper_state = false;
 bool success;
 int IK_mode = 1;
 int current_mode = 10;
+int last_trajectory_size = -5;
+int jointControl_counter = 0, positionControl_counter = 0;
 double x_offset, y_offset, z_offset;
+
 std::vector<double> jointControl_jointValues(3);
 std::vector<double> jointControl_lastJointValues{9.99,9.99,9.99};
 std::vector<double> positionControl_values(3);
@@ -32,13 +36,19 @@ std::vector<double> positionControl_lastValues {9.99,9.99,9.99};
 std::vector<double> link_length(2);
 std::vector<double> joint_positions(3);
 
+std_msgs::Byte selectedMode;
 geometry_msgs::Point point;
 geometry_msgs::Pose endEffectorPose;
+geometry_msgs::PoseStamped ws1;
 std_msgs::Int32 errorCodeMsg;
+geometry_msgs::Pose pos_and_vel;
+geometry_msgs::Point acc;
+
+moveit::planning_interface::MoveGroupInterface::Plan my_plan;
 
 //********************** Functions ********************************//
 //-------------------Mode joint control---------------------------//
-bool jointModeControll (moveit::planning_interface::MoveGroupInterface *move_group, moveit::planning_interface::MoveGroupInterface::Plan my_plan){
+bool jointModeControll (moveit::planning_interface::MoveGroupInterface *move_group){
 
     ROS_INFO("joint mode controll");
     bool success = move_group->plan(my_plan);
@@ -46,6 +56,7 @@ bool jointModeControll (moveit::planning_interface::MoveGroupInterface *move_gro
         ROS_ERROR("Could not create a plan!");
         return false;
     }
+    ROS_INFO("my plan size %d",my_plan.trajectory_.joint_trajectory.points.size());
     move_group->asyncExecute(my_plan);
     //move_group->asyncMove();
 
@@ -166,11 +177,11 @@ bool positionsChanged(){
 
 void sendEndEffectorPose(ros::Publisher *pub,moveit::planning_interface::MoveGroupInterface *move_group){
 
-    geometry_msgs::PoseStamped ws1 = move_group->getCurrentPose();
+    ws1 = move_group->getCurrentPose();
     endEffectorPose.position.x = ws1.pose.position.x;
     endEffectorPose.position.y = ws1.pose.position.y;
     endEffectorPose.position.z = ws1.pose.position.z;
-    ROS_INFO("Publishing pose x=%f y=%f z=%f",endEffectorPose.position.x, endEffectorPose.position.y, endEffectorPose.position.z);
+    //ROS_INFO("Publishing pose x=%f y=%f z=%f",endEffectorPose.position.x, endEffectorPose.position.y, endEffectorPose.position.z);
     pub->publish(endEffectorPose);
 
 }
@@ -181,6 +192,35 @@ void sendErrorCode(ros::Publisher *pub, int code){
     for (int i=0;i<10;i++){
        pub->publish(errorCodeMsg);
     }
+}
+
+void sendJointPoses(ros::Publisher *pose_and_vel_pub,ros::Publisher *accel_pub, moveit::planning_interface::MoveGroupInterface::Plan *plan, int i){
+
+    if (i == 999){
+        pos_and_vel.position.x = 0.0;
+        pos_and_vel.position.y =  0.0;
+        pos_and_vel.position.z =  0.0;
+        pos_and_vel.orientation.x =  0.0;
+        pos_and_vel.orientation.y =  0.0;
+        pos_and_vel.orientation.z =  0.0;
+        acc.x = 0.0;
+        acc.y = 0.0;
+        acc.z = 0.0;
+    }else{
+        pos_and_vel.position.x = plan->trajectory_.joint_trajectory.points[i].positions[0];
+        pos_and_vel.position.y = plan->trajectory_.joint_trajectory.points[i].positions[1];
+        pos_and_vel.position.z = plan->trajectory_.joint_trajectory.points[i].positions[2];
+        pos_and_vel.orientation.x = plan->trajectory_.joint_trajectory.points[i].velocities[0];
+        pos_and_vel.orientation.y = plan->trajectory_.joint_trajectory.points[i].velocities[1];
+        pos_and_vel.orientation.z = plan->trajectory_.joint_trajectory.points[i].velocities[2];
+        acc.x = plan->trajectory_.joint_trajectory.points[i].accelerations[0];
+        acc.y = plan->trajectory_.joint_trajectory.points[i].accelerations[1];
+        acc.z = plan->trajectory_.joint_trajectory.points[i].accelerations[2];
+    }
+
+    pose_and_vel_pub->publish(pos_and_vel);
+    accel_pub->publish(acc);
+
 }
 //--------------------------------------------------------//
 

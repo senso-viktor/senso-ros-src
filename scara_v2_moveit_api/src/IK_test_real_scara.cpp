@@ -169,7 +169,7 @@ int main(int argc, char **argv) {
     spinner.start();
     ros::Rate loop_rate(15);
 
-    double maxJointDeviation = 0.002;
+    double maxJointDeviation = 0.1;
     moveit::planning_interface::MoveGroupInterface::Plan my_plan;
     moveit::core::RobotStatePtr current_state;
     static const std::string PLANNING_GROUP = "scara_arm";
@@ -213,9 +213,6 @@ int main(int argc, char **argv) {
         mode_pub.publish(selectedMode);
         ROS_INFO("Init matlab");
         usleep(50000);
-
-
-
     }
 
     while (ros::ok()){
@@ -233,11 +230,11 @@ int main(int argc, char **argv) {
                     }
 
                 } else
-                    ROS_INFO("J3 not in place");
+                    ROS_INFO("J3 not in place %f [%f]",actual_joint_positions[2],joint_positions[2]);
             }else
-                ROS_INFO("J2 not in place");
+                ROS_INFO("J2 not in place %f [%f]",actual_joint_positions[1],joint_positions[1]);
         }else
-            ROS_INFO("J1 not in place");
+            ROS_INFO("J1 not in place %f [%f]",actual_joint_positions[0],joint_positions[0]);
 
 
         if (executionOK){
@@ -303,7 +300,6 @@ int main(int argc, char **argv) {
 
         if (my_plan.trajectory_.joint_trajectory.points.size() != last_trajectory_size){
             last_trajectory_size = my_plan.trajectory_.joint_trajectory.points.size();
-
             i=0;
         }
 

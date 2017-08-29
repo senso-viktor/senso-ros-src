@@ -49,7 +49,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ROS_INFO("Init publisher gripperState");
     start_pub = n10.advertise<std_msgs::Bool>("startState",1000);
     ROS_INFO("Init publisher stop");
-    mode_pub = n11.advertise<std_msgs::Int32>("modeSelect",1000);
+    mode_pub = n11.advertise<std_msgs::Int32>("modeSelectGUI",1000);
     ROS_INFO("Init publisher mode");
 
     ROS_INFO("...............................................");
@@ -57,10 +57,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //Subscribers
     //demo_rviz.launch
-    jointStates_sub = nn1.subscribe("move_group/fake_controller_joint_states",1000,&MainWindow::jointStatesCallback, this);
+    //jointStates_sub = nn1.subscribe("move_group/fake_controller_joint_states",1000,&MainWindow::jointStatesCallback, this);
     ROS_INFO("Init subscriber jointStates");
     //demo_matlab_mfile
-    //jointStates_sub = nn1.subscribe("scara_jointStates",1000,&MainWindow::jointStatesCallback, this);
+    jointStates_sub = nn1.subscribe("scara_jointStates",1000,&MainWindow::jointStatesCallback, this);
 
     actualAcc_sub = nn2.subscribe("actualAcceleration",1000,&MainWindow::actualAccCallback, this);
     getInfo_sub = nn3.subscribe("getInfoValues",1000,&MainWindow::getInfoCallback, this);
@@ -347,7 +347,7 @@ void MainWindow::on_workingModes_3_tabBarClicked(int index){
 void MainWindow::jointStatesCallback(const sensor_msgs::JointState jointState){
 
     //ROS_INFO("Subscribe jointStates");
-    ROS_INFO("Joint states %f %f %f",jointState.position[1], jointState.position[2], jointState.position[3]);
+    //ROS_INFO("Joint states %f %f %f",jointState.position[1], jointState.position[2], jointState.position[3]);
     ui->status_joint1pos_rad_3->display(jointState.position[0]*RAD_TO_DEG);
     ui->status_joint2pos_rad_3->display(jointState.position[1]*RAD_TO_DEG);
     ui->status_joint3pos_rad_3->display(jointState.position[2]*100.0);
@@ -385,12 +385,12 @@ void MainWindow::jointStatesCallback(const sensor_msgs::JointState jointState){
 }
 
 void MainWindow::jointControlCallback(const geometry_msgs::PointStamped pointStamped){
-    ROS_INFO("joint control callback");
+    //ROS_INFO("joint control callback");
 }
 
 void MainWindow::getInfoCallback(const scara_msgs::robot_info robotInfo){
 
-    ROS_INFO("robot info callback");
+    //ROS_INFO("robot info callback");
     std::string robot_model = robotInfo.robot_model;
     std::string reference_frame = robotInfo.reference_frame;
     std::string effector_link = robotInfo.efector_link;
@@ -415,7 +415,7 @@ void MainWindow::getInfoCallback(const scara_msgs::robot_info robotInfo){
 }   //String to QString !!!!!!
 
 void MainWindow::actualPoseCallback(const geometry_msgs::Pose pose){
-    ROS_INFO("Pose callback");
+    //ROS_INFO("Pose callback");
 
     ui->status_pose_X->display(pose.position.x);
     ui->status_pose_Y->display(pose.position.y);
@@ -428,7 +428,7 @@ void MainWindow::actualAccCallback(const geometry_msgs::Pose pose){
 
 void MainWindow::errorCodeCallback(const std_msgs::Int32 errorCode){
 
-    ROS_INFO("hovno %d",errorCode.data);
+    //ROS_INFO("hovno %d",errorCode.data);
 
     switch (errorCode.data){
         case 0:
