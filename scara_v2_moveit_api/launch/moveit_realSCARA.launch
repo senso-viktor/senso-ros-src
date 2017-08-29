@@ -1,0 +1,6 @@
+<!--Moveit + node that resend data Matlab (for real SCARA)-->
+
+<launch>
+    <include file="$(find scara_and_rt_moveit_config)/launch/demo_matlab_mfile.launch" />
+    <node name="get_and_send_planned_path" pkg="scara_v2_moveit_api" type="get_and_send_planned_path" respawn="false" output="screen"/>
+</launch>

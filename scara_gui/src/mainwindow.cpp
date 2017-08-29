@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     char **argv;
     ros::init(argc, argv, "scara_gui_node");
     ros::NodeHandle n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11;
-    ros::NodeHandle nn1,nn2,nn3,nn4;
+    ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6;
     ros::Rate loop_rate(10);
 
     ROS_INFO("spinner start");
@@ -67,8 +67,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ROS_INFO("Init subscriber getInfo");
     actualPose_sub = nn4.subscribe("actualPose",1000,&MainWindow::actualPoseCallback, this);
     ROS_INFO("Init subscriber actualPose");
-
-
+    errorMessage_sub = nn5.subscribe("errorCode",1000,&MainWindow::errorCodeCallback, this);
+    shit_sub = nn6.subscribe("hovadina",1000,&MainWindow::kktinaCallback, this);
 
     ROS_WARN("GUI init complete");
     ROS_WARN("STARTING NOW");
@@ -424,4 +424,43 @@ void MainWindow::actualPoseCallback(const geometry_msgs::Pose pose){
 
 void MainWindow::actualAccCallback(const geometry_msgs::Pose pose){
 
+}
+
+void MainWindow::errorCodeCallback(const std_msgs::Int32 errorCode){
+
+    ROS_INFO("hovno %d",errorCode.data);
+
+    switch (errorCode.data){
+        case 0:
+            ROS_INFO("Everything OK!");
+            ui->error_lineEdit->setText("Everything OK!");
+            break;
+        case 1:
+            ROS_INFO("[joint control] : Bad input joint values");
+            ui->error_lineEdit->setText("[joint control] : Bad input joint values");
+            break;
+        case 2:
+            ROS_INFO("[position control] : Bad plan");
+            ui->error_lineEdit->setText("[joint control] : Bad plan");
+            break;
+        case 3:
+            ROS_INFO("[position control] : Colision warining! changing mode");
+            ui->error_lineEdit->setText("[position control] : Colision warining! changing mode");
+            break;
+        case 4:
+            ROS_INFO("[position control] : Cannot solve IK please enter new positions");
+            ui->error_lineEdit->setText("[position control] : Cannot solve IK please enter new positions");
+            break;
+        case 5:
+            ROS_INFO("[position control] : No solution found for desired position");
+            ui->error_lineEdit->setText("[position control] : No solution found for desired position");
+            break;
+        default:
+            ROS_ERROR("fuck...");
+            break;
+    }
+}
+
+void MainWindow::kktinaCallback(const geometry_msgs::Pose pose){
+    ROS_INFO("kktina");
 }

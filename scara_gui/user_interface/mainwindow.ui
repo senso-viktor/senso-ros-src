@@ -1365,10 +1365,10 @@
    <widget class="QPushButton" name="centralStop">
     <property name="geometry">
      <rect>
-      <x>310</x>
+      <x>20</x>
       <y>640</y>
-      <width>171</width>
-      <height>71</height>
+      <width>241</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="text">
@@ -1397,7 +1397,7 @@
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>280</x>
       <y>640</y>
       <width>101</width>
       <height>80</height>
@@ -1429,6 +1429,29 @@
      </item>
     </layout>
    </widget>
+   <widget class="QLineEdit" name="error_lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>660</y>
+      <width>401</width>
+      <height>61</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>640</y>
+      <width>151</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Error messages&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -1453,4 +1476,3 @@
  <resources/>
  <connections/>
 </ui>
-

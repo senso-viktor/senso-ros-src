@@ -233,11 +233,11 @@ int main(int argc, char **argv) {
                     }
 
                 } else
-                    ROS_INFO("Fuck 1");
+                    ROS_INFO("J3 not in place");
             }else
-            ROS_INFO("Fuck 2");
+                ROS_INFO("J2 not in place");
         }else
-            ROS_INFO("Fuck 3");
+            ROS_INFO("J1 not in place");
 
 
         if (executionOK){

@@ -7,6 +7,7 @@
 #include "ros/subscriber.h"
 #include "geometry_msgs/PointStamped.h"
 #include <std_msgs/Bool.h>
+#include <std_msgs/Int32.h>
 #include <std_msgs/Float64.h>
 #include "sensor_msgs/JointState.h"
 #include "geometry_msgs/Point.h"
@@ -37,6 +38,10 @@ public:
     void actualPoseCallback(const geometry_msgs::Pose pose);
 
     void actualAccCallback(const geometry_msgs::Pose pose);
+
+    void errorCodeCallback(const std_msgs::Int32 errorCode);
+
+    void kktinaCallback(const geometry_msgs::Pose pose);
 
 private slots:
     void on_jointControl_Start_PushButton_3_clicked();
@@ -95,7 +100,7 @@ private:
     sensor_msgs::JointState actualJointStates;
 
     ros::Publisher jointControl_pub, positionControl_pub, demo_pub, getInfo_pub, setVel_pub, setAcc_pub, setPlanTime_pub, setNumOfAttempts_pub, gripperState_pub, start_pub, mode_pub;
-    ros::Subscriber jointControlValues_sub, positionControlValues_sub, demoValues_sub, getInfo_sub, jointStates_sub, actualPose_sub, actualAcc_sub;
+    ros::Subscriber jointControlValues_sub, positionControlValues_sub, demoValues_sub, getInfo_sub, jointStates_sub, actualPose_sub, actualAcc_sub, errorMessage_sub, shit_sub;
 
     //dorobit reset publisher...
 

@@ -34,6 +34,7 @@ std::vector<double> joint_positions(3);
 
 geometry_msgs::Point point;
 geometry_msgs::Pose endEffectorPose;
+std_msgs::Int32 errorCodeMsg;
 
 //********************** Functions ********************************//
 //-------------------Mode joint control---------------------------//
@@ -172,6 +173,14 @@ void sendEndEffectorPose(ros::Publisher *pub,moveit::planning_interface::MoveGro
     ROS_INFO("Publishing pose x=%f y=%f z=%f",endEffectorPose.position.x, endEffectorPose.position.y, endEffectorPose.position.z);
     pub->publish(endEffectorPose);
 
+}
+
+void sendErrorCode(ros::Publisher *pub, int code){
+
+    errorCodeMsg.data = code;
+    for (int i=0;i<10;i++){
+       pub->publish(errorCodeMsg);
+    }
 }
 //--------------------------------------------------------//
 

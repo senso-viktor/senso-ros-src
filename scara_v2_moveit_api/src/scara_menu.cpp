@@ -36,6 +36,7 @@ int main(int argc, char **argv){
 
     //Publishers
     ros::Publisher actualPose_pub = n1.advertise<geometry_msgs::Pose>("actualPose",1000);
+    ros::Publisher errorMessage_pub = n2.advertise<std_msgs::Int32>("errorCode",1000);
 //    ros::Publisher infoPublisher = n1.advertise<scara_v2_moveit_api::scara_basic_info>("scara/basic_info", 1000);
     //Subscriber
     ros::Subscriber modeSelect_sub = nn1.subscribe("modeSelect",1000,modeSelectCallback);
@@ -90,6 +91,7 @@ int main(int argc, char **argv){
                         kinematic_state->setJointGroupPositions(joint_model_group, jointControl_jointValues);
                         if (!kinematic_state->satisfiesBounds()) {
                             ROS_ERROR("Bad input joint values");
+                            sendErrorCode(&errorMessage_pub, 1);
                             start_state = false;
                             break;
                         }
@@ -136,14 +138,17 @@ int main(int argc, char **argv){
                                         break;
                                     } else{
                                         ROS_ERROR("Bad plan");
+                                        sendErrorCode(&errorMessage_pub, 2);
                                         start_state = false;
                                         break;
                                     }
                                 }else{
                                     ROS_WARN("Colision warining! changing mode");
+                                    sendErrorCode(&errorMessage_pub, 3);
                                     IK_mode++;
                                     if (IK_mode >3){
                                         ROS_INFO("Cannot solve IK please enter new positions");
+                                        sendErrorCode(&errorMessage_pub, 4);
                                         start_state = false;
                                         break;
                                     }
@@ -151,6 +156,7 @@ int main(int argc, char **argv){
                             }else{
                                 ROS_ERROR("No solution found");
                                 ROS_INFO("Cannot solve IK please enter new positions");
+                                sendErrorCode(&errorMessage_pub, 5);
                                 start_state = false;
                                 break;
                             }
