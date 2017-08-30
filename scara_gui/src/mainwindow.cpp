@@ -254,10 +254,17 @@ void MainWindow::on_positionControl2_Start_PushButton_3_clicked(){
     ui->positionControl2_LineEdit->setText("DEMO application 2 RUNNING!");
 
     //ROS
-    demoState_msg.data = true;
-    for (int i=0;i<100;i++) {
-        demo_pub.publish(demoState_msg);
+    if (gripperState)
+        gripperState_msg.data = true;
+    else
+        gripperState_msg.data = false;
+    startState_msg.data = true;
+
+    for (int i=0;i<100;i++){
+        gripperState_pub.publish(gripperState_msg);
+        start_pub.publish(startState_msg);
     }
+
 }
 
 void MainWindow::on_positionControl2_Stop_PushButton_3_clicked(){
@@ -265,9 +272,9 @@ void MainWindow::on_positionControl2_Stop_PushButton_3_clicked(){
     ui->positionControl2_LineEdit->setText("DEMO application 2 STOPPED!");
 
     //ROS
-    demoState_msg.data = false;
-    for (int i=0;i<100;i++) {
-        demo_pub.publish(demoState_msg);
+    startState_msg.data = false;
+    for (int i=0;i<100;i++){
+        start_pub.publish(startState_msg);
     }
 }
 //*****************************************************************************//
@@ -356,31 +363,31 @@ void MainWindow::jointStatesCallback(const sensor_msgs::JointState jointState){
     ui->status_joint3pos_deg_3->display(jointState.position[2]*100.0);
 
     //Neskor doplnit rychlosti a momenty
-    if (jointState.velocity.size() == 4){
+    if (jointState.velocity.size() >= 3){
+        ui->status_joint2vel_3->display(jointState.velocity[0]);
         ui->status_joint2vel_3->display(jointState.velocity[1]);
-        ui->status_joint2vel_3->display(jointState.velocity[2]);
-        ui->status_joint3vel_3->display(jointState.velocity[3]);
+        ui->status_joint3vel_3->display(jointState.velocity[2]);
     }else{
-        ui->status_joint1vel_3->display(0.1);
-        ui->status_joint2vel_3->display(0.1);
-        ui->status_joint3vel_3->display(0.1);
+        ui->status_joint1vel_3->display(9.99);
+        ui->status_joint2vel_3->display(9.99);
+        ui->status_joint3vel_3->display(9.99);
     }
 
-    if (jointState.effort.size() == 4){
-        ui->status_joint1torq_3->display(jointState.effort[1]);
-        ui->status_joint2torq_3->display(jointState.effort[2]);
-        ui->status_joint3torq_3->display(jointState.effort[3]);
+    if (jointState.effort.size() >= 3){
+        ui->status_joint1torq_3->display(jointState.effort[0]);
+        ui->status_joint2torq_3->display(jointState.effort[1]);
+        ui->status_joint3torq_3->display(0.0);
     }else{
-        ui->status_joint1torq_3->display(0.3);
-        ui->status_joint2torq_3->display(0.3);
-        ui->status_joint3torq_3->display(0.3);
+        ui->status_joint1torq_3->display(9.99);
+        ui->status_joint2torq_3->display(9.99);
+        ui->status_joint3torq_3->display(0.0);
     }
 
     //...........dorobit aj primanie acceleration..........//
 
-    ui->status_joint1acc_3->display(0.2);
-    ui->status_joint2acc_3->display(0.2);
-    ui->status_joint3acc_3->display(0.2);
+    ui->status_joint1acc_3->display(9.99);
+    ui->status_joint2acc_3->display(9.99);
+    ui->status_joint3acc_3->display(9.99);
 
 }
 

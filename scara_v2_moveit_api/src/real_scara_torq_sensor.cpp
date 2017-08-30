@@ -37,6 +37,7 @@ void forceFeedbackThread(){
             ROS_ERROR("J1_torq=%f J2_torq=%f",currentJointStates.effort[0],currentJointStates.effort[1]);
             break;
         }
+        ros::spinOnce();
     }
 }
 
