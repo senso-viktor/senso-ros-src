@@ -288,24 +288,36 @@ void MainWindow::on_positionControl2_Stop_PushButton_3_clicked(){
 //******************************* TEACH MODE ************************************//
 void MainWindow::on_teachMode_teachButton_clicked()
 {
+    QString currentMode;
     ROS_INFO("teach !");
-
     positionControl_Values_msg.x = ui->teachMode_Xpos_lineEdit->text().toDouble();
     positionControl_Values_msg.y = ui->teachMode_Ypos_lineEdit->text().toDouble();
     positionControl_Values_msg.z = ui->teachMode_Zpos_lineEdit->text().toDouble();
 
+    if (teachModeIndex == 0){
+        ui->teachMode_info_textEdit->setText("X = " + QString::number(positionControl_Values_msg.x) + " Y= " +
+                                             QString::number(positionControl_Values_msg.y) + " Z= " +
+                                             QString::number(positionControl_Values_msg.z) + " ] \n" + "Operation type = Pick");
+    }else if(teachModeIndex%2 == 0){
+        ui->teachMode_info_textEdit->setText("[ X = " + QString::number(positionControl_Values_msg.x) + " Y= " +
+                                             QString::number(positionControl_Values_msg.y) + " Z= " +
+                                             QString::number(positionControl_Values_msg.z) + " ] \n" + "Operation type = Pick");
+    }else{
+        ui->teachMode_info_textEdit->setText("[ X = " + QString::number(positionControl_Values_msg.x) + " Y= " +
+                                             QString::number(positionControl_Values_msg.y) + " Z= " +
+                                             QString::number(positionControl_Values_msg.z) + " ] \n" + "Operation type = Place");
+    }
+    positionControl_pub.publish(positionControl_Values_msg);
 
 
-    ui->teachmode_Info_lineEdit->setText("[ " + QString::number(positionControl_Values_msg.x) + "," +
-                                                 QString::number(positionControl_Values_msg.y) + " , " +
-                                                 QString::number(positionControl_Values_msg.z) + " ] \n" + "Pick");
+    teachModeIndex++;
 
     startState_msg.data = true;
     for (int i=0;i<100;i++){
         start_pub.publish(startState_msg);
+        positionControl_pub.publish(positionControl_Values_msg);
+
     }
-
-
 }
 
 void MainWindow::on_teachMode_stopTeachButton_clicked()

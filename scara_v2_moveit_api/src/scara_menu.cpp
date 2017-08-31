@@ -14,6 +14,7 @@ void forceFeedbackThread(){
         if ((currentJointStates.effort[0] >= max_torque_value) || (currentJointStates.effort[1] >= max_torque_value)){
             colisionDetection = true;
             start_state = false;
+            teach_start_state = false;
             //ROS_ERROR("STOP ! [J1_torq=%f J2_torq=%f start_state=%d]",currentJointStates.effort[0],currentJointStates.effort[1],start_state);
         }else{
             //ROS_INFO("colision detection = %d",colisionDetection);
@@ -33,7 +34,7 @@ int main(int argc, char **argv){
     int numOfPlacePos = 0;
     ros::init(argc, argv, "menu_node");
     ros::NodeHandle n1,n2,n3,n4,n5,n6,n7;
-    ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6,nn7;
+    ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6,nn7,nn8;
     ros::Rate loop_rate(10);
     ros::AsyncSpinner spinner(1);
     spinner.start();
@@ -73,7 +74,8 @@ int main(int argc, char **argv){
     ros::Subscriber jointControl_sub = nn4.subscribe("jointControl",1000, jointControlCallback);
     ros::Subscriber positionControl_sub = nn5.subscribe("positionControl",1000,positionControlCallback);
     ros::Subscriber scaraJointStates_sub = nn6.subscribe("scara_jointStates",1000,jointStatesCallback);
-
+    ros::Subscriber teachMode_sub = nn7.subscribe("teachModeGUI",1000,teachModeCallback);
+    ros::Subscriber teachModeStartState_sub = nn8.subscribe("teachModeStartState",1000,teachModeStartStateCallback);
     sleep(2);
     //Publish init data to Matlab
     selectedMode.data = 6;
@@ -91,17 +93,17 @@ int main(int argc, char **argv){
     for (int i=0; i<desiredJointsDEMO.size(); i++){
 
         while (ros::ok()){
-            if (calculateIK(desiredPositionsDEMO[i].x, desiredPositionsDEMO[i].y, desiredPositionsDEMO[i].z, IK_mode, true , i)){
+            if (calculateIK(desiredPositionsDEMO[i].x, desiredPositionsDEMO[i].y, desiredPositionsDEMO[i].z, IK_mode, 1 , i)){
                 move_group.setJointValueTarget(joint_positions);
                 kinematic_state->setJointGroupPositions(joint_model_group, joint_positions);
                 if (kinematic_state->satisfiesBounds()){
                     IK_mode = 1;
                     break;
                 }else{
-                    ROS_WARN("Colision warining! changing mode");
+                    //ROS_WARN("Colision warining! changing mode");
                     IK_mode++;
                     if (IK_mode >3){
-                        ROS_INFO("Cannot solve IK please enter new positions");
+                        //ROS_INFO("Cannot solve IK please enter new positions");
                         desiredJointsDEMO[i][0] = 0.0;
                         desiredJointsDEMO[i][1] = 0.0;
                         desiredJointsDEMO[i][2] = 0.0;
@@ -109,7 +111,7 @@ int main(int argc, char **argv){
                     }
                 }
             }else{
-                ROS_INFO("Cannot solve IK please enter new positions");
+                //ROS_INFO("Cannot solve IK please enter new positions");
                 desiredJointsDEMO[i][0] = 0.0;
                 desiredJointsDEMO[i][1] = 0.0;
                 desiredJointsDEMO[i][2] = 0.0;
@@ -119,9 +121,9 @@ int main(int argc, char **argv){
 
 
     }
-    for (int i=0; i<desiredJointsDEMO.size(); i++){
-        ROS_INFO("[%d] J1=%f J2=%f J3=%f",i,desiredJointsDEMO[i][0],desiredJointsDEMO[i][1],desiredJointsDEMO[i][2]);
-    }
+//    for (int i=0; i<desiredJointsDEMO.size(); i++){
+//        ROS_INFO("[%d] J1=%f J2=%f J3=%f",i,desiredJointsDEMO[i][0],desiredJointsDEMO[i][1],desiredJointsDEMO[i][2]);
+//    }
     move_group.setPlannerId("RRTConnectkConfigDefault");
     sleep(2);
 
@@ -134,7 +136,9 @@ int main(int argc, char **argv){
     waitForPublishers(&gripperState_sub, 1);
     waitForPublishers(&jointControl_sub, 1);
     waitForPublishers(&positionControl_sub, 1);
-    sleep(6);
+    waitForPublishers(&teachMode_sub, 1);
+    waitForPublishers(&teachModeStartState_sub, 1);
+    sleep(6);       //wait for matlab init
 
 
 
@@ -145,6 +149,7 @@ int main(int argc, char **argv){
         ROS_INFO_ONCE("while start");
 
     switch (current_mode){
+        ///////////////////////////////////////////////////////////////
         case 0:
             while (ros::ok()){
                 //Break while loop when the mode has changed
@@ -160,8 +165,7 @@ int main(int argc, char **argv){
             }
             break;
 
-
-
+        //////////////////////////////////////////////////////////////
         case 1:
             while (ros::ok()) {
                 //Break while loop when the mode has changed
@@ -239,7 +243,7 @@ int main(int argc, char **argv){
 
 
 
-
+        //////////////////////////////////////////////////////////////////////////////
         case 2:
 
             while (ros::ok()){
@@ -250,6 +254,7 @@ int main(int argc, char **argv){
                     count1 = 0;
                     positionControl_counter = 0;
                     last_trajectory_size = -5;
+                    IK_mode = 1;
                     break;
                 }
                 //Publish current pose of end effector (for GUI)
@@ -264,7 +269,7 @@ int main(int argc, char **argv){
                     //ROS_INFO("Position control start request");
                     if (positionsChanged()){
                         while (ros::ok()){
-                            if (calculateIK(positionControl_values[0], positionControl_values[1], positionControl_values[2], IK_mode, false, 0)){
+                            if (calculateIK(positionControl_values[0], positionControl_values[1], positionControl_values[2], IK_mode, 0, 0)){
                                 move_group.setJointValueTarget(joint_positions);
                                 kinematic_state->setJointGroupPositions(joint_model_group, joint_positions);
                                 if (kinematic_state->satisfiesBounds()){
@@ -340,7 +345,7 @@ int main(int argc, char **argv){
             break;
 
 
-
+        //////////////////////////////////////////////////////////////////////
         case 3:
             while (ros::ok()){
                 ROS_INFO_ONCE("DEMO control tab ...");
@@ -351,6 +356,7 @@ int main(int argc, char **argv){
                     demoControl_counter = 0;
                     last_trajectory_size = -5;
                     start_state = false;
+                    //executionOK = true;
                     break;
                 }
                 //Publish current pose of end effector (for GUI)
@@ -360,9 +366,7 @@ int main(int argc, char **argv){
                 }
                 count1++;
 
-
-
-                if (start_state){
+                if (start_state){       //colision!!!!!
 
                     ROS_INFO("running");
                     executionOK = inPosition(DEMO_mode);
@@ -427,18 +431,150 @@ int main(int argc, char **argv){
                 loop_rate.sleep();
             }
             break;
+
+
+        ////////////////////////////////////////////////////////////////
         case 4:
             while (ros::ok()){
+                ROS_INFO_ONCE("teaching mode");
 
                 //Break while loop when the mode has changed
-                if (current_mode != 4)
+                if (current_mode != 4){
+                    move_group.stop();
+                    count1 = 0;
+                    last_trajectory_size = -5;
+                    start_state = false;
+                    initTeachedPositions = true;
+                    IK_mode = 1;
+                    zeroPositionForTeach = true;
+                    teachMode_counter = 0;
+                    //teachPositions.clear();
                     break;
+                }
 
-                ROS_INFO("Information tab ...");
+                if (zeroPositionForTeach){
+                    teachPositions.push_back(desiredPositionsDEMO[0]);
+                    zeroPositionForTeach = false;
+                }
+
+                if (teach_mode == 0){           //teach mode
+                    //desiredJointsTeach.clear();
+                    ROS_INFO_ONCE("teaching now");
+                    if (start_state){     //if teach button was pushed
+                        if (teachPointChanged()){
+                            ROS_WARN("teached new positions!!!!");
+                            teachPositions.push_back(currentTeachPoint);
+                            start_state = false;
+                        }
+
+                    }
+
+
+                }else if (teach_mode == 1)   {                      //run mode
+
+                    if (initTeachedPositions){          //init vector and  calculate IK
+                        ROS_INFO("stopped teaching");
+                        showAndInitVector();
+                        for (int i=0; i<desiredJointsTeach.size(); i++){
+
+                            while (ros::ok()){
+                                if (calculateIK(teachPositions[i].x, teachPositions[i].y, teachPositions[i].z, IK_mode, 2 , i)){
+                                    move_group.setJointValueTarget(joint_positions);
+                                    kinematic_state->setJointGroupPositions(joint_model_group, joint_positions);
+                                    if (kinematic_state->satisfiesBounds()){
+                                        IK_mode = 1;
+                                        break;
+                                    }else{
+                                        ROS_WARN("Colision warining! changing mode");
+                                        IK_mode++;
+                                        if (IK_mode >3){
+                                            ROS_INFO("Cannot solve IK please enter new positions");
+                                            desiredJointsTeach[i][0] = 0.0;
+                                            desiredJointsTeach[i][1] = 0.0;
+                                            desiredJointsTeach[i][2] = 0.0;
+                                            break;
+                                        }
+                                    }
+                                }else{
+                                    ROS_INFO("Cannot solve IK please enter new positions");
+                                    desiredJointsTeach[i][0] = 0.0;
+                                    desiredJointsTeach[i][1] = 0.0;
+                                    desiredJointsTeach[i][2] = 0.0;
+                                    break;
+                                }
+                            }
+                        }
+
+                        for (int i=0; i<desiredJointsTeach.size(); i++){
+                            ROS_INFO("[%d] J1=%f J2=%f J3=%f",i,desiredJointsTeach[i][0],desiredJointsTeach[i][1],desiredJointsTeach[i][2]);
+                        }
+                        initTeachedPositions = false;
+                    }
+
+
+                    if (teach_start_state && !colisionDetection){
+
+                        if (count1 != -1){
+                            executionOK = inPositionTeach(count1);
+                        }else {
+                            executionOK = true;
+                        }
+
+                        if (executionOK){
+                            sleep(2);
+                            count1++;
+                            if (count1 == desiredJointsTeach.size()){
+                                count1 = 0;
+                            }
+
+                            ROS_WARN("Desired joints : %f %f %f", desiredJointsTeach[count1][0], desiredJointsTeach[count1][1],
+                                     desiredJointsTeach[count1][2]);
+                            move_group.setJointValueTarget(desiredJointsTeach[count1]);
+                            jointModeControll(&move_group);
+                        }
+
+                        if (my_plan.trajectory_.joint_trajectory.points.size() != last_trajectory_size){
+                            last_trajectory_size = my_plan.trajectory_.joint_trajectory.points.size();
+                            teachMode_counter=0;
+                        }
+
+                        if (teachMode_counter < my_plan.trajectory_.joint_trajectory.points.size()){
+                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, teachMode_counter);
+                            ROS_WARN("message GO! [%d/%d]",teachMode_counter,last_trajectory_size);
+                            teachMode_counter++;
+                        }else{
+                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, last_trajectory_size-1);
+                            ROS_ERROR("message stay!!",pos_and_vel.position.x, pos_and_vel.position.y, pos_and_vel.position.z);
+                        }
+                    }else{
+                        ROS_INFO("stopped");
+                        if (teachMode_counter < 1){
+                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
+                            ROS_ERROR("message stop!! [0/%d]",last_trajectory_size);
+
+                        }else if (teachMode_counter < 15){
+                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, teachMode_counter);
+                            ROS_ERROR("message stop!! [%d/%d]", demoControl_counter-10,last_trajectory_size);
+                        }else{
+                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, (teachMode_counter-10));
+                            ROS_ERROR("message stop!! [%d/%d]", (teachMode_counter-10),last_trajectory_size);
+                        }
+                        count1 = -1;
+                        move_group.stop();
+                    }
+
+                }else {
+                    ROS_ERROR("not valid teach mode");
+                }
+
                 ros::spinOnce();
                 loop_rate.sleep();
             }
+
             break;
+
+
+        ////////////////////////////////////////////////////////////////
         case 5:
             while (ros::ok()){
 

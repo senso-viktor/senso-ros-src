@@ -21,15 +21,19 @@
 
 //Global variables
 bool start_state = false;
+bool teach_start_state = false;
 bool gripper_state = false;
 bool success;
 bool colisionDetection = false;
 bool executionOK = true;
+bool initTeachedPositions = true;
+bool zeroPositionForTeach = true;
 int IK_mode = 1;
 int DEMO_mode = 0;
+int teach_mode = -1;
 int current_mode = 10;
 int last_trajectory_size = -5;
-int jointControl_counter = 0, positionControl_counter = 0, demoControl_counter = 0;
+int jointControl_counter = 0, positionControl_counter = 0, demoControl_counter = 0, teachMode_counter = 0;
 double x_offset, y_offset, z_offset;
 double max_torque_value = 3.5, torque_value = 0.0;
 double maxJointDeviation = 0.1;
@@ -41,7 +45,9 @@ std::vector<double> positionControl_lastValues {9.99,9.99,9.99};
 std::vector<double> link_length(2);
 std::vector<double> joint_positions(3);
 std::vector<std::vector<double>> desiredJointsDEMO(11, std::vector<double>(3));
+std::vector<std::vector<double>> desiredJointsTeach;
 std::vector<geometry_msgs::Point> desiredPositionsDEMO(11);
+std::vector<geometry_msgs::Point> teachPositions;
 
 std_msgs::Byte selectedMode;
 std_msgs::Int32 errorCodeMsg;
@@ -51,6 +57,8 @@ geometry_msgs::PoseStamped ws1;
 geometry_msgs::Pose pos_and_vel;
 geometry_msgs::Point acc;
 sensor_msgs::JointState currentJointStates;
+geometry_msgs::Point currentTeachPoint, lastTeachPoint;
+
 
 moveit::planning_interface::MoveGroupInterface::Plan my_plan;
 
@@ -136,7 +144,7 @@ void getOffsets(){
 }
 
 //This function is used to calculate the Inverse kinematics for the SCARA
-bool calculateIK(double x, double y, double z,  int mode, bool demo, int index){
+bool calculateIK(double x, double y, double z,  int mode, int working_mode, int index){
 
     //******************************************************************************************//
     //   This function is used to calculate the Inverse kinematics for the SCARA                //
@@ -144,8 +152,9 @@ bool calculateIK(double x, double y, double z,  int mode, bool demo, int index){
     //      - double x,y,z = desired position                                                   //
     //      - int mode = Specifies if the IK should be calculated in clockwise(right-handed)    //
     //                   or anticlockwise(left-handed) mode                                     //
-    //      - bool demo = This parameter is used for the DEMO mode and it serves to save the    //
-    //                    calculated IK solution to desiredJointsDEMO                           //
+    //      - int working_mode = This parameter is used for the DEMO mode and it serves to     //
+    //                    save the calculated IK solution to:                                   //
+    //                          1)desiredJointsDEMO     2)desiredJointsTeach                    //
     //      - int index = This parameter is also used for DEMO mode. It specifies to which      //
     //                    index of desiredJointsDEMO should be the solution saved               //
     //******************************************************************************************//
@@ -182,11 +191,15 @@ bool calculateIK(double x, double y, double z,  int mode, bool demo, int index){
         return false;
     }
 
-    ROS_INFO("output joint positions %f %f %f",joint_positions[0],joint_positions[1],joint_positions[2]);
+    //ROS_INFO("output joint positions %f %f %f",joint_positions[0],joint_positions[1],joint_positions[2]);
 
-    if (demo){
+    if (working_mode == 1){             //DEMO
         for (int i=0;i<joint_positions.size();i++)
             desiredJointsDEMO[index][i] = joint_positions[i];
+    }else if (working_mode == 2){       //TEACH
+        for (int i=0;i<joint_positions.size();i++)
+            desiredJointsTeach[index][i] = joint_positions[i];
+        ROS_INFO("IK calculate for teach!");
     }
     //ROS_INFO("count IK OK!");
     return true;
@@ -426,6 +439,82 @@ bool inPosition(int currentMode) {
     return false;
 }
 
+//This function compares the current and the last position in teach control -> dokoncit popis...
+bool teachPointChanged(){
+
+    static bool initLastPoint = true;
+
+    if (initLastPoint){ //Just once - init last points
+        ROS_INFO("Init last teach point");
+        lastTeachPoint.x = 9.99;
+        lastTeachPoint.y = 9.99;
+        lastTeachPoint.z = 9.99;
+        initLastPoint = false;
+    }
+    ROS_INFO("%f %f",currentTeachPoint.x, lastTeachPoint.x);
+    ROS_INFO("%f %f",currentTeachPoint.y, lastTeachPoint.z);
+    ROS_INFO("%f %f",currentTeachPoint.z, lastTeachPoint.y);
+    if ((currentTeachPoint.x != lastTeachPoint.x) || (currentTeachPoint.y != lastTeachPoint.y) || (currentTeachPoint.z != lastTeachPoint.z)){
+        ROS_INFO("change detected!");
+        lastTeachPoint.x = currentTeachPoint.x;
+        lastTeachPoint.y = currentTeachPoint.y;
+        lastTeachPoint.z = currentTeachPoint.z;
+        return true;
+    }else{
+        ROS_INFO("no change detected!");
+        return false;
+    }
+
+}
+
+//shows the teached positions and initializes vector for calculated joint values -> dokoncit popis...
+void showAndInitVector(){
+
+    ROS_INFO("size of teached points %d",teachPositions.size());
+    for (int i =0;i<teachPositions.size();i++){
+        ROS_INFO("%d x=%f y=%f z=%f",i, teachPositions[i].x, teachPositions[i].y, teachPositions[i].z);
+    }
+    desiredJointsTeach.resize(teachPositions.size());
+    for (int i=0; i< desiredJointsTeach.size(); i++){
+        desiredJointsTeach[i].resize(3);
+    }
+    ROS_INFO("desireJointsTeach size = %d x %d",desiredJointsTeach.size(), desiredJointsTeach[0].size());
+
+}
+
+//This function compares the current and the desired joint values (used for DEMO program)
+bool inPositionTeach(int currentMode) {
+
+    //****************************************************************************************************//
+    //   This function compares the current and the desired joint values (used for DEMO program)          //
+    //   It returns true if the currentJointStates.position has a value of desiredJointsDEMO +-deathzone  //
+    //   else it returns false                                                                            //
+    //****************************************************************************************************//
+
+    if ((desiredJointsTeach[currentMode][0] - maxJointDeviation < currentJointStates.position[0]) &&
+        (currentJointStates.position[0] < desiredJointsTeach[currentMode][0] + maxJointDeviation)) {
+        if ((desiredJointsTeach[currentMode][1] - maxJointDeviation < currentJointStates.position[1]) &&
+            (currentJointStates.position[1] < desiredJointsTeach[currentMode][1] + maxJointDeviation)) {
+            if ((desiredJointsTeach[currentMode][2] - maxJointDeviation < currentJointStates.position[2]) &&
+                (currentJointStates.position[2] < desiredJointsTeach[currentMode][2] + maxJointDeviation)) {
+
+                ROS_WARN("!!!!!   In place  !!!!!!");
+                for (int i = 0; i < joint_positions.size(); i++) {
+                    ROS_ERROR("Desired joint %d value %f", i, desiredJointsTeach[currentMode][i]);
+                    ROS_ERROR("Joint %d value %f", i, currentJointStates.position[i]);
+                }
+                return true;
+
+            } else
+                ROS_INFO("J3 not in place %f [%f]", currentJointStates.position[2], desiredJointsTeach[currentMode][2]);
+        } else
+            ROS_INFO("J2 not in place %f [%f]", currentJointStates.position[1], desiredJointsTeach[currentMode][1]);
+    } else
+        ROS_INFO("J1 not in place %f [%f]", currentJointStates.position[0], desiredJointsTeach[currentMode][0]);
+
+    return false;
+}
+
 //******************************************************************************************************************************//
 
 
@@ -464,12 +553,34 @@ void positionControlCallback(const geometry_msgs::Point point){
     positionControl_values[0] = point.x;
     positionControl_values[1] = point.y;
     positionControl_values[2] = point.z;
+
+    if (teach_mode == 0){
+        currentTeachPoint = point;
+    }
+
 }                  //GUI -> MENU
+
+void teachModeCallback(const std_msgs::Int32 teachMode){
+
+    //ROS_INFO("teach mode callback %d",teachMode.data);
+    teach_mode = teachMode.data;
+
+}           //GUI -> MENU
+
+void teachModeStartStateCallback(const std_msgs::Bool startState_teachMode){
+
+    //ROS_INFO("teach start state callback");
+    teach_start_state = startState_teachMode.data;
+
+}               //GUI -> MENU
 
 void jointStatesCallback (const sensor_msgs::JointState jointStates){
 
     currentJointStates = jointStates;
 }            //REAL SCARA -> MENU
+
+
+
 
 #endif //PROJECT_SCARA_MENU_H
 

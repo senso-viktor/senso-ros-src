@@ -99,6 +99,7 @@ private:
 
     bool gripperState = false;
     bool newJointStates = false;
+    int teachModeIndex = 0;
 
 
     std_msgs::Bool gripperState_msg, startState_msg, demoState_msg, getInfoState_msg, teachModeState_msg;
