@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     int argc;
     char **argv;
     ros::init(argc, argv, "scara_gui_node");
-    ros::NodeHandle n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11;
+    ros::NodeHandle n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13;
     ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6;
     ros::Rate loop_rate(10);
 
@@ -51,6 +51,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ROS_INFO("Init publisher stop");
     mode_pub = n11.advertise<std_msgs::Int32>("modeSelectGUI",1000);
     ROS_INFO("Init publisher mode");
+    teachMode_pub = n12.advertise<std_msgs::Int32>("teachModeGUI",1000);
+    ROS_INFO("Init publisher teachMode");
+    teachMode_startState = n13.advertise<std_msgs::Bool>("teachModeStartState",1000);
+    ROS_INFO("Init publisher teachMode_startState");
 
     ROS_INFO("...............................................");
     ROS_INFO("...............................................");
@@ -58,9 +62,10 @@ MainWindow::MainWindow(QWidget *parent) :
     //Subscribers
     //demo_rviz.launch
     //jointStates_sub = nn1.subscribe("move_group/fake_controller_joint_states",1000,&MainWindow::jointStatesCallback, this);
-    ROS_INFO("Init subscriber jointStates");
+    //ROS_INFO("Init subscriber jointStates");
     //demo_matlab_mfile
     jointStates_sub = nn1.subscribe("scara_jointStates",1000,&MainWindow::jointStatesCallback, this);
+    ROS_INFO("Init subscriber jointStates");
 
     actualAcc_sub = nn2.subscribe("actualAcceleration",1000,&MainWindow::actualAccCallback, this);
     getInfo_sub = nn3.subscribe("getInfoValues",1000,&MainWindow::getInfoCallback, this);
@@ -280,6 +285,76 @@ void MainWindow::on_positionControl2_Stop_PushButton_3_clicked(){
 //*****************************************************************************//
 
 
+//******************************* TEACH MODE ************************************//
+void MainWindow::on_teachMode_teachButton_clicked()
+{
+    ROS_INFO("teach !");
+
+    positionControl_Values_msg.x = ui->teachMode_Xpos_lineEdit->text().toDouble();
+    positionControl_Values_msg.y = ui->teachMode_Ypos_lineEdit->text().toDouble();
+    positionControl_Values_msg.z = ui->teachMode_Zpos_lineEdit->text().toDouble();
+
+
+
+    ui->teachmode_Info_lineEdit->setText("[ " + QString::number(positionControl_Values_msg.x) + "," +
+                                                 QString::number(positionControl_Values_msg.y) + " , " +
+                                                 QString::number(positionControl_Values_msg.z) + " ] \n" + "Pick");
+
+    startState_msg.data = true;
+    for (int i=0;i<100;i++){
+        start_pub.publish(startState_msg);
+    }
+
+
+}
+
+void MainWindow::on_teachMode_stopTeachButton_clicked()
+{
+    ROS_INFO("stop teach !");
+    startState_msg.data = false;
+    for (int i=0;i<100;i++){
+        start_pub.publish(startState_msg);
+    }
+}
+
+void MainWindow::on_teachMode_tabWidget_tabBarClicked(int index)
+{
+    ROS_INFO("tab changed !");
+    teachModeSelect_msg.data = index;
+    ROS_INFO("tab number %d",teachModeSelect_msg.data);
+
+    for (int i=0;i<100;i++){
+       teachMode_pub.publish(teachModeSelect_msg);
+    }
+
+
+}
+
+void MainWindow::on_teachModeRun_start_pushbutton_clicked()
+{
+    ROS_INFO("teach mode START !");
+    teachModeState_msg.data = true;
+
+    for (int i=0;i<100;i++){
+        teachMode_startState.publish(teachModeState_msg);
+    }
+}
+
+void MainWindow::on_teachModeRun_stop_pushbutton_clicked()
+{
+    ROS_INFO("teach mode STOP !");
+    teachModeState_msg.data = false;
+
+    for (int i=0;i<100;i++){
+        teachMode_startState.publish(teachModeState_msg);
+    }
+}
+//********************************************************************************//
+
+
+
+
+
 //*************************** Get information ********************************//
 void MainWindow::on_basicInfo_GetInfo_PushButton_3_clicked(){
     //ROS
@@ -346,6 +421,9 @@ void MainWindow::on_workingModes_3_tabBarClicked(int index){
     }
 
 }
+
+
+
 //**********************************************************************//
 
 
@@ -353,7 +431,9 @@ void MainWindow::on_workingModes_3_tabBarClicked(int index){
 //********************** Callbacks ************************************//
 void MainWindow::jointStatesCallback(const sensor_msgs::JointState jointState){
 
-    //ROS_INFO("Subscribe jointStates");
+    //Save current joint state -> for teach mode
+    actualJointStates = jointState;
+
     //ROS_INFO("Joint states %f %f %f",jointState.position[1], jointState.position[2], jointState.position[3]);
     ui->status_joint1pos_rad_3->display(jointState.position[0]*RAD_TO_DEG);
     ui->status_joint2pos_rad_3->display(jointState.position[1]*RAD_TO_DEG);
@@ -471,3 +551,7 @@ void MainWindow::errorCodeCallback(const std_msgs::Int32 errorCode){
 void MainWindow::kktinaCallback(const geometry_msgs::Pose pose){
     ROS_INFO("kktina");
 }
+
+
+
+

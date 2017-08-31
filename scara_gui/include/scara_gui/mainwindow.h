@@ -82,6 +82,16 @@ private slots:
 
     void on_positionControl_Gripper_Checkbox_4_toggled(bool checked);
 
+    void on_teachMode_teachButton_clicked();
+
+    void on_teachMode_stopTeachButton_clicked();
+
+    void on_teachMode_tabWidget_tabBarClicked(int index);
+
+    void on_teachModeRun_start_pushbutton_clicked();
+
+    void on_teachModeRun_stop_pushbutton_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -90,17 +100,18 @@ private:
     bool gripperState = false;
     bool newJointStates = false;
 
-    std_msgs::Bool gripperState_msg, startState_msg, demoState_msg,getInfoState_msg;
+
+    std_msgs::Bool gripperState_msg, startState_msg, demoState_msg, getInfoState_msg, teachModeState_msg;
     std_msgs::Float64 setParamFloat_msg;
-    std_msgs::Int32 setParamInt_msg, modeSelect_msg;
+    std_msgs::Int32 setParamInt_msg, modeSelect_msg,teachModeSelect_msg;
     scara_msgs::robot_info robotInfo;
     geometry_msgs::PointStamped jointControl_Values_msg;
     geometry_msgs::Point positionControl_Values_msg;
     geometry_msgs::Pose actualPose_msg;
     sensor_msgs::JointState actualJointStates;
 
-    ros::Publisher jointControl_pub, positionControl_pub, demo_pub, getInfo_pub, setVel_pub, setAcc_pub, setPlanTime_pub, setNumOfAttempts_pub, gripperState_pub, start_pub, mode_pub;
-    ros::Subscriber jointControlValues_sub, positionControlValues_sub, demoValues_sub, getInfo_sub, jointStates_sub, actualPose_sub, actualAcc_sub, errorMessage_sub, shit_sub;
+    ros::Publisher jointControl_pub, positionControl_pub, demo_pub, getInfo_pub, setVel_pub, setAcc_pub, setPlanTime_pub, setNumOfAttempts_pub, gripperState_pub, start_pub, mode_pub, teachMode_pub, teachMode_startState;
+    ros::Subscriber jointControlValues_sub, positionControlValues_sub, demoValues_sub, getInfo_sub, jointStates_sub, actualPose_sub, actualAcc_sub, errorMessage_sub, shit_sub, teachModeTeach_sub, teachModeStopTeach_sub;
 
     //dorobit reset publisher...
 
