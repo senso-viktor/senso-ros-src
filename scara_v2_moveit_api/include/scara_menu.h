@@ -199,7 +199,7 @@ bool calculateIK(double x, double y, double z,  int mode, int working_mode, int 
     }else if (working_mode == 2){       //TEACH
         for (int i=0;i<joint_positions.size();i++)
             desiredJointsTeach[index][i] = joint_positions[i];
-        ROS_INFO("IK calculate for teach!");
+        //ROS_INFO("IK calculate for teach!");
     }
     //ROS_INFO("count IK OK!");
     return true;
@@ -565,14 +565,14 @@ void teachModeCallback(const std_msgs::Int32 teachMode){
     //ROS_INFO("teach mode callback %d",teachMode.data);
     teach_mode = teachMode.data;
 
-}           //GUI -> MENU
+}                         //GUI -> MENU
 
 void teachModeStartStateCallback(const std_msgs::Bool startState_teachMode){
 
     //ROS_INFO("teach start state callback");
     teach_start_state = startState_teachMode.data;
 
-}               //GUI -> MENU
+}     //GUI -> MENU
 
 void jointStatesCallback (const sensor_msgs::JointState jointStates){
 

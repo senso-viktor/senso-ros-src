@@ -286,8 +286,7 @@ void MainWindow::on_positionControl2_Stop_PushButton_3_clicked(){
 
 
 //******************************* TEACH MODE ************************************//
-void MainWindow::on_teachMode_teachButton_clicked()
-{
+void MainWindow::on_teachMode_teachButton_clicked(){
     QString currentMode;
     ROS_INFO("teach !");
     positionControl_Values_msg.x = ui->teachMode_Xpos_lineEdit->text().toDouble();
@@ -298,14 +297,17 @@ void MainWindow::on_teachMode_teachButton_clicked()
         ui->teachMode_info_textEdit->setText("X = " + QString::number(positionControl_Values_msg.x) + " Y= " +
                                              QString::number(positionControl_Values_msg.y) + " Z= " +
                                              QString::number(positionControl_Values_msg.z) + " ] \n" + "Operation type = Pick");
+        ui->teachMode_modeDisplay_lcdnumber->display(0.0);
     }else if(teachModeIndex%2 == 0){
         ui->teachMode_info_textEdit->setText("[ X = " + QString::number(positionControl_Values_msg.x) + " Y= " +
                                              QString::number(positionControl_Values_msg.y) + " Z= " +
                                              QString::number(positionControl_Values_msg.z) + " ] \n" + "Operation type = Pick");
+        ui->teachMode_modeDisplay_lcdnumber->display(0.0);
     }else{
         ui->teachMode_info_textEdit->setText("[ X = " + QString::number(positionControl_Values_msg.x) + " Y= " +
                                              QString::number(positionControl_Values_msg.y) + " Z= " +
                                              QString::number(positionControl_Values_msg.z) + " ] \n" + "Operation type = Place");
+        ui->teachMode_modeDisplay_lcdnumber->display(1.0);
     }
     positionControl_pub.publish(positionControl_Values_msg);
 
@@ -320,8 +322,7 @@ void MainWindow::on_teachMode_teachButton_clicked()
     }
 }
 
-void MainWindow::on_teachMode_stopTeachButton_clicked()
-{
+void MainWindow::on_teachMode_stopTeachButton_clicked(){
     ROS_INFO("stop teach !");
     startState_msg.data = false;
     for (int i=0;i<100;i++){
@@ -329,11 +330,12 @@ void MainWindow::on_teachMode_stopTeachButton_clicked()
     }
 }
 
-void MainWindow::on_teachMode_tabWidget_tabBarClicked(int index)
-{
+void MainWindow::on_teachMode_tabWidget_tabBarClicked(int index){
+
     ROS_INFO("tab changed !");
     teachModeSelect_msg.data = index;
     ROS_INFO("tab number %d",teachModeSelect_msg.data);
+    ui->teachMode_modeDisplay_lcdnumber->display(1.0);
 
     for (int i=0;i<100;i++){
        teachMode_pub.publish(teachModeSelect_msg);
@@ -345,9 +347,11 @@ void MainWindow::on_teachMode_tabWidget_tabBarClicked(int index)
 void MainWindow::on_teachModeRun_start_pushbutton_clicked()
 {
     ROS_INFO("teach mode START !");
-    teachModeState_msg.data = true;
+    ui->teachModeRun_info_lineEdit->setText("TEACH application 2 RUNNING!");
 
-    for (int i=0;i<100;i++){
+
+    teachModeState_msg.data = true;
+        for (int i=0;i<100;i++){
         teachMode_startState.publish(teachModeState_msg);
     }
 }
@@ -355,6 +359,7 @@ void MainWindow::on_teachModeRun_start_pushbutton_clicked()
 void MainWindow::on_teachModeRun_stop_pushbutton_clicked()
 {
     ROS_INFO("teach mode STOP !");
+    ui->teachModeRun_info_lineEdit->setText("TEACH application 2 STOPPED!");
     teachModeState_msg.data = false;
 
     for (int i=0;i<100;i++){
@@ -468,11 +473,11 @@ void MainWindow::jointStatesCallback(const sensor_msgs::JointState jointState){
     if (jointState.effort.size() >= 3){
         ui->status_joint1torq_3->display(jointState.effort[0]);
         ui->status_joint2torq_3->display(jointState.effort[1]);
-        ui->status_joint3torq_3->display(0.0);
+        ui->status_joint3torq_3->display(9.99);
     }else{
         ui->status_joint1torq_3->display(9.99);
         ui->status_joint2torq_3->display(9.99);
-        ui->status_joint3torq_3->display(0.0);
+        ui->status_joint3torq_3->display(9.99);
     }
 
     //...........dorobit aj primanie acceleration..........//
