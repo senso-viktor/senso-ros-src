@@ -54,9 +54,15 @@ sensor_msgs::JointState currentJointStates;
 
 moveit::planning_interface::MoveGroupInterface::Plan my_plan;
 
-//********************** Functions ********************************//
-//-------------------Mode joint control---------------------------//
+//************************************************** Functions *************************************************************//
+
+//This function creates a movement plan and also executes it (used for joint, position and DEMO control)
 bool jointModeControll (moveit::planning_interface::MoveGroupInterface *move_group){
+
+    //*****************************************************************************************************************//
+    //   This function creates a movement plan and also executes it (used for joint, position and DEMO control)        //
+    //   If it fails to create plan it returns false, otherwise it creates plan and executes it in assynchronous mode  //
+    //*****************************************************************************************************************//
 
     ROS_INFO("joint mode controll");
     bool success = move_group->plan(my_plan);
@@ -69,10 +75,16 @@ bool jointModeControll (moveit::planning_interface::MoveGroupInterface *move_gro
     //move_group->asyncMove();
 
 }
-//--------------------------------------------------------------//
 
-//*******************Mode position control ---------------------//
+//This functions server as a support function to function getOffsets
 geometry_msgs::Point getPoseFromTF(std::string source, std::string target) {
+
+    //**************************************************************************//
+    //   This functions server as a support function to function getOffsets     //
+    //   It looks up for transformation frames from the moveit, gets the        //
+    //   transforms between source and target frame.                            //
+    //   The final transform is returned as a geometry_msgs::Point              //
+    //**************************************************************************//
 
     geometry_msgs::Point point;
     tf::TransformListener listener;
@@ -88,7 +100,18 @@ geometry_msgs::Point getPoseFromTF(std::string source, std::string target) {
     return point;
 
 }
+
+//This function serves as a support function to function calculateIK
 void getOffsets(){
+
+    //*****************************************************************************//
+    //   This function serves as a support function to function calculateIK        //
+    //   It uses getPoseFromTF function to get the offsets between each specified  //
+    //   link and it calculates the final offsets of the SCARA (in relation to     //
+    //   world frame)                                                              //
+    //   Then in calculates the exact length for both scara link and stores it     //
+    //   in variable link_length                                                   //
+    //*****************************************************************************//
 
     geometry_msgs::Point scaraLink1, scaraLink2, scaraBase;
 
@@ -111,7 +134,21 @@ void getOffsets(){
     ROS_INFO("Get offsets OK");
 
 }
+
+//This function is used to calculate the Inverse kinematics for the SCARA
 bool calculateIK(double x, double y, double z,  int mode, bool demo, int index){
+
+    //******************************************************************************************//
+    //   This function is used to calculate the Inverse kinematics for the SCARA                //
+    //   Specification of input variables:                                                      //
+    //      - double x,y,z = desired position                                                   //
+    //      - int mode = Specifies if the IK should be calculated in clockwise(right-handed)    //
+    //                   or anticlockwise(left-handed) mode                                     //
+    //      - bool demo = This parameter is used for the DEMO mode and it serves to save the    //
+    //                    calculated IK solution to desiredJointsDEMO                           //
+    //      - int index = This parameter is also used for DEMO mode. It specifies to which      //
+    //                    index of desiredJointsDEMO should be the solution saved               //
+    //******************************************************************************************//
 
     //ROS_INFO("input numbers %f %f %f",x,y,z);
     x = x - x_offset;
@@ -156,11 +193,17 @@ bool calculateIK(double x, double y, double z,  int mode, bool demo, int index){
 
 }
 
-//-------------------------------------------------------//
-
-
-//--------------------------------------------------------//
+//This function checks if the input joint values (from the joint control mode) were changed
 bool valuesChanged(){
+
+    //*******************************************************************************************************//
+    //   This function checks if the input joint values (from the joint control mode) were changed           //
+    //   This function can be used only for joint control mode                                               //
+    //   It compares the actual jointControl_jointValues with the jointControl_lastJointValues               //
+    //   If between them is a difference the function will return true and also it will insert the           //
+    //   jointControl_jointValues to jointControl_lastJointValues                                            //
+    //   else it will return false                                                                           //
+    //*******************************************************************************************************//
 
     if ((jointControl_jointValues[0] != jointControl_lastJointValues[0]) || (jointControl_jointValues[1] != jointControl_lastJointValues[1]) || (jointControl_jointValues[2] != jointControl_lastJointValues[2])){
         //ROS_ERROR("change!");
@@ -174,7 +217,17 @@ bool valuesChanged(){
     }
 }
 
+//This function checks if the input position values (from the position control mode) were changed
 bool positionsChanged(){
+
+    //*******************************************************************************************************//
+    //   This function checks if the input position values (from the position control mode) were changed     //
+    //   This function can be used only for position control mode                                            //
+    //   It compares the actual positionControl_values with the positionControl_lastValues                   //
+    //   If between them is a difference the function will return true and also it will insert the           //
+    //   positionControl_values to positionControl_lastValues                                                 //
+    //   else it will return false                                                                           //
+    //*******************************************************************************************************//
 
     if ((positionControl_values[0] != positionControl_lastValues[0]) || (positionControl_values[1] != positionControl_lastValues[1]) || (positionControl_values[2] != positionControl_lastValues[2])){
         //ROS_ERROR("change!");
@@ -189,8 +242,14 @@ bool positionsChanged(){
 
 }
 
-//Sends the current pose of end effector to GUI
+//This function sends the current pose of end effector to GUI
 void sendEndEffectorPose(ros::Publisher *pub,moveit::planning_interface::MoveGroupInterface *move_group){
+
+    //*****************************************************************//
+    //   This function sends the current pose of end effector to GUI   //
+    //   It gets the current pose from move_group and the current pose //
+    //   is sent via publisher specified at the input of the function  //
+    //*****************************************************************//
 
     ws1 = move_group->getCurrentPose();
     endEffectorPose.position.x = ws1.pose.position.x;
@@ -201,7 +260,7 @@ void sendEndEffectorPose(ros::Publisher *pub,moveit::planning_interface::MoveGro
 
 }
 
-//   This function send error codes to GUI node
+//This function send error codes to GUI node
 void sendErrorCode(ros::Publisher *pub, int code){
 
     //**********************************************************************//
@@ -261,6 +320,14 @@ void sendJointPoses(ros::Publisher *pose_and_vel_pub,ros::Publisher *accel_pub, 
 //This function checks if they are enough publishers on the input topic
 void waitForPublishers (ros::Subscriber *sub, int numOfPublishers){
 
+    //*******************************************************************************//
+    //   This function checks if they are enough publishers on the input topic       //
+    //   If there are enough publishers on the topic it breaks the while and exits   //
+    //   the function                                                                //
+    //   If they are not enough publishers the function will wait and check for      //
+    //   publishers every 500 ms                                                     //
+    //*******************************************************************************//
+
     while (ros::ok()){
         if (sub->getNumPublishers() >= numOfPublishers){
             ROS_INFO("New publisher on topic %s [%d]",sub->getTopic().c_str(),sub->getNumPublishers());
@@ -272,10 +339,13 @@ void waitForPublishers (ros::Subscriber *sub, int numOfPublishers){
 
 }
 
-//This function sets the desired poses for DEMO program - here you can edit the desired poses
+//This function sets the desired poses for DEMO program
 void setDesiredPosesDEMO(){
 
-    //desiredPositionsDEMO
+    //************************************************************************************************//
+    //   This function sets the desired poses for DEMO program - here you can edit the desired poses  //
+    //************************************************************************************************//
+
     //Home position
         desiredPositionsDEMO[0].x = 0.704;
         desiredPositionsDEMO[0].y = 0.58;
@@ -323,7 +393,14 @@ void setDesiredPosesDEMO(){
 
 }
 
+//This function compares the current and the desired joint values (used for DEMO program)
 bool inPosition(int currentMode) {
+
+    //****************************************************************************************************//
+    //   This function compares the current and the desired joint values (used for DEMO program)          //
+    //   It returns true if the currentJointStates.position has a value of desiredJointsDEMO +-deathzone  //
+    //   else it returns false                                                                            //
+    //****************************************************************************************************//
 
     if ((desiredJointsDEMO[currentMode][0] - maxJointDeviation < currentJointStates.position[0]) &&
         (currentJointStates.position[0] < desiredJointsDEMO[currentMode][0] + maxJointDeviation)) {
@@ -349,40 +426,7 @@ bool inPosition(int currentMode) {
     return false;
 }
 
-bool runDEMO(moveit::planning_interface::MoveGroupInterface &move_group, robot_state::JointModelGroup *joint_model_group, int mode){
-
-//
-//    move_group->setJointValueTarget(desiredJointsDEMO[mode]);
-//    kinematic_state->setJointGroupPositions(joint_model_group, desiredJointsDEMO[mode]);
-//    if (!kinematic_state->satisfiesBounds()) {
-//        ROS_ERROR("Bad input joint values");
-//        return false;
-//    }
-//
-//    if (mode == 0){
-//        ROS_INFO("MODE = %d",mode);
-//
-//
-//
-//    }else if (mode == 1){
-//        ROS_INFO("MODE = %d",mode);
-//
-//    }else if (mode == 2){
-//        ROS_INFO("MODE = %d",mode);
-//
-//    }else if (mode == 3){
-//        ROS_INFO("MODE = %d",mode);
-//
-//    }else{
-//        ROS_INFO("no mode selected");
-//    }
-
-
-}
-
-
-
-//-----------------------------------------------------------------//
+//******************************************************************************************************************************//
 
 
 

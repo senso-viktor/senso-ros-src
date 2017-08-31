@@ -1372,7 +1372,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>STOP</string>
+     <string>STOP22</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_39">
