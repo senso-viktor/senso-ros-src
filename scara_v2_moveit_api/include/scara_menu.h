@@ -37,7 +37,7 @@ int last_trajectory_size = -5;
 int jointControl_counter = 0, positionControl_counter = 0, demoControl_counter = 0, teachMode_counter = 0, teachModeHand_counter = 0;
 double x_offset, y_offset, z_offset;
 double max_torque_value = 5.0, torque_value = 0.0;
-double maxJointDeviation = 0.1;
+double maxJointDeviation = 0.005;
 
 std::vector<double> jointControl_jointValues(3);
 std::vector<double> jointControl_lastJointValues{9.99,9.99,9.99};
