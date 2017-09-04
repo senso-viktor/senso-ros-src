@@ -92,6 +92,16 @@ private slots:
 
     void on_teachModeRun_stop_pushbutton_clicked();
 
+    void on_teachMode_tabWidget_2_tabBarClicked(int index);
+
+    void on_teachModeRun_startHand_pushbutton_4_clicked();
+
+    void on_teachModeRun_stopHand_pushbutton_4_clicked();
+
+    void on_teachMode_teachButtonHand_4_clicked();
+
+    void on_teachMode_stopTeachButtonHand_4_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -100,7 +110,7 @@ private:
     bool gripperState = false;
     bool newJointStates = false;
     int teachModeIndex = 0;
-
+    int teachModeIndexHand = 0;
 
     std_msgs::Bool gripperState_msg, startState_msg, demoState_msg, getInfoState_msg, teachModeState_msg;
     std_msgs::Float64 setParamFloat_msg;

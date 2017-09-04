@@ -23,6 +23,7 @@
 bool start_state = false;
 bool teach_start_state = false;
 bool gripper_state = false;
+bool button_state = false;
 bool success;
 bool colisionDetection = false;
 bool executionOK = true;
@@ -48,6 +49,7 @@ std::vector<std::vector<double>> desiredJointsDEMO(11, std::vector<double>(3));
 std::vector<std::vector<double>> desiredJointsTeach;
 std::vector<geometry_msgs::Point> desiredPositionsDEMO(11);
 std::vector<geometry_msgs::Point> teachPositions;
+std::vector<geometry_msgs::Point> teachPositionsHand;
 
 std_msgs::Byte selectedMode;
 std_msgs::Int32 errorCodeMsg;
@@ -573,6 +575,19 @@ void teachModeStartStateCallback(const std_msgs::Bool startState_teachMode){
     teach_start_state = startState_teachMode.data;
 
 }     //GUI -> MENU
+
+void buttonStateCallback(const std_msgs::Byte buttonState){
+
+    //ROS_INFO("button state callback");
+    if (buttonState.data == 1){
+        button_state = true;
+
+    }else{
+        button_state = false;
+    }
+    //ROS_INFO_STREAM(button_state);
+
+}                      //REAL SCARA -> MENU
 
 void jointStatesCallback (const sensor_msgs::JointState jointStates){
 

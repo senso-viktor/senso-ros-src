@@ -34,7 +34,7 @@ int main(int argc, char **argv){
     int numOfPlacePos = 0;
     ros::init(argc, argv, "menu_node");
     ros::NodeHandle n1,n2,n3,n4,n5,n6,n7;
-    ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6,nn7,nn8;
+    ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6,nn7,nn8,nn9,nn10;
     ros::Rate loop_rate(10);
     ros::AsyncSpinner spinner(1);
     spinner.start();
@@ -76,12 +76,14 @@ int main(int argc, char **argv){
     ros::Subscriber scaraJointStates_sub = nn6.subscribe("scara_jointStates",1000,jointStatesCallback);
     ros::Subscriber teachMode_sub = nn7.subscribe("teachModeGUI",1000,teachModeCallback);
     ros::Subscriber teachModeStartState_sub = nn8.subscribe("teachModeStartState",1000,teachModeStartStateCallback);
+    ros::Subscriber buttonState_sub = nn9.subscribe("scara_pushbutton",1000,buttonStateCallback);
     sleep(2);
+
     //Publish init data to Matlab
     selectedMode.data = 6;
     for (int j = 0; j < 50; j++){
         sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
-        mode_pub.publish(selectedMode);
+        //mode_pub.publish(selectedMode);
         ROS_INFO("Init matlab and scara");
         usleep(50000);
     }
@@ -359,6 +361,7 @@ int main(int argc, char **argv){
                     //executionOK = true;
                     break;
                 }
+                mode_pub.publish(selectedMode);
                 //Publish current pose of end effector (for GUI)
                 if (count1 > 12){
                     sendEndEffectorPose(&actualPose_pub, &move_group);
@@ -452,12 +455,17 @@ int main(int argc, char **argv){
                     break;
                 }
 
-                if (zeroPositionForTeach){
+                if (zeroPositionForTeach){      //The first element in vector is [0 0 0]
                     teachPositions.push_back(desiredPositionsDEMO[0]);
                     zeroPositionForTeach = false;
                 }
 
                 if (teach_mode == 0){           //teach mode
+
+                    //Set mode for torque control and publish
+                    //selectedMode.data = 2;
+                    //mode_pub.publish(selectedMode);
+
                     //desiredJointsTeach.clear();
                     ROS_INFO_ONCE("teaching now");
                     if (start_state){     //if teach button was pushed
@@ -471,6 +479,10 @@ int main(int argc, char **argv){
 
 
                 }else if (teach_mode == 1)   {                      //run mode
+
+                    //Set mode for joint control
+                    selectedMode.data = 6;
+                    mode_pub.publish(selectedMode);
 
                     if (initTeachedPositions){          //init vector and  calculate IK
                         ROS_INFO("stopped teaching");
@@ -577,9 +589,28 @@ int main(int argc, char **argv){
         ////////////////////////////////////////////////////////////////
         case 5:
             while (ros::ok()){
+                ROS_INFO_ONCE("Teaching mode - torque control ...");
 
                 //Break while loop when the mode has changed
-                if (current_mode != 5)
+                if (current_mode != 5){
+                    move_group.stop();
+                    count1 = 0;
+                    last_trajectory_size = -5;
+                    start_state = false;
+                    break;
+                }
+
+
+
+                ros::spinOnce();
+                loop_rate.sleep();
+            }
+            break;
+        case 6:
+            while (ros::ok()){
+
+                //Break while loop when the mode has changed
+                if (current_mode != 6)
                     break;
 
                 ROS_INFO("Set parameters tab ...");
@@ -587,7 +618,7 @@ int main(int argc, char **argv){
                 loop_rate.sleep();
             }
             break;
-        case 6:         //Ked budem dorabat veci do GUI
+        case 7:         //Ked budem dorabat veci do GUI
             while (ros::ok()){
 
                 //Break while loop when the mode has changed

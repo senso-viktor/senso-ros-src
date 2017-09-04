@@ -344,8 +344,7 @@ void MainWindow::on_teachMode_tabWidget_tabBarClicked(int index){
 
 }
 
-void MainWindow::on_teachModeRun_start_pushbutton_clicked()
-{
+void MainWindow::on_teachModeRun_start_pushbutton_clicked(){
     ROS_INFO("teach mode START !");
     ui->teachModeRun_info_lineEdit->setText("TEACH application 2 RUNNING!");
 
@@ -356,8 +355,7 @@ void MainWindow::on_teachModeRun_start_pushbutton_clicked()
     }
 }
 
-void MainWindow::on_teachModeRun_stop_pushbutton_clicked()
-{
+void MainWindow::on_teachModeRun_stop_pushbutton_clicked(){
     ROS_INFO("teach mode STOP !");
     ui->teachModeRun_info_lineEdit->setText("TEACH application 2 STOPPED!");
     teachModeState_msg.data = false;
@@ -367,6 +365,96 @@ void MainWindow::on_teachModeRun_stop_pushbutton_clicked()
     }
 }
 //********************************************************************************//
+
+
+//****************************** TEACH MODE BY HAND ******************************//
+void MainWindow::on_teachMode_teachButtonHand_4_clicked(){
+
+    QString currentMode;
+
+    ROS_INFO("teach !");
+    jointControl_Values_msg.point.x = actualJointStates.position[0];
+    jointControl_Values_msg.point.y = actualJointStates.position[1];
+    jointControl_Values_msg.point.z = actualJointStates.position[2];
+
+//    jointControl_Values_msg.point.x = 0.0;
+//    jointControl_Values_msg.point.y = 0.0;
+//    jointControl_Values_msg.point.z = 0.0;
+
+
+    if (teachModeIndexHand == 0){
+        ui->teachMode_infoHand_textEdit_4->setText("X = " + QString::number(jointControl_Values_msg.point.x) + " Y= " +
+                                             QString::number(jointControl_Values_msg.point.y) + " Z= " +
+                                             QString::number(jointControl_Values_msg.point.z) + " ] \n" + "Operation type = Pick");
+        ui->teachMode_modeDisplayHand_lcdnumber_->display(0.0);
+    }else if(teachModeIndexHand%2 == 0){
+        ui->teachMode_infoHand_textEdit_4->setText("[ X = " + QString::number(jointControl_Values_msg.point.x) + " Y= " +
+                                             QString::number(jointControl_Values_msg.point.y) + " Z= " +
+                                             QString::number(jointControl_Values_msg.point.z) + " ] \n" + "Operation type = Pick");
+        ui->teachMode_modeDisplayHand_lcdnumber_->display(0.0);
+    }else{
+        ui->teachMode_infoHand_textEdit_4->setText("[ X = " + QString::number(jointControl_Values_msg.point.x) + " Y= " +
+                                             QString::number(jointControl_Values_msg.point.y) + " Z= " +
+                                             QString::number(jointControl_Values_msg.point.z) + " ] \n" + "Operation type = Place");
+        ui->teachMode_modeDisplayHand_lcdnumber_->display(1.0);
+    }
+
+    teachModeIndexHand++;
+    startState_msg.data = true;
+    for (int i=0;i<100;i++){
+        start_pub.publish(startState_msg);
+        jointControl_pub.publish(jointControl_Values_msg);
+    }
+
+}
+
+void MainWindow::on_teachMode_stopTeachButtonHand_4_clicked(){
+
+    ROS_INFO("stop teach !");
+    startState_msg.data = false;
+    for (int i=0;i<100;i++){
+        start_pub.publish(startState_msg);
+    }
+}
+
+void MainWindow::on_teachModeRun_startHand_pushbutton_4_clicked(){
+
+    ROS_INFO("teach mode START !");
+    ui->teachModeRun_infoHand_lineEdit_4->setText("TEACH HAND application 2 RUNNING!");
+
+
+    teachModeState_msg.data = true;
+    for (int i=0;i<100;i++){
+        teachMode_startState.publish(teachModeState_msg);
+    }
+}
+
+void MainWindow::on_teachModeRun_stopHand_pushbutton_4_clicked(){
+
+    ROS_INFO("teach mode STOP !");
+    ui->teachModeRun_infoHand_lineEdit_4->setText("TEACH HAND application 2 STOPPED!");
+    teachModeState_msg.data = false;
+
+    for (int i=0;i<100;i++){
+        teachMode_startState.publish(teachModeState_msg);
+    }
+}
+
+void MainWindow::on_teachMode_tabWidget_2_tabBarClicked(int index){
+
+    ROS_INFO("tab changed !");
+    teachModeSelect_msg.data = index;
+    ROS_INFO("tab number %d",teachModeSelect_msg.data);
+
+    for (int i=0;i<100;i++){
+        teachMode_pub.publish(teachModeSelect_msg);
+    }
+}
+
+
+
+
+//***************************************************************************//
 
 
 
@@ -458,6 +546,12 @@ void MainWindow::jointStatesCallback(const sensor_msgs::JointState jointState){
     ui->status_joint1pos_deg_3->display(jointState.position[0]);
     ui->status_joint2pos_deg_3->display(jointState.position[1]);
     ui->status_joint3pos_deg_3->display(jointState.position[2]*100.0);
+
+    //TEACH MODE
+    ui->teachModeHand_J1_LCD->display(jointState.position[0]*RAD_TO_DEG);
+    ui->teachModeHand_J2_LCD->display(jointState.position[1]*RAD_TO_DEG);
+    ui->teachModeHand_J3_LCD->display(jointState.position[2]*100.0);
+    //
 
     //Neskor doplnit rychlosti a momenty
     if (jointState.velocity.size() >= 3){
