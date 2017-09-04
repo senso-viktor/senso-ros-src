@@ -31,6 +31,7 @@ void forceFeedbackThread(){
 int main(int argc, char **argv){
 
     int count1 = 0;
+    int help = 0;
     int numOfPlacePos = 0;
     ros::init(argc, argv, "menu_node");
     ros::NodeHandle n1,n2,n3,n4,n5,n6,n7;
@@ -451,7 +452,11 @@ int main(int argc, char **argv){
                     IK_mode = 1;
                     zeroPositionForTeach = true;
                     teachMode_counter = 0;
-                    //teachPositions.clear();
+                    initTeachedPositions = true;
+                    teachPositionsHand.clear();
+                    teachPositions.clear();
+                    teach_mode = 9;
+                    help = 0;
                     break;
                 }
 
@@ -461,11 +466,6 @@ int main(int argc, char **argv){
                 }
 
                 if (teach_mode == 0){           //teach mode
-
-                    //Set mode for torque control and publish
-                    //selectedMode.data = 2;
-                    //mode_pub.publish(selectedMode);
-
                     //desiredJointsTeach.clear();
                     ROS_INFO_ONCE("teaching now");
                     if (start_state){     //if teach button was pushed
@@ -473,6 +473,7 @@ int main(int argc, char **argv){
                             ROS_WARN("teached new positions!!!!");
                             teachPositions.push_back(currentTeachPoint);
                             start_state = false;
+                            help =1;
                         }
 
                     }
@@ -484,7 +485,7 @@ int main(int argc, char **argv){
                     selectedMode.data = 6;
                     mode_pub.publish(selectedMode);
 
-                    if (initTeachedPositions){          //init vector and  calculate IK
+                    if (initTeachedPositions && (help == 1)){          //init vector and  calculate IK
                         ROS_INFO("stopped teaching");
                         showAndInitVector();
                         for (int i=0; i<desiredJointsTeach.size(); i++){
@@ -538,7 +539,6 @@ int main(int argc, char **argv){
                             if (count1 == desiredJointsTeach.size()){
                                 count1 = 0;
                             }
-
                             ROS_WARN("Desired joints : %f %f %f", desiredJointsTeach[count1][0], desiredJointsTeach[count1][1],
                                      desiredJointsTeach[count1][2]);
                             move_group.setJointValueTarget(desiredJointsTeach[count1]);
@@ -597,10 +597,55 @@ int main(int argc, char **argv){
                     count1 = 0;
                     last_trajectory_size = -5;
                     start_state = false;
+                    initTeachedPositions = true;
+                    teach_mode = 9;
+                    zeroPositionForTeach = true;
+                    teachPositionsHand.clear();
+                    teachPositions.clear();
                     break;
                 }
 
+                if (zeroPositionForTeach){      //The first element in vector is [0 0 0]
+                    ROS_INFO("init ok");
+                    teachPositionsHand.push_back(initJointValues);
+                    zeroPositionForTeach = false;
+                }
 
+                if (teach_mode == 0){
+                    ROS_INFO("teaching mode");
+                    selectedMode.data = 2;
+                    mode_pub.publish(selectedMode);
+
+                    ROS_INFO_ONCE("teaching now");
+                    if (start_state){     //if teach button was pushed
+                        if (valuesChanged()){
+                            ROS_WARN("teached new positions!!!!");
+                            teachPositionsHand.push_back(jointControl_jointValues);
+                            start_state = false;
+                        }
+
+                    }
+
+                }else if (teach_mode == 1){
+
+                    ROS_INFO("teaching mode");
+                    selectedMode.data = 6;
+                    mode_pub.publish(selectedMode);
+
+                    if (initTeachedPositions){
+                        ROS_INFO("teached stopped now running");
+                        if (!zeroPositionForTeach){
+                            showTeachedJointValues();
+                        }
+
+                        initTeachedPositions = false;
+                    }
+
+                }else{
+                    ROS_INFO("no mode selected");
+                }
+
+                sleep(1);
 
                 ros::spinOnce();
                 loop_rate.sleep();

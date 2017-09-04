@@ -41,15 +41,17 @@ double maxJointDeviation = 0.1;
 
 std::vector<double> jointControl_jointValues(3);
 std::vector<double> jointControl_lastJointValues{9.99,9.99,9.99};
+std::vector<double> initJointValues{0.0,0.0,0.0};
 std::vector<double> positionControl_values(3);
 std::vector<double> positionControl_lastValues {9.99,9.99,9.99};
 std::vector<double> link_length(2);
 std::vector<double> joint_positions(3);
 std::vector<std::vector<double>> desiredJointsDEMO(11, std::vector<double>(3));
 std::vector<std::vector<double>> desiredJointsTeach;
+std::vector<std::vector<double>> teachPositionsHand;
 std::vector<geometry_msgs::Point> desiredPositionsDEMO(11);
 std::vector<geometry_msgs::Point> teachPositions;
-std::vector<geometry_msgs::Point> teachPositionsHand;
+
 
 std_msgs::Byte selectedMode;
 std_msgs::Int32 errorCodeMsg;
@@ -221,13 +223,16 @@ bool valuesChanged(){
     //*******************************************************************************************************//
 
     if ((jointControl_jointValues[0] != jointControl_lastJointValues[0]) || (jointControl_jointValues[1] != jointControl_lastJointValues[1]) || (jointControl_jointValues[2] != jointControl_lastJointValues[2])){
-        //ROS_ERROR("change!");
+        ROS_ERROR("change!");
+        ROS_INFO("%f %f",jointControl_jointValues[0], jointControl_lastJointValues[0]);
+        ROS_INFO("%f %f",jointControl_jointValues[1], jointControl_lastJointValues[1]);
+        ROS_INFO("%f %f",jointControl_jointValues[2], jointControl_lastJointValues[2]);
         jointControl_lastJointValues[0] = jointControl_jointValues[0];
         jointControl_lastJointValues[1] = jointControl_jointValues[1];
         jointControl_lastJointValues[2] = jointControl_jointValues[2];
         return true;
     }else{
-        //ROS_ERROR("no change!");
+        ROS_ERROR("no change!");
         return false;
     }
 }
@@ -515,6 +520,13 @@ bool inPositionTeach(int currentMode) {
         ROS_INFO("J1 not in place %f [%f]", currentJointStates.position[0], desiredJointsTeach[currentMode][0]);
 
     return false;
+}
+
+//This function shows the teached joint values
+void showTeachedJointValues (){
+
+    ROS_INFO("size of teached points %d x %d",teachPositionsHand.size(), teachPositionsHand[0].size());
+    sleep(2);
 }
 
 //******************************************************************************************************************************//
