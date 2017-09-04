@@ -34,9 +34,9 @@ int DEMO_mode = 0;
 int teach_mode = -1;
 int current_mode = 10;
 int last_trajectory_size = -5;
-int jointControl_counter = 0, positionControl_counter = 0, demoControl_counter = 0, teachMode_counter = 0;
+int jointControl_counter = 0, positionControl_counter = 0, demoControl_counter = 0, teachMode_counter = 0, teachModeHand_counter = 0;
 double x_offset, y_offset, z_offset;
-double max_torque_value = 3.5, torque_value = 0.0;
+double max_torque_value = 5.0, torque_value = 0.0;
 double maxJointDeviation = 0.1;
 
 std::vector<double> jointControl_jointValues(3);
@@ -223,16 +223,16 @@ bool valuesChanged(){
     //*******************************************************************************************************//
 
     if ((jointControl_jointValues[0] != jointControl_lastJointValues[0]) || (jointControl_jointValues[1] != jointControl_lastJointValues[1]) || (jointControl_jointValues[2] != jointControl_lastJointValues[2])){
-        ROS_ERROR("change!");
-        ROS_INFO("%f %f",jointControl_jointValues[0], jointControl_lastJointValues[0]);
-        ROS_INFO("%f %f",jointControl_jointValues[1], jointControl_lastJointValues[1]);
-        ROS_INFO("%f %f",jointControl_jointValues[2], jointControl_lastJointValues[2]);
+        //ROS_ERROR("change!");
+        //ROS_INFO("%f %f",jointControl_jointValues[0], jointControl_lastJointValues[0]);
+        //ROS_INFO("%f %f",jointControl_jointValues[1], jointControl_lastJointValues[1]);
+        //ROS_INFO("%f %f",jointControl_jointValues[2], jointControl_lastJointValues[2]);
         jointControl_lastJointValues[0] = jointControl_jointValues[0];
         jointControl_lastJointValues[1] = jointControl_jointValues[1];
         jointControl_lastJointValues[2] = jointControl_jointValues[2];
         return true;
     }else{
-        ROS_ERROR("no change!");
+        //ROS_ERROR("no change!");
         return false;
     }
 }
@@ -490,42 +490,75 @@ void showAndInitVector(){
 }
 
 //This function compares the current and the desired joint values (used for DEMO program)
-bool inPositionTeach(int currentMode) {
+bool inPositionTeach(int currentMode, int type) {
 
     //****************************************************************************************************//
     //   This function compares the current and the desired joint values (used for DEMO program)          //
     //   It returns true if the currentJointStates.position has a value of desiredJointsDEMO +-deathzone  //
     //   else it returns false                                                                            //
+    //   type respresents the usage type of this function (1-teach mode, 2-hand teach mode)               //
     //****************************************************************************************************//
 
-    if ((desiredJointsTeach[currentMode][0] - maxJointDeviation < currentJointStates.position[0]) &&
-        (currentJointStates.position[0] < desiredJointsTeach[currentMode][0] + maxJointDeviation)) {
-        if ((desiredJointsTeach[currentMode][1] - maxJointDeviation < currentJointStates.position[1]) &&
-            (currentJointStates.position[1] < desiredJointsTeach[currentMode][1] + maxJointDeviation)) {
-            if ((desiredJointsTeach[currentMode][2] - maxJointDeviation < currentJointStates.position[2]) &&
-                (currentJointStates.position[2] < desiredJointsTeach[currentMode][2] + maxJointDeviation)) {
+    if (type == 1){
+        if ((desiredJointsTeach[currentMode][0] - maxJointDeviation < currentJointStates.position[0]) &&
+            (currentJointStates.position[0] < desiredJointsTeach[currentMode][0] + maxJointDeviation)) {
+            if ((desiredJointsTeach[currentMode][1] - maxJointDeviation < currentJointStates.position[1]) &&
+                (currentJointStates.position[1] < desiredJointsTeach[currentMode][1] + maxJointDeviation)) {
+                if ((desiredJointsTeach[currentMode][2] - maxJointDeviation < currentJointStates.position[2]) &&
+                    (currentJointStates.position[2] < desiredJointsTeach[currentMode][2] + maxJointDeviation)) {
 
-                ROS_WARN("!!!!!   In place  !!!!!!");
-                for (int i = 0; i < joint_positions.size(); i++) {
-                    ROS_ERROR("Desired joint %d value %f", i, desiredJointsTeach[currentMode][i]);
-                    ROS_ERROR("Joint %d value %f", i, currentJointStates.position[i]);
-                }
-                return true;
+                    ROS_WARN("!!!!!   In place  !!!!!!");
+                    for (int i = 0; i < joint_positions.size(); i++) {
+                        ROS_ERROR("Desired joint %d value %f", i, desiredJointsTeach[currentMode][i]);
+                        ROS_ERROR("Joint %d value %f", i, currentJointStates.position[i]);
+                    }
+                    return true;
 
+                } else
+                    ROS_INFO("J3 not in place %f [%f]", currentJointStates.position[2], desiredJointsTeach[currentMode][2]);
             } else
-                ROS_INFO("J3 not in place %f [%f]", currentJointStates.position[2], desiredJointsTeach[currentMode][2]);
+                ROS_INFO("J2 not in place %f [%f]", currentJointStates.position[1], desiredJointsTeach[currentMode][1]);
         } else
-            ROS_INFO("J2 not in place %f [%f]", currentJointStates.position[1], desiredJointsTeach[currentMode][1]);
-    } else
-        ROS_INFO("J1 not in place %f [%f]", currentJointStates.position[0], desiredJointsTeach[currentMode][0]);
+            ROS_INFO("J1 not in place %f [%f]", currentJointStates.position[0], desiredJointsTeach[currentMode][0]);
 
-    return false;
+        return false;
+
+    }else if (type == 2){
+        if ((teachPositionsHand[currentMode][0] - maxJointDeviation < currentJointStates.position[0]) &&
+            (currentJointStates.position[0] < teachPositionsHand[currentMode][0] + maxJointDeviation)) {
+            if ((teachPositionsHand[currentMode][1] - maxJointDeviation < currentJointStates.position[1]) &&
+                (currentJointStates.position[1] < teachPositionsHand[currentMode][1] + maxJointDeviation)) {
+                if ((teachPositionsHand[currentMode][2] - maxJointDeviation < currentJointStates.position[2]) &&
+                    (currentJointStates.position[2] < teachPositionsHand[currentMode][2] + maxJointDeviation)) {
+
+                    ROS_WARN("!!!!!   In place  !!!!!!");
+                    for (int i = 0; i < joint_positions.size(); i++) {
+                        ROS_ERROR("Desired joint %d value %f", i, teachPositionsHand[currentMode][i]);
+                        ROS_ERROR("Joint %d value %f", i, currentJointStates.position[i]);
+                    }
+                    return true;
+
+                } else
+                    ROS_INFO("J3 not in place %f [%f]", currentJointStates.position[2], teachPositionsHand[currentMode][2]);
+            } else
+                ROS_INFO("J2 not in place %f [%f]", currentJointStates.position[1], teachPositionsHand[currentMode][1]);
+        } else
+            ROS_INFO("J1 not in place %f [%f]", currentJointStates.position[0], teachPositionsHand[currentMode][0]);
+
+        return false;
+
+    }
+
 }
 
 //This function shows the teached joint values
 void showTeachedJointValues (){
 
     ROS_INFO("size of teached points %d x %d",teachPositionsHand.size(), teachPositionsHand[0].size());
+
+    for (int i=0;i<teachPositionsHand.size();i++){
+        ROS_ERROR("[%d]: J1=%f J2=%f J3=%f",i, teachPositionsHand[i][0],teachPositionsHand[i][1],teachPositionsHand[i][2]);
+    }
     sleep(2);
 }
 
