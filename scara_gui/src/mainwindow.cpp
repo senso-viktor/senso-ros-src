@@ -90,13 +90,13 @@ void MainWindow::on_jointControl_Start_PushButton_3_clicked(){
     //Display on GUI
     ui->jointControl_J1_LineEdit->setText(QString::number(ui->jointControl_J1_Slider_3->value() / 100.0) + "rad");
     ui->jointControl_J2_LineEdit->setText(QString::number(ui->jointControl_J2_Slider_3->value() / 100.0) + "rad");
-    ui->jointControl_J3_LineEdit->setText(QString::number(ui->jointControl_J3_Slider_3->value() / 1000.0) + "m");
+    ui->jointControl_J3_LineEdit->setText(QString::number(ui->jointControl_J3_Slider_3->value() / 100.0) + "cm");
     ui->status_gripper_OnOff_3->display(gripperState);
 
     //Send to ROS
     jointControl_Values_msg.point.x = ui->jointControl_J1_Slider_3->value() / 100.0;
     jointControl_Values_msg.point.y = ui->jointControl_J2_Slider_3->value() / 100.0;
-    jointControl_Values_msg.point.z = ui->jointControl_J3_Slider_3->value() / 1000.0;
+    jointControl_Values_msg.point.z = -(ui->jointControl_J3_Slider_3->value() / 100.0) + 0.04;
     if (gripperState)
         gripperState_msg.data = true;
     else
@@ -121,7 +121,7 @@ void MainWindow::on_jointControl_J2_Slider_3_actionTriggered(int action){
 }
 
 void MainWindow::on_jointControl_J3_Slider_3_actionTriggered(int action){
-    ui->jointControl_J3_LineEdit->setText(QString::number(ui->jointControl_J3_Slider_3->value() / 1000.0) + "m");
+    ui->jointControl_J3_LineEdit->setText(QString::number(ui->jointControl_J3_Slider_3->value() / 100.0) + "cm");
 }
 
 void MainWindow::on_jointControl_Gripper_Checkbox_3_toggled(bool checked){

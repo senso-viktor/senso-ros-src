@@ -187,7 +187,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <box size="0.1 0.1 0.2"/>
+                <box size="0.07 0.07 0.2"/>
             </geometry>
         </collision>
     </link>
@@ -467,12 +467,12 @@
             </geometry>
             <material name="sensoBlack" />
         </visual>
-        <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
-            <geometry>
-                <box size="0.15 0.1 0.02"/>
-            </geometry>
-        </collision>
+        <!--<collision>-->
+            <!--<origin xyz="0 0 0" rpy="0 0 0" />-->
+            <!--<geometry>-->
+                <!--<box size="0.15 0.1 0.01"/>-->
+            <!--</geometry>-->
+        <!--</collision>-->
     </link>
     <joint name="world_to_base" type="fixed">
         <parent link="BaseBox"/>
@@ -496,12 +496,12 @@
             </geometry>
             <material name="sensoSilver" />
         </visual>
-        <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
-            <geometry>
-                <cylinder length="0.01" radius="0.02"/>
-            </geometry>
-        </collision>
+        <!--<collision>-->
+            <!--<origin xyz="0 0 0" rpy="0 0 0" />-->
+            <!--<geometry>-->
+                <!--<cylinder length="0.01" radius="0.02"/>-->
+            <!--</geometry>-->
+        <!--</collision>-->
     </link>
     <joint name="base_to_base_link1" type="fixed">
         <parent link="base"/>
@@ -525,12 +525,12 @@
             </geometry>
             <material name="sensoSilver" />
         </visual>
-        <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
-            <geometry>
-                <cylinder length="0.02" radius="0.06"/>
-            </geometry>
-        </collision>
+        <!--<collision>-->
+            <!--<origin xyz="0 0 0" rpy="0 0 0" />-->
+            <!--<geometry>-->
+                <!--<cylinder length="0.01" radius="0.06"/>-->
+            <!--</geometry>-->
+        <!--</collision>-->
     </link>
     <joint name="base_link1_to_link1" type="revolute"> <!-- rotary table joint-->
         <parent link="base_link1"/>
@@ -555,12 +555,12 @@
             </geometry>
             <material name="blue" />
         </visual>
-        <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
-            <geometry>
-                <cylinder length="0.005" radius="0.01"/>
-            </geometry>
-        </collision>
+        <!--<collision>-->
+            <!--<origin xyz="0 0 0" rpy="0 0 0" />-->
+            <!--<geometry>-->
+                <!--<cylinder length="0.005" radius="0.01"/>-->
+            <!--</geometry>-->
+        <!--</collision>-->
     </link>
     <joint name="link1_to_hole1" type="fixed">
         <parent link="link1"/>
@@ -583,12 +583,12 @@
             </geometry>
             <material name="white" />
         </visual>
-        <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
-            <geometry>
-                <cylinder length="0.005" radius="0.01"/>
-            </geometry>
-        </collision>
+        <!--<collision>-->
+            <!--<origin xyz="0 0 0" rpy="0 0 0" />-->
+            <!--<geometry>-->
+                <!--<cylinder length="0.005" radius="0.01"/>-->
+            <!--</geometry>-->
+        <!--</collision>-->
     </link>
     <joint name="link1_to_hole8" type="fixed">
         <parent link="link1"/>
@@ -611,12 +611,12 @@
             </geometry>
             <material name="white" />
         </visual>
-        <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
-            <geometry>
-                <cylinder length="0.005" radius="0.01"/>
-            </geometry>
-        </collision>
+        <!--<collision>-->
+            <!--<origin xyz="0 0 0" rpy="0 0 0" />-->
+            <!--<geometry>-->
+                <!--<cylinder length="0.005" radius="0.01"/>-->
+            <!--</geometry>-->
+        <!--</collision>-->
     </link>
     <joint name="link1_to_hole7" type="fixed">
         <parent link="link1"/>
@@ -639,12 +639,12 @@
             </geometry>
             <material name="white" />
         </visual>
-        <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
-            <geometry>
-                <cylinder length="0.005" radius="0.01"/>
-            </geometry>
-        </collision>
+        <!--<collision>-->
+            <!--<origin xyz="0 0 0" rpy="0 0 0" />-->
+            <!--<geometry>-->
+                <!--<cylinder length="0.005" radius="0.01"/>-->
+            <!--</geometry>-->
+        <!--</collision>-->
     </link>
     <joint name="link1_to_hole6" type="fixed">
         <parent link="link1"/>
@@ -667,12 +667,12 @@
             </geometry>
             <material name="white" />
         </visual>
-        <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
-            <geometry>
-                <cylinder length="0.005" radius="0.01"/>
-            </geometry>
-        </collision>
+        <!--<collision>-->
+            <!--<origin xyz="0 0 0" rpy="0 0 0" />-->
+            <!--<geometry>-->
+                <!--<cylinder length="0.005" radius="0.01"/>-->
+            <!--</geometry>-->
+        <!--</collision>-->
     </link>
     <joint name="link1_to_hole5" type="fixed">
         <parent link="link1"/>
@@ -695,12 +695,12 @@
             </geometry>
             <material name="white" />
         </visual>
-        <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
-            <geometry>
-                <cylinder length="0.005" radius="0.01"/>
-            </geometry>
-        </collision>
+        <!--<collision>-->
+            <!--<origin xyz="0 0 0" rpy="0 0 0" />-->
+            <!--<geometry>-->
+                <!--<cylinder length="0.005" radius="0.01"/>-->
+            <!--</geometry>-->
+        <!--</collision>-->
     </link>
     <joint name="link1_to_hole4" type="fixed">
         <parent link="link1"/>
@@ -723,12 +723,12 @@
             </geometry>
             <material name="white" />
         </visual>
-        <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
-            <geometry>
-                <cylinder length="0.005" radius="0.01"/>
-            </geometry>
-        </collision>
+        <!--<collision>-->
+            <!--<origin xyz="0 0 0" rpy="0 0 0" />-->
+            <!--<geometry>-->
+                <!--<cylinder length="0.005" radius="0.01"/>-->
+            <!--</geometry>-->
+        <!--</collision>-->
     </link>
     <joint name="link1_to_hole3" type="fixed">
         <parent link="link1"/>
@@ -751,12 +751,12 @@
             </geometry>
             <material name="white" />
         </visual>
-        <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
-            <geometry>
-                <cylinder length="0.005" radius="0.01"/>
-            </geometry>
-        </collision>
+        <!--<collision>-->
+            <!--<origin xyz="0 0 0" rpy="0 0 0" />-->
+            <!--<geometry>-->
+                <!--<cylinder length="0.005" radius="0.01"/>-->
+            <!--</geometry>-->
+        <!--</collision>-->
     </link>
     <joint name="link1_to_hole2" type="fixed">
         <parent link="link1"/>

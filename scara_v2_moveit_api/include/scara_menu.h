@@ -43,6 +43,7 @@ std::vector<double> jointControl_lastJointValues{9.99,9.99,9.99};
 std::vector<double> initJointValues{0.0,0.0,0.0};
 std::vector<double> positionControl_values(3);
 std::vector<double> positionControl_lastValues {9.99,9.99,9.99};
+std::vector<double> pick_and_place_jointValues(3);
 std::vector<double> link_length(2);
 std::vector<double> joint_positions(3);
 std::vector<std::vector<double>> desiredJointsDEMO(11, std::vector<double>(3));
@@ -191,7 +192,12 @@ bool calculateIK(double x, double y, double z,  int mode, int working_mode, int 
 
     if (z<0.05 && z>-0.04){
         //joint_positions[2] = -z;
-        joint_positions[2] = -z + 0.01;        //y= kx + q
+        joint_positions[2] = -z + 0.03;        //y= kx + q
+        //Osetrenie hazardnych stavov
+        if (joint_positions[2] <= 0.0)
+            joint_positions[2] = 0;
+        if (joint_positions[2] >= 0.04)
+            joint_positions[2] = 0.04;
         ROS_WARN("\n\nz value =%f\n\n",joint_positions[2]);
     }else{
         ROS_ERROR("Target is out of range");
@@ -301,7 +307,7 @@ void sendErrorCode(ros::Publisher *pub, int code){
 }
 
 //This function send the planned poses and velocities to SLRT and SCARA
-void sendJointPoses(ros::Publisher *pose_and_vel_pub,ros::Publisher *accel_pub, moveit::planning_interface::MoveGroupInterface::Plan *plan, int i){
+void sendJointPoses(ros::Publisher *pose_and_vel_pub,ros::Publisher *accel_pub, moveit::planning_interface::MoveGroupInterface::Plan *plan, int i, bool z_pos){
 
     //*****************************************************************************************************************************************//
     //   This function send the planned poses and velocities to SLRT and SCARA                                                                 //
@@ -312,23 +318,39 @@ void sendJointPoses(ros::Publisher *pose_and_vel_pub,ros::Publisher *accel_pub, 
     if (i == 999){
         pos_and_vel.position.x = currentJointStates.position[0];
         pos_and_vel.position.y =  currentJointStates.position[1];
-        pos_and_vel.position.z =  currentJointStates.position[2];
+//        pos_and_vel.position.z =  currentJointStates.position[2];
+        pos_and_vel.position.z =  0.0;
         pos_and_vel.orientation.x =  currentJointStates.velocity[0];
         pos_and_vel.orientation.y =  currentJointStates.velocity[1];
-        pos_and_vel.orientation.z =  currentJointStates.velocity[2];
+//        pos_and_vel.orientation.z =  currentJointStates.velocity[2];
+        pos_and_vel.orientation.z =  0.0;
         acc.x = 0.0;
         acc.y = 0.0;
         acc.z = 0.0;
     }else{
+
         pos_and_vel.position.x = plan->trajectory_.joint_trajectory.points[i].positions[0];
         pos_and_vel.position.y = plan->trajectory_.joint_trajectory.points[i].positions[1];
-        pos_and_vel.position.z = plan->trajectory_.joint_trajectory.points[i].positions[2];
+
+        if (z_pos){
+            if (plan->trajectory_.joint_trajectory.points[i].positions[2] <= 0.0)
+                pos_and_vel.position.z = 0.0;
+            else if (plan->trajectory_.joint_trajectory.points[i].positions[2] >= 0.04)
+                pos_and_vel.position.z = 0.04;
+            else
+                pos_and_vel.position.z = plan->trajectory_.joint_trajectory.points[i].positions[2];
+        }else{
+            pos_and_vel.position.z = 0.04;
+        }
+
         pos_and_vel.orientation.x = plan->trajectory_.joint_trajectory.points[i].velocities[0];
         pos_and_vel.orientation.y = plan->trajectory_.joint_trajectory.points[i].velocities[1];
-        pos_and_vel.orientation.z = plan->trajectory_.joint_trajectory.points[i].velocities[2];
+//        pos_and_vel.orientation.z = plan->trajectory_.joint_trajectory.points[i].velocities[2];
+        pos_and_vel.orientation.z = 0.0;
         acc.x = plan->trajectory_.joint_trajectory.points[i].accelerations[0];
         acc.y = plan->trajectory_.joint_trajectory.points[i].accelerations[1];
-        acc.z = plan->trajectory_.joint_trajectory.points[i].accelerations[2];
+//        acc.z = plan->trajectory_.joint_trajectory.points[i].accelerations[2];
+        acc.z = 0.0;
     }
 
     pose_and_vel_pub->publish(pos_and_vel);
@@ -366,49 +388,49 @@ void setDesiredPosesDEMO(){
     //************************************************************************************************//
 
     //Home position
-        desiredPositionsDEMO[0].x = 0.705;
-        desiredPositionsDEMO[0].y = 0.574;
-        desiredPositionsDEMO[0].z = 1.02;
+        desiredPositionsDEMO[0].x = 0.7;
+        desiredPositionsDEMO[0].y = 0.57;
+        desiredPositionsDEMO[0].z = 1.04;
     //Pick position
         desiredPositionsDEMO[1].x = 0.4;
         desiredPositionsDEMO[1].y = 0.24;
-        desiredPositionsDEMO[1].z = 1.01;
+        desiredPositionsDEMO[1].z = 1.04;
     //Work position
         desiredPositionsDEMO[2].x = 0.58;
         desiredPositionsDEMO[2].y = 0.59;
-        desiredPositionsDEMO[2].z = 0.98;
+        desiredPositionsDEMO[2].z = 1.04;
     //Place position 1
         desiredPositionsDEMO[3].x = 0.51;
         desiredPositionsDEMO[3].y = 0.87;
-        desiredPositionsDEMO[3].z = 1.01;
+        desiredPositionsDEMO[3].z = 1.04;
     //Place position 2
         desiredPositionsDEMO[4].x = 0.51;
         desiredPositionsDEMO[4].y = 0.93;
-        desiredPositionsDEMO[4].z = 1.01;
+        desiredPositionsDEMO[4].z = 1.04;
     //Place position 3
         desiredPositionsDEMO[5].x = 0.47;
         desiredPositionsDEMO[5].y = 0.87;
-        desiredPositionsDEMO[5].z = 1.01;
+        desiredPositionsDEMO[5].z = 1.04;
     //Place position 4
         desiredPositionsDEMO[6].x = 0.47;
         desiredPositionsDEMO[6].y = 0.93;
-        desiredPositionsDEMO[6].z = 1.01;
+        desiredPositionsDEMO[6].z = 1.04;
     //Place position 5
         desiredPositionsDEMO[7].x = 0.43;
         desiredPositionsDEMO[7].y = 0.87;
-        desiredPositionsDEMO[7].z = 1.01;
+        desiredPositionsDEMO[7].z = 1.04;
     //Place position 6
         desiredPositionsDEMO[8].x = 0.43;
         desiredPositionsDEMO[8].y = 0.93;
-        desiredPositionsDEMO[8].z = 1.01;
+        desiredPositionsDEMO[8].z = 1.04;
     //Place position 7
         desiredPositionsDEMO[9].x = 0.39;
         desiredPositionsDEMO[9].y = 0.87;
-        desiredPositionsDEMO[9].z = 1.01;
+        desiredPositionsDEMO[9].z = 1.04;
     //Place position 8
         desiredPositionsDEMO[10].x = 0.39;
         desiredPositionsDEMO[10].y = 0.93;
-        desiredPositionsDEMO[10].z = 1.01;
+        desiredPositionsDEMO[10].z = 1.04;
 
 }
 
