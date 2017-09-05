@@ -22,7 +22,6 @@
 //Global variables
 bool start_state = false;
 bool teach_start_state = false;
-bool gripper_state = false;
 bool button_state = false;
 bool success;
 bool colisionDetection = false;
@@ -30,14 +29,14 @@ bool executionOK = true;
 bool initTeachedPositions = true;
 bool zeroPositionForTeach = true;
 int IK_mode = 1;
-int DEMO_mode = 0;
+int DEMO_mode = -1;
 int teach_mode = -1;
 int current_mode = 10;
 int last_trajectory_size = -5;
 int jointControl_counter = 0, positionControl_counter = 0, demoControl_counter = 0, teachMode_counter = 0, teachModeHand_counter = 0;
 double x_offset, y_offset, z_offset;
 double max_torque_value = 5.0, torque_value = 0.0;
-double maxJointDeviation = 0.005;
+double maxJointDeviation = 0.1;
 
 std::vector<double> jointControl_jointValues(3);
 std::vector<double> jointControl_lastJointValues{9.99,9.99,9.99};
@@ -53,7 +52,9 @@ std::vector<geometry_msgs::Point> desiredPositionsDEMO(11);
 std::vector<geometry_msgs::Point> teachPositions;
 
 
+
 std_msgs::Byte selectedMode;
+std_msgs::Byte gripper_state;
 std_msgs::Int32 errorCodeMsg;
 geometry_msgs::Point point;
 geometry_msgs::Pose endEffectorPose;
@@ -77,7 +78,7 @@ bool jointModeControll (moveit::planning_interface::MoveGroupInterface *move_gro
     //*****************************************************************************************************************//
 
     ROS_INFO("joint mode controll");
-    bool success = move_group->plan(my_plan);
+    success = move_group->plan(my_plan);
     if (!success){
         ROS_ERROR("Could not create a plan!");
         return false;
@@ -189,7 +190,9 @@ bool calculateIK(double x, double y, double z,  int mode, int working_mode, int 
     }
 
     if (z<0.05 && z>-0.04){
-        joint_positions[2] = -z;
+        //joint_positions[2] = -z;
+        joint_positions[2] = -z + 0.01;        //y= kx + q
+        ROS_WARN("\n\nz value =%f\n\n",joint_positions[2]);
     }else{
         ROS_ERROR("Target is out of range");
         return false;
@@ -223,10 +226,6 @@ bool valuesChanged(){
     //*******************************************************************************************************//
 
     if ((jointControl_jointValues[0] != jointControl_lastJointValues[0]) || (jointControl_jointValues[1] != jointControl_lastJointValues[1]) || (jointControl_jointValues[2] != jointControl_lastJointValues[2])){
-        //ROS_ERROR("change!");
-        //ROS_INFO("%f %f",jointControl_jointValues[0], jointControl_lastJointValues[0]);
-        //ROS_INFO("%f %f",jointControl_jointValues[1], jointControl_lastJointValues[1]);
-        //ROS_INFO("%f %f",jointControl_jointValues[2], jointControl_lastJointValues[2]);
         jointControl_lastJointValues[0] = jointControl_jointValues[0];
         jointControl_lastJointValues[1] = jointControl_jointValues[1];
         jointControl_lastJointValues[2] = jointControl_jointValues[2];
@@ -311,12 +310,12 @@ void sendJointPoses(ros::Publisher *pose_and_vel_pub,ros::Publisher *accel_pub, 
     //*****************************************************************************************************************************************//
 
     if (i == 999){
-        pos_and_vel.position.x = 0.0;
-        pos_and_vel.position.y =  0.0;
-        pos_and_vel.position.z =  0.0;
-        pos_and_vel.orientation.x =  0.0;
-        pos_and_vel.orientation.y =  0.0;
-        pos_and_vel.orientation.z =  0.0;
+        pos_and_vel.position.x = currentJointStates.position[0];
+        pos_and_vel.position.y =  currentJointStates.position[1];
+        pos_and_vel.position.z =  currentJointStates.position[2];
+        pos_and_vel.orientation.x =  currentJointStates.velocity[0];
+        pos_and_vel.orientation.y =  currentJointStates.velocity[1];
+        pos_and_vel.orientation.z =  currentJointStates.velocity[2];
         acc.x = 0.0;
         acc.y = 0.0;
         acc.z = 0.0;
@@ -367,8 +366,8 @@ void setDesiredPosesDEMO(){
     //************************************************************************************************//
 
     //Home position
-        desiredPositionsDEMO[0].x = 0.704;
-        desiredPositionsDEMO[0].y = 0.58;
+        desiredPositionsDEMO[0].x = 0.705;
+        desiredPositionsDEMO[0].y = 0.574;
         desiredPositionsDEMO[0].z = 1.02;
     //Pick position
         desiredPositionsDEMO[1].x = 0.4;
@@ -377,7 +376,7 @@ void setDesiredPosesDEMO(){
     //Work position
         desiredPositionsDEMO[2].x = 0.58;
         desiredPositionsDEMO[2].y = 0.59;
-        desiredPositionsDEMO[2].z = 1.04;
+        desiredPositionsDEMO[2].z = 0.98;
     //Place position 1
         desiredPositionsDEMO[3].x = 0.51;
         desiredPositionsDEMO[3].y = 0.87;
@@ -583,7 +582,10 @@ void startStateCallback(const std_msgs::Bool startState_msg){
 void gripperStateCallback(const std_msgs::Bool gripperState_msg){
 
     //ROS_INFO("Gripper callback");
-    gripper_state = gripperState_msg.data;
+    if (gripperState_msg.data)
+        gripper_state.data = 1;
+    else
+        gripper_state.data = 0;
 }                //GUI -> MENU
 
 void jointControlCallback(const geometry_msgs::PointStamped pointStamped){
