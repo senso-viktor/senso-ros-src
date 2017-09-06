@@ -34,6 +34,7 @@ int IK_mode = 1;
 int DEMO_mode = -1;
 int teach_mode = -1;
 int current_mode = 10;
+int count1 = 0;
 int last_trajectory_size = -5;
 int jointControl_counter = 0, positionControl_counter = 0, demoControl_counter = 0, teachMode_counter = 0, teachModeHand_counter = 0;
 double x_offset, y_offset, z_offset;
@@ -170,8 +171,9 @@ bool calculateIK(double x, double y, double z,  int mode, int working_mode, int 
     //ROS_INFO("input numbers %f %f %f",x,y,z);
     x = x - x_offset;
     y = y - y_offset;
-    z = z - z_offset;
-    //ROS_INFO("input numbers - offset = %f %f %f",x,y,z);
+    z = -(z - z_offset);
+    ROS_INFO("input numbers - offset = %f %f %f",x,y,z);
+    //sleep(2);
 
     double c2 = (pow(x,2.0) + pow(y,2.0) - pow(link_length[0],2.0) - pow(link_length[1],2.0))/(2*link_length[0]*link_length[1]);
     if ((1-c2) > 0.0 ){
@@ -206,7 +208,7 @@ bool calculateIK(double x, double y, double z,  int mode, int working_mode, int 
 //        joint_positions[2] = 0.01;
 //    }
     //ROS_WARN("z value =%f",z);
-    joint_positions[2] = -z + 0.01;
+    joint_positions[2] = -0.8*z + 0.024;
     //ROS_WARN("jp value =%f",joint_positions[2]);
     if (joint_positions[2] <=0.0){
         joint_positions[2] =0.0;
@@ -216,7 +218,7 @@ bool calculateIK(double x, double y, double z,  int mode, int working_mode, int 
 //    else{
 //        ROS_INFO("Z in range");
 //    }
-    //ROS_WARN("final z value =%f\n",joint_positions[2]);
+    ROS_WARN("final z value =%f\n",joint_positions[2]);
 
     //ROS_INFO("output joint positions %f %f %f",joint_positions[0],joint_positions[1],joint_positions[2]);
 
@@ -344,21 +346,37 @@ void sendJointPoses(ros::Publisher *pose_and_vel_pub,ros::Publisher *accel_pub, 
     }else{
         pos_and_vel.position.x = plan->trajectory_.joint_trajectory.points[i].positions[0];
         pos_and_vel.position.y = plan->trajectory_.joint_trajectory.points[i].positions[1];
-        if (current_mode == 3){
+
+        if (current_mode == 1){
+            pos_and_vel.position.z = jointControl_jointValues[2];
+
+        }else if (current_mode == 2){
+            pos_and_vel.position.z = joint_positions[2];
+
+        }else if (current_mode == 3){
             if (pick){
                 pos_and_vel.position.z =  0.0;
             }else{
-                //pos_and_vel.position.z = plan->trajectory_.joint_trajectory.points[i].positions[2];
-                pos_and_vel.position.z =  0.04;
+                pos_and_vel.position.z =  desiredJointsDEMO[DEMO_mode][2];
             }
-        }else{
+
+        }else if (current_mode == 4){
+            if (pick){
+                pos_and_vel.position.z =  0.0;
+            }else{
+                pos_and_vel.position.z =  desiredJointsTeach[count1][2];
+            }
+        }
+        else{
             pos_and_vel.position.z = plan->trajectory_.joint_trajectory.points[i].positions[2];
         }
 
 
         pos_and_vel.orientation.x = plan->trajectory_.joint_trajectory.points[i].velocities[0];
         pos_and_vel.orientation.y = plan->trajectory_.joint_trajectory.points[i].velocities[1];
-        if (current_mode == 3){
+        if (current_mode == 1){
+            pos_and_vel.orientation.z =  0.0;
+        }else if (current_mode == 3){
             if (pick){
                 pos_and_vel.orientation.z =  0.0;
             }else{
@@ -413,47 +431,47 @@ void setDesiredPosesDEMO(){
     //Home position
     desiredPositionsDEMO[0].x = 0.7;
     desiredPositionsDEMO[0].y = 0.57;
-    desiredPositionsDEMO[0].z = 0.99;
+    desiredPositionsDEMO[0].z = 1.04;
     //Pick position
     desiredPositionsDEMO[1].x = 0.4;
     desiredPositionsDEMO[1].y = 0.24;
-    desiredPositionsDEMO[1].z = 0.99;
+    desiredPositionsDEMO[1].z = 1.04;
     //Work position
     desiredPositionsDEMO[2].x = 0.58;
     desiredPositionsDEMO[2].y = 0.59;
-    desiredPositionsDEMO[2].z = 0.99;
+    desiredPositionsDEMO[2].z = 1.04;
     //Place position 1
     desiredPositionsDEMO[3].x = 0.51;
     desiredPositionsDEMO[3].y = 0.87;
-    desiredPositionsDEMO[3].z = 0.99;
+    desiredPositionsDEMO[3].z = 1.04;
     //Place position 2
     desiredPositionsDEMO[4].x = 0.51;
     desiredPositionsDEMO[4].y = 0.93;
-    desiredPositionsDEMO[4].z = 0.99;
+    desiredPositionsDEMO[4].z = 1.04;
     //Place position 3
     desiredPositionsDEMO[5].x = 0.47;
     desiredPositionsDEMO[5].y = 0.87;
-    desiredPositionsDEMO[5].z = 0.99;
+    desiredPositionsDEMO[5].z = 1.04;
     //Place position 4
     desiredPositionsDEMO[6].x = 0.47;
     desiredPositionsDEMO[6].y = 0.93;
-    desiredPositionsDEMO[6].z = 0.99;
+    desiredPositionsDEMO[6].z = 1.04;
     //Place position 5
     desiredPositionsDEMO[7].x = 0.43;
     desiredPositionsDEMO[7].y = 0.87;
-    desiredPositionsDEMO[7].z = 0.99;
+    desiredPositionsDEMO[7].z = 1.04;
     //Place position 6
     desiredPositionsDEMO[8].x = 0.43;
     desiredPositionsDEMO[8].y = 0.93;
-    desiredPositionsDEMO[8].z = 0.99;
+    desiredPositionsDEMO[8].z = 1.04;
     //Place position 7
     desiredPositionsDEMO[9].x = 0.39;
     desiredPositionsDEMO[9].y = 0.87;
-    desiredPositionsDEMO[9].z = 0.99;
+    desiredPositionsDEMO[9].z = 1.04;
     //Place position 8
     desiredPositionsDEMO[10].x = 0.39;
     desiredPositionsDEMO[10].y = 0.93;
-    desiredPositionsDEMO[10].z = 0.99;
+    desiredPositionsDEMO[10].z = 1.04;
 
 }
 
@@ -646,7 +664,13 @@ void jointControlCallback(const geometry_msgs::PointStamped pointStamped){
     //ROS_INFO("joint control values callback %f %f %f",pointStamped.point.x,pointStamped.point.y,pointStamped.point.z);
     jointControl_jointValues[0] = pointStamped.point.x;
     jointControl_jointValues[1] = pointStamped.point.y;
-    jointControl_jointValues[2] = pointStamped.point.z;
+    if (pointStamped.point.z > 0.04)
+        jointControl_jointValues[2] = 0.04;
+    else if (pointStamped.point.z < 0.0)
+        jointControl_jointValues[2] = 0.0;
+    else
+        jointControl_jointValues[2] = pointStamped.point.z;
+
 }       //GUI -> MENU
 
 void positionControlCallback(const geometry_msgs::Point point){
