@@ -366,8 +366,13 @@ void sendJointPoses(ros::Publisher *pose_and_vel_pub,ros::Publisher *accel_pub, 
             }else{
                 pos_and_vel.position.z =  desiredJointsTeach[count1][2];
             }
-        }
-        else{
+        }else if (current_mode == 5){
+            if (pick){
+                pos_and_vel.position.z =  0.0;
+            }else{
+                pos_and_vel.position.z =  0.04;
+            }
+        }else{
             pos_and_vel.position.z = plan->trajectory_.joint_trajectory.points[i].positions[2];
         }
 

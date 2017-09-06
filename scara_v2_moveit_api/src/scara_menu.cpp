@@ -35,10 +35,12 @@ int main(int argc, char **argv){
     bool errorInPose = false;
     bool init = true;
     int counter1 = 0;
+    bool initMode = false;
     int help = 0;
     int cc = -1;
     int numOfPlacePos = 0;
     int desiredJointsTeachSize = 0;
+    int teachPositionsHandSize = 0;
     ros::init(argc, argv, "menu_node");
     ros::NodeHandle n1,n2,n3,n4,n5,n6,n7;
     ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6,nn7,nn8,nn9,nn10;
@@ -545,6 +547,7 @@ int main(int argc, char **argv){
                         count1 = 0;
                         last_trajectory_size = -5;
                         start_state = false;
+                        teach_start_state = false;
                         initTeachedPositions = true;
                         IK_mode = 1;
                         zeroPositionForTeach = true;
@@ -555,6 +558,8 @@ int main(int argc, char **argv){
                         teachPositions.clear();
                         teach_mode = 9;
                         help = 0;
+                        counter1 = 0;
+                        desiredJointsTeachSize = 0;
                         break;
                     }
 
@@ -759,7 +764,7 @@ int main(int argc, char **argv){
 
 
                 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                /////                                     MODE 5 - TEACH mode                                             /////
+                /////                                     MODE 5 - TEACH mode HAND                                        /////
                 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
             case 5:
 
@@ -772,21 +777,32 @@ int main(int argc, char **argv){
                         count1 = 0;
                         last_trajectory_size = -5;
                         start_state = false;
+                        teach_start_state = false;
                         initTeachedPositions = true;
                         teach_mode = 9;
                         zeroPositionForTeach = true;
                         executionOK = true;
                         teachModeHand_counter = 0;
                         help = 0;
+                        initMode = false;
+                        teachPositionsHandSize = 0;
                         teachPositionsHand.clear();
                         teachPositions.clear();
                         break;
                     }
 
-                    if (zeroPositionForTeach){      //The first element in vector is [0 0 0]
-                        teachPositionsHand.push_back(initJointValues);
-                        zeroPositionForTeach = false;
+                    if (initMode){
+                        selectedMode.data = 6;
+                        mode_pub.publish(selectedMode);
+                        gripper_pub.publish(gripper_state);
                     }
+
+
+                    if (counter1 > 12){
+                        sendEndEffectorPose(&actualPose_pub, &move_group);
+                        counter1 = 0;
+                    }
+                    counter1++;
 
 
                     if (teach_mode == 0){
@@ -799,54 +815,122 @@ int main(int argc, char **argv){
                             teachPositionsHand.push_back(jointControl_jointValues);
                             help =1;
                             start_state = false;
-//                            for (int i =0;i<teachPositionsHand.size();i++){
-//                                ROS_INFO("teached point [%d] = %f %f %f (size = %d)",i,teachPositionsHand[i][0],teachPositionsHand[i][1],teachPositionsHand[i][2],teachPositionsHand.size());
-//                            }
-                            //}
-
                         }
+                        count1 = 0;
 
                     }else if (teach_mode == 1) {
 
-                        selectedMode.data = 6;
-                        mode_pub.publish(selectedMode);
+
+
 
                         if (initTeachedPositions && (help == 1)) {          //init vector and  calculate IK
-                            ROS_INFO("stopped teaching");
+                            ROS_WARN("stopped teaching %d",teachPositionsHand.size());
                             for (int i = 0; i < teachPositionsHand.size(); i++) {
                                 ROS_INFO("[%d] J1=%f J2=%f J3=%f", i, teachPositionsHand[i][0], teachPositionsHand[i][1],
                                          teachPositionsHand[i][2]);
                             }
+
+                            teachPositionsHandSize = teachPositionsHand.size();
+                            if (!(teachPositionsHandSize%2 == 0)){
+                                teachPositionsHandSize--;
+                                ROS_INFO("size not ok");
+                            }else{
+                                ROS_INFO("size ok");
+                            }
+                            sleep(2);
+                            for (int i=0; i<teachPositionsHandSize; i++)
+                                ROS_WARN("[%d] J1=%f J2=%f J3=%f",i,teachPositionsHand[i][0],teachPositionsHand[i][1],
+                                         teachPositionsHand[i][2]);
+
                             sleep(2);
                             initTeachedPositions = false;
+
+
+                            ROS_INFO("Current joint poses = %f %f %f",currentJointStates.position[0], currentJointStates.position[1],
+                                                                      currentJointStates.position[2]);
+                            sleep(2);
+                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
+                            selectedMode.data = 6;
+                            mode_pub.publish(selectedMode);
+                            initMode = true;
                         }
+
+
 
                         if (teach_start_state && !colisionDetection) {
 
-                            if (count1 != -1) {
-                                executionOK = inPositionTeach(count1, 2);
-                                ROS_INFO("execution ok");
-                            } else {
-                                ROS_INFO("execution");
-                                executionOK = true;
-                            }
+                            ROS_INFO("cout = %d  executionOK = %d",count1,executionOK);
+
                             if (executionOK) {
+
                                 sleep(2);
-                                count1++;
-                                if (count1 == teachPositionsHand.size()) {
-                                    count1 = 0;
-                                }
                                 ROS_WARN("Desired joints : %f %f %f (%d/%d)", teachPositionsHand[count1][0],
                                          teachPositionsHand[count1][1], teachPositionsHand[count1][2],
-                                         count1,teachPositionsHand.size() );
+                                         count1,teachPositionsHandSize-1 );
                                 move_group.setJointValueTarget(teachPositionsHand[count1]);
                                 jointModeControll(&move_group);
+                                last_trajectory_size = -5;
                             }
+
+                            executionOK = inPositionTeach(count1, 2);
+                            ROS_INFO("count = %d",count1);
+
 
                             if (my_plan.trajectory_.joint_trajectory.points.size() != last_trajectory_size) {
                                 last_trajectory_size = my_plan.trajectory_.joint_trajectory.points.size();
                                 teachMode_counter = 0;
                             }
+
+                            if (executionOK){
+
+                                if (count1 == 0){
+                                    ROS_WARN("PICK down");
+                                    pick = true;
+                                    sendJointPoses(&pose_pub,&acc_pub, &my_plan, last_trajectory_size-1);
+                                    usleep(1000000);
+                                    gripper_state.data = 1;
+                                    gripper_pub.publish(gripper_state);
+                                    usleep(400000);
+                                    pick = false;
+                                    ROS_WARN("PICK up");
+                                    sendJointPoses(&pose_pub,&acc_pub, &my_plan, last_trajectory_size-1);
+                                }
+                                if (count1%2 == 0){         //Pick
+                                    ROS_WARN("PICK down");
+                                    pick = true;
+                                    sendJointPoses(&pose_pub,&acc_pub, &my_plan, last_trajectory_size-1);
+                                    usleep(1000000);
+                                    gripper_state.data = 1;
+                                    gripper_pub.publish(gripper_state);
+                                    usleep(400000);
+                                    pick = false;
+                                    ROS_WARN("PICK up");
+                                    sendJointPoses(&pose_pub,&acc_pub, &my_plan, last_trajectory_size-1);
+
+                                }else{                      //Place
+                                    ROS_WARN("PLACE down");
+                                    pick = true;
+                                    sendJointPoses(&pose_pub,&acc_pub, &my_plan, last_trajectory_size-1);
+                                    usleep(1000000);
+                                    gripper_state.data = 0;
+                                    gripper_pub.publish(gripper_state);
+                                    usleep(400000);
+                                    pick = false;
+                                    ROS_WARN("PLACE up");
+                                    sendJointPoses(&pose_pub,&acc_pub, &my_plan, last_trajectory_size-1);
+
+                                }
+
+                                count1++;           //MOVED HERE
+                                if (count1 == teachPositionsHandSize){
+                                    count1 = 0;
+                                }else if (count1 < 0){
+                                    count1 = 0;
+                                }
+//
+                            }
+
+
 
                             if (teachMode_counter < my_plan.trajectory_.joint_trajectory.points.size()) {
                                 sendJointPoses(&pose_pub, &acc_pub, &my_plan, teachMode_counter);
@@ -869,13 +953,14 @@ int main(int argc, char **argv){
                                 sendJointPoses(&pose_pub, &acc_pub, &my_plan, (teachMode_counter - 10));
                                 ROS_ERROR("message stop!! [%d/%d]", (teachMode_counter - 10), last_trajectory_size);
                             }
-                            count1 = -1;
+                            executionOK = true;
                             move_group.stop();
 
                         }
                     }else {
                         ROS_ERROR("not valid teach mode");
-                    }
+                        //sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
+                        }
                     ros::spinOnce();
                     loop_rate.sleep();
                 }
