@@ -5,10 +5,8 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /MotionPlanning1
-        - /MotionPlanning1/Scene Robot1
-        - /RobotModel1
       Splitter Ratio: 0.742560029
-    Tree Height: 463
+    Tree Height: 452
   - Class: rviz/Help
     Name: Help
   - Class: rviz/Views
@@ -110,62 +108,7 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          base:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          base_link1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
           colisionBox:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          hole1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          hole2:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          hole3:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          hole4:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          hole5:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          hole6:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          hole7:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          hole8:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link1:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -223,13 +166,13 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-        Loop Animation: false
+        Loop Animation: true
         Robot Alpha: 0.5
         Robot Color: 150; 50; 150
         Show Robot Collision: false
-        Show Robot Visual: false
+        Show Robot Visual: true
         Show Trail: false
-        State Display Time: 0.01 s
+        State Display Time: 0.05 s
         Trail Step Size: 1
         Trajectory Topic: move_group/display_planned_path
       Planning Metrics:
@@ -243,7 +186,7 @@ Visualization Manager:
         Colliding Link Color: 255; 0; 0
         Goal State Alpha: 1
         Goal State Color: 250; 128; 0
-        Interactive Marker Size: 0.100000001
+        Interactive Marker Size: 0
         Joint Violation Color: 255; 0; 255
         Planning Group: scara_arm
         Query Goal State: true
@@ -313,62 +256,7 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          base:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          base_link1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
           colisionBox:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          hole1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          hole2:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          hole3:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          hole4:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          hole5:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          hole6:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          hole7:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          hole8:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link1:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -428,495 +316,8 @@ Visualization Manager:
             Show Trail: false
         Robot Alpha: 0.5
         Show Robot Collision: false
-        Show Robot Visual: false
+        Show Robot Visual: true
       Value: true
-    - Class: rviz/TF
-      Enabled: true
-      Frame Timeout: 15
-      Frames:
-        All Enabled: false
-        BaseBox:
-          Value: false
-        CentralStop1:
-          Value: false
-        CentralStop2:
-          Value: false
-        GripperBase:
-          Value: false
-        GripperLeft:
-          Value: false
-        GripperRight:
-          Value: false
-        ScaraBase:
-          Value: false
-        ScaraLink1:
-          Value: false
-        ScaraLink2:
-          Value: false
-        base:
-          Value: false
-        base_link1:
-          Value: false
-        colisionBox:
-          Value: false
-        hole1:
-          Value: false
-        hole2:
-          Value: false
-        hole3:
-          Value: false
-        hole4:
-          Value: false
-        hole5:
-          Value: false
-        hole6:
-          Value: false
-        hole7:
-          Value: false
-        hole8:
-          Value: false
-        link1:
-          Value: false
-        placeBox:
-          Value: false
-        placeHole1:
-          Value: false
-        placeHole2:
-          Value: false
-        placeHole3:
-          Value: false
-        placeHole4:
-          Value: false
-        placeHole5:
-          Value: false
-        placeHole6:
-          Value: false
-        placeHole7:
-          Value: false
-        placeHole8:
-          Value: false
-        tool0:
-          Value: true
-        world:
-          Value: false
-      Marker Scale: 0.200000003
-      Name: TF
-      Show Arrows: true
-      Show Axes: true
-      Show Names: true
-      Tree:
-        world:
-          BaseBox:
-            CentralStop1:
-              {}
-            CentralStop2:
-              {}
-            ScaraBase:
-              ScaraLink1:
-                ScaraLink2:
-                  GripperBase:
-                    GripperLeft:
-                      {}
-                    GripperRight:
-                      {}
-                    tool0:
-                      {}
-            base:
-              base_link1:
-                link1:
-                  hole1:
-                    {}
-                  hole2:
-                    {}
-                  hole3:
-                    {}
-                  hole4:
-                    {}
-                  hole5:
-                    {}
-                  hole6:
-                    {}
-                  hole7:
-                    {}
-                  hole8:
-                    {}
-            colisionBox:
-              {}
-            placeBox:
-              placeHole1:
-                {}
-              placeHole2:
-                {}
-              placeHole3:
-                {}
-              placeHole4:
-                {}
-              placeHole5:
-                {}
-              placeHole6:
-                {}
-              placeHole7:
-                {}
-              placeHole8:
-                {}
-      Update Interval: 0
-      Value: true
-    - Class: rviz/Marker
-      Enabled: true
-      Marker Topic: visualization_marker
-      Name: Marker
-      Namespaces:
-        {}
-      Queue Size: 100
-      Value: true
-    - Alpha: 1
-      Class: rviz/RobotModel
-      Collision Enabled: false
-      Enabled: true
-      Links:
-        All Links Enabled: true
-        BaseBox:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        CentralStop1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        CentralStop2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Expand Joint Details: false
-        Expand Link Details: false
-        Expand Tree: false
-        GripperBase:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        GripperLeft:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        GripperRight:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Link Tree Style: Links in Alphabetic Order
-        ScaraBase:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        ScaraLink1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        ScaraLink2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        base:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        base_link1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        colisionBox:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hole1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hole2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hole3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hole4:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hole5:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hole6:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hole7:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hole8:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        placeBox:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        placeHole1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        placeHole2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        placeHole3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        placeHole4:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        placeHole5:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        placeHole6:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        placeHole7:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        placeHole8:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        tool0:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        world:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-      Name: RobotModel
-      Robot Description: robot_description
-      TF Prefix: ""
-      Update Interval: 0.00100000005
-      Value: true
-      Visual Enabled: true
-    - Alpha: 1
-      Class: rviz/RobotModel
-      Collision Enabled: false
-      Enabled: true
-      Links:
-        All Links Enabled: true
-        BaseBox:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        CentralStop1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        CentralStop2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Expand Joint Details: false
-        Expand Link Details: false
-        Expand Tree: false
-        GripperBase:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        GripperLeft:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        GripperRight:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Link Tree Style: Links in Alphabetic Order
-        ScaraBase:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        ScaraLink1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        ScaraLink2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        base:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        base_link1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        colisionBox:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hole1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hole2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hole3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hole4:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hole5:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hole6:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hole7:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hole8:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        placeBox:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        placeHole1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        placeHole2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        placeHole3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        placeHole4:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        placeHole5:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        placeHole6:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        placeHole7:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        placeHole8:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        tool0:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        world:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-      Name: RobotModel
-      Robot Description: robot_description
-      TF Prefix: ""
-      Update Interval: 0.00100000005
-      Value: true
-      Visual Enabled: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -932,25 +333,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 2.87516665
+      Distance: 2.99650002
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.0176467821
-        Y: 0.45343864
-        Z: 4.61936565e-07
+        X: 0.113567002
+        Y: 0.105920002
+        Z: 2.23518001e-07
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.784797072
+      Pitch: 0.509796977
       Target Frame: world
       Value: XYOrbit (rviz)
-      Yaw: 5.88995981
+      Yaw: 5.65994978
     Saved: ~
 Window Geometry:
   Displays:
@@ -964,7 +365,7 @@ Window Geometry:
     collapsed: true
   MotionPlanning - Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000002b800000436fc0200000007fb000000100044006900730070006c006100790073000000002800000264000000dd00fffffffb0000000800480065006c00700000000342000000bb0000007600fffffffb0000000a0056006900650077007300000003b0000000b0000000b000fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670000000292000001cc000001cc00fffffffb0000002e004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d00200053006c00690064006500720000000000ffffffff0000004a00ffffff000003a00000043600000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000100000000000002b800000436fc0200000007fb000000100044006900730070006c006100790073000000002800000259000000dd00fffffffb0000000800480065006c00700000000342000000bb0000007600fffffffb0000000a0056006900650077007300000003b0000000b0000000b000fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb0000002e004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d00200053006c00690064006500720000000000ffffffff0000004a00fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670000000287000001d7000001d700ffffff000003a00000043600000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
   Width: 928

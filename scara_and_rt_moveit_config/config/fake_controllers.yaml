@@ -4,4 +4,3 @@ controller_list:
       - Joint1
       - Joint2
       - Joint_GripperBase
-      - base_link1_to_link1

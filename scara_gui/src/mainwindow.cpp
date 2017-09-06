@@ -222,7 +222,7 @@ void MainWindow::on_positionControlCustom_Reset_PushButton_5_clicked(){
     ui->positionControl_Gripper_Checkbox_4->setChecked(false);
     //ROS
     //Start Pose of SCARA
-    positionControl_Values_msg.x = 0.69;
+    positionControl_Values_msg.x = 0.7;
     positionControl_Values_msg.y = 0.57;
     positionControl_Values_msg.z = 1.0196;
     gripperState_msg.data = false;

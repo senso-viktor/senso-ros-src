@@ -28,6 +28,8 @@ bool colisionDetection = false;
 bool executionOK = true;
 bool initTeachedPositions = true;
 bool zeroPositionForTeach = true;
+bool pick = false;
+
 int IK_mode = 1;
 int DEMO_mode = -1;
 int teach_mode = -1;
@@ -37,13 +39,13 @@ int jointControl_counter = 0, positionControl_counter = 0, demoControl_counter =
 double x_offset, y_offset, z_offset;
 double max_torque_value = 5.0, torque_value = 0.0;
 double maxJointDeviation = 0.1;
+double J3_position = 0.0;
 
 std::vector<double> jointControl_jointValues(3);
 std::vector<double> jointControl_lastJointValues{9.99,9.99,9.99};
 std::vector<double> initJointValues{0.0,0.0,0.0};
 std::vector<double> positionControl_values(3);
 std::vector<double> positionControl_lastValues {9.99,9.99,9.99};
-std::vector<double> pick_and_place_jointValues(3);
 std::vector<double> link_length(2);
 std::vector<double> joint_positions(3);
 std::vector<std::vector<double>> desiredJointsDEMO(11, std::vector<double>(3));
@@ -190,19 +192,30 @@ bool calculateIK(double x, double y, double z,  int mode, int working_mode, int 
         return false;
     }
 
-    if (z<0.05 && z>-0.04){
-        //joint_positions[2] = -z;
-        joint_positions[2] = -z + 0.03;        //y= kx + q
-        //Osetrenie hazardnych stavov
-        if (joint_positions[2] <= 0.0)
-            joint_positions[2] = 0;
-        if (joint_positions[2] >= 0.04)
-            joint_positions[2] = 0.04;
-        ROS_WARN("\n\nz value =%f\n\n",joint_positions[2]);
+//    if (z<=0.02 && z>=-0.04){
+//        //joint_positions[2] = -z;
+//        joint_positions[2] = -z + 0.01;        //y= kx + q
+//        ROS_WARN("\n\nz value =%f\n\n",joint_positions[2]);
+//    }else if (z<-0.04){
+//        ROS_ERROR("Target is out of range [up]");
+//        ROS_WARN("\n\nz value =%f\n\n",joint_positions[2]);
+//        joint_positions[2] = -0.03;
+//    }else if (z>0.02){
+//        ROS_ERROR("Target is out of range [down]");
+//        ROS_WARN("\n\nz value =%f\n\n",joint_positions[2]);
+//        joint_positions[2] = 0.01;
+//    }
+    ROS_WARN("z value =%f",z);
+    joint_positions[2] = -z + 0.01;
+    ROS_WARN("jp value =%f",joint_positions[2]);
+    if (joint_positions[2] <=0.0){
+        joint_positions[2] =0.0;
+    }else if (joint_positions[2] >=0.04){
+        joint_positions[2] =0.04;
     }else{
-        ROS_ERROR("Target is out of range");
-        return false;
+        ROS_INFO("Z in range");
     }
+    ROS_WARN("final z value =%f\n",joint_positions[2]);
 
     //ROS_INFO("output joint positions %f %f %f",joint_positions[0],joint_positions[1],joint_positions[2]);
 
@@ -302,12 +315,12 @@ void sendErrorCode(ros::Publisher *pub, int code){
     //**********************************************************************//
     errorCodeMsg.data = code;
     for (int i=0;i<10;i++){
-       pub->publish(errorCodeMsg);
+        pub->publish(errorCodeMsg);
     }
 }
 
 //This function send the planned poses and velocities to SLRT and SCARA
-void sendJointPoses(ros::Publisher *pose_and_vel_pub,ros::Publisher *accel_pub, moveit::planning_interface::MoveGroupInterface::Plan *plan, int i, bool z_pos){
+void sendJointPoses(ros::Publisher *pose_and_vel_pub,ros::Publisher *accel_pub, moveit::planning_interface::MoveGroupInterface::Plan *plan, int i){
 
     //*****************************************************************************************************************************************//
     //   This function send the planned poses and velocities to SLRT and SCARA                                                                 //
@@ -319,7 +332,7 @@ void sendJointPoses(ros::Publisher *pose_and_vel_pub,ros::Publisher *accel_pub, 
         pos_and_vel.position.x = currentJointStates.position[0];
         pos_and_vel.position.y =  currentJointStates.position[1];
 //        pos_and_vel.position.z =  currentJointStates.position[2];
-        pos_and_vel.position.z =  0.0;
+        pos_and_vel.position.z =  0.04;
         pos_and_vel.orientation.x =  currentJointStates.velocity[0];
         pos_and_vel.orientation.y =  currentJointStates.velocity[1];
 //        pos_and_vel.orientation.z =  currentJointStates.velocity[2];
@@ -328,28 +341,36 @@ void sendJointPoses(ros::Publisher *pose_and_vel_pub,ros::Publisher *accel_pub, 
         acc.y = 0.0;
         acc.z = 0.0;
     }else{
-
         pos_and_vel.position.x = plan->trajectory_.joint_trajectory.points[i].positions[0];
         pos_and_vel.position.y = plan->trajectory_.joint_trajectory.points[i].positions[1];
-
-        if (z_pos){
-            if (plan->trajectory_.joint_trajectory.points[i].positions[2] <= 0.0)
-                pos_and_vel.position.z = 0.0;
-            else if (plan->trajectory_.joint_trajectory.points[i].positions[2] >= 0.04)
-                pos_and_vel.position.z = 0.04;
-            else
-                pos_and_vel.position.z = plan->trajectory_.joint_trajectory.points[i].positions[2];
+        if (current_mode == 3){
+            if (pick){
+                pos_and_vel.position.z =  0.0;
+            }else{
+                //pos_and_vel.position.z = plan->trajectory_.joint_trajectory.points[i].positions[2];
+                pos_and_vel.position.z =  0.04;
+            }
         }else{
-            pos_and_vel.position.z = 0.04;
+            pos_and_vel.position.z = plan->trajectory_.joint_trajectory.points[i].positions[2];
         }
+
 
         pos_and_vel.orientation.x = plan->trajectory_.joint_trajectory.points[i].velocities[0];
         pos_and_vel.orientation.y = plan->trajectory_.joint_trajectory.points[i].velocities[1];
-//        pos_and_vel.orientation.z = plan->trajectory_.joint_trajectory.points[i].velocities[2];
-        pos_and_vel.orientation.z = 0.0;
+        if (current_mode == 3){
+            if (pick){
+                pos_and_vel.orientation.z =  0.0;
+            }else{
+                pos_and_vel.orientation.z = plan->trajectory_.joint_trajectory.points[i].velocities[2];
+            }
+        }else{
+            pos_and_vel.orientation.z = plan->trajectory_.joint_trajectory.points[i].velocities[2];
+        }
+
+
+
         acc.x = plan->trajectory_.joint_trajectory.points[i].accelerations[0];
         acc.y = plan->trajectory_.joint_trajectory.points[i].accelerations[1];
-//        acc.z = plan->trajectory_.joint_trajectory.points[i].accelerations[2];
         acc.z = 0.0;
     }
 
@@ -385,52 +406,53 @@ void setDesiredPosesDEMO(){
 
     //************************************************************************************************//
     //   This function sets the desired poses for DEMO program - here you can edit the desired poses  //
+    // z values down/up => <0.99 , 1.04>
     //************************************************************************************************//
 
     //Home position
-        desiredPositionsDEMO[0].x = 0.7;
-        desiredPositionsDEMO[0].y = 0.57;
-        desiredPositionsDEMO[0].z = 1.04;
+    desiredPositionsDEMO[0].x = 0.59;
+    desiredPositionsDEMO[0].y = 0.58;
+    desiredPositionsDEMO[0].z = 0.99;
     //Pick position
-        desiredPositionsDEMO[1].x = 0.4;
-        desiredPositionsDEMO[1].y = 0.24;
-        desiredPositionsDEMO[1].z = 1.04;
+    desiredPositionsDEMO[1].x = 0.4;
+    desiredPositionsDEMO[1].y = 0.24;
+    desiredPositionsDEMO[1].z = 0.99;
     //Work position
-        desiredPositionsDEMO[2].x = 0.58;
-        desiredPositionsDEMO[2].y = 0.59;
-        desiredPositionsDEMO[2].z = 1.04;
+    desiredPositionsDEMO[2].x = 0.58;
+    desiredPositionsDEMO[2].y = 0.59;
+    desiredPositionsDEMO[2].z = 0.99;
     //Place position 1
-        desiredPositionsDEMO[3].x = 0.51;
-        desiredPositionsDEMO[3].y = 0.87;
-        desiredPositionsDEMO[3].z = 1.04;
+    desiredPositionsDEMO[3].x = 0.51;
+    desiredPositionsDEMO[3].y = 0.87;
+    desiredPositionsDEMO[3].z = 0.99;
     //Place position 2
-        desiredPositionsDEMO[4].x = 0.51;
-        desiredPositionsDEMO[4].y = 0.93;
-        desiredPositionsDEMO[4].z = 1.04;
+    desiredPositionsDEMO[4].x = 0.51;
+    desiredPositionsDEMO[4].y = 0.93;
+    desiredPositionsDEMO[4].z = 0.99;
     //Place position 3
-        desiredPositionsDEMO[5].x = 0.47;
-        desiredPositionsDEMO[5].y = 0.87;
-        desiredPositionsDEMO[5].z = 1.04;
+    desiredPositionsDEMO[5].x = 0.47;
+    desiredPositionsDEMO[5].y = 0.87;
+    desiredPositionsDEMO[5].z = 0.99;
     //Place position 4
-        desiredPositionsDEMO[6].x = 0.47;
-        desiredPositionsDEMO[6].y = 0.93;
-        desiredPositionsDEMO[6].z = 1.04;
+    desiredPositionsDEMO[6].x = 0.47;
+    desiredPositionsDEMO[6].y = 0.93;
+    desiredPositionsDEMO[6].z = 0.99;
     //Place position 5
-        desiredPositionsDEMO[7].x = 0.43;
-        desiredPositionsDEMO[7].y = 0.87;
-        desiredPositionsDEMO[7].z = 1.04;
+    desiredPositionsDEMO[7].x = 0.43;
+    desiredPositionsDEMO[7].y = 0.87;
+    desiredPositionsDEMO[7].z = 0.99;
     //Place position 6
-        desiredPositionsDEMO[8].x = 0.43;
-        desiredPositionsDEMO[8].y = 0.93;
-        desiredPositionsDEMO[8].z = 1.04;
+    desiredPositionsDEMO[8].x = 0.43;
+    desiredPositionsDEMO[8].y = 0.93;
+    desiredPositionsDEMO[8].z = 0.99;
     //Place position 7
-        desiredPositionsDEMO[9].x = 0.39;
-        desiredPositionsDEMO[9].y = 0.87;
-        desiredPositionsDEMO[9].z = 1.04;
+    desiredPositionsDEMO[9].x = 0.39;
+    desiredPositionsDEMO[9].y = 0.87;
+    desiredPositionsDEMO[9].z = 0.99;
     //Place position 8
-        desiredPositionsDEMO[10].x = 0.39;
-        desiredPositionsDEMO[10].y = 0.93;
-        desiredPositionsDEMO[10].z = 1.04;
+    desiredPositionsDEMO[10].x = 0.39;
+    desiredPositionsDEMO[10].y = 0.93;
+    desiredPositionsDEMO[10].z = 0.99;
 
 }
 
@@ -447,8 +469,8 @@ bool inPosition(int currentMode) {
         (currentJointStates.position[0] < desiredJointsDEMO[currentMode][0] + maxJointDeviation)) {
         if ((desiredJointsDEMO[currentMode][1] - maxJointDeviation < currentJointStates.position[1]) &&
             (currentJointStates.position[1] < desiredJointsDEMO[currentMode][1] + maxJointDeviation)) {
-            if ((desiredJointsDEMO[currentMode][2] - maxJointDeviation < currentJointStates.position[2]) &&
-                (currentJointStates.position[2] < desiredJointsDEMO[currentMode][2] + maxJointDeviation)) {
+//            if (((-desiredJointsDEMO[currentMode][2]+0.04) - (maxJointDeviation/10.0 + 0.01) < currentJointStates.position[2]) &&
+//                (currentJointStates.position[2] < (-desiredJointsDEMO[currentMode][2]+0.04) + (maxJointDeviation/10.0))) {
 
                 ROS_WARN("!!!!!   In place  !!!!!!");
                 for (int i = 0; i < joint_positions.size(); i++) {
@@ -457,8 +479,8 @@ bool inPosition(int currentMode) {
                 }
                 return true;
 
-            } else
-                ROS_INFO("J3 not in place %f [%f]", currentJointStates.position[2], desiredJointsDEMO[currentMode][2]);
+//            } else
+//                ROS_INFO("J3 not in place %f [%f]", currentJointStates.position[2], desiredJointsDEMO[currentMode][2]);
         } else
             ROS_INFO("J2 not in place %f [%f]", currentJointStates.position[1], desiredJointsDEMO[currentMode][1]);
     } else
@@ -525,8 +547,8 @@ bool inPositionTeach(int currentMode, int type) {
             (currentJointStates.position[0] < desiredJointsTeach[currentMode][0] + maxJointDeviation)) {
             if ((desiredJointsTeach[currentMode][1] - maxJointDeviation < currentJointStates.position[1]) &&
                 (currentJointStates.position[1] < desiredJointsTeach[currentMode][1] + maxJointDeviation)) {
-                if ((desiredJointsTeach[currentMode][2] - maxJointDeviation < currentJointStates.position[2]) &&
-                    (currentJointStates.position[2] < desiredJointsTeach[currentMode][2] + maxJointDeviation)) {
+                if ((-desiredJointsTeach[currentMode][2] - maxJointDeviation < currentJointStates.position[2]) &&
+                    (currentJointStates.position[2] < -desiredJointsTeach[currentMode][2] + maxJointDeviation)) {
 
                     ROS_WARN("!!!!!   In place  !!!!!!");
                     for (int i = 0; i < joint_positions.size(); i++) {
