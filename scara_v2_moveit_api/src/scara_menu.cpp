@@ -852,6 +852,8 @@ int main(int argc, char **argv){
                             sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
                             selectedMode.data = 6;
                             mode_pub.publish(selectedMode);
+                            gripper_state.data = 0;
+                            gripper_pub.publish(gripper_state);
                             initMode = true;
                         }
 

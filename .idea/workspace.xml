@@ -292,8 +292,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7b700e8e-8037-495d-aed6-fe331801a34d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/moveit.rviz" afterPath="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/moveit.rviz" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_v2_moveit_api/include/scara_menu.h" afterPath="$PROJECT_DIR$/scara_v2_moveit_api/include/scara_menu.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_v2_moveit_api/src/scara_menu.cpp" afterPath="$PROJECT_DIR$/scara_v2_moveit_api/src/scara_menu.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -375,8 +373,8 @@
       <file leaf-file-name="scara_menu.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/scara_menu.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="871" column="58" lean-forward="false" selection-start-line="871" selection-start-column="58" selection-end-line="871" selection-end-column="58" />
+            <state relative-caret-position="292">
+              <caret line="854" column="51" lean-forward="false" selection-start-line="854" selection-start-column="51" selection-end-line="854" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -2409,7 +2407,7 @@
       <workItem from="1504499785017" duration="5630000" />
       <workItem from="1504509968227" duration="22978000" />
       <workItem from="1504588646686" duration="39329000" />
-      <workItem from="1504675052726" duration="29714000" />
+      <workItem from="1504675052726" duration="30481000" />
     </task>
     <task id="LOCAL-00001" summary="First commit from CLion">
       <created>1502626241736</created>
@@ -2621,11 +2619,18 @@
       <option name="project" value="LOCAL" />
       <updated>1504699781270</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="GUI - teach mode HAND working! (torque feedback not tested!)">
+      <created>1504707025483</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1504707025483</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="293037000" />
+    <option name="totallyTimeSpent" value="293804000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1204" extended-state="6" />
@@ -2657,7 +2662,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Prvy uspesny test hybania s ramenom cez C program (v pritomnosti kolizneho objektu). Frekvencia 15Hz" />
     <MESSAGE value="GUI - jointControl messages tested OK!" />
     <MESSAGE value="GUI interface ready!" />
     <MESSAGE value="scara menu -&gt;base OK" />
@@ -2682,7 +2686,8 @@
     <MESSAGE value="GUI - teach mode gui ako tak funguje" />
     <MESSAGE value="GUI - teach mode gui funguje dobre (aj s pick and place)" />
     <MESSAGE value="GUI - teach mode gui funguje dobre (aj s pick and place) + osetrenie nespravneho poctu stavov" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI - teach mode gui funguje dobre (aj s pick and place) + osetrenie nespravneho poctu stavov" />
+    <MESSAGE value="GUI - teach mode HAND working! (torque feedback not tested!)" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI - teach mode HAND working! (torque feedback not tested!)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3084,8 +3089,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/scara_menu.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="871" column="58" lean-forward="false" selection-start-line="871" selection-start-column="58" selection-end-line="871" selection-end-column="58" />
+        <state relative-caret-position="292">
+          <caret line="854" column="51" lean-forward="false" selection-start-line="854" selection-start-column="51" selection-end-line="854" selection-end-column="51" />
           <folding />
         </state>
       </provider>
