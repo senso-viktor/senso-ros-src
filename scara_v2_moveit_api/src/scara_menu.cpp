@@ -38,6 +38,7 @@ int main(int argc, char **argv){
     int help = 0;
     int cc = -1;
     int numOfPlacePos = 0;
+    int desiredJointsTeachSize = 0;
     ros::init(argc, argv, "menu_node");
     ros::NodeHandle n1,n2,n3,n4,n5,n6,n7;
     ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6,nn7,nn8,nn9,nn10;
@@ -594,7 +595,7 @@ int main(int argc, char **argv){
                         mode_pub.publish(selectedMode);
 
                         if (initTeachedPositions && (help == 1)){          //init vector and  calculate IK
-                            ROS_WARN("\n\nstopped teaching");
+                            ROS_WARN("\n\nstopped teaching %d",desiredJointsTeach.size());
                             showAndInitVector();
                             for (int i=0; i<desiredJointsTeach.size(); i++){
 
@@ -625,8 +626,16 @@ int main(int argc, char **argv){
                                     }
                                 }
                             }
+                            ROS_WARN("\n\nstopped teaching %d",desiredJointsTeach.size());
+                            desiredJointsTeachSize = desiredJointsTeach.size();
+                            if (!(desiredJointsTeachSize%2 == 0)){
+                                desiredJointsTeachSize--;
+                                ROS_INFO("size not ok");
+                            }else{
+                                ROS_INFO("size ok");
+                            }
 
-                            for (int i=0; i<desiredJointsTeach.size(); i++){
+                            for (int i=0; i<desiredJointsTeachSize; i++){
                                 ROS_WARN("[%d] J1=%f J2=%f J3=%f",i,desiredJointsTeach[i][0],desiredJointsTeach[i][1],desiredJointsTeach[i][2]);
                             }
                             initTeachedPositions = false;
@@ -668,7 +677,8 @@ int main(int argc, char **argv){
                                     usleep(400000);
                                     pick = false;
                                     sendJointPoses(&pose_pub,&acc_pub, &my_plan, last_trajectory_size-1);
-                                }if (count1%2 == 0){         //Pick
+                                }
+                                if (count1%2 == 0){         //Pick
                                     ROS_WARN("PICK");
                                     pick = true;
                                     sendJointPoses(&pose_pub,&acc_pub, &my_plan, last_trajectory_size-1);
@@ -694,7 +704,7 @@ int main(int argc, char **argv){
                                 }
 
                                 count1++;           //MOVED HERE
-                                if (count1 == desiredJointsTeach.size()){
+                                if (count1 == desiredJointsTeachSize){
                                     count1 = 0;
                                 }else if (count1 < 0){
                                     count1 = 0;

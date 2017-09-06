@@ -290,9 +290,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b700e8e-8037-495d-aed6-fe331801a34d" name="Default" comment="GUI - teach mode gui funguje dobre (aj s pick and place)">
+    <list default="true" id="7b700e8e-8037-495d-aed6-fe331801a34d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_v2_moveit_api/include/scara_menu.h" afterPath="$PROJECT_DIR$/scara_v2_moveit_api/include/scara_menu.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_v2_moveit_api/src/scara_menu.cpp" afterPath="$PROJECT_DIR$/scara_v2_moveit_api/src/scara_menu.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -374,8 +373,8 @@
       <file leaf-file-name="scara_menu.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/scara_menu.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="653" column="0" lean-forward="true" selection-start-line="653" selection-start-column="0" selection-end-line="653" selection-end-column="0" />
+            <state relative-caret-position="-1676">
+              <caret line="716" column="34" lean-forward="true" selection-start-line="716" selection-start-column="34" selection-end-line="716" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -385,8 +384,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pose</find>
-      <find>actual</find>
       <find>actualPose_pub</find>
       <find>pose_pub</find>
       <find>0.04</find>
@@ -415,6 +412,8 @@
       <find>initTeachedPositions</find>
       <find>count1</find>
       <find>type</find>
+      <find>%2</find>
+      <find>desiredJointsTeach.size()</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2408,7 +2407,7 @@
       <workItem from="1504499785017" duration="5630000" />
       <workItem from="1504509968227" duration="22978000" />
       <workItem from="1504588646686" duration="39329000" />
-      <workItem from="1504675052726" duration="21155000" />
+      <workItem from="1504675052726" duration="23136000" />
     </task>
     <task id="LOCAL-00001" summary="First commit from CLion">
       <created>1502626241736</created>
@@ -2606,11 +2605,18 @@
       <option name="project" value="LOCAL" />
       <updated>1504685726215</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="GUI - teach mode gui funguje dobre (aj s pick and place)">
+      <created>1504697751027</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1504697751027</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="284478000" />
+    <option name="totallyTimeSpent" value="286459000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1204" extended-state="6" />
@@ -3069,8 +3075,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/scara_menu.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="653" column="0" lean-forward="true" selection-start-line="653" selection-start-column="0" selection-end-line="653" selection-end-column="0" />
+        <state relative-caret-position="-1676">
+          <caret line="716" column="34" lean-forward="true" selection-start-line="716" selection-start-column="34" selection-end-line="716" selection-end-column="34" />
           <folding />
         </state>
       </provider>
