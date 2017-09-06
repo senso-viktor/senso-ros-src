@@ -33,7 +33,7 @@ int main(int argc, char **argv){
     bool initStep = true;
     bool satisfieJointLimits = false;
     bool errorInPose = false;
-
+    bool init = true;
     int count1 = 0;
     int help = 0;
     int cc = -1;
@@ -165,7 +165,10 @@ int main(int argc, char **argv){
         ROS_INFO_ONCE("while start");
 
         switch (current_mode){
-            ///////////////////////////////////////////////////////////////
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /////                                     MODE 0 - info                                                   /////
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
             case 0:
                 while (ros::ok()){
                     //Break while loop when the mode has changed
@@ -183,7 +186,9 @@ int main(int argc, char **argv){
                 }
                 break;
 
-                //////////////////////////////////////////////////////////////
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                /////                                     MODE 1 - Joint Control                                          /////
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////////
             case 1:
                 while (ros::ok()) {
                     //Break while loop when the mode has changed
@@ -276,9 +281,9 @@ int main(int argc, char **argv){
 
                 break;
 
-
-
-                //////////////////////////////////////////////////////////////////////////////
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                /////                                     MODE 2 - Position control                                       /////
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////////
             case 2:
 
                 while (ros::ok()){
@@ -392,8 +397,9 @@ int main(int argc, char **argv){
                 }
                 break;
 
-
-                //////////////////////////////////////////////////////////////////////
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                /////                                     MODE 3 - DEMO                                                   /////
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////////
             case 3:
                 while (ros::ok()){
                     ROS_INFO_ONCE("DEMO control tab ...");
@@ -408,6 +414,7 @@ int main(int argc, char **argv){
                         DEMO_mode = -1; //or 0....
                         gripper_state.data = 0;
                         gripper_pub.publish(gripper_state);
+                        init = true;
                         break;
                     }
 
@@ -525,7 +532,9 @@ int main(int argc, char **argv){
                 break;
 
 
-                ////////////////////////////////////////////////////////////////
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                /////                                     MODE 4 - teach mode GUI                                        /////
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////////
             case 4:
                 while (ros::ok()){
                     ROS_INFO_ONCE("teaching mode");
@@ -575,7 +584,7 @@ int main(int argc, char **argv){
                         mode_pub.publish(selectedMode);
 
                         if (initTeachedPositions && (help == 1)){          //init vector and  calculate IK
-                            ROS_INFO("stopped teaching");
+                            ROS_WARN("\n\nstopped teaching");
                             showAndInitVector();
                             for (int i=0; i<desiredJointsTeach.size(); i++){
 
@@ -608,31 +617,37 @@ int main(int argc, char **argv){
                             }
 
                             for (int i=0; i<desiredJointsTeach.size(); i++){
-                                ROS_INFO("[%d] J1=%f J2=%f J3=%f",i,desiredJointsTeach[i][0],desiredJointsTeach[i][1],desiredJointsTeach[i][2]);
+                                ROS_WARN("[%d] J1=%f J2=%f J3=%f",i,desiredJointsTeach[i][0],desiredJointsTeach[i][1],desiredJointsTeach[i][2]);
                             }
                             initTeachedPositions = false;
+                            sleep(2);
                         }
 
 
                         if (teach_start_state && !colisionDetection){
 
-                            if (count1 != -1){
-                                executionOK = inPositionTeach(count1,1);
-                            }else {
-                                executionOK = true;
-                            }
+//                            if (count1 != -1){
+//                                executionOK = inPositionTeach(count1,1);
+//                            }else {
+//                                executionOK = true;
+//                            }
 
                             if (executionOK){
                                 sleep(2);
                                 count1++;
                                 if (count1 == desiredJointsTeach.size()){
                                     count1 = 0;
+                                }else if (count1 < 0){
+                                    count1 = 0;
                                 }
-                                ROS_WARN("Desired joints : %f %f %f", desiredJointsTeach[count1][0], desiredJointsTeach[count1][1],
+                                ROS_WARN("Desired target[%d] : %f %f %f",count1, desiredJointsTeach[count1][0], desiredJointsTeach[count1][1],
                                          desiredJointsTeach[count1][2]);
                                 move_group.setJointValueTarget(desiredJointsTeach[count1]);
                                 jointModeControll(&move_group);
                             }
+
+                            executionOK = inPositionTeach(count1,1);
+
 
                             if (my_plan.trajectory_.joint_trajectory.points.size() != last_trajectory_size){
                                 last_trajectory_size = my_plan.trajectory_.joint_trajectory.points.size();
@@ -645,24 +660,26 @@ int main(int argc, char **argv){
                                 teachMode_counter++;
                             }else{
                                 sendJointPoses(&pose_pub,&acc_pub, &my_plan, last_trajectory_size-1);
-                                ROS_ERROR("message stay!!",pos_and_vel.position.x, pos_and_vel.position.y, pos_and_vel.position.z);
+                                //ROS_ERROR("message stay!!",pos_and_vel.position.x, pos_and_vel.position.y, pos_and_vel.position.z);
                             }
                         }else{
                             ROS_INFO("stopped");
                             if (teachMode_counter < 1){
                                 sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
-                                ROS_ERROR("message stop!! [0/%d]",last_trajectory_size);
+                               // ROS_ERROR("message stop!! [0/%d]",last_trajectory_size);
 
                             }else if (teachMode_counter < 15){
                                 sendJointPoses(&pose_pub,&acc_pub, &my_plan, teachMode_counter);
-                                ROS_ERROR("message stop!! [%d/%d]", teachMode_counter-10,last_trajectory_size);
+                                //ROS_ERROR("message stop!! [%d/%d]", teachMode_counter-10,last_trajectory_size);
                             }else{
                                 sendJointPoses(&pose_pub,&acc_pub, &my_plan, (teachMode_counter-10));
-                                ROS_ERROR("message stop!! [%d/%d]", (teachMode_counter-10),last_trajectory_size);
+                                //ROS_ERROR("message stop!! [%d/%d]", (teachMode_counter-10),last_trajectory_size);
                             }
                             count1 = -1;
                             move_group.stop();
                         }
+
+
 
                     }else {
                         ROS_ERROR("not valid teach mode");
@@ -675,7 +692,9 @@ int main(int argc, char **argv){
                 break;
 
 
-                ////////////////////////////////////////////////////////////////
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                /////                                     MODE 5 - TEACH mode                                             /////
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////////
             case 5:
 
                 while (ros::ok()){
@@ -692,6 +711,7 @@ int main(int argc, char **argv){
                         zeroPositionForTeach = true;
                         executionOK = true;
                         teachModeHand_counter = 0;
+                        help = 0;
                         teachPositionsHand.clear();
                         teachPositions.clear();
                         break;

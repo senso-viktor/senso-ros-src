@@ -205,17 +205,18 @@ bool calculateIK(double x, double y, double z,  int mode, int working_mode, int 
 //        ROS_WARN("\n\nz value =%f\n\n",joint_positions[2]);
 //        joint_positions[2] = 0.01;
 //    }
-    ROS_WARN("z value =%f",z);
+    //ROS_WARN("z value =%f",z);
     joint_positions[2] = -z + 0.01;
-    ROS_WARN("jp value =%f",joint_positions[2]);
+    //ROS_WARN("jp value =%f",joint_positions[2]);
     if (joint_positions[2] <=0.0){
         joint_positions[2] =0.0;
     }else if (joint_positions[2] >=0.04){
         joint_positions[2] =0.04;
-    }else{
-        ROS_INFO("Z in range");
     }
-    ROS_WARN("final z value =%f\n",joint_positions[2]);
+//    else{
+//        ROS_INFO("Z in range");
+//    }
+    //ROS_WARN("final z value =%f\n",joint_positions[2]);
 
     //ROS_INFO("output joint positions %f %f %f",joint_positions[0],joint_positions[1],joint_positions[2]);
 
@@ -410,8 +411,8 @@ void setDesiredPosesDEMO(){
     //************************************************************************************************//
 
     //Home position
-    desiredPositionsDEMO[0].x = 0.59;
-    desiredPositionsDEMO[0].y = 0.58;
+    desiredPositionsDEMO[0].x = 0.7;
+    desiredPositionsDEMO[0].y = 0.57;
     desiredPositionsDEMO[0].z = 0.99;
     //Pick position
     desiredPositionsDEMO[1].x = 0.4;
@@ -528,7 +529,7 @@ void showAndInitVector(){
     for (int i=0; i< desiredJointsTeach.size(); i++){
         desiredJointsTeach[i].resize(3);
     }
-    ROS_INFO("desireJointsTeach size = %d x %d",desiredJointsTeach.size(), desiredJointsTeach[0].size());
+    //ROS_INFO("desireJointsTeach size = %d x %d",desiredJointsTeach.size(), desiredJointsTeach[0].size());
 
 }
 
@@ -547,8 +548,8 @@ bool inPositionTeach(int currentMode, int type) {
             (currentJointStates.position[0] < desiredJointsTeach[currentMode][0] + maxJointDeviation)) {
             if ((desiredJointsTeach[currentMode][1] - maxJointDeviation < currentJointStates.position[1]) &&
                 (currentJointStates.position[1] < desiredJointsTeach[currentMode][1] + maxJointDeviation)) {
-                if ((-desiredJointsTeach[currentMode][2] - maxJointDeviation < currentJointStates.position[2]) &&
-                    (currentJointStates.position[2] < -desiredJointsTeach[currentMode][2] + maxJointDeviation)) {
+//                if ((-desiredJointsTeach[currentMode][2] - maxJointDeviation < currentJointStates.position[2]) &&
+//                    (currentJointStates.position[2] < -desiredJointsTeach[currentMode][2] + maxJointDeviation)) {
 
                     ROS_WARN("!!!!!   In place  !!!!!!");
                     for (int i = 0; i < joint_positions.size(); i++) {
@@ -556,23 +557,26 @@ bool inPositionTeach(int currentMode, int type) {
                         ROS_ERROR("Joint %d value %f", i, currentJointStates.position[i]);
                     }
                     return true;
+//                }
+            }
+        }
 
-                } else
-                    ROS_INFO("J3 not in place %f [%f]", currentJointStates.position[2], desiredJointsTeach[currentMode][2]);
-            } else
-                ROS_INFO("J2 not in place %f [%f]", currentJointStates.position[1], desiredJointsTeach[currentMode][1]);
-        } else
-            ROS_INFO("J1 not in place %f [%f]", currentJointStates.position[0], desiredJointsTeach[currentMode][0]);
+//                } else
+//                    ROS_INFO("J3 not in place %f [%f]", currentJointStates.position[2], desiredJointsTeach[currentMode][2]);
+//            } else
+//                ROS_INFO("J2 not in place %f [%f]", currentJointStates.position[1], desiredJointsTeach[currentMode][1]);
+//        } else
+//            ROS_INFO("J1 not in place %f [%f]", currentJointStates.position[0], desiredJointsTeach[currentMode][0]);
 
         return false;
 
-    }else if (type == 2){
+    }else if (type == 2) {
         if ((teachPositionsHand[currentMode][0] - maxJointDeviation < currentJointStates.position[0]) &&
             (currentJointStates.position[0] < teachPositionsHand[currentMode][0] + maxJointDeviation)) {
             if ((teachPositionsHand[currentMode][1] - maxJointDeviation < currentJointStates.position[1]) &&
                 (currentJointStates.position[1] < teachPositionsHand[currentMode][1] + maxJointDeviation)) {
-                if ((teachPositionsHand[currentMode][2] - maxJointDeviation < currentJointStates.position[2]) &&
-                    (currentJointStates.position[2] < teachPositionsHand[currentMode][2] + maxJointDeviation)) {
+//                if ((teachPositionsHand[currentMode][2] - maxJointDeviation < currentJointStates.position[2]) &&
+//                    (currentJointStates.position[2] < teachPositionsHand[currentMode][2] + maxJointDeviation)) {
 
                     ROS_WARN("!!!!!   In place  !!!!!!");
                     for (int i = 0; i < joint_positions.size(); i++) {
@@ -581,16 +585,21 @@ bool inPositionTeach(int currentMode, int type) {
                     }
                     return true;
 
-                } else
-                    ROS_INFO("J3 not in place %f [%f]", currentJointStates.position[2], teachPositionsHand[currentMode][2]);
-            } else
-                ROS_INFO("J2 not in place %f [%f]", currentJointStates.position[1], teachPositionsHand[currentMode][1]);
-        } else
-            ROS_INFO("J1 not in place %f [%f]", currentJointStates.position[0], teachPositionsHand[currentMode][0]);
-
+//                }
+            }
+        }
         return false;
-
     }
+//                else
+//                    //ROS_INFO("J3 not in place %f [%f]", currentJointStates.position[2], teachPositionsHand[currentMode][2]);
+//            } else
+//                //ROS_INFO("J2 not in place %f [%f]", currentJointStates.position[1], teachPositionsHand[currentMode][1]);
+//        } else
+//            //ROS_INFO("J1 not in place %f [%f]", currentJointStates.position[0], teachPositionsHand[currentMode][0]);
+//
+//        return false;
+//
+//    }
 
 }
 

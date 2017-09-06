@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/scara_v2_moveit_api/include/scara_menu.h" line="503" mnemonic="5" />
+    <bookmark url="file://$PROJECT_DIR$/scara_v2_moveit_api/include/scara_menu.h" line="504" mnemonic="5" />
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
@@ -291,21 +291,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b700e8e-8037-495d-aed6-fe331801a34d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/demo.launch" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_and_rt_moveit_config/.setup_assistant" afterPath="$PROJECT_DIR$/scara_and_rt_moveit_config/.setup_assistant" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_and_rt_moveit_config/config/fake_controllers.yaml" afterPath="$PROJECT_DIR$/scara_and_rt_moveit_config/config/fake_controllers.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_and_rt_moveit_config/config/joint_limits.yaml" afterPath="$PROJECT_DIR$/scara_and_rt_moveit_config/config/joint_limits.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_and_rt_moveit_config/config/kinematics.yaml" afterPath="$PROJECT_DIR$/scara_and_rt_moveit_config/config/kinematics.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_and_rt_moveit_config/config/ompl_planning.yaml" afterPath="$PROJECT_DIR$/scara_and_rt_moveit_config/config/ompl_planning.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_and_rt_moveit_config/config/scara_and_rt.srdf" afterPath="$PROJECT_DIR$/scara_and_rt_moveit_config/config/scara_and_rt.srdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/moveit.rviz" afterPath="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/moveit.rviz" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/ompl_planning_pipeline.launch.xml" afterPath="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/ompl_planning_pipeline.launch.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/scara_and_rt_moveit_controller_manager.launch.xml" afterPath="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/scara_and_rt_moveit_controller_manager.launch.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_gui/src/mainwindow.cpp" afterPath="$PROJECT_DIR$/scara_gui/src/mainwindow.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_v2_moveit_api/include/scara_menu.h" afterPath="$PROJECT_DIR$/scara_v2_moveit_api/include/scara_menu.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_v2_moveit_api/src/scara_menu.cpp" afterPath="$PROJECT_DIR$/scara_v2_moveit_api/src/scara_menu.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_v2_with_gripper/urdf/scara_and_rt_urdf.xacro" afterPath="$PROJECT_DIR$/scara_v2_with_gripper/urdf/scara_and_rt_urdf.xacro" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -359,36 +347,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scara_menu.h" pinned="false" current-in-tab="false">
+      <file leaf-file-name="scara_menu.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/include/scara_menu.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="418" column="37" lean-forward="true" selection-start-line="418" selection-start-column="37" selection-end-line="418" selection-end-column="37" />
+            <state relative-caret-position="1344">
+              <caret line="536" column="36" lean-forward="true" selection-start-line="536" selection-start-column="36" selection-end-line="536" selection-end-column="36" />
               <folding>
-                <element signature="e#18367#19479#0" expanded="false" />
-                <element signature="e#23538#24545#0" expanded="false" />
-                <element signature="e#24547#25162#0" expanded="false" />
-                <element signature="e#25164#28972#0" expanded="false" />
-                <element signature="e#28974#29355#0" expanded="false" />
-                <element signature="e#29492#29687#0" expanded="false" />
-                <element signature="e#29731#29868#0" expanded="false" />
-                <element signature="e#29903#30111#0" expanded="false" />
-                <element signature="e#30142#30508#0" expanded="false" />
-                <element signature="e#30530#30873#0" expanded="false" />
-                <element signature="e#30906#31056#0" expanded="false" />
-                <element signature="e#31096#31273#0" expanded="false" />
-                <element signature="e#31293#31543#0" expanded="false" />
-                <element signature="e#31587#31697#0" expanded="false" />
+                <element signature="e#18384#19496#0" expanded="false" />
+                <element signature="e#19498#21441#0" expanded="false" />
+                <element signature="e#23554#24561#0" expanded="false" />
+                <element signature="e#25182#29151#0" expanded="false" />
+                <element signature="e#29671#29866#0" expanded="false" />
+                <element signature="e#29910#30047#0" expanded="false" />
+                <element signature="e#30082#30290#0" expanded="false" />
+                <element signature="e#30321#30687#0" expanded="false" />
+                <element signature="e#30709#31052#0" expanded="false" />
+                <element signature="e#31085#31235#0" expanded="false" />
+                <element signature="e#31275#31452#0" expanded="false" />
+                <element signature="e#31472#31722#0" expanded="false" />
+                <element signature="e#31766#31876#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scara_menu.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="scara_menu.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/scara_menu.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="439" column="40" lean-forward="true" selection-start-line="439" selection-start-column="40" selection-end-line="439" selection-end-column="40" />
+            <state relative-caret-position="4984">
+              <caret line="626" column="39" lean-forward="false" selection-start-line="626" selection-start-column="39" selection-end-line="626" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -398,14 +385,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>success</find>
-      <find>0.6</find>
-      <find>IK</find>
-      <find>calculateIK</find>
-      <find>ik</find>
-      <find>jointControl_Values_msg</find>
-      <find>jointControl_pub</find>
-      <find>gripperstate</find>
       <find>gripperstat</find>
       <find>colision</find>
       <find>jointStatesCallback</find>
@@ -428,6 +407,14 @@
       <find>max</find>
       <find>gripper_state</find>
       <find>0.4</find>
+      <find>teached</find>
+      <find>size of teached points</find>
+      <find>message</find>
+      <find>showt</find>
+      <find>showteac</find>
+      <find>ik</find>
+      <find>desireJointsTeach</find>
+      <find>executionOK</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -495,10 +482,10 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="-11" />
-    <option name="width" value="1857" />
-    <option name="height" value="1212" />
+    <option name="x" value="65" />
+    <option name="y" value="-4" />
+    <option name="width" value="1855" />
+    <option name="height" value="1204" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -2381,7 +2368,7 @@
       <workItem from="1504499785017" duration="5630000" />
       <workItem from="1504509968227" duration="22978000" />
       <workItem from="1504588646686" duration="39329000" />
-      <workItem from="1504675052726" duration="6463000" />
+      <workItem from="1504675052726" duration="10586000" />
     </task>
     <task id="LOCAL-00001" summary="First commit from CLion">
       <created>1502626241736</created>
@@ -2565,16 +2552,23 @@
       <option name="project" value="LOCAL" />
       <updated>1504627381691</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="GUI - DEMO mode funguje oz naozaj .. teach mode neotestovany..">
+      <created>1504681616050</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1504681616050</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="269786000" />
+    <option name="totallyTimeSpent" value="273909000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1857" height="1212" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1204" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2167116" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10997304" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17347866" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
@@ -2601,7 +2595,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="First commit from CLion" />
     <MESSAGE value="real scara colision detection" />
     <MESSAGE value="get and send planned path OK!!!" />
     <MESSAGE value="Prvy uspesny test hybania s ramenom cez moveit (v pritomnosti kolizneho objektu). Frekvencia 15Hz" />
@@ -2626,7 +2619,8 @@
     <MESSAGE value="GUI - teach mode hand just GUI (mozno opravene/otestovat!)" />
     <MESSAGE value="GUI - teach mode hand just GUI (mozno opravene/otestovat! 2)" />
     <MESSAGE value="GUI - DEMO mode funguje aj ked pomaly.." />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI - DEMO mode funguje aj ked pomaly.." />
+    <MESSAGE value="GUI - DEMO mode funguje oz naozaj .. teach mode neotestovany.." />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI - DEMO mode funguje oz naozaj .. teach mode neotestovany.." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2947,6 +2941,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2100">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2962,6 +2957,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
           <caret line="153" column="28" lean-forward="false" selection-start-line="153" selection-start-column="28" selection-end-line="153" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2969,6 +2965,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
           <caret line="746" column="23" lean-forward="false" selection-start-line="746" selection-start-column="23" selection-end-line="746" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3001,34 +2998,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/include/scara_menu.h">
+    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/scara_menu.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="418" column="37" lean-forward="true" selection-start-line="418" selection-start-column="37" selection-end-line="418" selection-end-column="37" />
-          <folding>
-            <element signature="e#18367#19479#0" expanded="false" />
-            <element signature="e#23538#24545#0" expanded="false" />
-            <element signature="e#24547#25162#0" expanded="false" />
-            <element signature="e#25164#28972#0" expanded="false" />
-            <element signature="e#28974#29355#0" expanded="false" />
-            <element signature="e#29492#29687#0" expanded="false" />
-            <element signature="e#29731#29868#0" expanded="false" />
-            <element signature="e#29903#30111#0" expanded="false" />
-            <element signature="e#30142#30508#0" expanded="false" />
-            <element signature="e#30530#30873#0" expanded="false" />
-            <element signature="e#30906#31056#0" expanded="false" />
-            <element signature="e#31096#31273#0" expanded="false" />
-            <element signature="e#31293#31543#0" expanded="false" />
-            <element signature="e#31587#31697#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="4984">
+          <caret line="626" column="39" lean-forward="false" selection-start-line="626" selection-start-column="39" selection-end-line="626" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/scara_menu.cpp">
+    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/include/scara_menu.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="439" column="40" lean-forward="true" selection-start-line="439" selection-start-column="40" selection-end-line="439" selection-end-column="40" />
-          <folding />
+        <state relative-caret-position="1344">
+          <caret line="536" column="36" lean-forward="true" selection-start-line="536" selection-start-column="36" selection-end-line="536" selection-end-column="36" />
+          <folding>
+            <element signature="e#18384#19496#0" expanded="false" />
+            <element signature="e#19498#21441#0" expanded="false" />
+            <element signature="e#23554#24561#0" expanded="false" />
+            <element signature="e#25182#29151#0" expanded="false" />
+            <element signature="e#29671#29866#0" expanded="false" />
+            <element signature="e#29910#30047#0" expanded="false" />
+            <element signature="e#30082#30290#0" expanded="false" />
+            <element signature="e#30321#30687#0" expanded="false" />
+            <element signature="e#30709#31052#0" expanded="false" />
+            <element signature="e#31085#31235#0" expanded="false" />
+            <element signature="e#31275#31452#0" expanded="false" />
+            <element signature="e#31472#31722#0" expanded="false" />
+            <element signature="e#31766#31876#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
