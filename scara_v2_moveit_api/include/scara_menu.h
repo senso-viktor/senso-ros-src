@@ -10,6 +10,7 @@
 #include "stdio.h"
 #include "std_msgs/Bool.h"
 #include "std_msgs/Int32.h"
+#include "std_msgs/Float64.h"
 #include "std_msgs/Byte.h"
 #include "geometry_msgs/PointStamped.h"
 #include "geometry_msgs/Point.h"
@@ -29,6 +30,7 @@ bool executionOK = true;
 bool initTeachedPositions = true;
 bool zeroPositionForTeach = true;
 bool pick = false;
+bool central_stop = false;
 
 int IK_mode = 1;
 int DEMO_mode = -1;
@@ -59,6 +61,7 @@ std::vector<geometry_msgs::Point> teachPositions;
 
 std_msgs::Byte selectedMode;
 std_msgs::Byte gripper_state;
+std_msgs::Int32 centralStop_msg;
 std_msgs::Int32 errorCodeMsg;
 geometry_msgs::Point point;
 geometry_msgs::Pose endEffectorPose;
@@ -339,6 +342,16 @@ void sendJointPoses(ros::Publisher *pose_and_vel_pub,ros::Publisher *accel_pub, 
         pos_and_vel.orientation.x =  currentJointStates.velocity[0];
         pos_and_vel.orientation.y =  currentJointStates.velocity[1];
 //        pos_and_vel.orientation.z =  currentJointStates.velocity[2];
+        pos_and_vel.orientation.z =  0.0;
+        acc.x = 0.0;
+        acc.y = 0.0;
+        acc.z = 0.0;
+    }else if (i == 998){
+        pos_and_vel.position.x = 0.0;
+        pos_and_vel.position.y =  0.0;
+        pos_and_vel.position.z =  0.04;
+        pos_and_vel.orientation.x =  0.0;
+        pos_and_vel.orientation.y =  0.0;
         pos_and_vel.orientation.z =  0.0;
         acc.x = 0.0;
         acc.y = 0.0;
@@ -637,6 +650,19 @@ void showTeachedJointValues (){
     sleep(2);
 }
 
+void initMatlab(ros::Publisher *pub_gripper, ros::Publisher *pub_centralStop, ros::Publisher *pub_pose_and_vel,ros::Publisher *pub_accel, moveit::planning_interface::MoveGroupInterface::Plan *initPlan){
+
+    gripper_state.data = 0;
+    centralStop_msg.data = 0;
+
+    pub_gripper->publish(gripper_state);
+    pub_centralStop->publish(centralStop_msg);
+    sendJointPoses(pub_pose_and_vel, pub_accel, initPlan, 998);
+    usleep(200000);
+
+
+}
+
 //******************************************************************************************************************************//
 
 
@@ -704,6 +730,49 @@ void teachModeStartStateCallback(const std_msgs::Bool startState_teachMode){
     teach_start_state = startState_teachMode.data;
 
 }     //GUI -> MENU
+
+void centralStopCallback(const std_msgs::Int32 centralStopState){
+
+    //ROS_INFO("teach central stop callback");
+    central_stop = centralStopState.data;
+
+}                //GUI -> MENU
+
+void setTorqueCallback(const std_msgs::Float64 torqueValue){
+
+    ROS_INFO("set torque callback");
+
+
+}                //GUI -> MENU
+
+void setVelCallback(const std_msgs::Float64 velocityValue){
+
+    ROS_INFO("set velocity callback");
+
+
+}                //GUI -> MENU
+
+void setAccCallback(const std_msgs::Float64 accelerationValue){
+
+    ROS_INFO("set acceleration callback");
+
+
+}                //GUI -> MENU
+
+void setPlanTimeCallback(const std_msgs::Float64 planTimeValue){
+
+    ROS_INFO("set plan time callback");
+
+
+}                //GUI -> MENU
+
+void setNumOfAttemptsCallback(const std_msgs::Int32 numOfAttemptsValue){
+
+    ROS_INFO("set number of attempts callback");
+
+
+}                //GUI -> MENU
+
 
 void buttonStateCallback(const std_msgs::Byte buttonState){
 

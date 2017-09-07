@@ -122,6 +122,10 @@ private slots:
 
     void on_setParameters_Torque_PushButton_3_clicked();
 
+    void on_colisionObject_CustomObj_enterpushButton_clicked();
+
+    void on_colisionObject_RealObj_enterPushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -132,19 +136,20 @@ private:
     int teachModeIndex = 0;
     int teachModeIndexHand = 0;
 
-    std_msgs::Bool gripperState_msg, startState_msg, demoState_msg, getInfoState_msg, teachModeState_msg;
-    std_msgs::Float64 setParamFloat_msg;
-    std_msgs::Int32 setParamInt_msg, modeSelect_msg,teachModeSelect_msg;
+    std_msgs::Bool gripperState_msg, startState_msg, demoState_msg, getInfoState_msg, teachModeState_msg, moveitMode_msg, dispRealObj_msg, dispCustomObj_msg;
+    std_msgs::Float64 setParamFloat_msg, realObjSize_msg, customObjSize_msg;
+    std_msgs::Int32 setParamInt_msg, modeSelect_msg,teachModeSelect_msg, centralStop_msg, arrows_msg;
     scara_msgs::robot_info robotInfo;
     geometry_msgs::PointStamped jointControl_Values_msg;
     geometry_msgs::Point positionControl_Values_msg;
     geometry_msgs::Pose actualPose_msg;
     sensor_msgs::JointState actualJointStates;
 
-    ros::Publisher jointControl_pub, positionControl_pub, demo_pub, getInfo_pub, setVel_pub, setAcc_pub, setPlanTime_pub, setNumOfAttempts_pub, gripperState_pub, start_pub, mode_pub, teachMode_pub, teachMode_startState;
+    ros::Publisher jointControl_pub, positionControl_pub, demo_pub, getInfo_pub, setTorq_pub, setVel_pub, setAcc_pub, setPlanTime_pub, setNumOfAttempts_pub;
+    ros::Publisher gripperState_pub, start_pub, mode_pub, teachMode_pub, teachMode_startState, centralStop_pub, moveitMode_pub,colObjArrows_pub;
+    ros::Publisher setRealColObjSize_pub, setCustomColObjSize_pub, displayRealColObj_pub, displayCustomColObj_pub;
     ros::Subscriber jointControlValues_sub, positionControlValues_sub, demoValues_sub, getInfo_sub, jointStates_sub, actualPose_sub, actualAcc_sub, errorMessage_sub, shit_sub, teachModeTeach_sub, teachModeStopTeach_sub;
 
-    //dorobit reset publisher...
 
 
 };

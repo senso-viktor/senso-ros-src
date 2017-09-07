@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     int argc;
     char **argv;
     ros::init(argc, argv, "scara_gui_node");
-    ros::NodeHandle n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13;
+    ros::NodeHandle n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21;
     ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6;
     ros::Rate loop_rate(10);
 
@@ -33,7 +33,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ROS_INFO("Init publisher jointControl");
     positionControl_pub = n2.advertise<geometry_msgs::Point>("positionControl",1000);
     ROS_INFO("Init publisher positionControl");
-    demo_pub = n3.advertise<std_msgs::Bool>("demoControl",1000);
+    demo_pub = n3.advertise<std_msgs::Bool>("demoControl",1000);                //nepouziva sa potom ho dat prec!!!!
     ROS_INFO("Init publisher demo");
     getInfo_pub = n4.advertise<std_msgs::Bool>("getInfo",1000);
     ROS_INFO("Init publisher getInfo");
@@ -55,6 +55,24 @@ MainWindow::MainWindow(QWidget *parent) :
     ROS_INFO("Init publisher teachMode");
     teachMode_startState = n13.advertise<std_msgs::Bool>("teachModeStartState",1000);
     ROS_INFO("Init publisher teachMode_startState");
+    setTorq_pub = n14.advertise<std_msgs::Float64>("setTorque",1000);
+    ROS_INFO("Init publisher setTorque");
+    centralStop_pub = n15.advertise<std_msgs::Int32>("centralStop",1000);
+    ROS_INFO("Init publisher central stop");
+    moveitMode_pub = n16.advertise<std_msgs::Bool>("moveitModeStart",1000);
+    ROS_INFO("Init publisher moveit mode");
+    colObjArrows_pub = n17.advertise<std_msgs::Int32>("colisionObjectMovement",1000);
+    ROS_INFO("Init publisher colision object movement");
+    setRealColObjSize_pub = n18.advertise<std_msgs::Float64>("realColisionObjectSize",1000);
+    ROS_INFO("Init publisher real colision object size");
+    setCustomColObjSize_pub = n19.advertise<std_msgs::Float64>("customColisionObjectSize",1000);
+    ROS_INFO("Init publisher custom colision object size");
+    displayRealColObj_pub = n20.advertise<std_msgs::Bool>("displayRealColisionObject",1000);
+    ROS_INFO("Init publisher display real colision object");
+    displayCustomColObj_pub = n21.advertise<std_msgs::Bool>("displayCustomColisionObject",1000);
+    ROS_INFO("Init publisher display custom colision object");
+    //novy publisheri
+
 
     ROS_INFO("...............................................");
     ROS_INFO("...............................................");
@@ -474,12 +492,14 @@ void MainWindow::on_teachMode_tabWidget_2_tabBarClicked(int index){
 
 
 //****************************** Movement in moveit *****************************//
-void MainWindow::on_moveit_checkBox_toggled(bool checked)
-{
+void MainWindow::on_moveit_checkBox_toggled(bool checked){
+    moveitMode_msg.data = checked;
 
+    for (int i=0;i<100;i++){
+        moveitMode_pub.publish(moveitMode_msg);
+    }
 }
 //...............................................................................//
-
 
 
 
@@ -499,13 +519,13 @@ void MainWindow::on_basicInfo_GetInfo_PushButton_3_clicked(){
 
 
 
-
-
-
-
 //*************************** Set information *******************************//
 void MainWindow::on_setParameters_Torque_PushButton_3_clicked()
 {
+    setParamFloat_msg.data = ui->setParameters_Torque_LineEdit_3->text().toFloat();
+    for (int i=0;i<100;i++) {
+        setTorq_pub.publish(setParamFloat_msg);
+    }
 
 }
 
@@ -549,39 +569,109 @@ void MainWindow::on_setParameters_NumOfAttempts_PushButton_3_clicked(){
 
 
 //*************************** Colision object *******************************//
-void MainWindow::on_colisionObject_CustomObj_checkButton_toggled(bool checked)
-{
+void MainWindow::on_colisionObject_CustomObj_checkButton_toggled(bool checked){
+
+    //GUI
+    if (checked){
+        ui->colisionObject_CustomObj_lineEdit->setText("Enabled");
+    }else{
+        ui->colisionObject_CustomObj_lineEdit->setText("Disabled");
+    }
+
+    //ROS
+    dispCustomObj_msg.data = checked;
+    for (int i=0;i<100;i++){
+        displayCustomColObj_pub.publish(dispCustomObj_msg);
+    }
+
+
+
 
 }
 
-void MainWindow::on_colisionObject_RealObj_checkButton_toggled(bool checked)
-{
+void MainWindow::on_colisionObject_RealObj_checkButton_toggled(bool checked){
+
+    //GUI
+    if (checked){
+        ui->colisionObject_RealObj_lineEdit->setText("Enabled");
+    }else{
+        ui->colisionObject_RealObj_lineEdit->setText("Disabled");
+    }
+
+    //ROS
+    dispRealObj_msg.data = checked;
+    for (int i=0;i<100;i++){
+        displayRealColObj_pub.publish(dispRealObj_msg);
+    }
 
 }
 
-void MainWindow::on_colisionObject_Reset_pushbutton_clicked()
-{
+void MainWindow::on_colisionObject_CustomObj_enterpushButton_clicked(){
+
+    customObjSize_msg.data = ui->colisionObject_CustomObj_sizeLineEdit->text().toDouble();
+    //GUI
+    ui->colisionObject_CustomObj_LCD->display(customObjSize_msg.data);
+
+    //ROS
+    for (int i=0;i<100;i++){
+        setCustomColObjSize_pub.publish(customObjSize_msg);
+    }
+
 
 }
 
-void MainWindow::on_colisionObject_Up_pushbutton_clicked()
-{
+void MainWindow::on_colisionObject_RealObj_enterPushButton_clicked(){
+
+    realObjSize_msg.data = ui->colisionObject_RealObj_sizeLineEdit->text().toDouble();
+    //GUI
+    ui->colisionObject_RealObj_LCD->display(realObjSize_msg.data);
+
+    //ROS
+    for (int i=0;i<100;i++){
+        setRealColObjSize_pub.publish(realObjSize_msg);
+    }
 
 }
 
-void MainWindow::on_colisionObject_Left_pushbutton_clicked()
-{
+void MainWindow::on_colisionObject_Reset_pushbutton_clicked(){
+
+    arrows_msg.data = 0;
+    for (int i=0;i<100;i++){
+        colObjArrows_pub.publish(arrows_msg);
+    }
 
 }
 
-void MainWindow::on_colisionObject_Down_pushbutton_clicked()
-{
+void MainWindow::on_colisionObject_Up_pushbutton_clicked(){
 
+    arrows_msg.data = 1;
+    for (int i=0;i<100;i++){
+        colObjArrows_pub.publish(arrows_msg);
+    }
 }
 
-void MainWindow::on_colisionObject_Right_pushbutton_clicked()
-{
+void MainWindow::on_colisionObject_Left_pushbutton_clicked(){
 
+    arrows_msg.data = 2;
+    for (int i=0;i<100;i++){
+        colObjArrows_pub.publish(arrows_msg);
+    }
+}
+
+void MainWindow::on_colisionObject_Down_pushbutton_clicked(){
+
+    arrows_msg.data = 3;
+    for (int i=0;i<100;i++){
+        colObjArrows_pub.publish(arrows_msg);
+    }
+}
+
+void MainWindow::on_colisionObject_Right_pushbutton_clicked(){
+
+    arrows_msg.data = 4;
+    for (int i=0;i<100;i++){
+        colObjArrows_pub.publish(arrows_msg);
+    }
 }
 //...............................................................................//
 
@@ -618,8 +708,13 @@ void MainWindow::on_workingModes_3_tabBarClicked(int index){
 
 
 //**************************** CENTRAL STOP ****************************//
-void MainWindow::on_centralStop_clicked()
-{
+void MainWindow::on_centralStop_clicked(){
+
+    centralStop_msg.data = 1;
+    for (int i = 0;i<100;i++){
+        centralStop_pub.publish(centralStop_msg);
+    }
+    ui->error_lineEdit->setText("CENTRAL STOP PUSHED! Matlab and ROS stopped!");
 
 }
 //...............................................................................//

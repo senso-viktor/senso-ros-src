@@ -43,8 +43,8 @@ int main(int argc, char **argv){
     int desiredJointsTeachSize = 0;
     int teachPositionsHandSize = 0;
     ros::init(argc, argv, "menu_node");
-    ros::NodeHandle n1,n2,n3,n4,n5,n6,n7;
-    ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6,nn7,nn8,nn9,nn10;
+    ros::NodeHandle n1,n2,n3,n4,n5,n6,n7,n8;
+    ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6,nn7,nn8,nn9,nn10,nn11,nn12,nn13,nn14,nn15,nn16;
     ros::Rate loop_rate(10);
     ros::AsyncSpinner spinner(1);
     spinner.start();
@@ -80,6 +80,8 @@ int main(int argc, char **argv){
     ros::Publisher acc_pub = n4.advertise<geometry_msgs::Point>("/planned_accelerations",1000);
     ros::Publisher mode_pub = n5.advertise<std_msgs::Byte>("/modeSelect",1000);
     ros::Publisher gripper_pub = n6.advertise<std_msgs::Byte>("/gripperCommand",1000);
+    ros::Publisher centralStop_pub = n7.advertise<std_msgs::Int32>("centralStop",1000);
+    ROS_INFO("Init publisher central stop");
 
     ROS_INFO("Init subscribers");
     //Subscriber
@@ -92,9 +94,14 @@ int main(int argc, char **argv){
     ros::Subscriber teachMode_sub = nn7.subscribe("teachModeGUI",1000,teachModeCallback);
     ros::Subscriber teachModeStartState_sub = nn8.subscribe("teachModeStartState",1000,teachModeStartStateCallback);
     ros::Subscriber buttonState_sub = nn9.subscribe("scara_pushbutton",1000,buttonStateCallback);
+    ros::Subscriber centralStop_sub = nn10.subscribe("centralStop",1000,centralStopCallback);
+    ros::Subscriber setTorque_sub = nn11.subscribe("setTorque",1000,setTorqueCallback);
+    ros::Subscriber setVel_sub = nn12.subscribe("setVelocity",1000,setVelCallback);
+    ros::Subscriber setAcc_sub = nn13.subscribe("setAcceleration",1000,setAccCallback);
+    ros::Subscriber setPlanTime_sub = nn14.subscribe("setPlanningTime",1000,setPlanTimeCallback);
+    ros::Subscriber setNumOfAttempts_sub = nn15.subscribe("setNumberOfAttempts",1000,setNumOfAttemptsCallback);
     sleep(2);
 
-    gripper_state.data = 0;
 
 
     //Set desired Poses for DEMO
@@ -160,8 +167,14 @@ int main(int argc, char **argv){
     waitForPublishers(&positionControl_sub, 1);
     waitForPublishers(&teachMode_sub, 1);
     waitForPublishers(&teachModeStartState_sub, 1);
-    ROS_INFO("wait for SCARA init");
-    sleep(6);       //wait for matlab init
+    sleep(2);
+    ROS_INFO("wait for SCARA and Matlab init");
+    for (int i=0;i<20;i++){
+        initMatlab(&gripper_pub, &centralStop_pub, &pose_pub, &acc_pub, &my_plan);
+        ros::spinOnce();
+        loop_rate.sleep();
+    }
+    sleep(6);
 
 
 
@@ -177,6 +190,16 @@ int main(int argc, char **argv){
             }
             initPoses = false;
         }
+
+        if (central_stop){
+            selectedMode.data = 6;
+            mode_pub.publish(selectedMode);
+            for (int i=0;i<10;i++)
+                sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
+            ROS_ERROR("CENTRAL STOP ! PROGRAM END !");
+            return 0;
+        }
+
 
 
         switch (current_mode){
@@ -195,7 +218,16 @@ int main(int argc, char **argv){
                         break;
                     }
 
-                    ROS_INFO("Information tab - do nothing");
+                    if (central_stop){
+                        selectedMode.data = 6;
+                        mode_pub.publish(selectedMode);
+                        for (int i=0;i<10;i++)
+                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
+                        ROS_ERROR("CENTRAL STOP ! PROGRAM END !");
+                        return 0;
+                    }
+
+                    //ROS_INFO("Information tab - do nothing");
                     ros::spinOnce();
                     loop_rate.sleep();
                 }
@@ -227,6 +259,16 @@ int main(int argc, char **argv){
                         count1 = 0;
                     }
                     count1++;
+
+                    //Central stop - end of program!
+                    if (central_stop){
+                        selectedMode.data = 6;
+                        mode_pub.publish(selectedMode);
+                        for (int i=0;i<10;i++)
+                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
+                        ROS_ERROR("CENTRAL STOP ! PROGRAM END !");
+                        return 0;
+                    }
 
 
                     if (start_state && !colisionDetection) {
@@ -324,6 +366,16 @@ int main(int argc, char **argv){
                         count1 = 0;
                     }
                     count1++;
+
+                    //Central stop - end of program!
+                    if (central_stop){
+                        selectedMode.data = 6;
+                        mode_pub.publish(selectedMode);
+                        for (int i=0;i<10;i++)
+                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
+                        ROS_ERROR("CENTRAL STOP ! PROGRAM END !");
+                        return 0;
+                    }
 
                     if (start_state && !colisionDetection) {
                         if (positionsChanged()){
@@ -443,6 +495,16 @@ int main(int argc, char **argv){
                         count1 = 0;
                     }
                     count1++;
+
+                    //Central stop - end of program!
+                    if (central_stop){
+                        selectedMode.data = 6;
+                        mode_pub.publish(selectedMode);
+                        for (int i=0;i<10;i++)
+                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
+                        ROS_ERROR("CENTRAL STOP ! PROGRAM END !");
+                        return 0;
+                    }
 
                     if (start_state && !colisionDetection){       //colision!!!!!
 
@@ -582,10 +644,15 @@ int main(int argc, char **argv){
                     }
                     counter1++;
 
-//                    if (zeroPositionForTeach){      //The first element in vector is [0 0 0]
-//                        teachPositions.push_back(desiredPositionsDEMO[0]);
-//                        zeroPositionForTeach = false;
-//                    }
+                    //Central stop - end of program!
+                    if (central_stop){
+                        selectedMode.data = 6;
+                        mode_pub.publish(selectedMode);
+                        for (int i=0;i<10;i++)
+                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
+                        ROS_ERROR("CENTRAL STOP ! PROGRAM END !");
+                        return 0;
+                    }
 
                     if (teach_mode == 0){           //teach mode
                         //desiredJointsTeach.clear();
@@ -814,6 +881,16 @@ int main(int argc, char **argv){
                     }
                     counter1++;
 
+                    //Central stop - end of program!
+                    if (central_stop){
+                        selectedMode.data = 6;
+                        mode_pub.publish(selectedMode);
+                        for (int i=0;i<10;i++)
+                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
+                        ROS_ERROR("CENTRAL STOP ! PROGRAM END !");
+                        return 0;
+                    }
+
 
                     if (teach_mode == 0){
                         ROS_INFO_ONCE("teaching now");
@@ -978,30 +1055,158 @@ int main(int argc, char **argv){
                 }
 
                 break;
+
+
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                /////                                     MODE 6 - Moveit mode                                           /////
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////////
             case 6:
                 while (ros::ok()){
 
                     //Break while loop when the mode has changed
-                    if (current_mode != 6)
+                    if (current_mode != 6){
+                        count1 = 0;
                         break;
+                    }
 
-                    ROS_INFO("Set parameters tab ...");
+                    //Display end effector pose in GUI
+                    if (count1 > 12){
+                        sendEndEffectorPose(&actualPose_pub, &move_group);
+                        count1 = 0;
+                    }
+                    count1++;
+
+                    //Central stop - end of program!
+                    if (central_stop){
+                        selectedMode.data = 6;
+                        mode_pub.publish(selectedMode);
+                        for (int i=0;i<10;i++)
+                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
+                        ROS_ERROR("CENTRAL STOP ! PROGRAM END !");
+                        return 0;
+                    }
+
+
+
+
                     ros::spinOnce();
                     loop_rate.sleep();
                 }
                 break;
+
+
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                /////                                     MODE 7 - Get info                                              /////
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
             case 7:         //Ked budem dorabat veci do GUI
                 while (ros::ok()){
 
                     //Break while loop when the mode has changed
-                    if (current_mode != 7)
+                    if (current_mode != 7){
+                        count1 = 0;
                         break;
+                    }
 
-                    ROS_INFO("testing tab ...");
+                    //display end effector pose in GUI
+                    if (count1 > 12){
+                        sendEndEffectorPose(&actualPose_pub, &move_group);
+                        count1 = 0;
+                    }
+                    count1++;
+
+                    //Central stop - end of program!
+                    if (central_stop){
+                        selectedMode.data = 6;
+                        mode_pub.publish(selectedMode);
+                        for (int i=0;i<10;i++)
+                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
+                        ROS_ERROR("CENTRAL STOP ! PROGRAM END !");
+                        return 0;
+                    }
+
+
+                    ROS_INFO("Get basic info  ...");
                     ros::spinOnce();
                     loop_rate.sleep();
                 }
                 break;
+
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                /////                                     MODE 8 - Set parameters                                         /////
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            case 8:
+                while (ros::ok()){
+
+                    //Break while loop when the mode has changed
+                    if (current_mode != 8){
+                        count1 = 0;
+                        break;
+                    }
+
+                    //Display end effector pose in GUI
+                    if (count1 > 12){
+                        sendEndEffectorPose(&actualPose_pub, &move_group);
+                        count1 = 0;
+                    }
+                    count1++;
+
+                    //Central stop - end of program!
+                    if (central_stop){
+                        selectedMode.data = 6;
+                        mode_pub.publish(selectedMode);
+                        for (int i=0;i<10;i++)
+                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
+                        ROS_ERROR("CENTRAL STOP ! PROGRAM END !");
+                        return 0;
+                    }
+
+
+                    ROS_INFO("Set params  ...");
+                    ros::spinOnce();
+                    loop_rate.sleep();
+                }
+                break;
+
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                /////                                     MODE 9 - Colision object                                        /////
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            case 9:
+                while (ros::ok()){
+
+                    //Break while loop when the mode has changed
+                    if (current_mode != 9){
+                        count1 = 0;
+                        break;
+                    }
+
+                    //Display end effector pose in GUI
+                    if (count1 > 12){
+                        sendEndEffectorPose(&actualPose_pub, &move_group);
+                        count1 = 0;
+                    }
+                    count1++;
+
+                    //Central stop - end of program!
+                    if (central_stop){
+                        selectedMode.data = 6;
+                        mode_pub.publish(selectedMode);
+                        for (int i=0;i<10;i++)
+                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
+                        ROS_ERROR("CENTRAL STOP ! PROGRAM END !");
+                        return 0;
+                    }
+
+
+                    ROS_INFO("colision object  ...");
+                    ros::spinOnce();
+                    loop_rate.sleep();
+                }
+                break;
+
+
+
+
             default:
                 //ROS_INFO("No mode selected!");
                 break;
