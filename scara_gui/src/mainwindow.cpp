@@ -85,6 +85,8 @@ MainWindow::~MainWindow()
 }
 
 
+
+
 //**************************** JOINT CONTROL ***************************************//
 void MainWindow::on_jointControl_Start_PushButton_3_clicked(){
     //Display on GUI
@@ -181,7 +183,11 @@ void MainWindow::on_jointControl_Reset_PushButton_3_clicked(){
 
 
 }
-//********************************************************************************//
+//................................................................................//
+
+
+
+
 
 
 //***************************** Position Control custom **************************//
@@ -250,7 +256,10 @@ void MainWindow::on_positionControl_Gripper_Checkbox_4_toggled(bool checked){
         gripperState_pub.publish(gripperState_msg);
     }
 }
-//*******************************************************************************//
+//...............................................................................//
+
+
+
 
 
 //******************************* DEMO APK *************************************//
@@ -282,7 +291,11 @@ void MainWindow::on_positionControl2_Stop_PushButton_3_clicked(){
         start_pub.publish(startState_msg);
     }
 }
-//*****************************************************************************//
+//...............................................................................//
+
+
+
+
 
 
 //******************************* TEACH MODE ************************************//
@@ -364,7 +377,10 @@ void MainWindow::on_teachModeRun_stop_pushbutton_clicked(){
         teachMode_startState.publish(teachModeState_msg);
     }
 }
-//********************************************************************************//
+//...............................................................................//
+
+
+
 
 
 //****************************** TEACH MODE BY HAND ******************************//
@@ -450,11 +466,20 @@ void MainWindow::on_teachMode_tabWidget_2_tabBarClicked(int index){
         teachMode_pub.publish(teachModeSelect_msg);
     }
 }
+//...............................................................................//
 
 
 
 
-//***************************************************************************//
+
+
+//****************************** Movement in moveit *****************************//
+void MainWindow::on_moveit_checkBox_toggled(bool checked)
+{
+
+}
+//...............................................................................//
+
 
 
 
@@ -469,10 +494,21 @@ void MainWindow::on_basicInfo_GetInfo_PushButton_3_clicked(){
         getInfo_pub.publish(getInfoState_msg);
     }
 }
-//****************************************************************************//
+//...............................................................................//
+
+
+
+
+
+
 
 
 //*************************** Set information *******************************//
+void MainWindow::on_setParameters_Torque_PushButton_3_clicked()
+{
+
+}
+
 void MainWindow::on_setParameters_Velocity_PushButton_3_clicked(){
     //ROS
     setParamFloat_msg.data = ui->setParameters_Velocity_LineEdit_3->text().toFloat();
@@ -505,7 +541,54 @@ void MainWindow::on_setParameters_NumOfAttempts_PushButton_3_clicked(){
         setNumOfAttempts_pub.publish(setParamInt_msg);
     }
 }
-//************************************************************************//
+//...............................................................................//
+
+
+
+
+
+
+//*************************** Colision object *******************************//
+void MainWindow::on_colisionObject_CustomObj_checkButton_toggled(bool checked)
+{
+
+}
+
+void MainWindow::on_colisionObject_RealObj_checkButton_toggled(bool checked)
+{
+
+}
+
+void MainWindow::on_colisionObject_Reset_pushbutton_clicked()
+{
+
+}
+
+void MainWindow::on_colisionObject_Up_pushbutton_clicked()
+{
+
+}
+
+void MainWindow::on_colisionObject_Left_pushbutton_clicked()
+{
+
+}
+
+void MainWindow::on_colisionObject_Down_pushbutton_clicked()
+{
+
+}
+
+void MainWindow::on_colisionObject_Right_pushbutton_clicked()
+{
+
+}
+//...............................................................................//
+
+
+
+
+
 
 
 //***************************** Tab widget ******************************//
@@ -526,10 +609,23 @@ void MainWindow::on_workingModes_3_tabBarClicked(int index){
     }
 
 }
+//...............................................................................//
 
 
 
-//**********************************************************************//
+
+
+
+
+//**************************** CENTRAL STOP ****************************//
+void MainWindow::on_centralStop_clicked()
+{
+
+}
+//...............................................................................//
+
+
+
 
 
 

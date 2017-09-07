@@ -102,6 +102,26 @@ private slots:
 
     void on_teachMode_stopTeachButtonHand_4_clicked();
 
+    void on_centralStop_clicked();
+
+    void on_moveit_checkBox_toggled(bool checked);
+
+    void on_colisionObject_CustomObj_checkButton_toggled(bool checked);
+
+    void on_colisionObject_RealObj_checkButton_toggled(bool checked);
+
+    void on_colisionObject_Reset_pushbutton_clicked();
+
+    void on_colisionObject_Up_pushbutton_clicked();
+
+    void on_colisionObject_Left_pushbutton_clicked();
+
+    void on_colisionObject_Down_pushbutton_clicked();
+
+    void on_colisionObject_Right_pushbutton_clicked();
+
+    void on_setParameters_Torque_PushButton_3_clicked();
+
 private:
     Ui::MainWindow *ui;
 

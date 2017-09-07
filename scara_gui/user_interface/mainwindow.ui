@@ -62,8 +62,8 @@
       <rect>
        <x>10</x>
        <y>60</y>
-       <width>331</width>
-       <height>461</height>
+       <width>341</width>
+       <height>471</height>
       </rect>
      </property>
      <property name="layoutDirection">
@@ -76,7 +76,7 @@
       <string notr="true"/>
      </property>
      <property name="currentIndex">
-      <number>5</number>
+      <number>9</number>
      </property>
      <widget class="QWidget" name="mode0_3">
       <attribute name="title">
@@ -92,7 +92,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Wellcome to SCARA&lt;br/&gt;Graphical User Interface&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Select:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 1 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Joint controll&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 2 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Position controll&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 3 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;DEMO application&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 4 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Teach mode&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 5 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Get basic information&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 6 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Set parameters&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This GUI was provided by SENSODRIVE &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;and Viktor Dluhos&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Wellcome to SCARA&lt;br/&gt;Graphical User Interface&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Select:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 1 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Joint controll&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 2 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Position controll&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 3 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;DEMO application&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 4 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Teach mode&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 5 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Teach mode with HAND&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 6 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Custom movement in Moveit!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 7 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Get basic information&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 8 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Set parameters&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 9 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Colision object&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; font-style:italic;&quot;&gt;This GUI was provided by SENSODRIVE &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; font-style:italic;&quot;&gt;and Viktor Dluhos&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_157">
@@ -137,12 +137,12 @@
         <rect>
          <x>10</x>
          <y>40</y>
-         <width>301</width>
+         <width>321</width>
          <height>241</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_11">
-        <item row="3" column="1">
+        <item row="3" column="1" alignment="Qt::AlignHCenter">
          <widget class="QCheckBox" name="jointControl_Gripper_Checkbox_3">
           <property name="maximumSize">
            <size>
@@ -238,7 +238,7 @@
          <widget class="QLineEdit" name="jointControl_J1_LineEdit">
           <property name="maximumSize">
            <size>
-            <width>60</width>
+            <width>80</width>
             <height>16777215</height>
            </size>
           </property>
@@ -248,7 +248,7 @@
          <widget class="QLineEdit" name="jointControl_J2_LineEdit">
           <property name="maximumSize">
            <size>
-            <width>60</width>
+            <width>80</width>
             <height>16777215</height>
            </size>
           </property>
@@ -258,7 +258,7 @@
          <widget class="QLineEdit" name="jointControl_J3_LineEdit">
           <property name="maximumSize">
            <size>
-            <width>60</width>
+            <width>80</width>
             <height>16777215</height>
            </size>
           </property>
@@ -268,7 +268,7 @@
          <widget class="QLineEdit" name="jointControl_gripper_LineEdit">
           <property name="maximumSize">
            <size>
-            <width>60</width>
+            <width>80</width>
             <height>16777215</height>
            </size>
           </property>
@@ -276,44 +276,60 @@
         </item>
        </layout>
       </widget>
-      <widget class="QPushButton" name="jointControl_Start_PushButton_3">
+      <widget class="QFrame" name="frame_8">
        <property name="geometry">
         <rect>
          <x>10</x>
          <y>290</y>
-         <width>141</width>
-         <height>41</height>
+         <width>321</width>
+         <height>131</height>
         </rect>
        </property>
-       <property name="text">
-        <string>START</string>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
        </property>
-      </widget>
-      <widget class="QPushButton" name="jointControl_Reset_PushButton_3">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>340</y>
-         <width>301</width>
-         <height>41</height>
-        </rect>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
        </property>
-       <property name="text">
-        <string>RESET</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="jointControl_Stop_PushButton_4">
-       <property name="geometry">
-        <rect>
-         <x>170</x>
-         <y>290</y>
-         <width>141</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>STOP</string>
-       </property>
+       <widget class="QPushButton" name="jointControl_Stop_PushButton_4">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>20</y>
+          <width>141</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>STOP</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="jointControl_Start_PushButton_3">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>141</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>START</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="jointControl_Reset_PushButton_3">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>80</y>
+          <width>301</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>RESET</string>
+        </property>
+       </widget>
       </widget>
      </widget>
      <widget class="QWidget" name="mode2_3">
@@ -331,32 +347,6 @@
        </property>
        <property name="text">
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Position controll&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Custom movement&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="positionControlCustom_Stop_PushButton_4">
-       <property name="geometry">
-        <rect>
-         <x>180</x>
-         <y>320</y>
-         <width>131</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>STOP</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="positionControlCustom_Start_PushButton_3">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>320</y>
-         <width>131</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>START</string>
        </property>
       </widget>
       <widget class="QWidget" name="gridLayoutWidget_12">
@@ -433,18 +423,60 @@
         </item>
        </layout>
       </widget>
-      <widget class="QPushButton" name="positionControlCustom_Reset_PushButton_5">
+      <widget class="QFrame" name="frame_9">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>370</y>
-         <width>291</width>
-         <height>41</height>
+         <x>10</x>
+         <y>310</y>
+         <width>311</width>
+         <height>111</height>
         </rect>
        </property>
-       <property name="text">
-        <string>RESET</string>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
        </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QPushButton" name="positionControlCustom_Reset_PushButton_5">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>60</y>
+          <width>291</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>RESET</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="positionControlCustom_Start_PushButton_3">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>131</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>START</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="positionControlCustom_Stop_PushButton_4">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>10</y>
+          <width>131</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>STOP</string>
+        </property>
+       </widget>
       </widget>
      </widget>
      <widget class="QWidget" name="mode3_3">
@@ -461,50 +493,66 @@
         </rect>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Position controll&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;with custom IK&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;DEMO application&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="positionControl2_Start_PushButton_3">
+      <widget class="QFrame" name="frame_7">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>90</y>
-         <width>111</width>
-         <height>81</height>
+         <x>20</x>
+         <y>60</y>
+         <width>291</width>
+         <height>201</height>
         </rect>
        </property>
-       <property name="text">
-        <string>Start apk</string>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
        </property>
-      </widget>
-      <widget class="QPushButton" name="positionControl2_Stop_PushButton_3">
-       <property name="geometry">
-        <rect>
-         <x>170</x>
-         <y>90</y>
-         <width>111</width>
-         <height>81</height>
-        </rect>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
        </property>
-       <property name="toolTipDuration">
-        <number>-1</number>
-       </property>
-       <property name="layoutDirection">
-        <enum>Qt::LeftToRight</enum>
-       </property>
-       <property name="text">
-        <string>Stop apk</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="positionControl2_LineEdit">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>200</y>
-         <width>251</width>
-         <height>41</height>
-        </rect>
-       </property>
+       <widget class="QLineEdit" name="positionControl2_LineEdit">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>120</y>
+          <width>251</width>
+          <height>41</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="positionControl2_Start_PushButton_3">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>20</y>
+          <width>111</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Start apk</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="positionControl2_Stop_PushButton_3">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>20</y>
+          <width>111</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="toolTipDuration">
+         <number>-1</number>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>Stop apk</string>
+        </property>
+       </widget>
       </widget>
      </widget>
      <widget class="QWidget" name="mode4_3">
@@ -521,7 +569,7 @@
         </rect>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <widget class="QWidget" name="tab">
         <attribute name="title">
@@ -633,47 +681,63 @@
         <attribute name="title">
          <string>                run               </string>
         </attribute>
-        <widget class="QLineEdit" name="teachModeRun_info_lineEdit">
+        <widget class="QFrame" name="frame_6">
          <property name="geometry">
           <rect>
-           <x>20</x>
-           <y>140</y>
-           <width>251</width>
-           <height>41</height>
+           <x>10</x>
+           <y>20</y>
+           <width>281</width>
+           <height>181</height>
           </rect>
          </property>
-        </widget>
-        <widget class="QPushButton" name="teachModeRun_start_pushbutton">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>30</y>
-           <width>111</width>
-           <height>81</height>
-          </rect>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
          </property>
-         <property name="text">
-          <string>Start apk</string>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
          </property>
-        </widget>
-        <widget class="QPushButton" name="teachModeRun_stop_pushbutton">
-         <property name="geometry">
-          <rect>
-           <x>160</x>
-           <y>30</y>
-           <width>111</width>
-           <height>81</height>
-          </rect>
-         </property>
-         <property name="toolTipDuration">
-          <number>-1</number>
-         </property>
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
-         <property name="text">
-          <string>Stop apk</string>
-         </property>
+         <widget class="QPushButton" name="teachModeRun_stop_pushbutton">
+          <property name="geometry">
+           <rect>
+            <x>150</x>
+            <y>10</y>
+            <width>111</width>
+            <height>81</height>
+           </rect>
+          </property>
+          <property name="toolTipDuration">
+           <number>-1</number>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="text">
+           <string>Stop apk</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="teachModeRun_info_lineEdit">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>110</y>
+            <width>251</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="teachModeRun_start_pushbutton">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>111</width>
+            <height>81</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Start apk</string>
+          </property>
+         </widget>
         </widget>
        </widget>
       </widget>
@@ -699,9 +763,9 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>50</y>
+         <y>40</y>
          <width>311</width>
-         <height>381</height>
+         <height>371</height>
         </rect>
        </property>
        <property name="currentIndex">
@@ -817,47 +881,63 @@
         <attribute name="title">
          <string>                run               </string>
         </attribute>
-        <widget class="QLineEdit" name="teachModeRun_infoHand_lineEdit_4">
+        <widget class="QFrame" name="frame_5">
          <property name="geometry">
           <rect>
-           <x>20</x>
-           <y>140</y>
-           <width>251</width>
-           <height>41</height>
+           <x>10</x>
+           <y>20</y>
+           <width>291</width>
+           <height>181</height>
           </rect>
          </property>
-        </widget>
-        <widget class="QPushButton" name="teachModeRun_startHand_pushbutton_4">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>30</y>
-           <width>111</width>
-           <height>81</height>
-          </rect>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
          </property>
-         <property name="text">
-          <string>Start apk</string>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
          </property>
-        </widget>
-        <widget class="QPushButton" name="teachModeRun_stopHand_pushbutton_4">
-         <property name="geometry">
-          <rect>
-           <x>160</x>
-           <y>30</y>
-           <width>111</width>
-           <height>81</height>
-          </rect>
-         </property>
-         <property name="toolTipDuration">
-          <number>-1</number>
-         </property>
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
-         <property name="text">
-          <string>Stop apk</string>
-         </property>
+         <widget class="QPushButton" name="teachModeRun_stopHand_pushbutton_4">
+          <property name="geometry">
+           <rect>
+            <x>160</x>
+            <y>20</y>
+            <width>111</width>
+            <height>81</height>
+           </rect>
+          </property>
+          <property name="toolTipDuration">
+           <number>-1</number>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="text">
+           <string>Stop apk</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="teachModeRun_infoHand_lineEdit_4">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>120</y>
+            <width>251</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="teachModeRun_startHand_pushbutton_4">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>20</y>
+            <width>111</width>
+            <height>81</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Start apk</string>
+          </property>
+         </widget>
         </widget>
        </widget>
       </widget>
@@ -865,9 +945,9 @@
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>0</y>
+         <y>10</y>
          <width>261</width>
-         <height>61</height>
+         <height>31</height>
         </rect>
        </property>
        <property name="text">
@@ -875,9 +955,103 @@
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="mode5_3">
+     <widget class="QWidget" name="tab_5">
       <attribute name="title">
        <string>6</string>
+      </attribute>
+      <widget class="QLabel" name="label_194">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>20</y>
+         <width>241</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Custom movement in &lt;br/&gt;Moveit!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QFrame" name="frame_4">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>90</y>
+         <width>301</width>
+         <height>101</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QCheckBox" name="moveit_checkBox">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>20</y>
+          <width>30</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>16</width>
+          <height>16</height>
+         </size>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="moveit_lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>50</y>
+          <width>261</width>
+          <height>31</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_9">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>231</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Enable movement in Moveit ?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="mode5_3">
+      <attribute name="title">
+       <string>7</string>
       </attribute>
       <widget class="QLabel" name="label_132">
        <property name="geometry">
@@ -911,7 +1085,7 @@
          <x>10</x>
          <y>70</y>
          <width>301</width>
-         <height>341</height>
+         <height>351</height>
         </rect>
        </property>
        <property name="currentIndex">
@@ -962,7 +1136,14 @@
            <widget class="QTextBrowser" name="basicInfo_RobotModel_TextBrowser_3"/>
           </item>
           <item row="3" column="1">
-           <widget class="QTextBrowser" name="basicInfo_ActiveJoints_TextBrowser_3"/>
+           <widget class="QTextBrowser" name="basicInfo_ActiveJoints_TextBrowser_3">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>80</height>
+             </size>
+            </property>
+           </widget>
           </item>
           <item row="2" column="0">
            <widget class="QLabel" name="label_136">
@@ -1127,7 +1308,7 @@
      </widget>
      <widget class="QWidget" name="mode6_3">
       <attribute name="title">
-       <string>7</string>
+       <string>8</string>
       </attribute>
       <widget class="QLabel" name="label_152">
        <property name="geometry">
@@ -1142,85 +1323,481 @@
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Set parameters&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
-      <widget class="QWidget" name="gridLayoutWidget_15">
+      <widget class="QFrame" name="frame_10">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>50</y>
-         <width>303</width>
-         <height>331</height>
+         <y>40</y>
+         <width>321</width>
+         <height>351</height>
         </rect>
        </property>
-       <layout class="QGridLayout" name="gridLayout_15">
-        <item row="0" column="2">
-         <widget class="QPushButton" name="setParameters_Velocity_PushButton_3">
-          <property name="text">
-           <string>Set</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="label_153">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Max.&lt;br/&gt;Acceleration&lt;br/&gt;[m/s2]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="label_154">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Planning&lt;br/&gt;time&lt;br/&gt;[s]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_155">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Max.&lt;br/&gt;Velocity&lt;br/&gt;[m/s]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="label_156">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Number&lt;br/&gt;of&lt;br/&gt;Attempts&lt;br/&gt;[-]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLineEdit" name="setParameters_Acceleration_LineEdit_3"/>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLineEdit" name="setParameters_Velocity_LineEdit_3"/>
-        </item>
-        <item row="2" column="1">
-         <widget class="QLineEdit" name="setParameters_PlanningTime_LineEdit_3"/>
-        </item>
-        <item row="3" column="1">
-         <widget class="QLineEdit" name="setParameters_NumOfAttempts_LineEdit_3"/>
-        </item>
-        <item row="1" column="2">
-         <widget class="QPushButton" name="setParameters_Acceleration_PushButton_3">
-          <property name="text">
-           <string>Set</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="2">
-         <widget class="QPushButton" name="setParameters_NumOfAttempts_PushButton_3">
-          <property name="text">
-           <string>Set</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="2">
-         <widget class="QPushButton" name="setParameters_PlanningTime_PushButton_3">
-          <property name="text">
-           <string>Set</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QWidget" name="gridLayoutWidget_15">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>303</width>
+          <height>331</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_15">
+         <item row="1" column="2">
+          <widget class="QPushButton" name="setParameters_Velocity_PushButton_3">
+           <property name="text">
+            <string>Set</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_153">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Max.&lt;br/&gt;Acceleration&lt;br/&gt;[m/s2]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_154">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Planning&lt;br/&gt;time&lt;br/&gt;[s]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_155">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Max.&lt;br/&gt;Velocity&lt;br/&gt;[m/s]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_156">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Number&lt;br/&gt;of&lt;br/&gt;Attempts&lt;br/&gt;[-]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="setParameters_PlanningTime_LineEdit_3"/>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="setParameters_Acceleration_LineEdit_3"/>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="setParameters_Velocity_LineEdit_3"/>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="setParameters_NumOfAttempts_LineEdit_3"/>
+         </item>
+         <item row="2" column="2">
+          <widget class="QPushButton" name="setParameters_Acceleration_PushButton_3">
+           <property name="text">
+            <string>Set</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="2">
+          <widget class="QPushButton" name="setParameters_NumOfAttempts_PushButton_3">
+           <property name="text">
+            <string>Set</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QPushButton" name="setParameters_PlanningTime_PushButton_3">
+           <property name="text">
+            <string>Set</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Max.&lt;br/&gt;collision&lt;br/&gt;Torque&lt;br/&gt;[Nm]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="setParameters_Torque_LineEdit_3"/>
+         </item>
+         <item row="0" column="2">
+          <widget class="QPushButton" name="setParameters_Torque_PushButton_3">
+           <property name="text">
+            <string>Set</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <zorder>gridLayoutWidget_15</zorder>
+       <zorder>gridLayoutWidget_15</zorder>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_4">
+      <attribute name="title">
+       <string>9</string>
+      </attribute>
+      <widget class="QLabel" name="label_193">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>10</y>
+         <width>211</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Edit colision object&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QFrame" name="frame">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>311</width>
+         <height>171</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QWidget" name="gridLayoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>291</width>
+          <height>152</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0">
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_13">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>10000</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Current&lt;br/&gt;object&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QPushButton" name="colisionObject_Left_pushbutton">
+           <property name="maximumSize">
+            <size>
+             <width>1000</width>
+             <height>200</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>LEFT</string>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>16</width>
+             <height>16</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QPushButton" name="colisionObject_Reset_pushbutton">
+           <property name="text">
+            <string>Reset</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_12">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Move&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QPushButton" name="colisionObject_Right_pushbutton">
+           <property name="text">
+            <string>RIGHT</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QPushButton" name="colisionObject_Down_pushbutton">
+           <property name="text">
+            <string>DOWN</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QPushButton" name="colisionObject_Up_pushbutton">
+           <property name="text">
+            <string>UP</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_14">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Change&lt;br/&gt;size&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="colisionObject_CustomObj_sizeLineEdit">
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="2">
+          <widget class="QPushButton" name="colisionObject_CustomObj_enterpushButton">
+           <property name="text">
+            <string>Enter</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2" alignment="Qt::AlignHCenter">
+          <widget class="QLCDNumber" name="colisionObject_CustomObj_LCD">
+           <property name="maximumSize">
+            <size>
+             <width>90</width>
+             <height>25</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLabel" name="label_15">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;colision&lt;br/&gt;size&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <zorder>gridLayoutWidget</zorder>
+       <zorder>frame_3</zorder>
+      </widget>
+      <widget class="QFrame" name="frame_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>311</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QWidget" name="gridLayoutWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>0</y>
+          <width>291</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetDefaultConstraint</enum>
+         </property>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_4">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Custom&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="label_8">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;object&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Display :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1" alignment="Qt::AlignHCenter">
+          <widget class="QCheckBox" name="colisionObject_CustomObj_checkButton">
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLineEdit" name="colisionObject_CustomObj_lineEdit">
+           <property name="maximumSize">
+            <size>
+             <width>90</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt; colision&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QFrame" name="frame_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>280</y>
+         <width>311</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QWidget" name="gridLayoutWidget_3">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>291</width>
+          <height>137</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetDefaultConstraint</enum>
+         </property>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_5">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Real&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+          <widget class="QCheckBox" name="colisionObject_RealObj_checkButton">
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <widget class="QLCDNumber" name="colisionObject_RealObj_LCD"/>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="label_10">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt; colision&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Display :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="label_11">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;object&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLineEdit" name="colisionObject_RealObj_lineEdit">
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="colisionObject_RealObj_sizeLineEdit">
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QPushButton" name="colisionObject_RealObj_enterPushButton">
+           <property name="text">
+            <string>Enter</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_19">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Current&lt;br/&gt;object&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLabel" name="label_16">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;colision&lt;br/&gt;size&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_17">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Change&lt;br/&gt;size&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
       </widget>
      </widget>
     </widget>
@@ -1265,109 +1842,6 @@
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Feedback and Status&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
-    </widget>
-    <widget class="QGroupBox" name="joint1Box_9">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>60</y>
-       <width>401</width>
-       <height>101</height>
-      </rect>
-     </property>
-     <property name="autoFillBackground">
-      <bool>true</bool>
-     </property>
-     <property name="title">
-      <string/>
-     </property>
-     <widget class="QLabel" name="label_159">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>0</y>
-        <width>91</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Joint 1 &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QWidget" name="horizontalLayoutWidget_17">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>60</y>
-        <width>381</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_17">
-       <item>
-        <widget class="QLCDNumber" name="status_joint1pos_rad_3"/>
-       </item>
-       <item>
-        <widget class="QLCDNumber" name="status_joint1pos_deg_3"/>
-       </item>
-       <item>
-        <widget class="QLCDNumber" name="status_joint1vel_3"/>
-       </item>
-       <item>
-        <widget class="QLCDNumber" name="status_joint1acc_3"/>
-       </item>
-       <item>
-        <widget class="QLCDNumber" name="status_joint1torq_3"/>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="horizontalLayoutWidget_18">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>381</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_18">
-       <item>
-        <widget class="QLabel" name="label_160">
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Pos [°]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_161">
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Pos [rad]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_162">
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Vel [rad/s]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_163">
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Acc [rad/s2]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_164">
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;Torq [Nm]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
     </widget>
     <widget class="QGroupBox" name="joint1Box_10">
      <property name="geometry">
@@ -1727,6 +2201,155 @@
         </widget>
        </item>
       </layout>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="frame_11">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>411</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QGroupBox" name="joint1Box_9">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>381</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QLabel" name="label_159">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>0</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;Joint 1 &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QWidget" name="horizontalLayoutWidget_17">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>361</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_17">
+        <item>
+         <widget class="QLCDNumber" name="status_joint1pos_rad_3"/>
+        </item>
+        <item>
+         <widget class="QLCDNumber" name="status_joint1pos_deg_3"/>
+        </item>
+        <item>
+         <widget class="QLCDNumber" name="status_joint1vel_3"/>
+        </item>
+        <item>
+         <widget class="QLCDNumber" name="status_joint1acc_3"/>
+        </item>
+        <item>
+         <widget class="QLCDNumber" name="status_joint1torq_3"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="horizontalLayoutWidget_18">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>361</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_18">
+        <item>
+         <widget class="QLabel" name="label_160">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Pos [°]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_161">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Pos [rad]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_162">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Vel [rad/s]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_163">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Acc [rad/s2]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_164">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;Torq [Nm]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </widget>
    </widget>
