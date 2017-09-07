@@ -325,11 +325,11 @@ void sendErrorCode(ros::Publisher *pub, int code){
 //This function send the planned poses and velocities to SLRT and SCARA
 void sendJointPoses(ros::Publisher *pose_and_vel_pub,ros::Publisher *accel_pub, moveit::planning_interface::MoveGroupInterface::Plan *plan, int i){
 
-    //*****************************************************************************************************************************************//
-    //   This function send the planned poses and velocities to SLRT and SCARA                                                                 //
-    //   The position respresents joint values (in rad) and orientation respresents the joint velocities in each planned pose from the PLAN    //
-    //   If you chose i=999 you will send the SCARA zeros for every joint position and speed (it is used to sync the code with the SCARA)      //
-    //*****************************************************************************************************************************************//
+    //**************************************************************************************************************************************************//
+    //   This function send the planned poses and velocities to SLRT and SCARA                                                                          //
+    //   The position respresents joint values (in rad) and orientation respresents the joint velocities in each planned pose from the PLAN             //
+    //   If you chose i=999 you will send the current pose for every joint position and speed of SCARA(it is used to sync the code with the SCARA)      //
+    //**************************************************************************************************************************************************//
 
     if (i == 999){
         pos_and_vel.position.x = currentJointStates.position[0];

@@ -38,6 +38,7 @@ int main(int argc, char **argv){
     bool initMode = false;
     int help = 0;
     int cc = -1;
+    bool initPoses = true;
     int numOfPlacePos = 0;
     int desiredJointsTeachSize = 0;
     int teachPositionsHandSize = 0;
@@ -169,6 +170,14 @@ int main(int argc, char **argv){
 
     while (ros::ok()){
         ROS_INFO_ONCE("while start");
+
+        if (initPoses){
+            for (int i=0;i<10;i++){
+                sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
+            }
+            initPoses = false;
+        }
+
 
         switch (current_mode){
 
@@ -754,6 +763,7 @@ int main(int argc, char **argv){
 
                     }else {
                         ROS_ERROR("not valid teach mode");
+                        //sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);                  //mozno vyriesenie padnutia programu...
                     }
 
                     ros::spinOnce();
@@ -961,7 +971,7 @@ int main(int argc, char **argv){
                         }
                     }else {
                         ROS_ERROR("not valid teach mode");
-                        //sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
+                        //sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);          //mozno vyriesenie padnutia programu...........
                         }
                     ros::spinOnce();
                     loop_rate.sleep();
