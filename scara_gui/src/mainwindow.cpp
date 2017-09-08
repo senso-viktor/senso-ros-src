@@ -548,6 +548,20 @@ void MainWindow::on_moveit_checkBox_toggled(bool checked){
         moveitMode_pub.publish(moveitMode_msg);
     }
 }
+
+void MainWindow::on_moveit_gripper_checkBox_toggled(bool checked){
+
+    //GUI
+    gripperState = checked;
+    ui->status_gripper_OnOff_3->display(gripperState);
+
+    //ROS
+    gripperState_msg.data = checked;
+    for (int i=0;i<100;i++){
+        gripperState_pub.publish(gripperState_msg);
+    }
+
+}
 //...............................................................................//
 
 

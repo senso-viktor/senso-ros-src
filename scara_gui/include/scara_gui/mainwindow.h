@@ -130,6 +130,8 @@ private slots:
 
     void on_colisionObject_RealObj_enterPushButton_clicked();
 
+    void on_moveit_gripper_checkBox_toggled(bool checked);
+
 private:
     Ui::MainWindow *ui;
 

@@ -84,7 +84,7 @@ int main(int argc, char **argv){
     ros::Publisher mode_pub = n5.advertise<std_msgs::Byte>("/modeSelect",1000);
     ros::Publisher gripper_pub = n6.advertise<std_msgs::Byte>("/gripperCommand",1000);
     ros::Publisher centralStop_pub = n7.advertise<std_msgs::Int32>("centralStop",1000);
-    ros::Publisher startMoveitMode_pub = n8.advertise<std_msgs::Bool>("moveitMode",1000);
+    ros::Publisher startMoveitMode_pub = n8.advertise<std_msgs::Bool>("moveitModeStart",1000);
 
     ROS_INFO("Init subscribers");
     //Subscriber
@@ -103,6 +103,7 @@ int main(int argc, char **argv){
     ros::Subscriber setAcc_sub = nn13.subscribe("setAcceleration",1000,setAccCallback);
     ros::Subscriber setPlanTime_sub = nn14.subscribe("setPlanningTime",1000,setPlanTimeCallback);
     ros::Subscriber setNumOfAttempts_sub = nn15.subscribe("setNumberOfAttempts",1000,setNumOfAttemptsCallback);
+    ros::Subscriber moveitMode_sub = nn16.subscribe("moveitModeStart",1000,moveitModeCallback);
     sleep(2);
 
 
@@ -1072,7 +1073,7 @@ int main(int argc, char **argv){
                     //Break while loop when the mode has changed
                     if (current_mode != 6){
                         count1 = 0;
-                        moveitMode.data = true;
+                        moveitMode.data = false;
                         for (int i=0;i<10;i++){
                             startMoveitMode_pub.publish(moveitMode);
                         }
@@ -1097,9 +1098,15 @@ int main(int argc, char **argv){
                         return 0;
                     }
 
+                    //hold position while the movement in moveit isnt started
+                    if (!moveitState){
+                        sendJointPoses(&pose_pub, &acc_pub, &my_plan, 999);
+                    }else{
+                        ROS_INFO("Started moving in moveit ! Current joint states: %f %f %f",currentJointStates.position[0],
+                                 currentJointStates.position[1], currentJointStates.position[2]);
+                    }
+
                     //Start or continue for get_and_send_planned_path
-                    moveitMode.data = true;
-                    startMoveitMode_pub.publish(moveitMode);
 
                     ros::spinOnce();
                     loop_rate.sleep();
@@ -1120,6 +1127,10 @@ int main(int argc, char **argv){
                         break;
                     }
 
+                    //Publish selected mode and gripperstate
+                    selectedMode.data = 6;
+                    mode_pub.publish(selectedMode);
+                    gripper_pub.publish(gripper_state);
                     //display end effector pose in GUI
                     if (count1 > 12){
                         sendEndEffectorPose(&actualPose_pub, &move_group);

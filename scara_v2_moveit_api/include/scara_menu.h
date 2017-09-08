@@ -31,6 +31,7 @@ bool initTeachedPositions = true;
 bool zeroPositionForTeach = true;
 bool pick = false;
 bool central_stop = false;
+bool moveitState = false;
 
 int IK_mode = 1;
 int DEMO_mode = -1;
@@ -758,6 +759,14 @@ void setNumOfAttemptsCallback(const std_msgs::Int32 numOfAttemptsValue){
 
 
 }                //GUI -> MENU
+
+void moveitModeCallback(const std_msgs::Bool mode){
+
+    moveitState = mode.data;
+
+}                //GUI -> MENU
+
+
 
 
 void buttonStateCallback(const std_msgs::Byte buttonState){
