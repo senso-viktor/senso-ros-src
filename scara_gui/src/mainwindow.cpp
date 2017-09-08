@@ -8,7 +8,7 @@
 #include "ros/ros.h"
 
 
-
+double teachedPositions[HEIGHT][WIDTH];
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -406,39 +406,56 @@ void MainWindow::on_teachMode_teachButtonHand_4_clicked(){
 
     QString currentMode;
 
-    ROS_INFO("teach !");
-    jointControl_Values_msg.point.x = actualJointStates.position[0];
-    jointControl_Values_msg.point.y = actualJointStates.position[1];
-    jointControl_Values_msg.point.z = actualJointStates.position[2];
 
-//    jointControl_Values_msg.point.x = 0.0;
-//    jointControl_Values_msg.point.y = 0.0;
-//    jointControl_Values_msg.point.z = 0.0;
+    //if ((actualJointStates.position[0] != lastValueJ1) || (actualJointStates.position[1] != lastValueJ2) || (actualJointStates.position[2] != lastValueJ3)){  //Find out if there was a change
+        lastValueJ1 = actualJointStates.position[0];
+        lastValueJ2 = actualJointStates.position[1];
+        lastValueJ3 = actualJointStates.position[2];
+        if (j<HEIGHT){
+            teachedPositions[j][0] = actualJointStates.position[0];
+            teachedPositions[j][1] = actualJointStates.position[1];
+            teachedPositions[j][2] = actualJointStates.position[2];
+            j++;
+
+            ROS_INFO("teach !");
+            jointControl_Values_msg.point.x = actualJointStates.position[0];
+            jointControl_Values_msg.point.y = actualJointStates.position[1];
+            jointControl_Values_msg.point.z = actualJointStates.position[2];
+
+            if (teachModeIndexHand == 0){
+                ui->teachMode_infoHand_textEdit_4->setText("X = " + QString::number(jointControl_Values_msg.point.x) + " Y= " +
+                                                           QString::number(jointControl_Values_msg.point.y) + " Z= " +
+                                                           QString::number(jointControl_Values_msg.point.z) + " ] \n" + "Operation type = Pick");
+                ui->teachMode_modeDisplayHand_lcdnumber_->display(0.0);
+            }else if(teachModeIndexHand%2 == 0){
+                ui->teachMode_infoHand_textEdit_4->setText("[ X = " + QString::number(jointControl_Values_msg.point.x) + " Y= " +
+                                                           QString::number(jointControl_Values_msg.point.y) + " Z= " +
+                                                           QString::number(jointControl_Values_msg.point.z) + " ] \n" + "Operation type = Pick");
+                ui->teachMode_modeDisplayHand_lcdnumber_->display(0.0);
+            }else{
+                ui->teachMode_infoHand_textEdit_4->setText("[ X = " + QString::number(jointControl_Values_msg.point.x) + " Y= " +
+                                                           QString::number(jointControl_Values_msg.point.y) + " Z= " +
+                                                           QString::number(jointControl_Values_msg.point.z) + " ] \n" + "Operation type = Place");
+                ui->teachMode_modeDisplayHand_lcdnumber_->display(1.0);
+            }
+
+            teachModeIndexHand++;
+            startState_msg.data = true;
+            for (int i=0;i<100;i++){
+                start_pub.publish(startState_msg);
+                jointControl_pub.publish(jointControl_Values_msg);
+            }
+        }else{
+            ui->error_lineEdit->setText("Allowed max." + QString::number(HEIGHT)+ " pos!!! New position wont be registered");
+        }
 
 
-    if (teachModeIndexHand == 0){
-        ui->teachMode_infoHand_textEdit_4->setText("X = " + QString::number(jointControl_Values_msg.point.x) + " Y= " +
-                                             QString::number(jointControl_Values_msg.point.y) + " Z= " +
-                                             QString::number(jointControl_Values_msg.point.z) + " ] \n" + "Operation type = Pick");
-        ui->teachMode_modeDisplayHand_lcdnumber_->display(0.0);
-    }else if(teachModeIndexHand%2 == 0){
-        ui->teachMode_infoHand_textEdit_4->setText("[ X = " + QString::number(jointControl_Values_msg.point.x) + " Y= " +
-                                             QString::number(jointControl_Values_msg.point.y) + " Z= " +
-                                             QString::number(jointControl_Values_msg.point.z) + " ] \n" + "Operation type = Pick");
-        ui->teachMode_modeDisplayHand_lcdnumber_->display(0.0);
-    }else{
-        ui->teachMode_infoHand_textEdit_4->setText("[ X = " + QString::number(jointControl_Values_msg.point.x) + " Y= " +
-                                             QString::number(jointControl_Values_msg.point.y) + " Z= " +
-                                             QString::number(jointControl_Values_msg.point.z) + " ] \n" + "Operation type = Place");
-        ui->teachMode_modeDisplayHand_lcdnumber_->display(1.0);
-    }
 
-    teachModeIndexHand++;
-    startState_msg.data = true;
-    for (int i=0;i<100;i++){
-        start_pub.publish(startState_msg);
-        jointControl_pub.publish(jointControl_Values_msg);
-    }
+    //}else{
+    //    ui->teachMode_infoHand_textEdit_4->setText("You entered the same values twice in a ROW!! \n These joint values wont be registered!!");
+    //}
+
+
 
 }
 
@@ -476,12 +493,44 @@ void MainWindow::on_teachModeRun_stopHand_pushbutton_4_clicked(){
 
 void MainWindow::on_teachMode_tabWidget_2_tabBarClicked(int index){
 
+    bool deleted = false;
     ROS_INFO("tab changed !");
     teachModeSelect_msg.data = index;
     ROS_INFO("tab number %d",teachModeSelect_msg.data);
 
     for (int i=0;i<100;i++){
         teachMode_pub.publish(teachModeSelect_msg);
+    }
+
+    ui->teachMode_teachedPositions_textEdit_4->clear();
+    if (index == 1){
+        //vypisat naucene pozicie,...
+        if (j%2 == 1){
+            j--;
+            deleted = true;
+        }
+        for (int i=0;i<j;i++){
+            if (i == 0){
+                ui->teachMode_teachedPositions_textEdit_4->append("Pos." + QString::number(i) + "   x=" + QString::number(teachedPositions[i][0]) +
+                " y=" + QString::number(teachedPositions[i][1]) + " z=" + QString::number(teachedPositions[i][2]) + "    PICK");
+
+            }else if (i%2 == 0){
+                ui->teachMode_teachedPositions_textEdit_4->append("Pos." + QString::number(i) + "   x=" + QString::number(teachedPositions[i][0]) +
+                " y=" + QString::number(teachedPositions[i][1]) + " z=" + QString::number(teachedPositions[i][2]) + "    PICK");
+            }else{
+                ui->teachMode_teachedPositions_textEdit_4->append("Pos." + QString::number(i) + "   x=" + QString::number(teachedPositions[i][0]) +
+                " y=" + QString::number(teachedPositions[i][1]) + " z=" + QString::number(teachedPositions[i][2]) + "    PLACE");
+            }
+        }
+        if (deleted){
+            ui->teachMode_teachedPositions_textEdit_4->setTextColor( QColor( "red" ) );
+            ui->teachMode_teachedPositions_textEdit_4->append("Last PICK position deleted due to not defined PLACE position");
+            ui->teachMode_teachedPositions_textEdit_4->setTextColor( QColor( "black" ) );
+            deleted = false;
+        }
+
+    }else if (index == 0){
+        j=0;
     }
 }
 //...............................................................................//
@@ -520,8 +569,7 @@ void MainWindow::on_basicInfo_GetInfo_PushButton_3_clicked(){
 
 
 //*************************** Set information *******************************//
-void MainWindow::on_setParameters_Torque_PushButton_3_clicked()
-{
+void MainWindow::on_setParameters_Torque_PushButton_3_clicked(){
     setParamFloat_msg.data = ui->setParameters_Torque_LineEdit_3->text().toFloat();
     for (int i=0;i<100;i++) {
         setTorq_pub.publish(setParamFloat_msg);
@@ -690,6 +738,9 @@ void MainWindow::on_workingModes_3_tabBarClicked(int index){
     }else{
         ui->currentWorkingMode_LineEdit->setText(QString::number(index));
         modeSelect_msg.data = index;
+        if (index == 5){
+            j = 0;
+        }
     }
 
     //ROS
@@ -728,6 +779,7 @@ void MainWindow::on_centralStop_clicked(){
 void MainWindow::jointStatesCallback(const sensor_msgs::JointState jointState){
 
     //Save current joint state -> for teach mode
+    //ROS_INFO("new joint states!!!!");
     actualJointStates = jointState;
 
     //ROS_INFO("Joint states %f %f %f",jointState.position[1], jointState.position[2], jointState.position[3]);

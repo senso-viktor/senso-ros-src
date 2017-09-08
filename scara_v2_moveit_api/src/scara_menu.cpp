@@ -43,7 +43,7 @@ int main(int argc, char **argv){
     int desiredJointsTeachSize = 0;
     int teachPositionsHandSize = 0;
     ros::init(argc, argv, "menu_node");
-    ros::NodeHandle n1,n2,n3,n4,n5,n6,n7,n8;
+    ros::NodeHandle n1,n2,n3,n4,n5,n6,n7,n8,n9;
     ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6,nn7,nn8,nn9,nn10,nn11,nn12,nn13,nn14,nn15,nn16;
     ros::Rate loop_rate(10);
     ros::AsyncSpinner spinner(1);
@@ -58,6 +58,9 @@ int main(int argc, char **argv){
     moveit::core::RobotStatePtr current_state;
     static const std::string PLANNING_GROUP = "scara_arm";
     moveit::planning_interface::MoveGroupInterface move_group(PLANNING_GROUP);
+
+    mg = &move_group;
+
     moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
     const robot_state::JointModelGroup *joint_model_group = move_group.getCurrentState()->getJointModelGroup(
             PLANNING_GROUP);
@@ -81,7 +84,7 @@ int main(int argc, char **argv){
     ros::Publisher mode_pub = n5.advertise<std_msgs::Byte>("/modeSelect",1000);
     ros::Publisher gripper_pub = n6.advertise<std_msgs::Byte>("/gripperCommand",1000);
     ros::Publisher centralStop_pub = n7.advertise<std_msgs::Int32>("centralStop",1000);
-    ROS_INFO("Init publisher central stop");
+    ros::Publisher startMoveitMode_pub = n8.advertise<std_msgs::Bool>("moveitMode",1000);
 
     ROS_INFO("Init subscribers");
     //Subscriber
@@ -298,6 +301,7 @@ int main(int argc, char **argv){
                             ROS_INFO("Able to move");
                             if (my_plan.trajectory_.joint_trajectory.points.size() != last_trajectory_size){
                                 last_trajectory_size = my_plan.trajectory_.joint_trajectory.points.size();
+                                ROS_ERROR("SIZE OF PLAN : %d",last_trajectory_size);
                                 jointControl_counter=0;
                             }
                             if (jointControl_counter < my_plan.trajectory_.joint_trajectory.points.size()){
@@ -1063,9 +1067,16 @@ int main(int argc, char **argv){
             case 6:
                 while (ros::ok()){
 
+                    ROS_INFO_ONCE("Moveit mode started!");
+
                     //Break while loop when the mode has changed
                     if (current_mode != 6){
                         count1 = 0;
+                        moveitMode.data = true;
+                        for (int i=0;i<10;i++){
+                            startMoveitMode_pub.publish(moveitMode);
+                        }
+                        ROS_WARN("Moveit mode stopped!");
                         break;
                     }
 
@@ -1086,8 +1097,9 @@ int main(int argc, char **argv){
                         return 0;
                     }
 
-
-
+                    //Start or continue for get_and_send_planned_path
+                    moveitMode.data = true;
+                    startMoveitMode_pub.publish(moveitMode);
 
                     ros::spinOnce();
                     loop_rate.sleep();
@@ -1099,7 +1111,7 @@ int main(int argc, char **argv){
                 /////                                     MODE 7 - Get info                                              /////
                 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            case 7:         //Ked budem dorabat veci do GUI
+            case 7:
                 while (ros::ok()){
 
                     //Break while loop when the mode has changed

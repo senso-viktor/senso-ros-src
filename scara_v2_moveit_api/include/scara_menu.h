@@ -57,8 +57,7 @@ std::vector<std::vector<double>> teachPositionsHand;
 std::vector<geometry_msgs::Point> desiredPositionsDEMO(11);
 std::vector<geometry_msgs::Point> teachPositions;
 
-
-
+std_msgs::Bool moveitMode;
 std_msgs::Byte selectedMode;
 std_msgs::Byte gripper_state;
 std_msgs::Int32 centralStop_msg;
@@ -73,6 +72,7 @@ geometry_msgs::Point currentTeachPoint, lastTeachPoint;
 
 
 moveit::planning_interface::MoveGroupInterface::Plan my_plan;
+moveit::planning_interface::MoveGroupInterface *mg;
 
 //************************************************** Functions *************************************************************//
 
@@ -197,33 +197,12 @@ bool calculateIK(double x, double y, double z,  int mode, int working_mode, int 
         return false;
     }
 
-//    if (z<=0.02 && z>=-0.04){
-//        //joint_positions[2] = -z;
-//        joint_positions[2] = -z + 0.01;        //y= kx + q
-//        ROS_WARN("\n\nz value =%f\n\n",joint_positions[2]);
-//    }else if (z<-0.04){
-//        ROS_ERROR("Target is out of range [up]");
-//        ROS_WARN("\n\nz value =%f\n\n",joint_positions[2]);
-//        joint_positions[2] = -0.03;
-//    }else if (z>0.02){
-//        ROS_ERROR("Target is out of range [down]");
-//        ROS_WARN("\n\nz value =%f\n\n",joint_positions[2]);
-//        joint_positions[2] = 0.01;
-//    }
-    //ROS_WARN("z value =%f",z);
     joint_positions[2] = -0.8*z + 0.024;
-    //ROS_WARN("jp value =%f",joint_positions[2]);
-    if (joint_positions[2] <=0.0){
+    if (joint_positions[2] <=0.0){  //pridat error hlasku...........................................................
         joint_positions[2] =0.0;
-    }else if (joint_positions[2] >=0.04){
+    }else if (joint_positions[2] >=0.04){   //pridat error hlasku...................................................
         joint_positions[2] =0.04;
     }
-//    else{
-//        ROS_INFO("Z in range");
-//    }
-    ROS_WARN("final z value =%f\n",joint_positions[2]);
-
-    //ROS_INFO("output joint positions %f %f %f",joint_positions[0],joint_positions[1],joint_positions[2]);
 
     if (working_mode == 1){             //DEMO
         for (int i=0;i<joint_positions.size();i++)
@@ -231,9 +210,7 @@ bool calculateIK(double x, double y, double z,  int mode, int working_mode, int 
     }else if (working_mode == 2){       //TEACH
         for (int i=0;i<joint_positions.size();i++)
             desiredJointsTeach[index][i] = joint_positions[i];
-        //ROS_INFO("IK calculate for teach!");
-    }
-    //ROS_INFO("count IK OK!");
+        }
     return true;
 
 }
@@ -741,6 +718,8 @@ void centralStopCallback(const std_msgs::Int32 centralStopState){
 void setTorqueCallback(const std_msgs::Float64 torqueValue){
 
     ROS_INFO("set torque callback");
+    max_torque_value = torqueValue.data;
+    ROS_INFO("set torque value to %f",torqueValue.data);
 
 
 }                //GUI -> MENU
@@ -748,6 +727,8 @@ void setTorqueCallback(const std_msgs::Float64 torqueValue){
 void setVelCallback(const std_msgs::Float64 velocityValue){
 
     ROS_INFO("set velocity callback");
+    mg->setMaxVelocityScalingFactor(velocityValue.data);
+    ROS_INFO("max velocity set to %f",velocityValue.data);
 
 
 }                //GUI -> MENU
@@ -755,13 +736,16 @@ void setVelCallback(const std_msgs::Float64 velocityValue){
 void setAccCallback(const std_msgs::Float64 accelerationValue){
 
     ROS_INFO("set acceleration callback");
-
+    mg->setMaxAccelerationScalingFactor(accelerationValue.data);
+    ROS_INFO("max acceleration set to %f",accelerationValue.data);
 
 }                //GUI -> MENU
 
 void setPlanTimeCallback(const std_msgs::Float64 planTimeValue){
 
     ROS_INFO("set plan time callback");
+    mg->setPlanningTime(planTimeValue.data);
+    ROS_INFO("Planning time set to %f",planTimeValue.data);
 
 
 }                //GUI -> MENU
@@ -769,6 +753,8 @@ void setPlanTimeCallback(const std_msgs::Float64 planTimeValue){
 void setNumOfAttemptsCallback(const std_msgs::Int32 numOfAttemptsValue){
 
     ROS_INFO("set number of attempts callback");
+    mg->setNumPlanningAttempts(numOfAttemptsValue.data);
+    ROS_INFO("set number of attempts %d",numOfAttemptsValue.data);
 
 
 }                //GUI -> MENU

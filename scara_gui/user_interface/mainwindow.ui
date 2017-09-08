@@ -76,7 +76,7 @@
       <string notr="true"/>
      </property>
      <property name="currentIndex">
-      <number>9</number>
+      <number>5</number>
      </property>
      <widget class="QWidget" name="mode0_3">
       <attribute name="title">
@@ -769,7 +769,7 @@
         </rect>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <widget class="QWidget" name="tab_8">
         <attribute name="title">
@@ -885,9 +885,9 @@
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>20</y>
+           <y>10</y>
            <width>291</width>
-           <height>181</height>
+           <height>111</height>
           </rect>
          </property>
          <property name="frameShape">
@@ -900,9 +900,9 @@
           <property name="geometry">
            <rect>
             <x>160</x>
-            <y>20</y>
+            <y>10</y>
             <width>111</width>
-            <height>81</height>
+            <height>41</height>
            </rect>
           </property>
           <property name="toolTipDuration">
@@ -919,7 +919,7 @@
           <property name="geometry">
            <rect>
             <x>20</x>
-            <y>120</y>
+            <y>60</y>
             <width>251</width>
             <height>41</height>
            </rect>
@@ -929,15 +929,43 @@
           <property name="geometry">
            <rect>
             <x>20</x>
-            <y>20</y>
+            <y>10</y>
             <width>111</width>
-            <height>81</height>
+            <height>41</height>
            </rect>
           </property>
           <property name="text">
            <string>Start apk</string>
           </property>
          </widget>
+        </widget>
+        <widget class="QTextEdit" name="teachMode_teachedPositions_textEdit_4">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>150</y>
+           <width>291</width>
+           <height>181</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_195">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>120</y>
+           <width>261</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Teached positions&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
         </widget>
        </widget>
       </widget>
@@ -1435,8 +1463,6 @@
          </item>
         </layout>
        </widget>
-       <zorder>gridLayoutWidget_15</zorder>
-       <zorder>gridLayoutWidget_15</zorder>
       </widget>
      </widget>
      <widget class="QWidget" name="tab_4">
@@ -1591,8 +1617,6 @@
          </item>
         </layout>
        </widget>
-       <zorder>gridLayoutWidget</zorder>
-       <zorder>frame_3</zorder>
       </widget>
       <widget class="QFrame" name="frame_2">
        <property name="geometry">

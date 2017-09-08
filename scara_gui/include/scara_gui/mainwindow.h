@@ -15,8 +15,11 @@
 #include "std_msgs/Int32.h"
 #include "scara_msgs/robot_info.h"
 
+#define WIDTH 3
+#define HEIGHT 20
 
 const double RAD_TO_DEG = 57.2957795130;
+
 
 namespace Ui {
     class MainWindow;
@@ -29,6 +32,7 @@ Q_OBJECT
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
     void jointControlCallback(const geometry_msgs::PointStamped pointStamped);
 
     void jointStatesCallback(const sensor_msgs::JointState jointState);
@@ -135,6 +139,8 @@ private:
     bool newJointStates = false;
     int teachModeIndex = 0;
     int teachModeIndexHand = 0;
+    double lastValueJ1 = 9.99 , lastValueJ2 = 9.99 ,lastValueJ3 = 9.99;
+    int j = 0;
 
     std_msgs::Bool gripperState_msg, startState_msg, demoState_msg, getInfoState_msg, teachModeState_msg, moveitMode_msg, dispRealObj_msg, dispCustomObj_msg;
     std_msgs::Float64 setParamFloat_msg, realObjSize_msg, customObjSize_msg;
@@ -149,6 +155,7 @@ private:
     ros::Publisher gripperState_pub, start_pub, mode_pub, teachMode_pub, teachMode_startState, centralStop_pub, moveitMode_pub,colObjArrows_pub;
     ros::Publisher setRealColObjSize_pub, setCustomColObjSize_pub, displayRealColObj_pub, displayCustomColObj_pub;
     ros::Subscriber jointControlValues_sub, positionControlValues_sub, demoValues_sub, getInfo_sub, jointStates_sub, actualPose_sub, actualAcc_sub, errorMessage_sub, shit_sub, teachModeTeach_sub, teachModeStopTeach_sub;
+
 
 
 

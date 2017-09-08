@@ -68,6 +68,7 @@ int main(int argc, char **argv) {
 
                if (trajectory1.trajectory[0].joint_trajectory.points.size() != last_size){
                     last_size = trajectory1.trajectory[0].joint_trajectory.points.size();
+                   ROS_ERROR("PLAN SIZE = %d",last_size);
                     i=0;
                 }
                 if (i< trajectory1.trajectory[0].joint_trajectory.points.size())
