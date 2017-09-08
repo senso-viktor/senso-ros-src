@@ -81,7 +81,7 @@ void generateCube(ros::Publisher *marker_pub, std::string ParentFrame,int cubeNu
     marker.pose.orientation.w = 1.0;
     marker.scale.x = 0.02;
     marker.scale.y = 0.02;
-    marker.scale.z = 0.02;
+    marker.scale.z = 0.5;  //0.02;
     marker.color.a = 1.0; // Don't forget to set the alpha!
     marker.color.r = 0.0;
     marker.color.g = 1.0;
@@ -117,7 +117,7 @@ int main(int argc, char **argv)
 
         ROS_INFO_ONCE("zacal som publikovat marker");
        if (defaultPosition){
-            generateCube(&vis_pub, "world",1, 0.388509 , 0.160504 , 0.969805);
+            generateCube(&vis_pub, "world",1, 0.5, 0.8, 0.969805 );//0.388509 , 0.160504 , 0.969805);
            if (gripper){
                defaultPosition = false;
 

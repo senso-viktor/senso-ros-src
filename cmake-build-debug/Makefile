@@ -3325,6 +3325,19 @@ scara_v2_moveit_api_gencpp/fast:
 .PHONY : scara_v2_moveit_api_gencpp/fast
 
 #=============================================================================
+# Target rules for targets named scara_colision_object
+
+# Build rule for target.
+scara_colision_object: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 scara_colision_object
+.PHONY : scara_colision_object
+
+# fast build rule for target.
+scara_colision_object/fast:
+	$(MAKE) -f scara_v2_moveit_api/CMakeFiles/scara_colision_object.dir/build.make scara_v2_moveit_api/CMakeFiles/scara_colision_object.dir/build
+.PHONY : scara_colision_object/fast
+
+#=============================================================================
 # Target rules for targets named object_recognition_msgs_generate_messages_py
 
 # Build rule for target.
@@ -4022,6 +4035,7 @@ help:
 	@echo "... object_recognition_msgs_generate_messages_lisp"
 	@echo "... shape_msgs_generate_messages_cpp"
 	@echo "... scara_v2_moveit_api_gencpp"
+	@echo "... scara_colision_object"
 	@echo "... object_recognition_msgs_generate_messages_py"
 	@echo "... shape_msgs_generate_messages_nodejs"
 	@echo "... moveit_msgs_generate_messages_cpp"

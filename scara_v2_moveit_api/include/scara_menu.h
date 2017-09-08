@@ -312,6 +312,15 @@ void sendJointPoses(ros::Publisher *pose_and_vel_pub,ros::Publisher *accel_pub, 
     //   If you chose i=999 you will send the current pose for every joint position and speed of SCARA(it is used to sync the code with the SCARA)      //
     //**************************************************************************************************************************************************//
 
+    if ((i != 999) && (i != 998)){
+        if (i >= last_trajectory_size){
+            i= last_trajectory_size-1;
+        }
+    }
+
+
+
+
     if (i == 999){
         pos_and_vel.position.x = currentJointStates.position[0];
         pos_and_vel.position.y =  currentJointStates.position[1];

@@ -157,7 +157,7 @@ int main(int argc, char **argv){
     for (int i=0; i<desiredJointsDEMO.size(); i++){
         ROS_INFO("[%d] J1=%f J2=%f J3=%f",i,desiredJointsDEMO[i][0],desiredJointsDEMO[i][1],desiredJointsDEMO[i][2]);
     }
-    move_group.setPlannerId("RRTConnectkConfigDefault");
+    //move_group.setPlannerId("RRTConnectkConfigDefault");
     sleep(2);
 
 
@@ -324,6 +324,9 @@ int main(int argc, char **argv){
                             sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
                             ROS_ERROR("message stop!! [0/%d]",last_trajectory_size);
                         }else if (jointControl_counter < 15){
+                            if (jointControl_counter == last_trajectory_size){
+                                jointControl_counter = last_trajectory_size - 1;
+                            }
                             sendJointPoses(&pose_pub,&acc_pub, &my_plan, jointControl_counter);
                             ROS_ERROR("message stop!! [%d/%d]", jointControl_counter,last_trajectory_size);
                         }else{
@@ -815,18 +818,24 @@ int main(int argc, char **argv){
                             }
                         }else{
                             //ROS_INFO("stopped");
-                            if (teachMode_counter < 1){
-                                sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
-                               // ROS_ERROR("message stop!! [0/%d]",last_trajectory_size);
+                            if (teachMode_counter < 1) {
+                                sendJointPoses(&pose_pub, &acc_pub, &my_plan, 999);
+                                ROS_ERROR("message stop!! [0/%d]", last_trajectory_size);
 
-                            }else if (teachMode_counter < 15){
-                                sendJointPoses(&pose_pub,&acc_pub, &my_plan, teachMode_counter);
-                                //ROS_ERROR("message stop!! [%d/%d]", teachMode_counter-10,last_trajectory_size);
+                            } else if (teachMode_counter < 15) {
+                                sendJointPoses(&pose_pub, &acc_pub, &my_plan, teachMode_counter);
+                                ROS_ERROR("message stop!! [%d/%d]", teachMode_counter, last_trajectory_size);
+                            } else if ((teachMode_counter > 15) && (teachMode_counter < last_trajectory_size - 2)){
+                                sendJointPoses(&pose_pub, &acc_pub, &my_plan, (teachMode_counter - 10));
+                                ROS_ERROR("message stop!! [%d/%d]", (teachMode_counter - 10), last_trajectory_size);
+                            }else if (teachMode_counter >= last_trajectory_size -2){
+                                sendJointPoses(&pose_pub, &acc_pub, &my_plan, last_trajectory_size - 1);
+                                ROS_ERROR("message stop!! [%d/%d]", last_trajectory_size - 1, last_trajectory_size);
                             }else{
-                                sendJointPoses(&pose_pub,&acc_pub, &my_plan, (teachMode_counter-10));
-                                //ROS_ERROR("message stop!! [%d/%d]", (teachMode_counter-10),last_trajectory_size);
+                                ROS_INFO("something wrong happened with STOP!");
+                                sendJointPoses(&pose_pub, &acc_pub, &my_plan, 999);
+                                ROS_ERROR("message stop!! [0/%d]", last_trajectory_size);
                             }
-                            //count1 = 0;
                             executionOK = true;
                             move_group.stop();
                         }
@@ -1038,14 +1047,21 @@ int main(int argc, char **argv){
                             //ROS_INFO("stopped");
                             if (teachMode_counter < 1) {
                                 sendJointPoses(&pose_pub, &acc_pub, &my_plan, 999);
-                                ROS_ERROR("message stop!! [0/%d]", last_trajectory_size);
+                                ROS_ERROR("message stop a!! [0/%d]", last_trajectory_size);
 
                             } else if (teachMode_counter < 15) {
                                 sendJointPoses(&pose_pub, &acc_pub, &my_plan, teachMode_counter);
-                                ROS_ERROR("message stop!! [%d/%d]", teachMode_counter, last_trajectory_size);
-                            } else {
+                                ROS_ERROR("message stop b!! [%d/%d]", teachMode_counter, last_trajectory_size);
+                            } else if ((teachMode_counter > 15) && (teachMode_counter < last_trajectory_size - 2)){
                                 sendJointPoses(&pose_pub, &acc_pub, &my_plan, (teachMode_counter - 10));
-                                ROS_ERROR("message stop!! [%d/%d]", (teachMode_counter - 10), last_trajectory_size);
+                                ROS_ERROR("message stop c!! [%d/%d]", (teachMode_counter - 10), last_trajectory_size);
+                            }else if (teachMode_counter >= last_trajectory_size -2){
+                                sendJointPoses(&pose_pub, &acc_pub, &my_plan, last_trajectory_size - 1);
+                                ROS_ERROR("message stop d!! [%d/%d]", last_trajectory_size - 1, last_trajectory_size);
+                            }else{
+                                ROS_INFO("something wrong happened with STOP!");
+                                sendJointPoses(&pose_pub, &acc_pub, &my_plan, 999);
+                                ROS_ERROR("message stop e!! [0/%d]", last_trajectory_size);
                             }
                             executionOK = true;
                             move_group.stop();

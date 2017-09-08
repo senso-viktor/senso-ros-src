@@ -15,6 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
         roscpp
         std_msgs
         sensor_msgs
+#        map_msgs
         genmsg
         message_generation
         actionlib
@@ -39,6 +40,7 @@ generate_messages(
         DEPENDENCIES
         std_msgs
         sensor_msgs
+#        map_msgs
         actionlib_msgs
         scara_msgs
 
@@ -51,6 +53,7 @@ catkin_package(
         message_runtime
         std_msgs
         sensor_msgs
+#        map_msgs
 
 )
 
@@ -122,5 +125,8 @@ target_link_libraries(tf_readout ${catkin_LIBRARIES})
 
 add_executable(scara_menu ../scara_v2_moveit_api/src/scara_menu.cpp)
 target_link_libraries(scara_menu ${catkin_LIBRARIES})
+
+add_executable(scara_colision_object ../scara_v2_moveit_api/src/scara_colision_object.cpp)
+target_link_libraries(scara_colision_object ${catkin_LIBRARIES})
 
 

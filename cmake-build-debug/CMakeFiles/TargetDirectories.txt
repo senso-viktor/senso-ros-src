@@ -350,6 +350,7 @@
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/object_recognition_msgs_generate_messages_lisp.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/shape_msgs_generate_messages_cpp.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/scara_v2_moveit_api_gencpp.dir
+/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/scara_colision_object.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/object_recognition_msgs_generate_messages_py.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/shape_msgs_generate_messages_nodejs.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_v2_moveit_api/CMakeFiles/moveit_msgs_generate_messages_cpp.dir
