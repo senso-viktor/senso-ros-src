@@ -2413,7 +2413,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>STOP</string>
+     <string>STOP program</string>
     </property>
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget">

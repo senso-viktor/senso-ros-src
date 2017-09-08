@@ -292,11 +292,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7b700e8e-8037-495d-aed6-fe331801a34d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_gui/include/scara_gui/mainwindow.h" afterPath="$PROJECT_DIR$/scara_gui/include/scara_gui/mainwindow.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_gui/src/mainwindow.cpp" afterPath="$PROJECT_DIR$/scara_gui/src/mainwindow.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_gui/user_interface/mainwindow.ui" afterPath="$PROJECT_DIR$/scara_gui/user_interface/mainwindow.ui" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_v2_moveit_api/include/scara_menu.h" afterPath="$PROJECT_DIR$/scara_v2_moveit_api/include/scara_menu.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_v2_moveit_api/src/get_and_send_planned_path.cpp" afterPath="$PROJECT_DIR$/scara_v2_moveit_api/src/get_and_send_planned_path.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_v2_moveit_api/src/scara_menu.cpp" afterPath="$PROJECT_DIR$/scara_v2_moveit_api/src/scara_menu.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -373,16 +369,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="get_and_send_planned_path.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/get_and_send_planned_path.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="68" column="26" lean-forward="false" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="scara_menu.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/include/scara_menu.h">
           <provider selected="true" editor-type-id="text-editor">
@@ -425,8 +411,8 @@
       <file leaf-file-name="scara_menu.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/scara_menu.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+            <state relative-caret-position="440">
+              <caret line="1082" column="22" lean-forward="false" selection-start-line="1082" selection-start-column="22" selection-end-line="1082" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -462,10 +448,10 @@
       <find>allowe</find>
       <find>actual</find>
       <find>moveit</find>
-      <find>moveitMode_pub</find>
       <find>Somethng wrong with</find>
-      <find>subs_ok</find>
       <find>loop</find>
+      <find>subs_ok</find>
+      <find>moveitMode_pub</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -522,8 +508,8 @@
         <option value="$PROJECT_DIR$/scara_gui/include/scara_gui/mainwindow.h" />
         <option value="$PROJECT_DIR$/scara_gui/src/mainwindow.cpp" />
         <option value="$PROJECT_DIR$/scara_v2_moveit_api/include/scara_menu.h" />
-        <option value="$PROJECT_DIR$/scara_v2_moveit_api/src/scara_menu.cpp" />
         <option value="$PROJECT_DIR$/scara_v2_moveit_api/src/get_and_send_planned_path.cpp" />
+        <option value="$PROJECT_DIR$/scara_v2_moveit_api/src/scara_menu.cpp" />
       </list>
     </option>
   </component>
@@ -2383,7 +2369,7 @@
       <workItem from="1504588646686" duration="39329000" />
       <workItem from="1504675052726" duration="30557000" />
       <workItem from="1504762225811" duration="17342000" />
-      <workItem from="1504847782543" duration="16133000" />
+      <workItem from="1504847782543" duration="17962000" />
     </task>
     <task id="LOCAL-00001" summary="First commit from CLion">
       <created>1502626241736</created>
@@ -2637,16 +2623,23 @@
       <option name="project" value="LOCAL" />
       <updated>1504860695886</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="new GUI -  central stop, set parameters callbacks implemented&#10;TO DO: implement callback for speed and accelerations and GUI teached positions information&#10;implement functions to set parameters - OK&#10;drag mode - build OK, ready for test">
+      <created>1504867821470</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1504867821470</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="327355000" />
+    <option name="totallyTimeSpent" value="329184000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1204" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22911051" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22911051" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17347866" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
@@ -2673,7 +2666,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="FIRST GOOD connection GUI-MENU-RVIZ SCARA!!!" />
     <MESSAGE value="GUI - position control OK! (+ actual pose info in GUI)" />
     <MESSAGE value="GUI - error messages OK!" />
     <MESSAGE value="GUI - menu for joint and position control tested ojn real scara OK! -&gt;missing torque feedback!" />
@@ -2698,7 +2690,8 @@
     <MESSAGE value="new GUI (functions implemented but the are not doing anything)" />
     <MESSAGE value="new GUI -  central stop, set parameters callbacks implemented&#10;TO DO: implement functions to set parameters, drag mode, implement callback for speed and accelerations and GUI teached positions information" />
     <MESSAGE value="new GUI -  central stop, set parameters callbacks implemented&#10;TO DO: drag mode, implement callback for speed and accelerations and GUI teached positions information&#10;implement functions to set parameters - OK" />
-    <option name="LAST_COMMIT_MESSAGE" value="new GUI -  central stop, set parameters callbacks implemented&#10;TO DO: drag mode, implement callback for speed and accelerations and GUI teached positions information&#10;implement functions to set parameters - OK" />
+    <MESSAGE value="new GUI -  central stop, set parameters callbacks implemented&#10;TO DO: implement callback for speed and accelerations and GUI teached positions information&#10;implement functions to set parameters - OK&#10;drag mode - build OK, ready for test" />
+    <option name="LAST_COMMIT_MESSAGE" value="new GUI -  central stop, set parameters callbacks implemented&#10;TO DO: implement callback for speed and accelerations and GUI teached positions information&#10;implement functions to set parameters - OK&#10;drag mode - build OK, ready for test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3083,6 +3076,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/get_and_send_planned_path.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-266">
+          <caret line="69" column="3" lean-forward="true" selection-start-line="69" selection-start-column="3" selection-end-line="69" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scara_gui/src/mainwindow.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
@@ -3134,18 +3135,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/get_and_send_planned_path.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="68" column="26" lean-forward="false" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/scara_menu.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        <state relative-caret-position="440">
+          <caret line="1082" column="22" lean-forward="false" selection-start-line="1082" selection-start-column="22" selection-end-line="1082" selection-end-column="22" />
           <folding />
         </state>
       </provider>

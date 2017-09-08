@@ -1080,6 +1080,10 @@ int main(int argc, char **argv){
                         ROS_WARN("Moveit mode stopped!");
                         break;
                     }
+                    //
+                    selectedMode.data = 6;
+                    mode_pub.publish(selectedMode);
+                    gripper_pub.publish(gripper_state);
 
                     //Display end effector pose in GUI
                     if (count1 > 12){
