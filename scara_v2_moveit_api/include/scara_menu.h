@@ -663,7 +663,7 @@ void sendPositionToGUI(double input_x, double input_y, double input_z){
     desiredPositions.y = input_y;
     desiredPositions.z = input_z;
 
-    //desPos_pub->publish(desiredPositions);
+    desPos_pub->publish(desiredPositions);
 
 }
 

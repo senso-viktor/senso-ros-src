@@ -88,7 +88,7 @@ int main(int argc, char **argv){
     ros::Publisher startMoveitMode_pub = n8.advertise<std_msgs::Bool>("moveitModeStart",1000);
     ros::Publisher sendInfo_pub = n9.advertise<scara_msgs::robot_info>("getInfoValues",1000);
     info_pub = &sendInfo_pub;
-    ros::Publisher desiredPos_pub = n10.advertise<geometry_msgs::Point>("desiredPose",1000);
+    ros::Publisher desiredPos_pub = n10.advertise<geometry_msgs::Point>("desiredPoseGUI",1000);
     desPos_pub = &desiredPos_pub;
     ROS_INFO("Init subscribers");
     //Subscriber
@@ -232,10 +232,6 @@ int main(int argc, char **argv){
                     if (central_stop){
                         selectedMode.data = 6;
                         mode_pub.publish(selectedMode);
-                        desiredPositions.x = 0.0;
-                        desiredPositions.y = 0.0;
-                        desiredPositions.z = 0.0;
-                        //desPos_pub->publish(desiredPositions);
                         for (int i=0;i<10;i++)
                             sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
                         ROS_ERROR("CENTRAL STOP ! PROGRAM END !");
@@ -308,6 +304,7 @@ int main(int argc, char **argv){
                                 ROS_INFO("Somethng wrong with the function %d",success);
                                 break;  //pridal som break
                             }
+                            sendPositionToGUI(0,0,0);
                         }
 
                         if (satisfieJointLimits){
@@ -414,11 +411,7 @@ int main(int argc, char **argv){
                                                 last_trajectory_size = my_plan.trajectory_.joint_trajectory.points.size();
                                                 positionControl_counter=0;
                                             }
-                                            desiredPositions.x = positionControl_values[0];
-                                            desiredPositions.y = positionControl_values[1];
-                                            desiredPositions.z = positionControl_values[2];
-                                            //desPos_pub->publish(desiredPos_pub);
-
+                                            sendPositionToGUI(positionControl_values[0],positionControl_values[1],positionControl_values[2]);
                                             break;
                                         } else{
                                             ROS_ERROR("Bad plan");
@@ -578,6 +571,7 @@ int main(int argc, char **argv){
 
                             ROS_WARN("Moving to[%d]: %f %f %f",DEMO_mode, desiredJointsDEMO[DEMO_mode][0], desiredJointsDEMO[DEMO_mode][1],
                                      desiredJointsDEMO[DEMO_mode][2]);
+                            sendPositionToGUI(desiredJointsDEMO[DEMO_mode][0], desiredJointsDEMO[DEMO_mode][1], desiredJointsDEMO[DEMO_mode][2]);
                             sleep(1);
                             demoControl_counter = 0;
                             satisfieJointLimits = move_group.setJointValueTarget(desiredJointsDEMO[DEMO_mode]);
@@ -761,6 +755,7 @@ int main(int argc, char **argv){
                                 sleep(2);
                                 ROS_WARN("Desired target[%d] : %f %f %f",count1, desiredJointsTeach[count1][0], desiredJointsTeach[count1][1],
                                          desiredJointsTeach[count1][2]);
+                                sendPositionToGUI(desiredJointsTeach[count1][0], desiredJointsTeach[count1][1], desiredJointsTeach[count1][2]);
                                 move_group.setJointValueTarget(desiredJointsTeach[count1]);
                                 jointModeControll(&move_group);
                             }
@@ -987,6 +982,7 @@ int main(int argc, char **argv){
                                 ROS_WARN("Desired joints : %f %f %f (%d/%d)", teachPositionsHand[count1][0],
                                          teachPositionsHand[count1][1], teachPositionsHand[count1][2],
                                          count1,teachPositionsHandSize-1 );
+                                sendPositionToGUI(teachPositionsHand[count1][0], teachPositionsHand[count1][1], teachPositionsHand[count1][2]);
                                 move_group.setJointValueTarget(teachPositionsHand[count1]);
                                 jointModeControll(&move_group);
                                 last_trajectory_size = -5;
@@ -1138,6 +1134,7 @@ int main(int argc, char **argv){
                     //hold position while the movement in moveit isnt started
                     if (!moveitState){
                         sendJointPoses(&pose_pub, &acc_pub, &my_plan, 999);
+                        sendPositionToGUI(0,0,0);
                     }else{
                         ROS_INFO("Started moving in moveit ! Current joint states: %f %f %f",currentJointStates.position[0],
                                  currentJointStates.position[1], currentJointStates.position[2]);
@@ -1171,6 +1168,7 @@ int main(int argc, char **argv){
                     //display end effector pose in GUI
                     if (count1 > 12){
                         sendEndEffectorPose(&actualPose_pub, &move_group);
+                        sendPositionToGUI(0,0,0);
                         count1 = 0;
                     }
                     count1++;
@@ -1207,6 +1205,7 @@ int main(int argc, char **argv){
                     //Display end effector pose in GUI
                     if (count1 > 12){
                         sendEndEffectorPose(&actualPose_pub, &move_group);
+                        sendPositionToGUI(0,0,0);
                         count1 = 0;
                     }
                     count1++;
@@ -1243,6 +1242,7 @@ int main(int argc, char **argv){
                     //Display end effector pose in GUI
                     if (count1 > 12){
                         sendEndEffectorPose(&actualPose_pub, &move_group);
+                        sendPositionToGUI(0,0,0);
                         count1 = 0;
                     }
                     count1++;

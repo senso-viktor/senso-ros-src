@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     char **argv;
     ros::init(argc, argv, "scara_gui_node");
     ros::NodeHandle n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21,n22,n23,n24,n25;
-    ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6,nn7,nn8;
+    ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6,nn7,nn8,nn9,nn10;
     ros::Rate loop_rate(10);
 
     ROS_INFO("spinner start");
@@ -95,10 +95,11 @@ MainWindow::MainWindow(QWidget *parent) :
     actualPose_sub = nn4.subscribe("actualPose",1000,&MainWindow::actualPoseCallback, this);
     ROS_INFO("Init subscriber actualPose");
     errorMessage_sub = nn5.subscribe("errorCode",1000,&MainWindow::errorCodeCallback, this);
-    //shit_sub = nn6.subscribe("hovadina",1000,&MainWindow::kktinaCallback, this);
-    gripperCommand_sub = nn6.subscribe("gripperCommand",1000, &MainWindow::gripperCommandCallback, this);
-    pushButton_sub = nn6.subscribe("scara_pushbutton",1000,&MainWindow::pushButtonCallback, this);
-    lightBarrier_sub = nn7.subscribe("scara_lightbarrier",1000,&MainWindow::lightBarrierCallback, this);
+    gripperCommand_sub = nn6.subscribe("gripperCommand",1000,&MainWindow::gripperCommandCallback, this);
+    pushButton_sub = nn7.subscribe("scara_pushbutton",1000,&MainWindow::pushButtonCallback, this);
+    lightBarrier_sub = nn8.subscribe("scara_lightbarrier",1000,&MainWindow::lightBarrierCallback, this);
+    desiredPose_sub = nn9.subscribe("desiredPoseGUI",1000,&MainWindow::desiredPoseCallback, this);
+    shit_sub = nn10.subscribe("hovadina",1000,&MainWindow::kktinaCallback, this);
 
     ROS_WARN("GUI init complete");
     ROS_WARN("STARTING NOW");
@@ -249,7 +250,7 @@ void MainWindow::on_positionControlCustom_Reset_PushButton_5_clicked(){
     //GUI
     ui->positionControlCustom_X_LineEdit_3->setText(QString::number(0.704));
     ui->positionControlCustom_Y_LineEdit_3->setText(QString::number(0.58));
-    ui->positionControlCustom_Z_LineEdit_3->setText(QString::number(1.0196));
+    ui->positionControlCustom_Z_LineEdit_3->setText(QString::number(1.04));
     ui->positionControl_Gripper_Checkbox_4->setChecked(false);
     //ROS
     //Start Pose of SCARA
@@ -887,7 +888,7 @@ void MainWindow::jointStatesCallback(const sensor_msgs::JointState jointState){
         ui->status_joint3vel_3->display(0.00);
     }
 
-    ROS_INFO("actual torque: J1 = %f J2 = %f", jointState.effort[0], jointState.effort[1]);
+    //ROS_INFO("actual torque: J1 = %f J2 = %f", jointState.effort[0], jointState.effort[1]);
     if (jointState.effort.size() >= 3){
 
         if (filterValues(jointState.effort[0])){
@@ -910,6 +911,8 @@ void MainWindow::jointStatesCallback(const sensor_msgs::JointState jointState){
         ui->status_joint2torq_3->display(0.00);
         ui->status_joint3torq_3->display(0.00);
     }
+
+    ui->status_pose_Z->display(1.04-jointState.position[2]);
 
 }
 
@@ -948,7 +951,7 @@ void MainWindow::actualPoseCallback(const geometry_msgs::Pose pose){
 
     ui->status_pose_X->display(pose.position.x);
     ui->status_pose_Y->display(pose.position.y);
-    ui->status_pose_Z->display(pose.position.z);
+    //ui->status_pose_Z->display(pose.position.z+0.02);
 }
 
 void MainWindow::actualAccCallback(const geometry_msgs::Point accValues){
@@ -1034,4 +1037,10 @@ void MainWindow::gripperCommandCallback(const std_msgs::Byte gripperCommandState
 
 }
 
+void MainWindow::desiredPoseCallback(const geometry_msgs::Point desiredPose){
 
+    ui->status_pose_Xdesired->display(desiredPose.x);
+    ui->status_pose_Ydesired->display(desiredPose.y);
+    ui->status_pose_Zdesired->display(desiredPose.z);
+
+}
