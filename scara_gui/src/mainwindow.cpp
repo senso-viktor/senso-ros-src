@@ -19,8 +19,8 @@ MainWindow::MainWindow(QWidget *parent) :
     int argc;
     char **argv;
     ros::init(argc, argv, "scara_gui_node");
-    ros::NodeHandle n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21;
-    ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6;
+    ros::NodeHandle n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21,n22,n23,n24,n25;
+    ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6,nn7,nn8;
     ros::Rate loop_rate(10);
 
     ROS_INFO("spinner start");
@@ -63,14 +63,18 @@ MainWindow::MainWindow(QWidget *parent) :
     ROS_INFO("Init publisher moveit mode");
     colObjArrows_pub = n17.advertise<std_msgs::Int32>("colisionObjectMovement",1000);
     ROS_INFO("Init publisher colision object movement");
-    setRealColObjSize_pub = n18.advertise<std_msgs::Float64>("realColisionObjectSize",1000);
-    ROS_INFO("Init publisher real colision object size");
-    setCustomColObjSize_pub = n19.advertise<std_msgs::Float64>("customColisionObjectSize",1000);
-    ROS_INFO("Init publisher custom colision object size");
     displayRealColObj_pub = n20.advertise<std_msgs::Bool>("displayRealColisionObject",1000);
     ROS_INFO("Init publisher display real colision object");
     displayCustomColObj_pub = n21.advertise<std_msgs::Bool>("displayCustomColisionObject",1000);
     ROS_INFO("Init publisher display custom colision object");
+    setPrecision_pub = n22.advertise<std_msgs::Float64>("setPrecision",1000);
+    ROS_INFO("Init publisher set precision");
+    setCustomObjPos_pub = n23.advertise<geometry_msgs::Point>("CustomObjectPosition",1000);
+    ROS_INFO("Init publisher set custom object position");
+    setCustomColObjSize_pub = n24.advertise<geometry_msgs::Point>("CustomObjectSize",1000);
+    ROS_INFO("Init publisher set custom object size");
+    setRealColObjSize_pub = n25.advertise<geometry_msgs::Point>("RealObjectSize",1000);
+    ROS_INFO("Init publisher set custom object position");
     //novy publisheri
 
 
@@ -91,7 +95,10 @@ MainWindow::MainWindow(QWidget *parent) :
     actualPose_sub = nn4.subscribe("actualPose",1000,&MainWindow::actualPoseCallback, this);
     ROS_INFO("Init subscriber actualPose");
     errorMessage_sub = nn5.subscribe("errorCode",1000,&MainWindow::errorCodeCallback, this);
-    shit_sub = nn6.subscribe("hovadina",1000,&MainWindow::kktinaCallback, this);
+    //shit_sub = nn6.subscribe("hovadina",1000,&MainWindow::kktinaCallback, this);
+    gripperCommand_sub = nn6.subscribe("gripperCommand",1000, &MainWindow::gripperCommandCallback, this);
+    pushButton_sub = nn6.subscribe("scara_pushbutton",1000,&MainWindow::pushButtonCallback, this);
+    lightBarrier_sub = nn7.subscribe("scara_lightbarrier",1000,&MainWindow::lightBarrierCallback, this);
 
     ROS_WARN("GUI init complete");
     ROS_WARN("STARTING NOW");
@@ -190,7 +197,7 @@ void MainWindow::on_jointControl_Reset_PushButton_3_clicked(){
     //Send to ROS
     jointControl_Values_msg.point.x = 0.0;
     jointControl_Values_msg.point.y = 0.0;
-    jointControl_Values_msg.point.z = 0.0;
+    jointControl_Values_msg.point.z = 0.04;
     gripperState_msg.data = false;
     startState_msg.data = true;
     for (int i=0;i<100;i++){
@@ -573,9 +580,9 @@ void MainWindow::on_basicInfo_GetInfo_PushButton_3_clicked(){
     //ROS
     //Publish
     getInfoState_msg.data = true;
-    for (int i=0;i<100;i++) {
+    //for (int i=0;i<100;i++) {
         getInfo_pub.publish(getInfoState_msg);
-    }
+    //}
 }
 //...............................................................................//
 
@@ -589,6 +596,15 @@ void MainWindow::on_setParameters_Torque_PushButton_3_clicked(){
         setTorq_pub.publish(setParamFloat_msg);
     }
 
+}
+
+void MainWindow::on_setParameters_Precision_PushButton_4_clicked(){
+
+    setParamFloat_msg.data = ui->setParameters_Precision_LineEdit_4->text().toFloat();
+
+    for (int i=0;i<100;i++) {
+        setPrecision_pub.publish(setParamFloat_msg);
+    }
 }
 
 void MainWindow::on_setParameters_Velocity_PushButton_3_clicked(){
@@ -668,31 +684,37 @@ void MainWindow::on_colisionObject_RealObj_checkButton_toggled(bool checked){
 
 }
 
-void MainWindow::on_colisionObject_CustomObj_enterpushButton_clicked(){
+void MainWindow::on_colisionObject_CustomObj_posChangeenterpushButton_2_clicked(){
 
-    customObjSize_msg.data = ui->colisionObject_CustomObj_sizeLineEdit->text().toDouble();
-    //GUI
-    ui->colisionObject_CustomObj_LCD->display(customObjSize_msg.data);
+    posCustomObj_msg.x = ui->colisionObject_CustomObj_posXLineEdit_4->text().toFloat();
+    posCustomObj_msg.y = ui->colisionObject_CustomObj_posYLineEdit_5->text().toFloat();
+    posCustomObj_msg.z = 0.0;
 
-    //ROS
-    for (int i=0;i<100;i++){
-        setCustomColObjSize_pub.publish(customObjSize_msg);
+    for (int i=0;i<10;i++){
+        setCustomObjPos_pub.publish(posCustomObj_msg);
     }
-
-
 }
 
-void MainWindow::on_colisionObject_RealObj_enterPushButton_clicked(){
+void MainWindow::on_colisionObject_CustomObj_SizeenterpushButton_clicked(){
 
-    realObjSize_msg.data = ui->colisionObject_RealObj_sizeLineEdit->text().toDouble();
-    //GUI
-    ui->colisionObject_RealObj_LCD->display(realObjSize_msg.data);
+    sizeCustomObj_msg.x = ui->colisionObject_CustomObj_sizeXLineEdit_3->text().toFloat();
+    sizeCustomObj_msg.y = ui->colisionObject_CustomObj_sizeYLineEdit_6->text().toFloat();
+    sizeCustomObj_msg.z = 0.0;
 
-    //ROS
-    for (int i=0;i<100;i++){
-        setRealColObjSize_pub.publish(realObjSize_msg);
+    for (int i=0;i<10;i++){
+        setCustomColObjSize_pub.publish(sizeCustomObj_msg);
     }
+}
 
+void MainWindow::on_colisionObject_RealObj_SizeenterpushButton_2_clicked(){
+
+    sizeRealObj_msg.x = ui->colisionObject_RealObj_sizeXLineEdit_4->text().toFloat();
+    sizeRealObj_msg.y = ui->colisionObject_RealObj_sizeYLineEdit_7->text().toFloat();
+    sizeRealObj_msg.z = 0.0;
+
+    for (int i=0;i<10;i++){
+        setRealColObjSize_pub.publish(sizeRealObj_msg);
+    }
 }
 
 void MainWindow::on_colisionObject_Reset_pushbutton_clicked(){
@@ -707,40 +729,38 @@ void MainWindow::on_colisionObject_Reset_pushbutton_clicked(){
 void MainWindow::on_colisionObject_Up_pushbutton_clicked(){
 
     arrows_msg.data = 1;
-    for (int i=0;i<100;i++){
+    //for (int i=0;i<100;i++){
         colObjArrows_pub.publish(arrows_msg);
-    }
+    //}
 }
 
 void MainWindow::on_colisionObject_Left_pushbutton_clicked(){
 
     arrows_msg.data = 2;
-    for (int i=0;i<100;i++){
+    //for (int i=0;i<100;i++){
         colObjArrows_pub.publish(arrows_msg);
-    }
+    //}
 }
 
 void MainWindow::on_colisionObject_Down_pushbutton_clicked(){
 
     arrows_msg.data = 3;
-    for (int i=0;i<100;i++){
+    //for (int i=0;i<100;i++){
         colObjArrows_pub.publish(arrows_msg);
-    }
+    //}
 }
 
 void MainWindow::on_colisionObject_Right_pushbutton_clicked(){
 
     arrows_msg.data = 4;
-    for (int i=0;i<100;i++){
+    //for (int i=0;i<100;i++){
         colObjArrows_pub.publish(arrows_msg);
-    }
+    //}
 }
+
+
+
 //...............................................................................//
-
-
-
-
-
 
 
 //***************************** Tab widget ******************************//
@@ -768,18 +788,34 @@ void MainWindow::on_workingModes_3_tabBarClicked(int index){
 
 
 
-
-
-
-
-//**************************** CENTRAL STOP ****************************//
+//******************************* CENTRAL STOP *********************************//
 void MainWindow::on_centralStop_clicked(){
 
+    //kill matlab
     centralStop_msg.data = 1;
     for (int i = 0;i<100;i++){
         centralStop_pub.publish(centralStop_msg);
     }
+    //kill roslaunch
+    system("pkill roslaunch");
     ui->error_lineEdit->setText("CENTRAL STOP PUSHED! Matlab and ROS stopped!");
+
+    //kill GUI
+    sleep(5);
+    QApplication::quit();
+
+
+}
+//...............................................................................//
+
+
+//******************** Filter input values from scara ***************************//
+bool MainWindow::filterValues(double inputValue) {
+
+    if ((inputValue > -MIN_DISPLAY_VALUE) && (inputValue < MIN_DISPLAY_VALUE))
+        return true;
+    else
+        return false;
 
 }
 //...............................................................................//
@@ -812,30 +848,68 @@ void MainWindow::jointStatesCallback(const sensor_msgs::JointState jointState){
 
     //Neskor doplnit rychlosti a momenty
     if (jointState.velocity.size() >= 3){
-        ui->status_joint2vel_3->display(jointState.velocity[0]);
-        ui->status_joint2vel_3->display(jointState.velocity[1]);
-        ui->status_joint3vel_3->display(jointState.velocity[2]);
+        if (filterValues(jointState.velocity[0])){
+            ui->status_joint1vel_3->display(0.0);
+        }else{
+            ui->status_joint1vel_3->display(jointState.velocity[0]);
+        }
+
+        if (filterValues(jointState.velocity[1])){
+            ui->status_joint2vel_3->display(0.0);
+        }else{
+            ui->status_joint2vel_3->display(jointState.velocity[1]);
+        }
+
+        if (filterValues(jointState.velocity[2])){
+            ui->status_joint3vel_3->display(0.0);
+        }else{
+            ui->status_joint3vel_3->display(jointState.velocity[2]);
+        }
+
+//        if ((jointState.velocity[0] > -MIN_DISPLAY_VALUE) && (jointState.velocity[0] < MIN_DISPLAY_VALUE))
+//            ui->status_joint1vel_3->display(0.0);
+//        else
+//            ui->status_joint1vel_3->display(jointState.velocity[0]);
+//
+//        if ((jointState.velocity[1] > -MIN_DISPLAY_VALUE) && (jointState.velocity[1] < MIN_DISPLAY_VALUE))
+//            ui->status_joint2vel_3->display(0.0);
+//        else
+//            ui->status_joint2vel_3->display(jointState.velocity[1]);
+//
+//        if ((jointState.velocity[2] > -MIN_DISPLAY_VALUE) && (jointState.velocity[2] < MIN_DISPLAY_VALUE))
+//            ui->status_joint3vel_3->display(0.0);
+//        else
+//            ui->status_joint3vel_3->display(jointState.velocity[2]);
+
     }else{
-        ui->status_joint1vel_3->display(9.99);
-        ui->status_joint2vel_3->display(9.99);
-        ui->status_joint3vel_3->display(9.99);
+        ui->status_joint1vel_3->display(0.00);
+        ui->status_joint2vel_3->display(0.00);
+        ui->status_joint3vel_3->display(0.00);
     }
 
+    ROS_INFO("actual torque: J1 = %f J2 = %f", jointState.effort[0], jointState.effort[1]);
     if (jointState.effort.size() >= 3){
-        ui->status_joint1torq_3->display(jointState.effort[0]);
-        ui->status_joint2torq_3->display(jointState.effort[1]);
-        ui->status_joint3torq_3->display(9.99);
+
+        if (filterValues(jointState.effort[0])){
+            ui->status_joint1torq_3->display(0.0);
+        }else{
+            ui->status_joint1torq_3->display(jointState.effort[0]);
+        }
+
+        if (filterValues(jointState.effort[1])){
+            ui->status_joint2torq_3->display(0.0);
+        }else{
+            ui->status_joint2torq_3->display(jointState.effort[1]);
+        }
+
+//        ui->status_joint1torq_3->display(jointState.effort[0]);
+//        ui->status_joint2torq_3->display(jointState.effort[1]);
+        ui->status_joint3torq_3->display(0.00);
     }else{
-        ui->status_joint1torq_3->display(9.99);
-        ui->status_joint2torq_3->display(9.99);
-        ui->status_joint3torq_3->display(9.99);
+        ui->status_joint1torq_3->display(0.00);
+        ui->status_joint2torq_3->display(0.00);
+        ui->status_joint3torq_3->display(0.00);
     }
-
-    //...........dorobit aj primanie acceleration..........//
-
-    ui->status_joint1acc_3->display(9.99);
-    ui->status_joint2acc_3->display(9.99);
-    ui->status_joint3acc_3->display(9.99);
 
 }
 
@@ -877,7 +951,29 @@ void MainWindow::actualPoseCallback(const geometry_msgs::Pose pose){
     ui->status_pose_Z->display(pose.position.z);
 }
 
-void MainWindow::actualAccCallback(const geometry_msgs::Pose pose){
+void MainWindow::actualAccCallback(const geometry_msgs::Point accValues){
+
+    if(filterValues(accValues.x)){
+        ui->status_joint1acc_3->display(0.0);
+    }else{
+        ui->status_joint1acc_3->display(accValues.x);
+    }
+
+    if(filterValues(accValues.y)){
+        ui->status_joint2acc_3->display(0.0);
+    }else{
+        ui->status_joint2acc_3->display(accValues.y);
+    }
+
+    if(filterValues(accValues.z)){
+        ui->status_joint3acc_3->display(0.0);
+    }else{
+        ui->status_joint3acc_3->display(accValues.z);
+    }
+
+//    ui->status_joint1acc_3->display(accValues.x);
+//    ui->status_joint2acc_3->display(accValues.y);
+//    ui->status_joint3acc_3->display(accValues.z);
 
 }
 
@@ -920,6 +1016,22 @@ void MainWindow::kktinaCallback(const geometry_msgs::Pose pose){
     ROS_INFO("kktina");
 }
 
+void MainWindow::pushButtonCallback(const std_msgs::Byte pushButtonState){
 
+    ui->status_gripper_PushButton_3->display(pushButtonState.data);
+
+}
+
+void MainWindow::lightBarrierCallback(const std_msgs::Byte lightBarrierState){
+
+    ui->status_gripper_LightBarrier_3->display(lightBarrierState.data);
+
+}
+
+void MainWindow::gripperCommandCallback(const std_msgs::Byte gripperCommandState){
+
+    ui->status_gripper_OnOff_3->display(gripperCommandState.data);
+
+}
 
 

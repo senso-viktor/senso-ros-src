@@ -19,6 +19,7 @@
 #include <moveit/planning_scene_interface/planning_scene_interface.h>
 #include "moveit/robot_model_loader/robot_model_loader.h"
 #include <tf/transform_listener.h>
+#include "scara_msgs/robot_info.h"
 
 //Global variables
 bool start_state = false;
@@ -52,6 +53,7 @@ std::vector<double> positionControl_values(3);
 std::vector<double> positionControl_lastValues {9.99,9.99,9.99};
 std::vector<double> link_length(2);
 std::vector<double> joint_positions(3);
+
 std::vector<std::vector<double>> desiredJointsDEMO(11, std::vector<double>(3));
 std::vector<std::vector<double>> desiredJointsTeach;
 std::vector<std::vector<double>> teachPositionsHand;
@@ -64,6 +66,7 @@ std_msgs::Byte gripper_state;
 std_msgs::Int32 centralStop_msg;
 std_msgs::Int32 errorCodeMsg;
 geometry_msgs::Point point;
+geometry_msgs::Point desiredPositions;
 geometry_msgs::Pose endEffectorPose;
 geometry_msgs::PoseStamped ws1;
 geometry_msgs::Pose pos_and_vel;
@@ -72,8 +75,11 @@ sensor_msgs::JointState currentJointStates;
 geometry_msgs::Point currentTeachPoint, lastTeachPoint;
 
 
+
 moveit::planning_interface::MoveGroupInterface::Plan my_plan;
 moveit::planning_interface::MoveGroupInterface *mg;
+ros::Publisher *info_pub;
+ros::Publisher *desPos_pub;
 
 //************************************************** Functions *************************************************************//
 
@@ -650,6 +656,18 @@ void initMatlab(ros::Publisher *pub_gripper, ros::Publisher *pub_centralStop, ro
 
 }
 
+//This function sends the desired position to GUI
+void sendPositionToGUI(double input_x, double input_y, double input_z){
+
+    desiredPositions.x = input_x;
+    desiredPositions.y = input_y;
+    desiredPositions.z = input_z;
+
+    //desPos_pub->publish(desiredPositions);
+
+}
+
+
 //******************************************************************************************************************************//
 
 
@@ -732,6 +750,13 @@ void setTorqueCallback(const std_msgs::Float64 torqueValue){
     ROS_INFO("set torque value to %f",torqueValue.data);
 
 
+}                     //GUI -> MENU
+
+void setPrecisionCallback(const std_msgs::Float64 precisionValue){
+
+    ROS_INFO("Precision value changed to %f",precisionValue.data);
+    maxJointDeviation = precisionValue.data;
+
 }                //GUI -> MENU
 
 void setVelCallback(const std_msgs::Float64 velocityValue){
@@ -741,7 +766,7 @@ void setVelCallback(const std_msgs::Float64 velocityValue){
     ROS_INFO("max velocity set to %f",velocityValue.data);
 
 
-}                //GUI -> MENU
+}                      //GUI -> MENU
 
 void setAccCallback(const std_msgs::Float64 accelerationValue){
 
@@ -749,7 +774,7 @@ void setAccCallback(const std_msgs::Float64 accelerationValue){
     mg->setMaxAccelerationScalingFactor(accelerationValue.data);
     ROS_INFO("max acceleration set to %f",accelerationValue.data);
 
-}                //GUI -> MENU
+}                  //GUI -> MENU
 
 void setPlanTimeCallback(const std_msgs::Float64 planTimeValue){
 
@@ -758,7 +783,7 @@ void setPlanTimeCallback(const std_msgs::Float64 planTimeValue){
     ROS_INFO("Planning time set to %f",planTimeValue.data);
 
 
-}                //GUI -> MENU
+}                 //GUI -> MENU
 
 void setNumOfAttemptsCallback(const std_msgs::Int32 numOfAttemptsValue){
 
@@ -767,16 +792,49 @@ void setNumOfAttemptsCallback(const std_msgs::Int32 numOfAttemptsValue){
     ROS_INFO("set number of attempts %d",numOfAttemptsValue.data);
 
 
-}                //GUI -> MENU
+}         //GUI -> MENU
 
 void moveitModeCallback(const std_msgs::Bool mode){
 
     moveitState = mode.data;
 
-}                //GUI -> MENU
+}                              //GUI -> MENU
 
 
+void infoCallback(const std_msgs::Bool mode){
 
+    ROS_INFO("INFO callback");
+
+    scara_msgs::robot_info robotInfo_msg;
+    std::string robot_model = "scara_arm";
+    std::string str;
+    robotInfo_msg.robot_model = robot_model;
+    robotInfo_msg.reference_frame = mg->getPlanningFrame().c_str();
+    robotInfo_msg.efector_link = mg->getEndEffectorLink().c_str();
+    std::vector< std::string> activeJoints = mg->getActiveJoints();
+    for (int i=0;i<activeJoints.size();i++){
+        str.append(activeJoints[i]);
+        str.append(" , ");
+    }
+    robotInfo_msg.active_joints = str;
+    ROS_INFO_STREAM(str);
+
+    geometry_msgs::PoseStamped currentPose = mg->getCurrentPose();
+
+    robotInfo_msg.position_x = currentPose.pose.position.x;
+    robotInfo_msg.position_y = currentPose.pose.position.y;
+    robotInfo_msg.position_z = currentPose.pose.position.z;
+
+    robotInfo_msg.orientation_x = currentPose.pose.orientation.x;
+    robotInfo_msg.orientation_y = currentPose.pose.orientation.y;
+    robotInfo_msg.orientation_z = currentPose.pose.orientation.z;
+    robotInfo_msg.orientation_w = currentPose.pose.orientation.w;
+
+    info_pub->publish(robotInfo_msg);
+
+    activeJoints.clear();
+
+}                              //GUI -> MENU
 
 void buttonStateCallback(const std_msgs::Byte buttonState){
 

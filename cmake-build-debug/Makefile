@@ -1973,6 +1973,19 @@ bond_generate_messages_py/fast:
 .PHONY : bond_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named scara_gui_generate_messages
+
+# Build rule for target.
+scara_gui_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 scara_gui_generate_messages
+.PHONY : scara_gui_generate_messages
+
+# fast build rule for target.
+scara_gui_generate_messages/fast:
+	$(MAKE) -f scara_gui/CMakeFiles/scara_gui_generate_messages.dir/build.make scara_gui/CMakeFiles/scara_gui_generate_messages.dir/build
+.PHONY : scara_gui_generate_messages/fast
+
+#=============================================================================
 # Target rules for targets named nodelet_generate_messages_py
 
 # Build rule for target.
@@ -3931,6 +3944,7 @@ help:
 	@echo "... nodelet_generate_messages_eus"
 	@echo "... nodelet_generate_messages_nodejs"
 	@echo "... bond_generate_messages_py"
+	@echo "... scara_gui_generate_messages"
 	@echo "... nodelet_generate_messages_py"
 	@echo "... bond_generate_messages_cpp"
 	@echo "... nodelet_generate_messages_lisp"

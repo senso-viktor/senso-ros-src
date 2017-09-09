@@ -42,9 +42,10 @@ int main(int argc, char **argv){
     int numOfPlacePos = 0;
     int desiredJointsTeachSize = 0;
     int teachPositionsHandSize = 0;
+
     ros::init(argc, argv, "menu_node");
-    ros::NodeHandle n1,n2,n3,n4,n5,n6,n7,n8,n9;
-    ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6,nn7,nn8,nn9,nn10,nn11,nn12,nn13,nn14,nn15,nn16;
+    ros::NodeHandle n1,n2,n3,n4,n5,n6,n7,n8,n9,n10;
+    ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6,nn7,nn8,nn9,nn10,nn11,nn12,nn13,nn14,nn15,nn16,nn17,nn18;
     ros::Rate loop_rate(10);
     ros::AsyncSpinner spinner(1);
     spinner.start();
@@ -85,7 +86,10 @@ int main(int argc, char **argv){
     ros::Publisher gripper_pub = n6.advertise<std_msgs::Byte>("/gripperCommand",1000);
     ros::Publisher centralStop_pub = n7.advertise<std_msgs::Int32>("centralStop",1000);
     ros::Publisher startMoveitMode_pub = n8.advertise<std_msgs::Bool>("moveitModeStart",1000);
-
+    ros::Publisher sendInfo_pub = n9.advertise<scara_msgs::robot_info>("getInfoValues",1000);
+    info_pub = &sendInfo_pub;
+    ros::Publisher desiredPos_pub = n10.advertise<geometry_msgs::Point>("desiredPose",1000);
+    desPos_pub = &desiredPos_pub;
     ROS_INFO("Init subscribers");
     //Subscriber
     ros::Subscriber modeSelect_sub = nn1.subscribe("modeSelectGUI",1000,modeSelectCallback);
@@ -104,9 +108,12 @@ int main(int argc, char **argv){
     ros::Subscriber setPlanTime_sub = nn14.subscribe("setPlanningTime",1000,setPlanTimeCallback);
     ros::Subscriber setNumOfAttempts_sub = nn15.subscribe("setNumberOfAttempts",1000,setNumOfAttemptsCallback);
     ros::Subscriber moveitMode_sub = nn16.subscribe("moveitModeStart",1000,moveitModeCallback);
+    ros::Subscriber setPrecision_sub = nn17.subscribe("setPrecision", 1000, setPrecisionCallback);
+    ros::Subscriber info_sub = nn18.subscribe("getInfo",1000,infoCallback);
     sleep(2);
 
-
+    //init desiredPositions message (for GUI)
+    sendPositionToGUI(0,0,0);
 
     //Set desired Poses for DEMO
     setDesiredPosesDEMO();
@@ -153,10 +160,10 @@ int main(int argc, char **argv){
     }else{
         ROS_INFO("computing IK OK (DEMO)");
     }
-    ROS_INFO("Final angles:");
-    for (int i=0; i<desiredJointsDEMO.size(); i++){
-        ROS_INFO("[%d] J1=%f J2=%f J3=%f",i,desiredJointsDEMO[i][0],desiredJointsDEMO[i][1],desiredJointsDEMO[i][2]);
-    }
+//    ROS_INFO("Final angles:");
+//    for (int i=0; i<desiredJointsDEMO.size(); i++){
+//        ROS_INFO("[%d] J1=%f J2=%f J3=%f",i,desiredJointsDEMO[i][0],desiredJointsDEMO[i][1],desiredJointsDEMO[i][2]);
+//    }
     //move_group.setPlannerId("RRTConnectkConfigDefault");
     sleep(2);
 
@@ -225,6 +232,10 @@ int main(int argc, char **argv){
                     if (central_stop){
                         selectedMode.data = 6;
                         mode_pub.publish(selectedMode);
+                        desiredPositions.x = 0.0;
+                        desiredPositions.y = 0.0;
+                        desiredPositions.z = 0.0;
+                        //desPos_pub->publish(desiredPositions);
                         for (int i=0;i<10;i++)
                             sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
                         ROS_ERROR("CENTRAL STOP ! PROGRAM END !");
@@ -295,6 +306,7 @@ int main(int argc, char **argv){
                                 ROS_INFO("OKAY %d",success);
                             }else{
                                 ROS_INFO("Somethng wrong with the function %d",success);
+                                break;  //pridal som break
                             }
                         }
 
@@ -402,6 +414,11 @@ int main(int argc, char **argv){
                                                 last_trajectory_size = my_plan.trajectory_.joint_trajectory.points.size();
                                                 positionControl_counter=0;
                                             }
+                                            desiredPositions.x = positionControl_values[0];
+                                            desiredPositions.y = positionControl_values[1];
+                                            desiredPositions.z = positionControl_values[2];
+                                            //desPos_pub->publish(desiredPos_pub);
+
                                             break;
                                         } else{
                                             ROS_ERROR("Bad plan");
@@ -1169,7 +1186,7 @@ int main(int argc, char **argv){
                     }
 
 
-                    ROS_INFO("Get basic info  ...");
+                    //ROS_INFO("Get basic info  ...");
                     ros::spinOnce();
                     loop_rate.sleep();
                 }

@@ -13,12 +13,14 @@
 #include "geometry_msgs/Point.h"
 #include "geometry_msgs/Pose.h"
 #include "std_msgs/Int32.h"
+#include "std_msgs/Byte.h"
 #include "scara_msgs/robot_info.h"
 
 #define WIDTH 3
 #define HEIGHT 20
 
 const double RAD_TO_DEG = 57.2957795130;
+const double MIN_DISPLAY_VALUE = 0.0001;
 
 
 namespace Ui {
@@ -41,11 +43,19 @@ public:
 
     void actualPoseCallback(const geometry_msgs::Pose pose);
 
-    void actualAccCallback(const geometry_msgs::Pose pose);
+    void actualAccCallback(const geometry_msgs::Point accValues);
 
     void errorCodeCallback(const std_msgs::Int32 errorCode);
 
     void kktinaCallback(const geometry_msgs::Pose pose);
+
+    void pushButtonCallback(const std_msgs::Byte pushButtonState);
+
+    void lightBarrierCallback(const std_msgs::Byte lightBarrierState);
+
+    void gripperCommandCallback(const std_msgs::Byte gripperCommandState);
+
+    bool filterValues (double inputValue);
 
 private slots:
     void on_jointControl_Start_PushButton_3_clicked();
@@ -126,11 +136,15 @@ private slots:
 
     void on_setParameters_Torque_PushButton_3_clicked();
 
-    void on_colisionObject_CustomObj_enterpushButton_clicked();
-
-    void on_colisionObject_RealObj_enterPushButton_clicked();
-
     void on_moveit_gripper_checkBox_toggled(bool checked);
+
+    void on_colisionObject_CustomObj_posChangeenterpushButton_2_clicked();
+
+    void on_colisionObject_CustomObj_SizeenterpushButton_clicked();
+
+    void on_colisionObject_RealObj_SizeenterpushButton_2_clicked();
+
+    void on_setParameters_Precision_PushButton_4_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -142,6 +156,7 @@ private:
     int teachModeIndex = 0;
     int teachModeIndexHand = 0;
     double lastValueJ1 = 9.99 , lastValueJ2 = 9.99 ,lastValueJ3 = 9.99;
+
     int j = 0;
 
     std_msgs::Bool gripperState_msg, startState_msg, demoState_msg, getInfoState_msg, teachModeState_msg, moveitMode_msg, dispRealObj_msg, dispCustomObj_msg;
@@ -149,14 +164,15 @@ private:
     std_msgs::Int32 setParamInt_msg, modeSelect_msg,teachModeSelect_msg, centralStop_msg, arrows_msg;
     scara_msgs::robot_info robotInfo;
     geometry_msgs::PointStamped jointControl_Values_msg;
-    geometry_msgs::Point positionControl_Values_msg;
+    geometry_msgs::Point positionControl_Values_msg, posCustomObj_msg, sizeCustomObj_msg, sizeRealObj_msg;
     geometry_msgs::Pose actualPose_msg;
     sensor_msgs::JointState actualJointStates;
 
-    ros::Publisher jointControl_pub, positionControl_pub, demo_pub, getInfo_pub, setTorq_pub, setVel_pub, setAcc_pub, setPlanTime_pub, setNumOfAttempts_pub;
+    ros::Publisher jointControl_pub, positionControl_pub, demo_pub, getInfo_pub, setTorq_pub, setVel_pub, setAcc_pub, setPlanTime_pub, setNumOfAttempts_pub, setPrecision_pub;
     ros::Publisher gripperState_pub, start_pub, mode_pub, teachMode_pub, teachMode_startState, centralStop_pub, moveitMode_pub,colObjArrows_pub;
-    ros::Publisher setRealColObjSize_pub, setCustomColObjSize_pub, displayRealColObj_pub, displayCustomColObj_pub;
-    ros::Subscriber jointControlValues_sub, positionControlValues_sub, demoValues_sub, getInfo_sub, jointStates_sub, actualPose_sub, actualAcc_sub, errorMessage_sub, shit_sub, teachModeTeach_sub, teachModeStopTeach_sub;
+    ros::Publisher setCustomObjPos_pub, setRealColObjSize_pub, setCustomColObjSize_pub, displayRealColObj_pub, displayCustomColObj_pub;
+    ros::Subscriber jointControlValues_sub, positionControlValues_sub, demoValues_sub, getInfo_sub, jointStates_sub, actualPose_sub, actualAcc_sub, errorMessage_sub;
+    ros::Subscriber shit_sub, teachModeTeach_sub, teachModeStopTeach_sub, pushButton_sub, lightBarrier_sub, gripperCommand_sub;
 
 
 

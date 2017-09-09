@@ -213,6 +213,7 @@
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_gui/CMakeFiles/nodelet_generate_messages_eus.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_gui/CMakeFiles/nodelet_generate_messages_nodejs.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_gui/CMakeFiles/bond_generate_messages_py.dir
+/home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_gui/CMakeFiles/scara_gui_generate_messages.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_gui/CMakeFiles/nodelet_generate_messages_py.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_gui/CMakeFiles/bond_generate_messages_cpp.dir
 /home/viktordluhos/catkin_ws/src/cmake-build-debug/scara_gui/CMakeFiles/nodelet_generate_messages_lisp.dir

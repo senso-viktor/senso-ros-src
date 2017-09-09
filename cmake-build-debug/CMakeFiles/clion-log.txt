@@ -60,6 +60,18 @@
 -- scara_msgs: 2 messages, 0 services
 -- +++ processing catkin package: 'scara_gui'
 -- ==> add_subdirectory(scara_gui)
+CMake Warning at cmake-build-debug/scara_gui/cmake/scara_gui-genmsg.cmake:3 (message):
+  Invoking generate_messages() without having added any message or service
+  file before.
+
+  You should either add add_message_files() and/or add_service_files() calls
+  or remove the invocation of generate_messages().
+Call Stack (most recent call first):
+  /opt/ros/kinetic/share/genmsg/cmake/genmsg-extras.cmake:307 (include)
+  scara_gui/CMakeLists.txt:21 (generate_messages)
+
+
+-- scara_gui: 0 messages, 0 services
 -- +++ processing catkin package: 'senso_scara_demo'
 -- ==> add_subdirectory(senso_scara_demo)
 -- +++ processing catkin package: 'gazebo_ros'
@@ -168,14 +180,87 @@ Call Stack (most recent call first):
 --   chrono
 --   atomic
 -- scara_v2_moveit_api: 1 messages, 1 services
-CMake Error at /opt/ros/kinetic/share/catkin/cmake/catkin_package.cmake:196 (message):
-  catkin_package() the catkin package 'map_msgs' has been find_package()-ed
-  but is not listed as a build dependency in the package.xml
-Call Stack (most recent call first):
-  /opt/ros/kinetic/share/catkin/cmake/catkin_package.cmake:102 (_catkin_package)
-  scara_v2_moveit_api/CMakeLists.txt:49 (catkin_package)
+-- Configuring done
+CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:74 (add_dependencies):
+  Policy CMP0046 is not set: Error on non-existent dependency in
+  add_dependencies.  Run "cmake --help-policy CMP0046" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
 
+  The dependency target "{scara_v2_moveit_api_EXPORTED_TARGETS}" of target
+  "move_group_interface3_PICKandPLACE" does not exist.
+This warning is for project developers.  Use -Wno-dev to suppress it.
 
--- Configuring incomplete, errors occurred!
-See also "/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles/CMakeOutput.log".
-See also "/home/viktordluhos/catkin_ws/src/cmake-build-debug/CMakeFiles/CMakeError.log".
+CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:83 (add_dependencies):
+  Policy CMP0046 is not set: Error on non-existent dependency in
+  add_dependencies.  Run "cmake --help-policy CMP0046" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  The dependency target "beginner_tutorials_gencpp" of target
+  "move_group_interface5_rt" does not exist.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:82 (add_dependencies):
+  Policy CMP0046 is not set: Error on non-existent dependency in
+  add_dependencies.  Run "cmake --help-policy CMP0046" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  The dependency target "{scara_v2_moveit_api_EXPORTED_TARGETS}" of target
+  "move_group_interface5_rt" does not exist.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:78 (add_dependencies):
+  Policy CMP0046 is not set: Error on non-existent dependency in
+  add_dependencies.  Run "cmake --help-policy CMP0046" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  The dependency target "{scara_v2_moveit_api_EXPORTED_TARGETS}" of target
+  "move_group_interface4_position_control" does not exist.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:88 (add_dependencies):
+  Policy CMP0046 is not set: Error on non-existent dependency in
+  add_dependencies.  Run "cmake --help-policy CMP0046" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  The dependency target "beginner_tutorials_gencpp" of target
+  "move_group_interface6_async_PICKandPLACE" does not exist.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:87 (add_dependencies):
+  Policy CMP0046 is not set: Error on non-existent dependency in
+  add_dependencies.  Run "cmake --help-policy CMP0046" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  The dependency target "{scara_v2_moveit_api_EXPORTED_TARGETS}" of target
+  "move_group_interface6_async_PICKandPLACE" does not exist.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:96 (add_dependencies):
+  Policy CMP0046 is not set: Error on non-existent dependency in
+  add_dependencies.  Run "cmake --help-policy CMP0046" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  The dependency target "beginner_tutorials_generate_messages_cpp" of target
+  "multiple_cube_publisher" does not exist.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:92 (add_dependencies):
+  Policy CMP0046 is not set: Error on non-existent dependency in
+  add_dependencies.  Run "cmake --help-policy CMP0046" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  The dependency target "beginner_tutorials_generate_messages_cpp" of target
+  "cube_publisher" does not exist.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:100 (add_dependencies):
+  Policy CMP0046 is not set: Error on non-existent dependency in
+  add_dependencies.  Run "cmake --help-policy CMP0046" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  The dependency target "beginner_tutorials_generate_messages_cpp" of target
+  "gripper_control" does not exist.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done
+-- Build files have been written to: /home/viktordluhos/catkin_ws/src/cmake-build-debug
