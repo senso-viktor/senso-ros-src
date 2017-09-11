@@ -8,6 +8,7 @@
 void forceFeedbackThread(){
 
     ROS_INFO_ONCE("forcefeedback thread start");
+    bool change = true;
 
     while (ros::ok()){
 
@@ -15,17 +16,26 @@ void forceFeedbackThread(){
             colisionDetection = true;
             start_state = false;
             teach_start_state = false;
+            if (change){
+                sendEndEffectorPose(colPos_pub, mg);
+                change = false;
+            }
+
             //ROS_ERROR("STOP ! [J1_torq=%f J2_torq=%f start_state=%d]",currentJointStates.effort[0],currentJointStates.effort[1],start_state);
         }else{
             //ROS_INFO("colision detection = %d",colisionDetection);
             colisionDetection = false;
+            change = true;
         }
 
         //ROS_INFO("[t]J1_torq=%f J2_torq=%f (max=%f)",currentJointStates.effort[0],currentJointStates.effort[1], max_torque_value);
         usleep(100000);
         ros::spinOnce();
-
     }
+
+    //if collision happens
+
+
 }
 
 int main(int argc, char **argv){
@@ -44,7 +54,7 @@ int main(int argc, char **argv){
     int teachPositionsHandSize = 0;
 
     ros::init(argc, argv, "menu_node");
-    ros::NodeHandle n1,n2,n3,n4,n5,n6,n7,n8,n9,n10;
+    ros::NodeHandle n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11;
     ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6,nn7,nn8,nn9,nn10,nn11,nn12,nn13,nn14,nn15,nn16,nn17,nn18;
     ros::Rate loop_rate(10);
     ros::AsyncSpinner spinner(1);
@@ -90,6 +100,8 @@ int main(int argc, char **argv){
     info_pub = &sendInfo_pub;
     ros::Publisher desiredPos_pub = n10.advertise<geometry_msgs::Point>("desiredPoseGUI",1000);
     desPos_pub = &desiredPos_pub;
+    ros::Publisher collisionPose_pub = n11.advertise<geometry_msgs::Pose>("collisionPose",1000);
+    colPos_pub = &collisionPose_pub;
     ROS_INFO("Init subscribers");
     //Subscriber
     ros::Subscriber modeSelect_sub = nn1.subscribe("modeSelectGUI",1000,modeSelectCallback);
@@ -1258,7 +1270,7 @@ int main(int argc, char **argv){
                     }
 
 
-                    ROS_INFO("colision object  ...");
+                    //ROS_INFO("colision object  ...");
                     ros::spinOnce();
                     loop_rate.sleep();
                 }

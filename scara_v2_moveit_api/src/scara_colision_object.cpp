@@ -25,7 +25,7 @@ int main(int argc, char **argv) {
     //Create subscriber for position and size of colision objects
     ros::Subscriber customPos_sub = n3.subscribe("CustomObjectPosition",1000,customPosCallback);
     ros::Subscriber customSize_sub = n4.subscribe("CustomObjectSize",1000,customSizeCallback);
-    ros::Subscriber realPos_sub = n5.subscribe("RealObjectPosition",1000,realPosCallback);
+    ros::Subscriber realPos_sub = n5.subscribe("collisionPose",1000,realPosCallback);
     ros::Subscriber realSize_sub = n6.subscribe("RealObjectSize",1000,realSizeCallback);
     ros::Subscriber customObjEnabled_sub = n7.subscribe("displayCustomColisionObject",1000,customObjEnabledCallback);
     ros::Subscriber realbjEnabled_sub = n8.subscribe("displayRealColisionObject",1000,realObjEnabledCallback);
@@ -41,11 +41,11 @@ int main(int argc, char **argv) {
     while (ros::ok()){
 
         ROS_INFO_ONCE("Started publishing!");
-        //publishCustomVisualObject(&customColObj_pub);
-        //publishRealVisualObject(&realColObj_pub);
+        publishCustomVisualObject(&customColObj_pub);
+        publishRealVisualObject(&realColObj_pub);
 
-        publishCustomColisionObject(&move_group, &planning_scene_interface);
-        publishRealColisionObject(&move_group, &planning_scene_interface);
+        //publishCustomColisionObject(&move_group, &planning_scene_interface);
+        //publishRealColisionObject(&move_group, &planning_scene_interface);
 
         ros::spinOnce();
         loop_rate.sleep();

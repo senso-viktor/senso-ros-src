@@ -43,11 +43,11 @@ void customSizeCallback (const geometry_msgs::Point sizeValue){
 
 }
 
-void realPosCallback (const geometry_msgs::Point positionValue){
+void realPosCallback (const geometry_msgs::Pose positionValue){
 
     //ROS_INFO("Custom object position callback [x=%f y=%f]",positionValue.x, positionValue.y);
-    pos_x_real = positionValue.x;
-    pos_y_real = positionValue.y;
+    pos_x_real = positionValue.position.x;
+    pos_y_real = positionValue.position.y;
 
 }
 
@@ -103,9 +103,9 @@ void customObjectPositionChangeCallback (const std_msgs::Int32 movementCommand){
 
 void publishCustomVisualObject(ros::Publisher *marker_pub){
 
-    //ROS_INFO("Position x=%f y=%f z=%f",pos_x_cust, pos_y_cust, POS_Z);
-    //ROS_INFO("Size x=%f y=%f z=%f", size_x_cust, size_y_cust, SIZE_Z);
-    //ROS_INFO("Display %d",custom_object_enabled);
+    ROS_INFO("Position x=%f y=%f z=%f",pos_x_cust, pos_y_cust, POS_Z);
+    ROS_INFO("Size x=%f y=%f z=%f", size_x_cust, size_y_cust, SIZE_Z);
+    ROS_INFO("Display %d",custom_object_enabled);
 
     visualization_msgs::Marker markerCustom;
     markerCustom.header.frame_id = "world" ;

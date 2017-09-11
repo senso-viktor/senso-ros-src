@@ -80,6 +80,7 @@ moveit::planning_interface::MoveGroupInterface::Plan my_plan;
 moveit::planning_interface::MoveGroupInterface *mg;
 ros::Publisher *info_pub;
 ros::Publisher *desPos_pub;
+ros::Publisher *colPos_pub;
 
 //************************************************** Functions *************************************************************//
 
