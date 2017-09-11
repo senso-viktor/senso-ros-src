@@ -1,0 +1,8 @@
+<!-- scara_menu + scara_collision_object -->
+
+<launch>
+
+    <node name="scara_colision_object" pkg="scara_v2_moveit_api" type="scara_colision_object" respawn="false" output="screen"/>
+    <node name="scara_menu" pkg="scara_v2_moveit_api" type="scara_menu" respawn="false" output="screen"/>
+
+</launch>

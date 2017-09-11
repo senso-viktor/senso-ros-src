@@ -9,6 +9,7 @@ void forceFeedbackThread(){
 
     ROS_INFO_ONCE("forcefeedback thread start");
     bool change = true;
+    int counter = 0;
 
     while (ros::ok()){
 
@@ -18,6 +19,11 @@ void forceFeedbackThread(){
             teach_start_state = false;
             if (change){
                 sendEndEffectorPose(colPos_pub, mg);
+//                counter = getActualCounterNumber();
+//                if (counter >= last_trajectory_size -1){
+//                    counter = last_trajectory_size -1;
+//                }
+
                 change = false;
             }
 
@@ -29,7 +35,7 @@ void forceFeedbackThread(){
         }
 
         //ROS_INFO("[t]J1_torq=%f J2_torq=%f (max=%f)",currentJointStates.effort[0],currentJointStates.effort[1], max_torque_value);
-        usleep(100000);
+        usleep(50000);
         ros::spinOnce();
     }
 
@@ -46,6 +52,8 @@ int main(int argc, char **argv){
     bool init = true;
     int counter1 = 0;
     bool initMode = false;
+    bool replan = false;
+    bool restart = true;
     int help = 0;
     int cc = -1;
     bool initPoses = true;
@@ -314,12 +322,13 @@ int main(int argc, char **argv){
                                 ROS_INFO("OKAY %d",success);
                             }else{
                                 ROS_INFO("Somethng wrong with the function %d",success);
+                                sendErrorCode(&errorMessage_pub, 6);
                                 break;  //pridal som break
                             }
                             sendPositionToGUI(0,0,0);
                         }
 
-                        if (satisfieJointLimits){
+                        if (satisfieJointLimits && success){        //tu som pridal success
                             ROS_INFO("Able to move");
                             if (my_plan.trajectory_.joint_trajectory.points.size() != last_trajectory_size){
                                 last_trajectory_size = my_plan.trajectory_.joint_trajectory.points.size();
@@ -336,24 +345,32 @@ int main(int argc, char **argv){
                             }
                         }else{
                             ROS_INFO("Not able to move bouds=%d succes=%d",satisfieJointLimits, success);
+                            sendErrorCode(&errorMessage_pub, 7);
                         }
 
                     }else{
                         //ROS_ERROR("Movement stopped!!");
                         //ROS_INFO("size of plan %d", my_plan.trajectory_.joint_trajectory.points.size());
-                        if (jointControl_counter < 1){
-                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
-                            ROS_ERROR("message stop!! [0/%d]",last_trajectory_size);
-                        }else if (jointControl_counter < 15){
-                            if (jointControl_counter == last_trajectory_size){
-                                jointControl_counter = last_trajectory_size - 1;
-                            }
-                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, jointControl_counter);
-                            ROS_ERROR("message stop!! [%d/%d]", jointControl_counter,last_trajectory_size);
+
+
+                        if (jointControl_counter < 1) {
+                            sendJointPoses(&pose_pub, &acc_pub, &my_plan, 999);
+                            ROS_ERROR("message stop!! [0/%d]", last_trajectory_size);
+                        } else if (jointControl_counter < 10) {
+                            sendJointPoses(&pose_pub, &acc_pub, &my_plan, jointControl_counter - 5);        //mozno odratat -5???
+                            ROS_ERROR("message stop!! [%d/%d]", jointControl_counter - 5, last_trajectory_size);
+                        } else if ((jointControl_counter > 10) && (jointControl_counter < last_trajectory_size - 1)){
+                            sendJointPoses(&pose_pub, &acc_pub, &my_plan, (jointControl_counter - 15));
+                            ROS_ERROR("message stop!! [%d/%d]", (jointControl_counter - 15), last_trajectory_size);
+                        }else if (jointControl_counter >= last_trajectory_size -1){
+                            sendJointPoses(&pose_pub, &acc_pub, &my_plan, last_trajectory_size - 1);
+                            ROS_ERROR("message stop!! [%d/%d]", last_trajectory_size - 1, last_trajectory_size);
                         }else{
-                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, (jointControl_counter-10));
-                            ROS_ERROR("message stop!! [%d/%d]", jointControl_counter-10,last_trajectory_size);
+                            ROS_INFO("something wrong happened with STOP!");
+                            sendJointPoses(&pose_pub, &acc_pub, &my_plan, 999);
+                            ROS_ERROR("message stop!! [0/%d]", last_trajectory_size);
                         }
+
 
                         //ROS_ERROR("message stop!! [%d/%d]", jointControl_counter-10,last_trajectory_size);
                         jointControl_lastJointValues[0] = 9.99;
@@ -468,21 +485,29 @@ int main(int argc, char **argv){
                             }
                         }else{
                             ROS_INFO("Not able to move due to bad plan or so..");
+                            sendErrorCode(&errorMessage_pub, 7);
                         }
 
                     }else{
-                        //ROS_ERROR("Movement stopped!!");
 
-                        if (positionControl_counter < 1){
-                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
-                            ROS_ERROR("message stop!! [0/%d]",last_trajectory_size);
-                        }else if (positionControl_counter < 15){
-                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, positionControl_counter);
-                            ROS_ERROR("message stop!! [%d/%d]", positionControl_counter,last_trajectory_size);
+                        if (positionControl_counter < 1) {
+                            sendJointPoses(&pose_pub, &acc_pub, &my_plan, 999);
+                            ROS_ERROR("message stop!! [0/%d]", last_trajectory_size);
+                        } else if (positionControl_counter < 10) {
+                            sendJointPoses(&pose_pub, &acc_pub, &my_plan, positionControl_counter - 5);
+                            ROS_ERROR("message stop!! [%d/%d]", positionControl_counter - 5, last_trajectory_size);
+                        } else if ((positionControl_counter > 10) && (positionControl_counter < last_trajectory_size - 1)){
+                            sendJointPoses(&pose_pub, &acc_pub, &my_plan, (positionControl_counter - 15));
+                            ROS_ERROR("message stop!! [%d/%d]", (positionControl_counter - 15), last_trajectory_size);
+                        }else if (positionControl_counter >= last_trajectory_size -1){
+                            sendJointPoses(&pose_pub, &acc_pub, &my_plan, last_trajectory_size - 1);
+                            ROS_ERROR("message stop!! [%d/%d]", last_trajectory_size - 1, last_trajectory_size);
                         }else{
-                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, (positionControl_counter-10));
-                            ROS_ERROR("message stop!! [%d/%d]", (positionControl_counter-10),last_trajectory_size);
+                            ROS_INFO("something wrong happened with STOP!");
+                            sendJointPoses(&pose_pub, &acc_pub, &my_plan, 999);
+                            ROS_ERROR("message stop!! [0/%d]", last_trajectory_size);
                         }
+
                         positionControl_lastValues[0] = 9.99;
                         move_group.stop();
                     }
@@ -547,6 +572,8 @@ int main(int argc, char **argv){
                             DEMO_mode++;
 
                             if (DEMO_mode == 2){            //pick
+                                gripper_state.data = 0;
+                                gripper_pub.publish(gripper_state);
                                 pick = true;
                                 sendJointPoses(&pose_pub,&acc_pub, &my_plan, last_trajectory_size-1);
                                 usleep(1000000);
@@ -583,7 +610,7 @@ int main(int argc, char **argv){
 
                             ROS_WARN("Moving to[%d]: %f %f %f",DEMO_mode, desiredJointsDEMO[DEMO_mode][0], desiredJointsDEMO[DEMO_mode][1],
                                      desiredJointsDEMO[DEMO_mode][2]);
-                            sendPositionToGUI(desiredJointsDEMO[DEMO_mode][0], desiredJointsDEMO[DEMO_mode][1], desiredJointsDEMO[DEMO_mode][2]);
+                            sendPositionToGUI(desiredPositionsDEMO[DEMO_mode].x, desiredPositionsDEMO[DEMO_mode].y, desiredPositionsDEMO[DEMO_mode].z);
                             sleep(1);
                             demoControl_counter = 0;
                             satisfieJointLimits = move_group.setJointValueTarget(desiredJointsDEMO[DEMO_mode]);
@@ -594,7 +621,15 @@ int main(int argc, char **argv){
 
                         if (satisfieJointLimits && success){
                             ROS_INFO("Able to move");
+                            if (replan){
+                                ROS_WARN("replanning");
+                                jointModeControll(&move_group);
+                                gripper_state.data = 1;
+                                gripper_pub.publish(gripper_state);
+                                replan = false;
+                            }
                             if (my_plan.trajectory_.joint_trajectory.points.size() != last_trajectory_size){
+                                ROS_WARN("new trajectory calculation");
                                 last_trajectory_size = my_plan.trajectory_.joint_trajectory.points.size();
                                 demoControl_counter=0;
                             }
@@ -615,17 +650,28 @@ int main(int argc, char **argv){
 
 
                     }else{
-                        //ROS_INFO("stopped");
-                        if (demoControl_counter < 1){
-                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, 999);
-                            ROS_ERROR("message stop!! [0/%d]",last_trajectory_size);
-                        }else if (demoControl_counter < 15){
-                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, jointControl_counter);
-                            ROS_ERROR("message stop!! [%d/%d]", demoControl_counter-10,last_trajectory_size);
+
+                        if (demoControl_counter < 1) {
+                            sendJointPoses(&pose_pub, &acc_pub, &my_plan, 999);
+                            ROS_ERROR("message stop!! [0/%d]", last_trajectory_size);
+                        } else if (demoControl_counter < 10) {
+                            sendJointPoses(&pose_pub, &acc_pub, &my_plan, demoControl_counter - 5);
+                            ROS_ERROR("message stop!! [%d/%d]", demoControl_counter - 5, last_trajectory_size);
+                        } else if ((demoControl_counter > 10) && (demoControl_counter < last_trajectory_size - 1)){
+                            sendJointPoses(&pose_pub, &acc_pub, &my_plan, (demoControl_counter - 15));
+                            ROS_ERROR("message stop!! [%d/%d]", (demoControl_counter - 15), last_trajectory_size);
+                        }else if (demoControl_counter >= last_trajectory_size -1){
+                            sendJointPoses(&pose_pub, &acc_pub, &my_plan, last_trajectory_size - 1);
+                            ROS_ERROR("message stop!! [%d/%d]", last_trajectory_size - 1, last_trajectory_size);
                         }else{
-                            sendJointPoses(&pose_pub,&acc_pub, &my_plan, (demoControl_counter-10));
-                            ROS_ERROR("message stop!! [%d/%d]", (demoControl_counter-10),last_trajectory_size);
+                            ROS_INFO("something wrong happened with STOP!");
+                            sendJointPoses(&pose_pub, &acc_pub, &my_plan, 999);
+                            ROS_ERROR("message stop!! [0/%d]", last_trajectory_size);
                         }
+
+                        replan = true;
+                        //last_trajectory_size = 0;
+
                         positionControl_lastValues[0] = 9.99;
                         move_group.stop();
                     }
@@ -756,11 +802,7 @@ int main(int argc, char **argv){
 
 
                         if (teach_start_state && !colisionDetection){
-
-
-
                             ROS_INFO("cout = %d  executionOK = %d",count1,executionOK);
-
 
                             if (executionOK){
 
@@ -771,9 +813,6 @@ int main(int argc, char **argv){
                                 move_group.setJointValueTarget(desiredJointsTeach[count1]);
                                 jointModeControll(&move_group);
                             }
-
-
-
                             executionOK = inPositionTeach(count1,1);
                             ROS_INFO("count = %d",count1);
 
@@ -846,13 +885,13 @@ int main(int argc, char **argv){
                                 sendJointPoses(&pose_pub, &acc_pub, &my_plan, 999);
                                 ROS_ERROR("message stop!! [0/%d]", last_trajectory_size);
 
-                            } else if (teachMode_counter < 15) {
-                                sendJointPoses(&pose_pub, &acc_pub, &my_plan, teachMode_counter);
-                                ROS_ERROR("message stop!! [%d/%d]", teachMode_counter, last_trajectory_size);
-                            } else if ((teachMode_counter > 15) && (teachMode_counter < last_trajectory_size - 2)){
-                                sendJointPoses(&pose_pub, &acc_pub, &my_plan, (teachMode_counter - 10));
-                                ROS_ERROR("message stop!! [%d/%d]", (teachMode_counter - 10), last_trajectory_size);
-                            }else if (teachMode_counter >= last_trajectory_size -2){
+                            } else if (teachMode_counter < 10) {
+                                sendJointPoses(&pose_pub, &acc_pub, &my_plan, teachMode_counter-5);
+                                ROS_ERROR("message stop!! [%d/%d]", teachMode_counter - 5, last_trajectory_size);
+                            } else if ((teachMode_counter > 10) && (teachMode_counter < last_trajectory_size - 1)){
+                                sendJointPoses(&pose_pub, &acc_pub, &my_plan, (teachMode_counter - 15));
+                                ROS_ERROR("message stop!! [%d/%d]", (teachMode_counter - 15), last_trajectory_size);
+                            }else if (teachMode_counter >= last_trajectory_size -1){
                                 sendJointPoses(&pose_pub, &acc_pub, &my_plan, last_trajectory_size - 1);
                                 ROS_ERROR("message stop!! [%d/%d]", last_trajectory_size - 1, last_trajectory_size);
                             }else{
@@ -860,6 +899,7 @@ int main(int argc, char **argv){
                                 sendJointPoses(&pose_pub, &acc_pub, &my_plan, 999);
                                 ROS_ERROR("message stop!! [0/%d]", last_trajectory_size);
                             }
+
                             executionOK = true;
                             move_group.stop();
                         }
@@ -942,10 +982,15 @@ int main(int argc, char **argv){
                             start_state = false;
                         }
                         count1 = 0;
+                        restart = true;
 
                     }else if (teach_mode == 1) {
 
 
+                        if (restart){
+                            teachMode_counter = 999;
+                            restart = false;
+                        }
 
 
                         if (initTeachedPositions && (help == 1)) {          //init vector and  calculate IK
@@ -980,6 +1025,7 @@ int main(int argc, char **argv){
                             gripper_state.data = 0;
                             gripper_pub.publish(gripper_state);
                             initMode = true;
+                            teachMode_counter = 999;
                         }
 
 
@@ -1074,13 +1120,13 @@ int main(int argc, char **argv){
                                 sendJointPoses(&pose_pub, &acc_pub, &my_plan, 999);
                                 ROS_ERROR("message stop a!! [0/%d]", last_trajectory_size);
 
-                            } else if (teachMode_counter < 15) {
-                                sendJointPoses(&pose_pub, &acc_pub, &my_plan, teachMode_counter);
-                                ROS_ERROR("message stop b!! [%d/%d]", teachMode_counter, last_trajectory_size);
-                            } else if ((teachMode_counter > 15) && (teachMode_counter < last_trajectory_size - 2)){
-                                sendJointPoses(&pose_pub, &acc_pub, &my_plan, (teachMode_counter - 10));
-                                ROS_ERROR("message stop c!! [%d/%d]", (teachMode_counter - 10), last_trajectory_size);
-                            }else if (teachMode_counter >= last_trajectory_size -2){
+                            } else if (teachMode_counter <= 15) {
+                                sendJointPoses(&pose_pub, &acc_pub, &my_plan, teachMode_counter-10);
+                                ROS_ERROR("message stop b!! [%d/%d]", teachMode_counter-10, last_trajectory_size);
+                            } else if ((teachMode_counter > 15) && (teachMode_counter < last_trajectory_size - 1)){
+                                sendJointPoses(&pose_pub, &acc_pub, &my_plan, (teachMode_counter - 20));
+                                ROS_ERROR("message stop c!! [%d/%d]", (teachMode_counter - 20), last_trajectory_size);
+                            }else if (teachMode_counter == last_trajectory_size -1){        // >= zmena na ==
                                 sendJointPoses(&pose_pub, &acc_pub, &my_plan, last_trajectory_size - 1);
                                 ROS_ERROR("message stop d!! [%d/%d]", last_trajectory_size - 1, last_trajectory_size);
                             }else{
@@ -1088,6 +1134,7 @@ int main(int argc, char **argv){
                                 sendJointPoses(&pose_pub, &acc_pub, &my_plan, 999);
                                 ROS_ERROR("message stop e!! [0/%d]", last_trajectory_size);
                             }
+
                             executionOK = true;
                             move_group.stop();
 

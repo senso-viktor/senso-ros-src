@@ -40,12 +40,12 @@ int main(int argc, char **argv) {
 
     while (ros::ok()){
 
-        ROS_INFO_ONCE("Started publishing!");
-        publishCustomVisualObject(&customColObj_pub);
-        publishRealVisualObject(&realColObj_pub);
+        ROS_WARN_ONCE("Publishing collision object node has started!");
+        //publishCustomVisualObject(&customColObj_pub);
+        //publishRealVisualObject(&realColObj_pub);
 
-        //publishCustomColisionObject(&move_group, &planning_scene_interface);
-        //publishRealColisionObject(&move_group, &planning_scene_interface);
+        publishCustomColisionObject(&move_group, &planning_scene_interface);
+        publishRealColisionObject(&move_group, &planning_scene_interface);
 
         ros::spinOnce();
         loop_rate.sleep();

@@ -209,6 +209,16 @@ void MainWindow::on_jointControl_Reset_PushButton_3_clicked(){
 
 
 }
+
+void MainWindow::on_jointControl_collision_checkbox_toggled(bool checked){
+
+    //ROS
+    dispRealObj_msg.data = checked;
+    for (int i=0;i<100;i++){
+        displayRealColObj_pub.publish(dispRealObj_msg);
+    }
+
+}
 //................................................................................//
 
 
@@ -282,6 +292,16 @@ void MainWindow::on_positionControl_Gripper_Checkbox_4_toggled(bool checked){
         gripperState_pub.publish(gripperState_msg);
     }
 }
+
+void MainWindow::on_positionControlCustom_collision_checkbox_toggled(bool checked){
+
+    //ROS
+    dispRealObj_msg.data = checked;
+    for (int i=0;i<100;i++){
+        displayRealColObj_pub.publish(dispRealObj_msg);
+    }
+
+}
 //...............................................................................//
 
 
@@ -316,6 +336,16 @@ void MainWindow::on_positionControl2_Stop_PushButton_3_clicked(){
     for (int i=0;i<100;i++){
         start_pub.publish(startState_msg);
     }
+}
+
+void MainWindow::on_positionControl2_collision_checkbox_toggled(bool checked){
+
+    //ROS
+    dispRealObj_msg.data = checked;
+    for (int i=0;i<100;i++){
+        displayRealColObj_pub.publish(dispRealObj_msg);
+    }
+
 }
 //...............................................................................//
 
@@ -403,6 +433,16 @@ void MainWindow::on_teachModeRun_stop_pushbutton_clicked(){
         teachMode_startState.publish(teachModeState_msg);
     }
 }
+
+void MainWindow::on_teachModeRun_collisiongui_checkbox_toggled(bool checked){
+
+    //ROS
+    dispRealObj_msg.data = checked;
+    for (int i=0;i<100;i++){
+        displayRealColObj_pub.publish(dispRealObj_msg);
+    }
+
+}
 //...............................................................................//
 
 
@@ -454,7 +494,10 @@ void MainWindow::on_teachMode_teachButtonHand_4_clicked(){
                 jointControl_pub.publish(jointControl_Values_msg);
             }
         }else{
-            ui->error_lineEdit->setText("Allowed max." + QString::number(HEIGHT)+ " pos!!! New position wont be registered");
+            //---------------------------------------------------------------------------------------------------------------------------------------
+            ui->error_textEdit->setTextColor( QColor( "black" ) );
+            ui->error_textEdit->append("[Teach mode HAND]: Allowed max." + QString::number(HEIGHT)+ " pos!!! New position wont be registered");
+            //ui->error_lineEdit->setText("Allowed max." + QString::number(HEIGHT)+ " pos!!! New position wont be registered");
         }
 
 
@@ -539,6 +582,15 @@ void MainWindow::on_teachMode_tabWidget_2_tabBarClicked(int index){
 
     }else if (index == 0){
         j=0;
+    }
+}
+
+void MainWindow::on_teachModeRun_collision_checkbox_toggled(bool checked){
+
+    //ROS
+    dispRealObj_msg.data = checked;
+    for (int i=0;i<100;i++){
+        displayRealColObj_pub.publish(dispRealObj_msg);
     }
 }
 //...............................................................................//
@@ -764,7 +816,7 @@ void MainWindow::on_colisionObject_Right_pushbutton_clicked(){
 //...............................................................................//
 
 
-//***************************** Tab widget ******************************//
+//******************************** Tab widget ***********************************//
 void MainWindow::on_workingModes_3_tabBarClicked(int index){
     //GUI
     if (index == 0){
@@ -789,7 +841,7 @@ void MainWindow::on_workingModes_3_tabBarClicked(int index){
 
 
 
-//******************************* CENTRAL STOP *********************************//
+//******************************* CENTRAL STOP **********************************//
 void MainWindow::on_centralStop_clicked(){
 
     //kill matlab
@@ -799,7 +851,10 @@ void MainWindow::on_centralStop_clicked(){
     }
     //kill roslaunch
     system("pkill roslaunch");
-    ui->error_lineEdit->setText("CENTRAL STOP PUSHED! Matlab and ROS stopped!");
+
+    ui->error_textEdit->setTextColor( QColor( "red" ) );
+    ui->error_textEdit->append("CENTRAL STOP PUSHED! Matlab and ROS stopped!");
+    //ui->error_lineEdit->setText("CENTRAL STOP PUSHED! Matlab and ROS stopped!");
 
     //kill GUI
     sleep(5);
@@ -826,7 +881,7 @@ bool MainWindow::filterValues(double inputValue) {
 
 
 
-//********************** Callbacks ************************************//
+//********************** Callbacks **********************************************//
 void MainWindow::jointStatesCallback(const sensor_msgs::JointState jointState){
 
     //Save current joint state -> for teach mode
@@ -913,6 +968,7 @@ void MainWindow::jointStatesCallback(const sensor_msgs::JointState jointState){
     }
 
     ui->status_pose_Z->display(1.04-jointState.position[2]);
+    ui->status_pose_Zdesired->display(1.04-jointState.position[2]);//////
 
 }
 
@@ -982,37 +1038,71 @@ void MainWindow::actualAccCallback(const geometry_msgs::Point accValues){
 
 void MainWindow::errorCodeCallback(const std_msgs::Int32 errorCode){
 
-    //ROS_INFO("hovno %d",errorCode.data);
+    if (lastErrorCode != errorCode.data){
 
-    switch (errorCode.data){
-        case 0:
-            ROS_INFO("Everything OK!");
-            ui->error_lineEdit->setText("Everything OK!");
-            break;
-        case 1:
-            ROS_INFO("[joint control] : Bad input joint values");
-            ui->error_lineEdit->setText("[joint control] : Bad input joint values");
-            break;
-        case 2:
-            ROS_INFO("[position control] : Bad plan");
-            ui->error_lineEdit->setText("[joint control] : Bad plan");
-            break;
-        case 3:
-            ROS_INFO("[position control] : Colision warining! changing mode");
-            ui->error_lineEdit->setText("[position control] : Colision warining! changing mode");
-            break;
-        case 4:
-            ROS_INFO("[position control] : Cannot solve IK please enter new positions");
-            ui->error_lineEdit->setText("[position control] : Cannot solve IK please enter new positions");
-            break;
-        case 5:
-            ROS_INFO("[position control] : No solution found for desired position");
-            ui->error_lineEdit->setText("[position control] : No solution found for desired position");
-            break;
-        default:
-            ROS_ERROR("fuck...");
-            break;
+        lastErrorCode = errorCode.data;
+
+        switch (errorCode.data){
+            case 0:
+                //ROS_INFO("Everything OK!");
+                //ui->error_lineEdit->setText("Everything OK!");
+                ui->error_textEdit->setTextColor( QColor( "black" ) );
+                ui->error_textEdit->append("Everything OK!");
+                break;
+            case 1:
+                //ROS_INFO("[joint control] : Bad input joint values");
+                //ui->error_lineEdit->setText("[joint control] : Bad input joint values");
+                ui->error_textEdit->setTextColor( QColor( "red" ) );
+                ui->error_textEdit->append("[joint control] : Bad input joint values");
+                break;
+            case 2:
+                //ROS_INFO("[position control] : Bad plan");
+                //ui->error_lineEdit->setText("[joint control] : Bad plan");
+                ui->error_textEdit->setTextColor( QColor( "red" ) );
+                ui->error_textEdit->append("[position control] : Bad plan");
+                break;
+            case 3:
+                //ROS_INFO("[position control] : Colision warining! changing mode");
+                //ui->error_lineEdit->setText("[position control] : Colision warining! changing mode");
+                ui->error_textEdit->setTextColor( QColor( "black" ) );
+                ui->error_textEdit->append("[position control] : Colision warining! changing mode");
+                break;
+            case 4:
+                //ROS_INFO("[position control] : Cannot solve IK please enter new positions");
+                //ui->error_lineEdit->setText("[position control] : Cannot solve IK please enter new positions");
+                ui->error_textEdit->setTextColor( QColor( "red" ) );
+                ui->error_textEdit->append("[position control] : Cannot solve IK please enter new positions");
+                break;
+            case 5:
+                //ROS_INFO("[position control] : No solution found for desired position");
+                //ui->error_lineEdit->setText("[position control] : No solution found for desired position");
+                ui->error_textEdit->setTextColor( QColor( "red" ) );
+                ui->error_textEdit->append("[position control] : No solution found for desired position");
+                break;
+            case 6:
+                //ROS_INFO("[position control] : No solution found for desired position");
+                //ui->error_lineEdit->setText("[position control] : No solution found for desired position");
+                ui->error_textEdit->setTextColor( QColor( "red" ) );
+                ui->error_textEdit->append("[joint control] : Something wrong with the function and cannot execute plan");
+                break;
+            case 7:
+                //ROS_INFO("[position control] : No solution found for desired position");
+                //ui->error_lineEdit->setText("[position control] : No solution found for desired position");
+                ui->error_textEdit->setTextColor( QColor( "red" ) );
+                ui->error_textEdit->append("Bad plan or out of bounds ! cannot execute plan");
+                break;
+            case 8:
+                //ROS_INFO("[position control] : No solution found for desired position");
+                //ui->error_lineEdit->setText("[position control] : No solution found for desired position");
+                ui->error_textEdit->setTextColor( QColor( "red" ) );
+                ui->error_textEdit->append("[joint control] : Bad plan or out of bounds ! cannot execute plan");
+                break;
+            default:
+                break;
+        }
     }
+
+
 }
 
 void MainWindow::kktinaCallback(const geometry_msgs::Pose pose){
@@ -1041,6 +1131,6 @@ void MainWindow::desiredPoseCallback(const geometry_msgs::Point desiredPose){
 
     ui->status_pose_Xdesired->display(desiredPose.x);
     ui->status_pose_Ydesired->display(desiredPose.y);
-    ui->status_pose_Zdesired->display(desiredPose.z);
+    //ui->status_pose_Zdesired->display(desiredPose.z);
 
 }

@@ -48,7 +48,6 @@
     <disable_collisions link1="BaseBox" link2="CentralStop2" reason="Adjacent" />
     <disable_collisions link1="BaseBox" link2="ScaraBase" reason="Adjacent" />
     <disable_collisions link1="BaseBox" link2="ScaraLink1" reason="Never" />
-    <disable_collisions link1="BaseBox" link2="colisionBox" reason="Adjacent" />
     <disable_collisions link1="BaseBox" link2="placeBox" reason="Adjacent" />
     <disable_collisions link1="BaseBox" link2="placeHole1" reason="Never" />
     <disable_collisions link1="BaseBox" link2="placeHole2" reason="Never" />
@@ -65,7 +64,6 @@
     <disable_collisions link1="CentralStop1" link2="ScaraBase" reason="Never" />
     <disable_collisions link1="CentralStop1" link2="ScaraLink1" reason="Never" />
     <disable_collisions link1="CentralStop1" link2="ScaraLink2" reason="Never" />
-    <disable_collisions link1="CentralStop1" link2="colisionBox" reason="Never" />
     <disable_collisions link1="CentralStop1" link2="placeBox" reason="Never" />
     <disable_collisions link1="CentralStop1" link2="placeHole1" reason="Never" />
     <disable_collisions link1="CentralStop1" link2="placeHole2" reason="Never" />
@@ -81,7 +79,6 @@
     <disable_collisions link1="CentralStop2" link2="ScaraBase" reason="Never" />
     <disable_collisions link1="CentralStop2" link2="ScaraLink1" reason="Never" />
     <disable_collisions link1="CentralStop2" link2="ScaraLink2" reason="Never" />
-    <disable_collisions link1="CentralStop2" link2="colisionBox" reason="Never" />
     <disable_collisions link1="CentralStop2" link2="placeBox" reason="Never" />
     <disable_collisions link1="CentralStop2" link2="placeHole1" reason="Never" />
     <disable_collisions link1="CentralStop2" link2="placeHole2" reason="Never" />
@@ -113,7 +110,6 @@
     <disable_collisions link1="GripperRight" link2="ScaraLink1" reason="Never" />
     <disable_collisions link1="GripperRight" link2="ScaraLink2" reason="Never" />
     <disable_collisions link1="ScaraBase" link2="ScaraLink1" reason="Adjacent" />
-    <disable_collisions link1="ScaraBase" link2="colisionBox" reason="Never" />
     <disable_collisions link1="ScaraBase" link2="placeBox" reason="Never" />
     <disable_collisions link1="ScaraBase" link2="placeHole1" reason="Never" />
     <disable_collisions link1="ScaraBase" link2="placeHole2" reason="Never" />
@@ -124,7 +120,6 @@
     <disable_collisions link1="ScaraBase" link2="placeHole7" reason="Never" />
     <disable_collisions link1="ScaraBase" link2="placeHole8" reason="Never" />
     <disable_collisions link1="ScaraLink1" link2="ScaraLink2" reason="Adjacent" />
-    <disable_collisions link1="ScaraLink1" link2="colisionBox" reason="Never" />
     <disable_collisions link1="ScaraLink1" link2="placeBox" reason="Never" />
     <disable_collisions link1="ScaraLink1" link2="placeHole1" reason="Never" />
     <disable_collisions link1="ScaraLink1" link2="placeHole2" reason="Never" />
@@ -143,15 +138,6 @@
     <disable_collisions link1="ScaraLink2" link2="placeHole6" reason="Never" />
     <disable_collisions link1="ScaraLink2" link2="placeHole7" reason="Never" />
     <disable_collisions link1="ScaraLink2" link2="placeHole8" reason="Never" />
-    <disable_collisions link1="colisionBox" link2="placeBox" reason="Never" />
-    <disable_collisions link1="colisionBox" link2="placeHole1" reason="Never" />
-    <disable_collisions link1="colisionBox" link2="placeHole2" reason="Never" />
-    <disable_collisions link1="colisionBox" link2="placeHole3" reason="Never" />
-    <disable_collisions link1="colisionBox" link2="placeHole4" reason="Never" />
-    <disable_collisions link1="colisionBox" link2="placeHole5" reason="Never" />
-    <disable_collisions link1="colisionBox" link2="placeHole6" reason="Never" />
-    <disable_collisions link1="colisionBox" link2="placeHole7" reason="Never" />
-    <disable_collisions link1="colisionBox" link2="placeHole8" reason="Never" />
     <disable_collisions link1="placeBox" link2="placeHole1" reason="Adjacent" />
     <disable_collisions link1="placeBox" link2="placeHole2" reason="Adjacent" />
     <disable_collisions link1="placeBox" link2="placeHole3" reason="Adjacent" />

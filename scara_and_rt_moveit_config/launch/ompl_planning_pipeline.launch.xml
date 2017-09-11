@@ -24,7 +24,7 @@ default_planner_request_adapters/AddTimeParameterization
   <param name="request_adapters" value="$(arg planning_adapters)" />
   <param name="start_state_max_bounds_error" value="$(arg start_state_max_bounds_error)" />
 
-  <param name="sample_duration" value="0.20"/>
+  <param name="sample_duration" value="0.10"/>
 
   <rosparam command="load" file="$(find scara_and_rt_moveit_config)/config/ompl_planning.yaml"/>
 

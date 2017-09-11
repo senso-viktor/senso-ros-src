@@ -20,7 +20,7 @@ const double SIZE_Z = 0.26, POS_Z = 1.1;
 
 bool custom_object_enabled = false, real_object_enabled = false;
 double pos_x_real = 0.0, pos_y_real = 0.0, pos_x_cust = 0.0, pos_y_cust = 0.0;
-double size_x_real = 0.05, size_y_real = 0.05, size_x_cust = 0.05, size_y_cust = 0.05;
+double size_x_real = 0.1, size_y_real = 0.01, size_x_cust = 0.05, size_y_cust = 0.05;
 
 visualization_msgs::Marker markerCustom, markerReal;
 std::vector<moveit_msgs::CollisionObject> collision_objects_custom, collision_objects_real;
@@ -103,9 +103,9 @@ void customObjectPositionChangeCallback (const std_msgs::Int32 movementCommand){
 
 void publishCustomVisualObject(ros::Publisher *marker_pub){
 
-    ROS_INFO("Position x=%f y=%f z=%f",pos_x_cust, pos_y_cust, POS_Z);
-    ROS_INFO("Size x=%f y=%f z=%f", size_x_cust, size_y_cust, SIZE_Z);
-    ROS_INFO("Display %d",custom_object_enabled);
+    //ROS_INFO("Position x=%f y=%f z=%f",pos_x_cust, pos_y_cust, POS_Z);
+    //ROS_INFO("Size x=%f y=%f z=%f", size_x_cust, size_y_cust, SIZE_Z);
+    ROS_INFO("Display custom %d",custom_object_enabled);
 
     visualization_msgs::Marker markerCustom;
     markerCustom.header.frame_id = "world" ;
@@ -145,7 +145,7 @@ void publishRealVisualObject(ros::Publisher *marker_pub){
 
     //ROS_INFO("Position x=%f y=%f z=%f",pos_x_real, pos_y_real, POS_Z);
     //ROS_INFO("Size x=%f y=%f z=%f", size_x_real, size_y_real, SIZE_Z);
-    //ROS_INFO("Display %d",real_object_enabled);
+    ROS_INFO("Display real %d",real_object_enabled);
 
     visualization_msgs::Marker markerReal;
     markerReal.header.frame_id = "world" ;
@@ -205,12 +205,12 @@ void publishCustomColisionObject(moveit::planning_interface::MoveGroupInterface 
     //atach collision object to to planning scene
     if (custom_object_enabled){
         planning_scene_interface->addCollisionObjects(collision_objects_custom);
-        ROS_INFO("added");
+        //ROS_INFO("Custom: added");
         usleep(500000);
     }else{
         collision_object_custom_ids[0] = collision_object_custom.id;
         planning_scene_interface->removeCollisionObjects(collision_object_custom_ids);
-        ROS_INFO("removed");
+        //ROS_INFO("Custom: removed");
         usleep(500000);
     }
 }
@@ -240,14 +240,15 @@ void publishRealColisionObject(moveit::planning_interface::MoveGroupInterface *m
 
     //atach collision object to to planning scene
     if (real_object_enabled){
+        usleep(1000000);
         planning_scene_interface->addCollisionObjects(collision_objects_real);
-        ROS_INFO("added");
-        usleep(500000);
+        //ROS_INFO("Real: added");
+        usleep(1000000);
     }else{
         collision_object_real_ids[0] = collision_object_real.id;
         planning_scene_interface->removeCollisionObjects(collision_object_real_ids);
-        ROS_INFO("removed");
-        usleep(500000);
+        //ROS_INFO("Real: removed");
+        usleep(1000000);
     }
 }
 #endif //PROJECT_SCARA_COLISION_OBJECT_H

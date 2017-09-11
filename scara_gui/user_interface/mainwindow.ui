@@ -282,7 +282,7 @@
          <x>10</x>
          <y>290</y>
          <width>321</width>
-         <height>131</height>
+         <height>181</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -329,6 +329,32 @@
         <property name="text">
          <string>RESET</string>
         </property>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_5">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>130</y>
+          <width>301</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_11">
+         <item>
+          <widget class="QLabel" name="label_31">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Collision object&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item alignment="Qt::AlignHCenter">
+          <widget class="QCheckBox" name="jointControl_collision_checkbox">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </widget>
      </widget>
@@ -429,7 +455,7 @@
          <x>10</x>
          <y>310</y>
          <width>311</width>
-         <height>111</height>
+         <height>161</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -477,6 +503,32 @@
          <string>STOP</string>
         </property>
        </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_4">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>110</y>
+          <width>291</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_10">
+         <item>
+          <widget class="QLabel" name="label_30">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Collision object&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item alignment="Qt::AlignHCenter">
+          <widget class="QCheckBox" name="positionControlCustom_collision_checkbox">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
       </widget>
      </widget>
      <widget class="QWidget" name="mode3_3">
@@ -502,7 +554,7 @@
          <x>20</x>
          <y>60</y>
          <width>291</width>
-         <height>201</height>
+         <height>231</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -552,6 +604,32 @@
         <property name="text">
          <string>Stop apk</string>
         </property>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_3">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>170</y>
+          <width>251</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_9">
+         <item>
+          <widget class="QLabel" name="label_29">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Collision object&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item alignment="Qt::AlignHCenter">
+          <widget class="QCheckBox" name="positionControl2_collision_checkbox">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </widget>
      </widget>
@@ -687,7 +765,7 @@
            <x>10</x>
            <y>20</y>
            <width>281</width>
-           <height>181</height>
+           <height>241</height>
           </rect>
          </property>
          <property name="frameShape">
@@ -738,6 +816,32 @@
            <string>Start apk</string>
           </property>
          </widget>
+         <widget class="QWidget" name="horizontalLayoutWidget_2">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>170</y>
+            <width>251</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_8">
+           <item>
+            <widget class="QLabel" name="label_28">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Collision object&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item alignment="Qt::AlignHCenter">
+            <widget class="QCheckBox" name="teachModeRun_collisiongui_checkbox">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </widget>
        </widget>
       </widget>
@@ -765,7 +869,7 @@
          <x>10</x>
          <y>40</y>
          <width>311</width>
-         <height>371</height>
+         <height>441</height>
         </rect>
        </property>
        <property name="currentIndex">
@@ -808,7 +912,7 @@
           <item row="2" column="0">
            <widget class="QLabel" name="label_206">
             <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Joint 3 [mm]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Joint 3 [cm]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
            </widget>
           </item>
@@ -887,7 +991,7 @@
            <x>10</x>
            <y>10</y>
            <width>291</width>
-           <height>111</height>
+           <height>171</height>
           </rect>
          </property>
          <property name="frameShape">
@@ -938,12 +1042,38 @@
            <string>Start apk</string>
           </property>
          </widget>
+         <widget class="QWidget" name="horizontalLayoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>120</y>
+            <width>251</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
+           <item>
+            <widget class="QLabel" name="label_27">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Collision object&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item alignment="Qt::AlignHCenter">
+            <widget class="QCheckBox" name="teachModeRun_collision_checkbox">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </widget>
         <widget class="QTextEdit" name="teachMode_teachedPositions_textEdit_4">
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>150</y>
+           <y>220</y>
            <width>291</width>
            <height>181</height>
           </rect>
@@ -957,8 +1087,8 @@
         <widget class="QLabel" name="label_195">
          <property name="geometry">
           <rect>
-           <x>20</x>
-           <y>120</y>
+           <x>30</x>
+           <y>180</y>
            <width>261</width>
            <height>31</height>
           </rect>
@@ -1549,7 +1679,7 @@
           <height>182</height>
          </rect>
         </property>
-        <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0,0,0,0">
+        <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0,0,0">
          <item row="6" column="0">
           <layout class="QHBoxLayout" name="horizontalLayout">
            <item>
@@ -1956,15 +2086,7 @@
          </item>
         </layout>
        </widget>
-       <zorder>gridLayoutWidget_3</zorder>
-       <zorder>label_17</zorder>
-       <zorder>colisionObject_CustomObj_sizeXLineEdit_4</zorder>
       </widget>
-      <zorder>label_193</zorder>
-      <zorder>frame</zorder>
-      <zorder>frame_2</zorder>
-      <zorder>frame_3</zorder>
-      <zorder>label_17</zorder>
      </widget>
     </widget>
     <widget class="QLabel" name="controlBox_label_5">
@@ -2673,27 +2795,17 @@
      <string>STOP program</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="error_lineEdit">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>750</y>
-      <width>401</width>
-      <height>171</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
       <x>390</x>
       <y>730</y>
-      <width>151</width>
+      <width>401</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Error messages&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Status and error messages&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_191">
@@ -2715,13 +2827,16 @@
      <bool>true</bool>
     </property>
    </widget>
-   <zorder>controlGroupBox</zorder>
-   <zorder>feedbackGroupBox</zorder>
-   <zorder>centralStop</zorder>
-   <zorder>error_lineEdit</zorder>
-   <zorder>label</zorder>
-   <zorder>label_191</zorder>
-   <zorder>frame_13</zorder>
+   <widget class="QTextEdit" name="error_textEdit">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>750</y>
+      <width>391</width>
+      <height>171</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

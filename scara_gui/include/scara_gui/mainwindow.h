@@ -148,6 +148,16 @@ private slots:
 
     void on_setParameters_Precision_PushButton_4_clicked();
 
+    void on_teachModeRun_collision_checkbox_toggled(bool checked);
+
+    void on_positionControl2_collision_checkbox_toggled(bool checked);
+
+    void on_teachModeRun_collisiongui_checkbox_toggled(bool checked);
+
+    void on_positionControlCustom_collision_checkbox_toggled(bool checked);
+
+    void on_jointControl_collision_checkbox_toggled(bool checked);
+
 private:
     Ui::MainWindow *ui;
 
@@ -157,6 +167,7 @@ private:
     bool newJointStates = false;
     int teachModeIndex = 0;
     int teachModeIndexHand = 0;
+    int lastErrorCode = 999;
     double lastValueJ1 = 9.99 , lastValueJ2 = 9.99 ,lastValueJ3 = 9.99;
 
     int j = 0;

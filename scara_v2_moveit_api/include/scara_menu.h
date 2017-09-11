@@ -42,7 +42,7 @@ int count1 = 0;
 int last_trajectory_size = -5;
 int jointControl_counter = 0, positionControl_counter = 0, demoControl_counter = 0, teachMode_counter = 0, teachModeHand_counter = 0;
 double x_offset, y_offset, z_offset;
-double max_torque_value = 5.0, torque_value = 0.0;
+double max_torque_value = 3.5, torque_value = 0.0;
 double maxJointDeviation = 0.1;
 double J3_position = 0.0;
 
@@ -183,7 +183,7 @@ bool calculateIK(double x, double y, double z,  int mode, int working_mode, int 
     x = x - x_offset;
     y = y - y_offset;
     z = -(z - z_offset);
-    ROS_INFO("input numbers - offset = %f %f %f",x,y,z);
+    //ROS_INFO("input numbers - offset = %f %f %f",x,y,z);
     //sleep(2);
 
     double c2 = (pow(x,2.0) + pow(y,2.0) - pow(link_length[0],2.0) - pow(link_length[1],2.0))/(2*link_length[0]*link_length[1]);
@@ -302,7 +302,9 @@ void sendErrorCode(ros::Publisher *pub, int code){
     //      3 - IK detects colision -> change IK calculation (pos. control) //
     //      4 - IK could not find a suitable solution (pos. control)        //
     //      5 - Cannot solve IK (pos. control)                              //
-    //      6 - ......                                                      //
+    //      6 - Something wrong with the function                           //
+    //      7 - Bad plan or out of bounds (joint control)
+    //      8 -
     //**********************************************************************//
     errorCodeMsg.data = code;
     for (int i=0;i<10;i++){
@@ -321,7 +323,9 @@ void sendJointPoses(ros::Publisher *pose_and_vel_pub,ros::Publisher *accel_pub, 
 
     if ((i != 999) && (i != 998)){
         if (i >= last_trajectory_size){
-            i= last_trajectory_size-1;
+            i = last_trajectory_size - 1;
+        }else if (i <= 0){
+            i = 0;
         }
     }
 
@@ -668,6 +672,36 @@ void sendPositionToGUI(double input_x, double input_y, double input_z){
 
 }
 
+int getActualCounterNumber (){
+
+    switch (current_mode){
+        case 1:
+            ROS_INFO("Joint control plan");
+            return jointControl_counter + 5;
+            break;
+        case 2:
+            ROS_INFO("Position control plan");
+            return positionControl_counter + 5;
+            break;
+        case 3:
+            ROS_INFO("DEMO mode plan");
+            return demoControl_counter + 5;
+            break;
+        case 4:
+            ROS_INFO("TEACH mode plan");
+            return teachMode_counter + 5;
+            break;
+        case 5:
+            ROS_INFO("TEACH mode HAND plan");
+            return teachMode_counter + 5;
+            break;
+        default:
+            ROS_ERROR("No mode for real collision object");
+            return -1;
+            break;
+    }
+
+}
 
 //******************************************************************************************************************************//
 
