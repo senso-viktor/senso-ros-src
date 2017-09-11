@@ -494,10 +494,7 @@ void MainWindow::on_teachMode_teachButtonHand_4_clicked(){
                 jointControl_pub.publish(jointControl_Values_msg);
             }
         }else{
-            //---------------------------------------------------------------------------------------------------------------------------------------
-            ui->error_textEdit->setTextColor( QColor( "black" ) );
-            ui->error_textEdit->append("[Teach mode HAND]: Allowed max." + QString::number(HEIGHT)+ " pos!!! New position wont be registered");
-            //ui->error_lineEdit->setText("Allowed max." + QString::number(HEIGHT)+ " pos!!! New position wont be registered");
+            ui->error_lineEdit->setText("Allowed max." + QString::number(HEIGHT)+ " pos!!! New position wont be registered");
         }
 
 
@@ -636,6 +633,13 @@ void MainWindow::on_basicInfo_GetInfo_PushButton_3_clicked(){
     //for (int i=0;i<100;i++) {
         getInfo_pub.publish(getInfoState_msg);
     //}
+
+    ui->basicInfo_RobotModel_TextBrowser_3->setText("scara_arm");
+    ui->basicInfo_ReferenceFrame_TextBrowser_3->setText("world");
+    ui->basicInfo_EffectorLink_TextBrowser_3->setText("tool0");
+    ui->basicInfo_ActiveJoints_TextBrowser_3->setText("Joint1 , Joint2, Joint_GripperBase");
+
+
 }
 //...............................................................................//
 
@@ -852,9 +856,7 @@ void MainWindow::on_centralStop_clicked(){
     //kill roslaunch
     system("pkill roslaunch");
 
-    ui->error_textEdit->setTextColor( QColor( "red" ) );
-    ui->error_textEdit->append("CENTRAL STOP PUSHED! Matlab and ROS stopped!");
-    //ui->error_lineEdit->setText("CENTRAL STOP PUSHED! Matlab and ROS stopped!");
+    ui->error_lineEdit->setText("CENTRAL STOP PUSHED! Matlab and ROS stopped!");
 
     //kill GUI
     sleep(5);
@@ -1045,57 +1047,66 @@ void MainWindow::errorCodeCallback(const std_msgs::Int32 errorCode){
         switch (errorCode.data){
             case 0:
                 //ROS_INFO("Everything OK!");
-                //ui->error_lineEdit->setText("Everything OK!");
-                ui->error_textEdit->setTextColor( QColor( "black" ) );
-                ui->error_textEdit->append("Everything OK!");
+                ui->error_lineEdit->setText("Everything OK!");
                 break;
             case 1:
                 //ROS_INFO("[joint control] : Bad input joint values");
-                //ui->error_lineEdit->setText("[joint control] : Bad input joint values");
-                ui->error_textEdit->setTextColor( QColor( "red" ) );
-                ui->error_textEdit->append("[joint control] : Bad input joint values");
+                ui->error_lineEdit->setText("[joint control] : Bad input joint values");
                 break;
             case 2:
                 //ROS_INFO("[position control] : Bad plan");
-                //ui->error_lineEdit->setText("[joint control] : Bad plan");
-                ui->error_textEdit->setTextColor( QColor( "red" ) );
-                ui->error_textEdit->append("[position control] : Bad plan");
+                ui->error_lineEdit->setText("[joint control] : Bad plan");
                 break;
             case 3:
                 //ROS_INFO("[position control] : Colision warining! changing mode");
-                //ui->error_lineEdit->setText("[position control] : Colision warining! changing mode");
-                ui->error_textEdit->setTextColor( QColor( "black" ) );
-                ui->error_textEdit->append("[position control] : Colision warining! changing mode");
+                ui->error_lineEdit->setText("[position control] : Colision warining! changing mode");
                 break;
             case 4:
                 //ROS_INFO("[position control] : Cannot solve IK please enter new positions");
-                //ui->error_lineEdit->setText("[position control] : Cannot solve IK please enter new positions");
-                ui->error_textEdit->setTextColor( QColor( "red" ) );
-                ui->error_textEdit->append("[position control] : Cannot solve IK please enter new positions");
+                ui->error_lineEdit->setText("[position control] : Cannot solve IK please enter new positions");
                 break;
             case 5:
                 //ROS_INFO("[position control] : No solution found for desired position");
-                //ui->error_lineEdit->setText("[position control] : No solution found for desired position");
-                ui->error_textEdit->setTextColor( QColor( "red" ) );
-                ui->error_textEdit->append("[position control] : No solution found for desired position");
+                ui->error_lineEdit->setText("[position control] : No solution found for desired position");
                 break;
             case 6:
                 //ROS_INFO("[position control] : No solution found for desired position");
-                //ui->error_lineEdit->setText("[position control] : No solution found for desired position");
-                ui->error_textEdit->setTextColor( QColor( "red" ) );
-                ui->error_textEdit->append("[joint control] : Something wrong with the function and cannot execute plan");
+                ui->error_lineEdit->setText("[joint control] : Something wrong with the function and cannot execute plan");
                 break;
             case 7:
                 //ROS_INFO("[position control] : No solution found for desired position");
-                //ui->error_lineEdit->setText("[position control] : No solution found for desired position");
-                ui->error_textEdit->setTextColor( QColor( "red" ) );
-                ui->error_textEdit->append("Bad plan or out of bounds ! cannot execute plan");
+                ui->error_lineEdit->setText("Bad plan or out of bounds ! cannot execute plan");
                 break;
             case 8:
                 //ROS_INFO("[position control] : No solution found for desired position");
-                //ui->error_lineEdit->setText("[position control] : No solution found for desired position");
-                ui->error_textEdit->setTextColor( QColor( "red" ) );
-                ui->error_textEdit->append("[joint control] : Bad plan or out of bounds ! cannot execute plan");
+                ui->error_lineEdit->setText("[DEMO control] : replanning trajectory");
+                break;
+            case 9:
+                //ROS_INFO("[position control] : No solution found for desired position");
+                ui->error_lineEdit->setText("[TEACH mode GUI] : teached new position!");
+                break;
+            case 10:
+                //ROS_INFO("[position control] : No solution found for desired position");
+                ui->error_lineEdit->setText("[TEACH mode GUI] : stopped teaching!");
+            case 11:
+                //ROS_INFO("[position control] : No solution found for desired position");
+                ui->error_lineEdit->setText("[TEACH mode GUI] : size NOT OK!");
+                break;
+            case 12:
+                //ROS_INFO("[position control] : No solution found for desired position");
+                ui->error_lineEdit->setText("[TEACH mode HAND] : teached new position!");
+                break;
+            case 13:
+                //ROS_INFO("[position control] : No solution found for desired position");
+                ui->error_lineEdit->setText("[TEACH mode HAND] : stopped teaching!");
+                break;
+            case 14:
+                //ROS_INFO("[position control] : No solution found for desired position");
+                ui->error_lineEdit->setText("[TEACH mode HAND] : size NOT OK!");
+                break;
+            case 15:
+                //ROS_INFO("[position control] : No solution found for desired position");
+                ui->error_lineEdit->setText("[TEACH mode HAND] : size NOT OK!");
                 break;
             default:
                 break;

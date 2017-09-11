@@ -182,10 +182,10 @@ Visualization Manager:
         Colliding Link Color: 255; 0; 0
         Goal State Alpha: 1
         Goal State Color: 250; 128; 0
-        Interactive Marker Size: 0
+        Interactive Marker Size: 0.100000001
         Joint Violation Color: 255; 0; 255
         Planning Group: scara_arm
-        Query Goal State: false
+        Query Goal State: true
         Query Start State: false
         Show Workspace: false
         Start State Alpha: 1
@@ -340,25 +340,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 2.99650002
+      Distance: 2.86890626
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.189831018
-        Y: 0.585293353
+        X: 0.0309070945
+        Y: 0.36584419
         Z: 2.23518001e-07
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.609796882
+      Pitch: 0.524796844
       Target Frame: world
       Value: XYOrbit (rviz)
-      Yaw: 5.98494816
+      Yaw: 0.836763144
     Saved: ~
 Window Geometry:
   Displays:

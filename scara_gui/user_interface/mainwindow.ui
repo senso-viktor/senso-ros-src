@@ -2827,13 +2827,13 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QTextEdit" name="error_textEdit">
+   <widget class="QLineEdit" name="error_lineEdit">
     <property name="geometry">
      <rect>
       <x>400</x>
       <y>750</y>
-      <width>391</width>
-      <height>171</height>
+      <width>401</width>
+      <height>51</height>
      </rect>
     </property>
    </widget>

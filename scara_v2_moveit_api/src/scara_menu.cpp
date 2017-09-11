@@ -623,6 +623,7 @@ int main(int argc, char **argv){
                             ROS_INFO("Able to move");
                             if (replan){
                                 ROS_WARN("replanning");
+                                sendErrorCode(&errorMessage_pub, 8);
                                 jointModeControll(&move_group);
                                 gripper_state.data = 1;
                                 gripper_pub.publish(gripper_state);
@@ -644,6 +645,7 @@ int main(int argc, char **argv){
                             }
                         }else{
                             ROS_INFO("Not able to move bouds:%d success:%d",satisfieJointLimits,success);
+                            sendErrorCode(&errorMessage_pub, 7);
                             executionOK = true;
                             ROS_ERROR("Due to bad position moving to next position!");
                         }
@@ -737,6 +739,7 @@ int main(int argc, char **argv){
                         if (start_state){     //if teach button was pushed
                             if (teachPointChanged()){
                                 ROS_WARN("teached new positions!!!!");
+                                sendErrorCode(&errorMessage_pub, 9);
                                 teachPositions.push_back(currentTeachPoint);
                                 start_state = false;
                                 help =1;
@@ -754,6 +757,7 @@ int main(int argc, char **argv){
 
                         if (initTeachedPositions && (help == 1)){          //init vector and  calculate IK
                             ROS_WARN("\n\nstopped teaching %d",desiredJointsTeach.size());
+                            sendErrorCode(&errorMessage_pub, 10);
                             showAndInitVector();
                             for (int i=0; i<desiredJointsTeach.size(); i++){
 
@@ -789,6 +793,7 @@ int main(int argc, char **argv){
                             if (!(desiredJointsTeachSize%2 == 0)){
                                 desiredJointsTeachSize--;
                                 ROS_INFO("size not ok");
+                                sendErrorCode(&errorMessage_pub, 11);
                             }else{
                                 ROS_INFO("size ok");
                             }
@@ -809,7 +814,7 @@ int main(int argc, char **argv){
                                 sleep(2);
                                 ROS_WARN("Desired target[%d] : %f %f %f",count1, desiredJointsTeach[count1][0], desiredJointsTeach[count1][1],
                                          desiredJointsTeach[count1][2]);
-                                sendPositionToGUI(desiredJointsTeach[count1][0], desiredJointsTeach[count1][1], desiredJointsTeach[count1][2]);
+                                sendPositionToGUI(teachPositions[count1].x, teachPositions[count1].y, teachPositions[count1].z);
                                 move_group.setJointValueTarget(desiredJointsTeach[count1]);
                                 jointModeControll(&move_group);
                             }
@@ -905,6 +910,7 @@ int main(int argc, char **argv){
                         }
 
 
+                        //overit co sa stane ak sa naplanuje do kolizie
 
                     }else {
                         ROS_ERROR("not valid teach mode");
@@ -978,6 +984,7 @@ int main(int argc, char **argv){
                             //if (valuesChanged()){
                             ROS_WARN("teached new position !!!!\nJ1=%f J2=%f J3=%f",jointControl_jointValues[0],jointControl_jointValues[1],jointControl_jointValues[2]);
                             teachPositionsHand.push_back(jointControl_jointValues);
+                            sendErrorCode(&errorMessage_pub, 12);
                             help =1;
                             start_state = false;
                         }
@@ -995,6 +1002,7 @@ int main(int argc, char **argv){
 
                         if (initTeachedPositions && (help == 1)) {          //init vector and  calculate IK
                             ROS_WARN("stopped teaching %d",teachPositionsHand.size());
+                            sendErrorCode(&errorMessage_pub, 13);
                             for (int i = 0; i < teachPositionsHand.size(); i++) {
                                 ROS_INFO("[%d] J1=%f J2=%f J3=%f", i, teachPositionsHand[i][0], teachPositionsHand[i][1],
                                          teachPositionsHand[i][2]);
@@ -1004,6 +1012,7 @@ int main(int argc, char **argv){
                             if (!(teachPositionsHandSize%2 == 0)){
                                 teachPositionsHandSize--;
                                 ROS_INFO("size not ok");
+                                sendErrorCode(&errorMessage_pub, 14);
                             }else{
                                 ROS_INFO("size ok");
                             }
@@ -1040,7 +1049,7 @@ int main(int argc, char **argv){
                                 ROS_WARN("Desired joints : %f %f %f (%d/%d)", teachPositionsHand[count1][0],
                                          teachPositionsHand[count1][1], teachPositionsHand[count1][2],
                                          count1,teachPositionsHandSize-1 );
-                                sendPositionToGUI(teachPositionsHand[count1][0], teachPositionsHand[count1][1], teachPositionsHand[count1][2]);
+                                sendPositionToGUI(0, 0, 0);
                                 move_group.setJointValueTarget(teachPositionsHand[count1]);
                                 jointModeControll(&move_group);
                                 last_trajectory_size = -5;
@@ -1049,6 +1058,9 @@ int main(int argc, char **argv){
                             executionOK = inPositionTeach(count1, 2);
                             ROS_INFO("count = %d",count1);
 
+//                            if (success){
+//
+//                            }
 
                             if (my_plan.trajectory_.joint_trajectory.points.size() != last_trajectory_size) {
                                 last_trajectory_size = my_plan.trajectory_.joint_trajectory.points.size();
