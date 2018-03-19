@@ -51,7 +51,7 @@
     - DEMO application with joint or position controll in async mode -> *with forcefeddback*
 
 ## Part 5 - SCARA GUI
-#TO DO
+* 'TO DO - Add scripts'
 
 ## Part 6 - Rotary table:
 1. **RViz**
@@ -64,6 +64,13 @@
 	- **Polohovanie** rostopic pub -1 /rotary_table_v3/rt_position_controller/command std_msgs/Float64 "data: 1.57"
 
 ## Part 7 - Rotary table GUI
+* 'TO DO - Add scripts'
+
+
+# TO DOs
+- [ ] Part 5 - Add scripts
+- [ ] Part 7 - Add scripts
+- [ ] Part 5 - Add comments to code
 
 
 

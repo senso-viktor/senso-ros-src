@@ -2362,7 +2362,7 @@
       <workItem from="1505885572238" duration="244000" />
       <workItem from="1505898984218" duration="598000" />
       <workItem from="1521449343940" duration="1194000" />
-      <workItem from="1521458316360" duration="2836000" />
+      <workItem from="1521458316360" duration="4124000" />
     </task>
     <task id="LOCAL-00001" summary="First commit from CLion">
       <created>1502626241736</created>
@@ -2693,11 +2693,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521461581308</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="SENSODRIVE 19.Mar - Readme modif">
+      <created>1521463485881</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1521463485881</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="394973000" />
+    <option name="totallyTimeSpent" value="396261000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1212" extended-state="6" />
@@ -2730,7 +2737,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="GUI - teach mode hand just GUI (first test)" />
     <MESSAGE value="GUI - teach mode hand just GUI (nervy)" />
     <MESSAGE value="GUI - teach mode hand just GUI (mozno opravene/otestovat!)" />
     <MESSAGE value="GUI - teach mode hand just GUI (mozno opravene/otestovat! 2)" />
@@ -2755,7 +2761,8 @@
     <MESSAGE value="Error messages added + fixed desired positions + tested moveit&#10;TO DO : virtual qube" />
     <MESSAGE value="scara gui qt project" />
     <MESSAGE value="SENSODRIVE 19.Mar" />
-    <option name="LAST_COMMIT_MESSAGE" value="SENSODRIVE 19.Mar" />
+    <MESSAGE value="SENSODRIVE 19.Mar - Readme modif" />
+    <option name="LAST_COMMIT_MESSAGE" value="SENSODRIVE 19.Mar - Readme modif" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
