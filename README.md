@@ -49,3 +49,22 @@
     - DEMO application with joint or position controll, but only in synchronized mode -> *No forcefeedback*
 8. move_group_interface6_async_PICKandPLACE.cpp
     - DEMO application with joint or position controll in async mode -> *with forcefeddback*
+
+## Part 5 - SCARA GUI
+#TO DO
+
+## Part 6 - Rotary table:
+1. **RViz**
+	- roslaunch scara_v2_with_gripper xacro_display_rotary_table_v3.launch 
+2. **Moveit**
+	- roslaunch rt_moveit_config demo.launch
+3. **Gazebo**
+	- roslaunch scara_v2_full_gazebo rt_v3_world.launch
+	- roslaunch scara_v2_full_control rt_v3_full_control.launch
+	- **Polohovanie** rostopic pub -1 /rotary_table_v3/rt_position_controller/command std_msgs/Float64 "data: 1.57"
+
+## Part 7 - Rotary table GUI
+
+
+
+
