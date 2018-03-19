@@ -1,0 +1,5 @@
+<launch>
+    <node name="rotary_table_menu" pkg="scara_v2_moveit_api" type="rotary_table_menu" respawn="false" output="screen"/>
+    <node name="rotary_table_gui" pkg="rotary_table_gui" type="rotary_table_gui" respawn="false" output="screen"/>
+
+</launch>

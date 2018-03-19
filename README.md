@@ -63,14 +63,23 @@
 	- roslaunch scara_v2_full_control rt_v3_full_control.launch
 	- **Polohovanie** rostopic pub -1 /rotary_table_v3/rt_position_controller/command std_msgs/Float64 "data: 1.57"
 
-## Part 7 - Rotary table GUI
-* 'TO DO - Add scripts'
+## Part 7 - Rotary Table GUI
+1. Connect the Rotary Table to 24V DC Source
+2. Connect the PEAK to PCs USB and to Rotary Table
+3. Switch on the power supply
+4. **Start ROS Master**
+> roscore
+5. **Start the Rotary Table menu**
+>  rosrun scara_v2_moveit_api rotary_table_menu
+6. **Start the Rotary Table GUI**
+> rosrun rotary_table_gui rotary_table_gui
+### Or you can ignore steps 4,5,6 and use lanchfile
+> roslaunch scara_v2_moveit_api rt_menu_and_gui_launch.launch
 
 
 # TO DOs
 - [ ] Part 5 - Add scripts
-- [ ] Part 7 - Add scripts
-- [ ] Part 5 - Add comments to code
+- [ ] Add comments to code
 
 
 

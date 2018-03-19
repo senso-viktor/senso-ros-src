@@ -55,8 +55,8 @@ void sendDesiredWorkingState(int inputNumber){
             ROS_INFO("desired state OFF");
             frame.data[0] = 0x0;
             for (int i = 1; i < 8; i++) frame.data[i] = 0;
-            ROS_WARN("Zapis CAN:  id %x dlc %x", frame.can_id, frame.can_dlc);
-            for (int i = 0; i < 8; i++) ROS_INFO("%X", frame.data[i]);
+            //ROS_WARN("Zapis CAN:  id %x dlc %x", frame.can_id, frame.can_dlc);
+            //for (int i = 0; i < 8; i++) ROS_INFO("%X", frame.data[i]);
 
                int a = can->writeCAN(&frame);
                if (a > -1) {                              //Write CAN message to CAN bus
@@ -70,8 +70,8 @@ void sendDesiredWorkingState(int inputNumber){
             ROS_INFO("desired state READY");
            frame.data[0] = 0x12;
             for (int i = 1; i < 8; i++) frame.data[i] = 0;
-            ROS_WARN("Zapis CAN:  id %x dlc %x", frame.can_id, frame.can_dlc);
-            for (int i = 0; i < 8; i++) ROS_INFO("%X", frame.data[i]);
+            //ROS_WARN("Zapis CAN:  id %x dlc %x", frame.can_id, frame.can_dlc);
+            //for (int i = 0; i < 8; i++) ROS_INFO("%X", frame.data[i]);
             can->writeCAN(&frame);                                                  //Write CAN message to CAN bus
             break;
         }
@@ -80,8 +80,8 @@ void sendDesiredWorkingState(int inputNumber){
             ROS_INFO("desired state ON");
             frame.data[0] = 0x14;
             for (int i = 1; i < 8; i++) frame.data[i] = 0;
-            ROS_WARN("Zapis CAN:  id %x dlc %x", frame.can_id, frame.can_dlc);
-            for (int i = 0; i < 8; i++) ROS_INFO("%X", frame.data[i]);
+            //ROS_WARN("Zapis CAN:  id %x dlc %x", frame.can_id, frame.can_dlc);
+            //for (int i = 0; i < 8; i++) ROS_INFO("%X", frame.data[i]);
             can->writeCAN(&frame);                                                  //Write CAN message to CAN bus
             break;
         }
@@ -90,8 +90,8 @@ void sendDesiredWorkingState(int inputNumber){
             ROS_INFO("desired state ERROR");
             frame.data[0] = 0x1f;
             for (int i = 1; i < 8; i++) frame.data[i] = 0;
-            ROS_WARN("Zapis CAN:  id %x dlc %x", frame.can_id, frame.can_dlc);
-            for (int i = 0; i < 8; i++) ROS_INFO("%X", frame.data[i]);
+            //ROS_WARN("Zapis CAN:  id %x dlc %x", frame.can_id, frame.can_dlc);
+            //for (int i = 0; i < 8; i++) ROS_INFO("%X", frame.data[i]);
             can->writeCAN(&frame);                                                  //Write CAN message to CAN bus
             break;
         }
@@ -100,8 +100,8 @@ void sendDesiredWorkingState(int inputNumber){
             ROS_ERROR("Invalid number");
             frame.data[0] = 0x12;
             for (int i = 1; i < 8; i++) frame.data[i] = 0;
-            ROS_WARN("Zapis CAN:  id %x dlc %x", frame.can_id, frame.can_dlc);
-            for (int i = 0; i < 8; i++) ROS_INFO("%X", frame.data[i]);
+            //ROS_WARN("Zapis CAN:  id %x dlc %x", frame.can_id, frame.can_dlc);
+            //for (int i = 0; i < 8; i++) ROS_INFO("%X", frame.data[i]);
             can->writeCAN(&frame);                                                  //Write CAN message to CAN bus
             sleep(1);
             can->writeCAN(&frame);
@@ -109,8 +109,8 @@ void sendDesiredWorkingState(int inputNumber){
 
             frame.data[0] = 0x10;
             for (int i = 1; i < 8; i++) frame.data[i] = 0;
-            ROS_WARN("Zapis CAN:  id %x dlc %x", frame.can_id, frame.can_dlc);
-            for (int i = 0; i < 8; i++) ROS_INFO("%X", frame.data[i]);
+            //ROS_WARN("Zapis CAN:  id %x dlc %x", frame.can_id, frame.can_dlc);
+            //for (int i = 0; i < 8; i++) ROS_INFO("%X", frame.data[i]);
             can->writeCAN(&frame);                                                  //Write CAN message to CAN bus
             sleep(1);
             can->writeCAN(&frame);
@@ -130,7 +130,7 @@ void decodeCANmsg(can_frame *frame){
         case 0x210:     //Status answer
         {
             //ROS_INFO("*** Received CAN msg *** [id = %x]",frame->can_id);
-            for (int i = 0; i < 8; i++) ROS_INFO("%X", frame->data[i]);
+            //for (int i = 0; i < 8; i++) ROS_INFO("%X", frame->data[i]);
             int32_msg.data = 0;                                         //Send STATUS
             memcpy(&int32_msg.data,frame->data,2*sizeof(uint8_t));    //Posibility 2 (Status msg)
             currentWorkingState_pub.publish(int32_msg);                       //Send status msg
@@ -145,7 +145,7 @@ void decodeCANmsg(can_frame *frame){
         case 0x211:     //Position and Velocity answer
         {
             //ROS_INFO("*** Received CAN msg *** [id = %x]",frame->can_id);
-            for (int i = 0; i < 8; i++) ROS_INFO("%X", frame->data[i]);
+            //for (int i = 0; i < 8; i++) ROS_INFO("%X", frame->data[i]);
             int32_msg.data = 0;                                         //Current Position
             memcpy(&int32_msg.data,frame->data,2*sizeof(uint8_t));    //Posibility 2
             currentRotationInDeg_pub.publish(int32_msg);
@@ -169,7 +169,7 @@ void decodeCANmsg(can_frame *frame){
         case 0x212:     //Basic Position and Revolution answer
         {
             //ROS_INFO("*** Received CAN msg *** [id = %x]",frame->can_id);
-            for (int i = 0; i < 8; i++) ROS_INFO("%X", frame->data[i]);
+            //for (int i = 0; i < 8; i++) ROS_INFO("%X", frame->data[i]);
             int actualBasicPosition;                                    //Actual Basic Position
             memcpy(&actualBasicPosition, frame->data, 4*sizeof(uint8_t));
             //ROS_INFO("Actual Basic Position is %d",actualBasicPosition);
@@ -182,7 +182,7 @@ void decodeCANmsg(can_frame *frame){
         case 0x21e:
         {
             //ROS_INFO("*** Received CAN msg *** [id = %x]",frame->can_id);
-            for (int i = 0; i < 8; i++) ROS_INFO("%X", frame->data[i]);
+            //for (int i = 0; i < 8; i++) ROS_INFO("%X", frame->data[i]);
             memcpy(&status_msg.power_stage_temperature, frame->data, 2*sizeof(uint8_t));
             memcpy(&status_msg.microprocessor_temperature, frame->data+2, 2*sizeof(uint8_t));
             memcpy(&status_msg.chopper_temperature, frame->data+4, 2*sizeof(uint8_t));
@@ -208,7 +208,7 @@ void requestTemperature(){
         frame.can_dlc = 0;                              //Define lenght of CAN message
         memcpy(&frame.data, data, sizeof(data));        //Copy data to CAN frame
         for (int i = 0; i < 8; i++) frame.data[i] = 0;  //Set zeros to data
-        for (int i = 0; i < 8; i++) ROS_INFO("%X", frame.data[i]);
+        //for (int i = 0; i < 8; i++) ROS_INFO("%X", frame.data[i]);
         can->writeCAN(&frame);                          //Send message via CAN
 
 }               //******************************************** DOKONCIT !!!!!!! *****************************************//
@@ -297,8 +297,8 @@ void rotateCommandCallback(const scara_v2_moveit_api::pose_velocity_direction de
     frame.can_dlc = 4;                              //Define lenght of CAN message
     memcpy(&frame.data, data, sizeof(data));        //Copy data to CAN frame
     for (int i = 4; i < 8; i++) frame.data[i] = 0;  //Set 0 to unwanted bytes
-    for (int i = 0; i < 8; i++)
-        ROS_INFO("%X", frame.data[i]);              //Display CAN data to send
+    //for (int i = 0; i < 8; i++)
+    //    ROS_INFO("%X", frame.data[i]);              //Display CAN data to send
     can->writeCAN(&frame);                          //Send message via CAN
 
 
