@@ -21,6 +21,7 @@ find_package(catkin REQUIRED COMPONENTS
         actionlib
         scara_msgs
         tf
+        can_interface
 
 )
 find_package(Boost REQUIRED system filesystem date_time thread)
@@ -30,6 +31,8 @@ find_package(Boost REQUIRED system filesystem date_time thread)
 add_message_files(
         FILES
         pose_and_gripperState.msg
+        pose_velocity_direction.msg
+        status_rt.msg
 )
  add_service_files(
    FILES
@@ -128,5 +131,8 @@ target_link_libraries(scara_menu ${catkin_LIBRARIES})
 
 add_executable(scara_colision_object ../scara_v2_moveit_api/src/scara_colision_object.cpp)
 target_link_libraries(scara_colision_object ${catkin_LIBRARIES})
+
+add_executable(rotary_table_menu ../scara_v2_moveit_api/src/rotary_table_menu.cpp)
+target_link_libraries(rotary_table_menu ${catkin_LIBRARIES})
 
 

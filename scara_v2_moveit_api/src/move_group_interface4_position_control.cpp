@@ -58,7 +58,7 @@ void getAnglesFromIK(moveit::planning_interface::MoveGroupInterface *move_group,
         } else
             ROS_INFO("only aproximate IK solution");
 
-        success = move_group->plan(my_plan);
+        success = static_cast<bool>(move_group->plan(my_plan));
         // ROS_INFO_STREAM("PLAN:" << success);
         if(success){
             size=my_plan.trajectory_.joint_trajectory.points.size();
@@ -129,7 +129,7 @@ void positionControll (moveit::planning_interface::MoveGroupInterface *move_grou
     }
     ROS_INFO("wait for character");
     getchar();
-    success = move_group->plan(my_plan);
+    success = static_cast<bool>(move_group->plan(my_plan));
     mec = move_group->plan(my_plan);
     //overenie vytvorenia planu
     ROS_INFO("moveit error code");

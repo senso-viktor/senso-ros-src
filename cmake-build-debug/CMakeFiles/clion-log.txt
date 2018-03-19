@@ -2,29 +2,44 @@
 -- Using CATKIN_DEVEL_PREFIX: /home/viktordluhos/catkin_ws/src/cmake-build-debug/devel
 -- Using CMAKE_PREFIX_PATH: /home/viktordluhos/catkin_ws/devel;/opt/ros/kinetic
 -- This workspace overlays: /home/viktordluhos/catkin_ws/devel;/opt/ros/kinetic
+-- Found PythonInterp: /usr/bin/python (found version "2.7.12") 
 -- Using PYTHON_EXECUTABLE: /usr/bin/python
 -- Using Debian Python package layout
 -- Using empy: /usr/bin/empy
 -- Using CATKIN_ENABLE_TESTING: ON
 -- Call enable_testing()
 -- Using CATKIN_TEST_RESULTS_DIR: /home/viktordluhos/catkin_ws/src/cmake-build-debug/test_results
--- Found gtest sources under '/usr/src/gtest': gtests will be built
+-- Found gmock sources under '/usr/src/gmock': gmock will be built
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found gtest sources under '/usr/src/gmock': gtests will be built
 -- Using Python nosetests: /usr/bin/nosetests-2.7
--- catkin 0.7.6
+-- catkin 0.7.11
 -- BUILD_SHARED_LIBS is on
 -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- ~~  traversing 14 packages in topological order:
+-- ~~  traversing 18 packages in topological order:
 -- ~~  - gazebo_dev
 -- ~~  - gazebo_ros_pkgs (metapackage)
+-- ~~  - rt_moveit_config
 -- ~~  - scara_and_rt_moveit_config
 -- ~~  - scara_v2_full_control
 -- ~~  - scara_v2_full_description
 -- ~~  - scara_v2_full_gazebo
 -- ~~  - gazebo_msgs
+-- ~~  - can_interface
 -- ~~  - scara_msgs
+-- ~~  - rotary_table_gui
 -- ~~  - scara_gui
 -- ~~  - senso_scara_demo
 -- ~~  - gazebo_ros
+-- ~~  - torque_sensor
 -- ~~  - gazebo_plugins
 -- ~~  - gazebo_ros_control
 -- ~~  - scara_v2_moveit_api
@@ -33,6 +48,8 @@
 -- ==> add_subdirectory(gazebo_ros_pkgs/gazebo_dev)
 -- +++ processing catkin metapackage: 'gazebo_ros_pkgs'
 -- ==> add_subdirectory(gazebo_ros_pkgs/gazebo_ros_pkgs)
+-- +++ processing catkin package: 'rt_moveit_config'
+-- ==> add_subdirectory(rt_moveit_config)
 -- +++ processing catkin package: 'scara_and_rt_moveit_config'
 -- ==> add_subdirectory(scara_and_rt_moveit_config)
 -- +++ processing catkin package: 'scara_v2_full_control'
@@ -46,6 +63,20 @@
 -- ==> add_subdirectory(gazebo_ros_pkgs/gazebo_msgs)
 -- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
 -- gazebo_msgs: 9 messages, 23 services
+-- +++ processing catkin package: 'can_interface'
+-- ==> add_subdirectory(can_interface)
+CMake Warning at /opt/ros/kinetic/share/catkin/cmake/catkin_package.cmake:166 (message):
+  catkin_package() DEPENDS on 'system_lib' but neither
+  'system_lib_INCLUDE_DIRS' nor 'system_lib_LIBRARIES' is defined.
+Call Stack (most recent call first):
+  /opt/ros/kinetic/share/catkin/cmake/catkin_package.cmake:102 (_catkin_package)
+  can_interface/CMakeLists.txt:102 (catkin_package)
+
+
+-- Performing Test COMPILER_SUPPORTS_CXX11
+-- Performing Test COMPILER_SUPPORTS_CXX11 - Success
+-- Performing Test COMPILER_SUPPORTS_CXX0X
+-- Performing Test COMPILER_SUPPORTS_CXX0X - Success
 -- +++ processing catkin package: 'scara_msgs'
 -- ==> add_subdirectory(scara_msgs)
 -- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
@@ -57,7 +88,21 @@
 --   thread
 --   chrono
 --   atomic
--- scara_msgs: 2 messages, 0 services
+-- scara_msgs: 4 messages, 0 services
+-- +++ processing catkin package: 'rotary_table_gui'
+-- ==> add_subdirectory(rotary_table_gui)
+CMake Warning at cmake-build-debug/rotary_table_gui/cmake/rotary_table_gui-genmsg.cmake:3 (message):
+  Invoking generate_messages() without having added any message or service
+  file before.
+
+  You should either add add_message_files() and/or add_service_files() calls
+  or remove the invocation of generate_messages().
+Call Stack (most recent call first):
+  /opt/ros/kinetic/share/genmsg/cmake/genmsg-extras.cmake:307 (include)
+  rotary_table_gui/CMakeLists.txt:21 (generate_messages)
+
+
+-- rotary_table_gui: 0 messages, 0 services
 -- +++ processing catkin package: 'scara_gui'
 -- ==> add_subdirectory(scara_gui)
 CMake Warning at cmake-build-debug/scara_gui/cmake/scara_gui-genmsg.cmake:3 (message):
@@ -93,14 +138,36 @@ CMake Warning at /home/viktordluhos/clion-2017.1/bin/cmake/share/cmake-3.7/Modul
 Call Stack (most recent call first):
   /usr/lib/x86_64-linux-gnu/cmake/gazebo/gazebo-config.cmake:114 (find_package)
   gazebo_ros_pkgs/gazebo_dev/cmake/gazebo_dev-extras.cmake:2 (find_package)
-  cmake-build-debug/devel/share/gazebo_dev/cmake/gazebo_devConfig.cmake:190 (include)
+  cmake-build-debug/devel/share/gazebo_dev/cmake/gazebo_devConfig.cmake:197 (include)
   /opt/ros/kinetic/share/catkin/cmake/catkinConfig.cmake:76 (find_package)
   gazebo_ros_pkgs/gazebo_ros/CMakeLists.txt:4 (find_package)
 
 
+-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found version "2.6.1") 
 -- Boost version: 1.58.0
+-- Looking for OGRE...
+-- OGRE_PREFIX_WATCH changed.
+-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.1") 
+-- Checking for module 'OGRE'
+--   Found OGRE, version 1.9.0
+-- Found Ogre Ghadamon (1.9.0)
+-- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+-- Looking for OGRE_Paging...
+-- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+-- Looking for OGRE_Terrain...
+-- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+-- Looking for OGRE_Property...
+-- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+-- Looking for OGRE_RTShaderSystem...
+-- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+-- Looking for OGRE_Volume...
+-- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+-- Looking for OGRE_Overlay...
+-- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
 -- Gazebo version: 7.0
 -- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- Checking for module 'libxml-2.0'
+--   Found libxml-2.0, version 2.9.3
 -- Boost version: 1.58.0
 -- Found the following Boost libraries:
 --   thread
@@ -108,6 +175,9 @@ Call Stack (most recent call first):
 --   system
 --   date_time
 --   atomic
+-- Found TinyXML: /usr/lib/x86_64-linux-gnu/libtinyxml.so  
+-- +++ processing catkin package: 'torque_sensor'
+-- ==> add_subdirectory(torque_sensor)
 -- +++ processing catkin package: 'gazebo_plugins'
 -- ==> add_subdirectory(gazebo_ros_pkgs/gazebo_plugins)
 -- Boost version: 1.58.0
@@ -127,14 +197,35 @@ CMake Warning at /home/viktordluhos/clion-2017.1/bin/cmake/share/cmake-3.7/Modul
 Call Stack (most recent call first):
   /usr/lib/x86_64-linux-gnu/cmake/gazebo/gazebo-config.cmake:114 (find_package)
   gazebo_ros_pkgs/gazebo_dev/cmake/gazebo_dev-extras.cmake:2 (find_package)
-  cmake-build-debug/devel/share/gazebo_dev/cmake/gazebo_devConfig.cmake:190 (include)
+  cmake-build-debug/devel/share/gazebo_dev/cmake/gazebo_devConfig.cmake:197 (include)
   /opt/ros/kinetic/share/catkin/cmake/catkinConfig.cmake:76 (find_package)
   gazebo_ros_pkgs/gazebo_plugins/CMakeLists.txt:6 (find_package)
 
 
 -- Boost version: 1.58.0
+-- Looking for OGRE...
+-- Found Ogre Ghadamon (1.9.0)
+-- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+-- Looking for OGRE_Paging...
+-- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+-- Looking for OGRE_Terrain...
+-- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+-- Looking for OGRE_Property...
+-- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+-- Looking for OGRE_RTShaderSystem...
+-- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+-- Looking for OGRE_Volume...
+-- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+-- Looking for OGRE_Overlay...
+-- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
 -- Gazebo version: 7.0
 -- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- Checking for module 'OGRE'
+--   Found OGRE, version 1.9.0
+-- Checking for module 'OGRE-Terrain'
+--   Found OGRE-Terrain, version 1.9.0
+-- Checking for module 'OGRE-Paging'
+--   Found OGRE-Paging, version 1.9.0
 -- Boost version: 1.58.0
 -- Found the following Boost libraries:
 --   thread
@@ -161,15 +252,17 @@ CMake Warning at /home/viktordluhos/clion-2017.1/bin/cmake/share/cmake-3.7/Modul
 Call Stack (most recent call first):
   /usr/lib/x86_64-linux-gnu/cmake/gazebo/gazebo-config.cmake:114 (find_package)
   gazebo_ros_pkgs/gazebo_dev/cmake/gazebo_dev-extras.cmake:2 (find_package)
-  cmake-build-debug/devel/share/gazebo_dev/cmake/gazebo_devConfig.cmake:190 (include)
+  cmake-build-debug/devel/share/gazebo_dev/cmake/gazebo_devConfig.cmake:197 (include)
   /opt/ros/kinetic/share/catkin/cmake/catkinConfig.cmake:76 (find_package)
   gazebo_ros_pkgs/gazebo_ros_control/CMakeLists.txt:5 (find_package)
 
 
 -- Boost version: 1.58.0
 -- Gazebo version: 7.0
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
 -- +++ processing catkin package: 'scara_v2_moveit_api'
 -- ==> add_subdirectory(scara_v2_moveit_api)
+-- Checking for one of the modules 'eigen3'
 -- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
 -- Boost version: 1.58.0
 -- Found the following Boost libraries:
@@ -179,9 +272,9 @@ Call Stack (most recent call first):
 --   thread
 --   chrono
 --   atomic
--- scara_v2_moveit_api: 1 messages, 1 services
+-- scara_v2_moveit_api: 3 messages, 1 services
 -- Configuring done
-CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:74 (add_dependencies):
+CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:77 (add_dependencies):
   Policy CMP0046 is not set: Error on non-existent dependency in
   add_dependencies.  Run "cmake --help-policy CMP0046" for policy details.
   Use the cmake_policy command to set the policy and suppress this warning.
@@ -190,7 +283,7 @@ CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:74 (add_dependencies):
   "move_group_interface3_PICKandPLACE" does not exist.
 This warning is for project developers.  Use -Wno-dev to suppress it.
 
-CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:83 (add_dependencies):
+CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:86 (add_dependencies):
   Policy CMP0046 is not set: Error on non-existent dependency in
   add_dependencies.  Run "cmake --help-policy CMP0046" for policy details.
   Use the cmake_policy command to set the policy and suppress this warning.
@@ -199,7 +292,7 @@ CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:83 (add_dependencies):
   "move_group_interface5_rt" does not exist.
 This warning is for project developers.  Use -Wno-dev to suppress it.
 
-CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:82 (add_dependencies):
+CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:85 (add_dependencies):
   Policy CMP0046 is not set: Error on non-existent dependency in
   add_dependencies.  Run "cmake --help-policy CMP0046" for policy details.
   Use the cmake_policy command to set the policy and suppress this warning.
@@ -208,7 +301,7 @@ CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:82 (add_dependencies):
   "move_group_interface5_rt" does not exist.
 This warning is for project developers.  Use -Wno-dev to suppress it.
 
-CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:78 (add_dependencies):
+CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:81 (add_dependencies):
   Policy CMP0046 is not set: Error on non-existent dependency in
   add_dependencies.  Run "cmake --help-policy CMP0046" for policy details.
   Use the cmake_policy command to set the policy and suppress this warning.
@@ -217,7 +310,7 @@ CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:78 (add_dependencies):
   "move_group_interface4_position_control" does not exist.
 This warning is for project developers.  Use -Wno-dev to suppress it.
 
-CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:88 (add_dependencies):
+CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:91 (add_dependencies):
   Policy CMP0046 is not set: Error on non-existent dependency in
   add_dependencies.  Run "cmake --help-policy CMP0046" for policy details.
   Use the cmake_policy command to set the policy and suppress this warning.
@@ -226,7 +319,7 @@ CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:88 (add_dependencies):
   "move_group_interface6_async_PICKandPLACE" does not exist.
 This warning is for project developers.  Use -Wno-dev to suppress it.
 
-CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:87 (add_dependencies):
+CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:90 (add_dependencies):
   Policy CMP0046 is not set: Error on non-existent dependency in
   add_dependencies.  Run "cmake --help-policy CMP0046" for policy details.
   Use the cmake_policy command to set the policy and suppress this warning.
@@ -235,7 +328,7 @@ CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:87 (add_dependencies):
   "move_group_interface6_async_PICKandPLACE" does not exist.
 This warning is for project developers.  Use -Wno-dev to suppress it.
 
-CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:96 (add_dependencies):
+CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:99 (add_dependencies):
   Policy CMP0046 is not set: Error on non-existent dependency in
   add_dependencies.  Run "cmake --help-policy CMP0046" for policy details.
   Use the cmake_policy command to set the policy and suppress this warning.
@@ -244,7 +337,7 @@ CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:96 (add_dependencies):
   "multiple_cube_publisher" does not exist.
 This warning is for project developers.  Use -Wno-dev to suppress it.
 
-CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:92 (add_dependencies):
+CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:95 (add_dependencies):
   Policy CMP0046 is not set: Error on non-existent dependency in
   add_dependencies.  Run "cmake --help-policy CMP0046" for policy details.
   Use the cmake_policy command to set the policy and suppress this warning.
@@ -253,7 +346,7 @@ CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:92 (add_dependencies):
   "cube_publisher" does not exist.
 This warning is for project developers.  Use -Wno-dev to suppress it.
 
-CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:100 (add_dependencies):
+CMake Warning (dev) at scara_v2_moveit_api/CMakeLists.txt:103 (add_dependencies):
   Policy CMP0046 is not set: Error on non-existent dependency in
   add_dependencies.  Run "cmake --help-policy CMP0046" for policy details.
   Use the cmake_policy command to set the policy and suppress this warning.

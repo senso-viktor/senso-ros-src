@@ -197,7 +197,7 @@ int main(int argc, char **argv) {
             if (kinematic_state->satisfiesBounds()){
                 mode = 1;
 
-                success = move_group.plan(my_plan);
+                success = static_cast<bool>(move_group.plan(my_plan));
                 //ROS_INFO("plan!!!");
                 //ROS_INFO_STREAM(my_plan.trajectory_);
                 //getchar();

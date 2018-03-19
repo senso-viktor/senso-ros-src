@@ -372,7 +372,7 @@ void jointModeControll (moveit::planning_interface::MoveGroupInterface *move_gro
     }
     ROS_INFO("Desired joint values: %f  %f  %f",joint_group_position[0],joint_group_position[1],joint_group_position[2]);
     move_group->setJointValueTarget(joint_group_position);
-    success = move_group->plan(my_plan);
+    success = static_cast<bool>(move_group->plan(my_plan));
     ROS_INFO_NAMED("Visualizing plan (joint space goal) %s", success ? "GOOD" : "FAILED");
     if (asyncMode){
         move_group->asyncExecute(my_plan);
@@ -502,7 +502,7 @@ void positionControll (moveit::planning_interface::MoveGroupInterface *move_grou
             ROS_INFO("only aproximate IK solution");
         numberOfAttempts++;
     }
-    success = move_group->plan(my_plan);
+    success = static_cast<bool>(move_group->plan(my_plan));
    // ROS_INFO_STREAM("PLAN:" << success);
     if(success){
 

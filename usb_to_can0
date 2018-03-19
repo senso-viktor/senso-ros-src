@@ -1,0 +1,14 @@
+#!/bin/bash
+# My first script
+
+echo "Premapovanie USB na CAN0"
+
+modprobe pcan
+cat /proc/pcan
+#ls /dev | grep can
+ifconfig can0 down
+ip link set can0 type can bitrate 250000
+ifconfig can0 up
+ip -d link show can0
+#ifconfig
+

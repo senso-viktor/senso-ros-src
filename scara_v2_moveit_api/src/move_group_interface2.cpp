@@ -66,7 +66,7 @@ int main(int argc, char **argv){
             joint_group_position[0] = joint_group_positions[counter][0];  // radians
             joint_group_position[1] = joint_group_positions[counter][1];
             move_group.setJointValueTarget(joint_group_position);
-            success = move_group.plan(my_plan);
+            success = static_cast<bool>(move_group.plan(my_plan));
             ROS_INFO("Going to pose number : %d", counter);
             //ROS_INFO_NAMED("tutorial", "Visualizing plan (joint space goal) %s", success ? "" : "FAILED");
             move_group.execute(my_plan);

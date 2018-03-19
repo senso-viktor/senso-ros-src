@@ -1,0 +1,13 @@
+bool jointcontrol_START
+bool jointcontrol_STOP
+bool positioncontrol1_START
+bool positioncontrol1_STOP
+bool positioncontrol2_START
+bool positioncontrol2_STOP
+bool positioncontrolcustom_START
+bool positioncontrolcustom_STOP
+bool getinformation
+bool setparameters_velocity
+bool setparameters_acceleration
+bool setparameters_planningTime
+bool setparameters_numberOfAttempts

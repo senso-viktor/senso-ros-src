@@ -262,7 +262,7 @@ int main(int argc, char **argv) {
                     kinematic_state->setJointGroupPositions(joint_model_group, joint_positions);
                     if (kinematic_state->satisfiesBounds()){
                         mode = 1;
-                        success = move_group.plan(my_plan);
+                        success = static_cast<bool>(move_group.plan(my_plan));
                         if (success){
                             ROS_INFO("Succesful plan!.. now moving to place");
                             //Asynchrone vykonavanie

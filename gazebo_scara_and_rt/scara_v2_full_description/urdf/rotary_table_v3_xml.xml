@@ -1,0 +1,322 @@
+<?xml version="1.0"?>
+
+<robot  name="rotary_table_v3" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!--              Constants               -->
+    <xacro:property name="DEG2RAD" value="0.01745329252" />
+    <xacro:property name="RED2DEG" value="57.295779513" />
+    <xacro:property name="M_PI" value="3.141592" />
+    <xacro:property name="box_size_x" value="0.5" />
+    <xacro:property name="box_size_y" value="0.5" />
+    <xacro:property name="box_size_z" value="0.5" />
+    <xacro:property name="base_size_x" value="0.125" />
+    <xacro:property name="base_size_y" value="0.245" />
+    <xacro:property name="base_size_z" value="0.05" />
+    <xacro:property name="base_circle_length" value="0.004" />
+    <xacro:property name="base_circle_radius" value="0.045" />
+    <xacro:property name="motor_shaft_length" value="0.01" />
+    <xacro:property name="motor_shaft_radius" value="0.01" />
+    <xacro:property name="rotation_disc_height" value="0.00" />
+    <xacro:property name="pick_hore_radius" value="0.035" />
+    <xacro:property name="pick_offset_z" value="0.02" />
+
+    <!-- plugin -->
+    <gazebo>
+        <plugin filename="libgazebo_ros_control.so" name="ros_control">
+            <robotNamespace>/rotary_table_v3</robotNamespace>
+        </plugin>
+    </gazebo>
+
+    <!--************ ROTARY TABLE ****************-->
+    <gazebo reference="base">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/DarkGrey</material>
+    </gazebo>
+    <gazebo reference="baseCircle">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/DarkGrey</material>
+    </gazebo>
+    <gazebo reference="motorShaftLink">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/DarkGrey</material>
+    </gazebo>
+    <gazebo reference="rotationDisc">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/Grey</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <!--******************************************-->
+
+
+    <!--______RViz Material Color definitions_______-->
+    <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+    <material name="blue">
+        <color rgba="0 0 1 1"/>
+    </material>
+    <material name="red">
+        <color rgba="1 0 0 1"/>
+    </material>
+    <material name="green">
+        <color rgba="0 1 0 1"/>
+    </material>
+    <material name="sensoSilver">
+        <color rgba="0.839216 0.839216 0.839216 1"/>
+    </material>
+    <material name="sensoBlack">
+        <color rgba="0 0 0 1 "/>
+    </material>
+    <material name="sensoGray">
+        <color rgba="0.466667 0.533333 0.6 1 "/>
+    </material>
+    <material name="sensoDarkGray">
+        <color rgba="0.156863 0.156863 0.156863 1 "/>
+    </material>
+    <!--*****************************************************-->
+
+
+    <!--______________Link and Joint definitions____________-->
+    <link name="world"/>
+    <!--Casual box-->
+    <!--<link name="casualBox">-->
+    <!--<inertial>-->
+    <!--<origin xyz="0 0 0" rpy="0 0 0" />-->
+    <!--<mass value="1" />-->
+    <!--<inertia ixx="1" ixy="0" ixz="0"-->
+    <!--iyy="1" iyz="0"-->
+    <!--izz="1" />-->
+    <!--</inertial>-->
+    <!--<visual>-->
+    <!--<origin xyz="0 0 0" rpy="0 0 0"/>-->
+    <!--<geometry>-->
+    <!--<box size="${box_size_x} ${box_size_y} ${box_size_z}"/>-->
+    <!--</geometry>-->
+    <!--<material name="white" />-->
+    <!--</visual>-->
+    <!--<collision>-->
+    <!--<origin xyz="0 0 0" rpy="0 0 0" />-->
+    <!--<geometry>-->
+    <!--<box size="${box_size_x} ${box_size_y} ${box_size_z}"/>-->
+    <!--</geometry>-->
+    <!--</collision>-->
+    <!--</link>-->
+    <!--<joint name="world_to_casualBox" type="fixed">-->
+    <!--<parent link="world"/>-->
+    <!--<child link="casualBox"/>-->
+    <!--<origin xyz="0 0 ${box_size_z/2}" rpy="0 0 0" />-->
+    <!--<axis xyz="1 0 0" />-->
+    <!--</joint>-->
+
+
+    <!-- Link and Joint definitions  -->
+    <link name="base">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="${base_size_x} ${base_size_y} ${base_size_z}"/>
+            </geometry>
+            <material name="sensoGray" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="${base_size_x} ${base_size_y} ${base_size_z}"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="world_to_base" type="fixed">
+        <!--<parent link="casualBox"/>-->
+        <parent link="world"/>
+        <child link="base"/>
+        <!--<origin xyz="0 0 ${base_size_z/2 + box_size_z/2}" rpy="0 0 0" />-->
+        <origin xyz="0 0 ${base_size_z/2}" rpy="0 0 0" />
+
+        <axis xyz="1 0 0" />
+    </joint>
+
+
+    <link name="baseCircle">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="${base_circle_length}" radius="${base_circle_radius}"/>
+            </geometry>
+            <material name="sensoSilver" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="${base_circle_length}" radius="${base_circle_radius}"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="base_to_baseCircle" type="fixed">
+        <parent link="base"/>
+        <child link="baseCircle"/>
+        <origin xyz="0 ${base_size_y/4} ${base_circle_length/2 + base_size_z/2}" rpy="0 0 0"/>
+        <axis xyz="1 0 0" />
+    </joint>
+
+
+
+    <link name="motorShaftLink">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="${motor_shaft_length}" radius="${motor_shaft_radius}"/>
+            </geometry>
+            <material name="sensoSilver" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="${motor_shaft_length - 0.002}" radius="${motor_shaft_radius - 0.002}"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="baseCircle_to_motorShaftLink" type="fixed">
+        <parent link="baseCircle"/>
+        <child link="motorShaftLink"/>
+        <origin xyz="0 0 ${motor_shaft_length/2 + base_circle_length/2}" rpy="0 0 0"/>
+        <axis xyz="0 0 1" />
+    </joint>
+
+
+    <link name="rotationDisc">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://scara_v2_with_gripper/meshes/rotaryTablePlate.STL"/>
+            </geometry>
+            <material name="sensoSilver" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://scara_v2_with_gripper/meshes/rotaryTablePlate.STL"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="rotary_table_joint" type="revolute">    <!-- joint name base_link1_to_link1-->
+        <parent link="motorShaftLink"/>
+        <child link="rotationDisc"/>
+        <origin xyz="0 0 ${motor_shaft_length/2 + rotation_disc_height}" rpy="0 0 0"/>
+        <axis xyz="0 0 1" />
+        <limit effort="100" lower="0" upper="${2*M_PI}" velocity="0.5"/>
+    </joint>
+
+
+
+    <link name="pickHole1"/>
+    <joint name="joint_to_pickHole1" type="fixed">
+        <parent link="rotationDisc" />
+        <child link="pickHole1" />
+        <origin xyz="${pick_hore_radius*0} ${pick_hore_radius*1} ${pick_offset_z}" rpy="0 0 ${M_PI/2}" />
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="pickHole2"/>
+    <joint name="joint_to_pickHole2" type="fixed">
+        <parent link="rotationDisc" />
+        <child link="pickHole2" />
+        <origin xyz="${pick_hore_radius*(-0.7071)} ${pick_hore_radius*0.7071} ${pick_offset_z}" rpy="0 0 ${M_PI/4 + M_PI/2}" />
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="pickHole3"/>
+    <joint name="joint_to_pickHole3" type="fixed">
+        <parent link="rotationDisc" />
+        <child link="pickHole3" />
+        <origin xyz="${pick_hore_radius*(-1)} ${pick_hore_radius*0} ${pick_offset_z}" rpy="0 0 ${M_PI}" />
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="pickHole4"/>
+    <joint name="joint_to_pickHole4" type="fixed">
+        <parent link="rotationDisc" />
+        <child link="pickHole4" />
+        <origin xyz="${pick_hore_radius*(-0.7071)} ${pick_hore_radius*(-0.7071)} ${pick_offset_z}" rpy="0 0 ${M_PI/4 + M_PI}" />
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="pickHole5"/>
+    <joint name="joint_to_pickHole5" type="fixed">
+        <parent link="rotationDisc" />
+        <child link="pickHole5" />
+        <origin xyz="${pick_hore_radius*0} ${pick_hore_radius*(-1)} ${pick_offset_z}" rpy="0 0 ${M_PI + M_PI/2}" />
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="pickHole6"/>
+    <joint name="joint_to_pickHole6" type="fixed">
+        <parent link="rotationDisc" />
+        <child link="pickHole6" />
+        <origin xyz="${pick_hore_radius*0.7071} ${pick_hore_radius*(-0.7071)} ${pick_offset_z}" rpy="0 0 ${M_PI + M_PI/4 + M_PI/2}" />
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="pickHole7"/>
+    <joint name="joint_to_pickHole7" type="fixed">
+        <parent link="rotationDisc" />
+        <child link="pickHole7" />
+        <origin xyz="${pick_hore_radius*1} ${pick_hore_radius*0} ${pick_offset_z}" rpy="0 0 ${0}" />
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="pickHole8"/>
+    <joint name="joint_to_pickHole8" type="fixed">
+        <parent link="rotationDisc" />
+        <child link="pickHole8" />
+        <origin xyz="${pick_hore_radius*0.7071} ${pick_hore_radius*0.7071} ${pick_offset_z}" rpy="0 0 ${M_PI/4}" />
+        <axis xyz="0 0 0" />
+    </joint>
+    <!--*****************************************************-->
+
+
+    <!--***************** Transmision definitions *****************-->
+    <!--************** RT ***************-->
+    <transmission name="tran1rt">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="rotary_table_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor1">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <!--********************************-->
+    <!--***********************************************************-->
+
+
+</robot>

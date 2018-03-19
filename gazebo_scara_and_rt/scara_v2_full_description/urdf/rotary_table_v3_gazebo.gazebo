@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<robot>
+    <!-- ros_control plugin -->
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/rotary_table_v3</robotNamespace>
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+        </plugin>
+    </gazebo>
+
+    <!--************ ROTARY TABLE ****************-->
+    <gazebo reference="base">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/DarkGrey</material>
+    </gazebo>
+    <gazebo reference="baseCircle">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/DarkGrey</material>
+    </gazebo>
+    <gazebo reference="motorShaftLink">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/DarkGrey</material>
+    </gazebo>
+    <gazebo reference="rotationDisc">
+        <selfCollide>true</selfCollide>
+        <material>Gazebo/Grey</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <!--<gazebo reference="pickHole1">-->
+        <!--<selfCollide>true</selfCollide>-->
+        <!--<material>Gazebo/RedBright</material>-->
+    <!--</gazebo>-->
+    <!--<gazebo reference="pickHole2">-->
+        <!--<selfCollide>true</selfCollide>-->
+        <!--<material>Gazebo/RedBright</material>-->
+    <!--</gazebo>-->
+    <!--<gazebo reference="pickHole3">-->
+        <!--<selfCollide>true</selfCollide>-->
+        <!--<material>Gazebo/RedBright</material>-->
+    <!--</gazebo>-->
+    <!--<gazebo reference="pickHole4">-->
+        <!--<selfCollide>true</selfCollide>-->
+        <!--<material>Gazebo/RedBright</material>-->
+    <!--</gazebo>-->
+    <!--<gazebo reference="pickHole5">-->
+        <!--<selfCollide>true</selfCollide>-->
+        <!--<material>Gazebo/RedBright</material>-->
+    <!--</gazebo>-->
+    <!--<gazebo reference="pickHole6">-->
+        <!--<selfCollide>true</selfCollide>-->
+        <!--<material>Gazebo/RedBright</material>-->
+    <!--</gazebo>-->
+    <!--<gazebo reference="pickHole7">-->
+        <!--<material>Gazebo/RedBright</material>-->
+    <!--</gazebo>-->
+    <!--<gazebo reference="pickHole8">-->
+        <!--<selfCollide>true</selfCollide>-->
+        <!--<material>Gazebo/RedBright</material>-->
+    <!--</gazebo>-->
+    <!--******************************************-->
+
+</robot>

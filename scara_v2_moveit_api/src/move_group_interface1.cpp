@@ -40,7 +40,7 @@ int main(int argc, char **argv){
     joint_group_positions[0] = 1.0;  // radians
     joint_group_positions[1] = 1.0;
     move_group.setJointValueTarget(joint_group_positions);
-    success = move_group.plan(my_plan);
+    success = static_cast<bool>(move_group.plan(my_plan));
     ROS_INFO_NAMED("tutorial", "Visualizing plan 1 (joint space goal) %s", success ? "" : "FAILED");
     if (move_group.execute(my_plan)){
         ROS_INFO("uspesne execute");
@@ -70,7 +70,7 @@ int main(int argc, char **argv){
     joint_group_positions[1] = 0.75;
     sleep(2);
     move_group.setJointValueTarget(joint_group_positions);
-    success = move_group.plan(my_plan);
+    success = static_cast<bool>(move_group.plan(my_plan));
     ROS_INFO_NAMED("tutorial", "Visualizing plan 1 (joint space goal) %s", success ? "" : "FAILED");
     if (move_group.execute(my_plan)){
         ROS_INFO("uspesne execute");
@@ -98,7 +98,7 @@ int main(int argc, char **argv){
     joint_group_positions[1] = 0.5;
     sleep(2);
     move_group.setJointValueTarget(joint_group_positions);
-    success = move_group.plan(my_plan);
+    success = static_cast<bool>(move_group.plan(my_plan));
     ROS_INFO_NAMED("tutorial", "Visualizing plan 1 (joint space goal) %s", success ? "" : "FAILED");
     if (move_group.execute(my_plan)){
         ROS_INFO("uspesne execute");
@@ -127,7 +127,7 @@ int main(int argc, char **argv){
     joint_group_positions[1] = 0;
     sleep(2);
     move_group.setJointValueTarget(joint_group_positions);
-    success = move_group.plan(my_plan);
+    success = static_cast<bool>(move_group.plan(my_plan));
     ROS_INFO_NAMED("tutorial", "Visualizing plan 1 (joint space goal) %s", success ? "" : "FAILED");
     if (move_group.execute(my_plan)){
         ROS_INFO("uspesne execute");

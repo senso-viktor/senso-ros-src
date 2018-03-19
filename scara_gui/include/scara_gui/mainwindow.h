@@ -37,7 +37,11 @@ public:
 
     void jointControlCallback(const geometry_msgs::PointStamped pointStamped);
 
+    void posesAndVelocitiesCallback(const geometry_msgs::Pose poseAndVelocity);
+
     void jointStatesCallback(const sensor_msgs::JointState jointState);
+
+    void moveitJointStatesCallback(const sensor_msgs::JointState jointState);
 
     void getInfoCallback(const scara_msgs::robot_info robotInfo);
 
@@ -57,7 +61,12 @@ public:
 
     void desiredPoseCallback(const geometry_msgs::Point desiredPose);
 
+    void torqueJ1Callback(const std_msgs::Float64 torque);
+
+    void torqueJ2Callback(const std_msgs::Float64 torque);
+
     bool filterValues (double inputValue);
+
 
 private slots:
     void on_jointControl_Start_PushButton_3_clicked();
@@ -185,7 +194,7 @@ private:
     ros::Publisher gripperState_pub, start_pub, mode_pub, teachMode_pub, teachMode_startState, centralStop_pub, moveitMode_pub,colObjArrows_pub;
     ros::Publisher setCustomObjPos_pub, setRealColObjSize_pub, setCustomColObjSize_pub, displayRealColObj_pub, displayCustomColObj_pub;
     ros::Subscriber jointControlValues_sub, positionControlValues_sub, demoValues_sub, getInfo_sub, jointStates_sub, actualPose_sub, actualAcc_sub, errorMessage_sub;
-    ros::Subscriber shit_sub, teachModeTeach_sub, teachModeStopTeach_sub, pushButton_sub, lightBarrier_sub, gripperCommand_sub, desiredPose_sub;
+    ros::Subscriber shit_sub, teachModeTeach_sub, teachModeStopTeach_sub, pushButton_sub, lightBarrier_sub, gripperCommand_sub, desiredPose_sub, moveit_jointStates, torqJ1_sub, torqJ2_sub;
 
 
 

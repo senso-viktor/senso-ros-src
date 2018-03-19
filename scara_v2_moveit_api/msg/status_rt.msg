@@ -1,0 +1,4 @@
+int32 power_stage_temperature
+int32 microprocessor_temperature
+int32 chopper_temperature
+int32 filtered_motor_current

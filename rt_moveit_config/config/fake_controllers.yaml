@@ -1,0 +1,4 @@
+controller_list:
+  - name: fake_rotation_group_controller
+    joints:
+      - rotary_table_joint

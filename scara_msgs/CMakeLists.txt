@@ -16,6 +16,8 @@ add_message_files(
         pose_and_gripperState.msg
 #        pose_and_gripperState1.msg
         robot_info.msg
+        pose_velocity_direction.msg
+        status_rt.msg
 )
 
 generate_messages(

@@ -1,0 +1,12 @@
+string robot_model
+string reference_frame
+string effector_link
+string active_joints
+float64 actual_position_x
+float64 actual_position_y
+float64 actual_position_z
+float64 actual_orientation_x
+float64 actual_orientation_y
+float64 actual_orientation_z
+float64 actual_orientation_w
+

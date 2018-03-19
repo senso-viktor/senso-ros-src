@@ -20,89 +20,102 @@ MainWindow::MainWindow(QWidget *parent) :
     char **argv;
     ros::init(argc, argv, "scara_gui_node");
     ros::NodeHandle n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21,n22,n23,n24,n25;
-    ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6,nn7,nn8,nn9,nn10;
+    ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6,nn7,nn8,nn9,nn10,nn11,nn12;
     ros::Rate loop_rate(10);
 
-    ROS_INFO("spinner start");
+    ROS_INFO("spinner for GUI start\n");
     aspinner = new ros::AsyncSpinner(2);
     aspinner->start();
 
-    ROS_INFO("GUI init start!");
+    ROS_WARN("Init publishers:");
     //Publishers
     jointControl_pub = n1.advertise<geometry_msgs::PointStamped>("jointControl",1000);
-    ROS_INFO("Init publisher jointControl");
+    ROS_INFO("jointControl");
     positionControl_pub = n2.advertise<geometry_msgs::Point>("positionControl",1000);
-    ROS_INFO("Init publisher positionControl");
+    ROS_INFO("positionControl");
     demo_pub = n3.advertise<std_msgs::Bool>("demoControl",1000);                //nepouziva sa potom ho dat prec!!!!
-    ROS_INFO("Init publisher demo");
+    ROS_INFO("demoControl");
     getInfo_pub = n4.advertise<std_msgs::Bool>("getInfo",1000);
-    ROS_INFO("Init publisher getInfo");
+    ROS_INFO("getInfo");
     setVel_pub = n5.advertise<std_msgs::Float64>("setVelocity",1000);
-    ROS_INFO("Init publisher setVel");
+    ROS_INFO("setVelocity");
     setAcc_pub = n6.advertise<std_msgs::Float64>("setAcceleration",1000);
-    ROS_INFO("Init publisher setAcc");
+    ROS_INFO("setAcceleration");
     setPlanTime_pub = n7.advertise<std_msgs::Float64>("setPlanningTime",1000);
-    ROS_INFO("Init publisher setPlanTime");
+    ROS_INFO("setPlanningTime");
     setNumOfAttempts_pub = n8.advertise<std_msgs::Int32>("setNumberOfAttempts",1000);
-    ROS_INFO("Init publisher setNumOfAttempts");
+    ROS_INFO("setNumberOfAttempts");
     gripperState_pub = n9.advertise<std_msgs::Bool>("gripperState",1000);
-    ROS_INFO("Init publisher gripperState");
+    ROS_INFO("gripperState");
     start_pub = n10.advertise<std_msgs::Bool>("startState",1000);
-    ROS_INFO("Init publisher stop");
+    ROS_INFO("startState");
     mode_pub = n11.advertise<std_msgs::Int32>("modeSelectGUI",1000);
-    ROS_INFO("Init publisher mode");
+    ROS_INFO("modeSelectGUI");
     teachMode_pub = n12.advertise<std_msgs::Int32>("teachModeGUI",1000);
-    ROS_INFO("Init publisher teachMode");
+    ROS_INFO("teachModeGUI");
     teachMode_startState = n13.advertise<std_msgs::Bool>("teachModeStartState",1000);
-    ROS_INFO("Init publisher teachMode_startState");
+    ROS_INFO("teachModeStartState");
     setTorq_pub = n14.advertise<std_msgs::Float64>("setTorque",1000);
-    ROS_INFO("Init publisher setTorque");
+    ROS_INFO("setTorque");
     centralStop_pub = n15.advertise<std_msgs::Int32>("centralStop",1000);
-    ROS_INFO("Init publisher central stop");
+    ROS_INFO("centralStop");
     moveitMode_pub = n16.advertise<std_msgs::Bool>("moveitModeStart",1000);
-    ROS_INFO("Init publisher moveit mode");
+    ROS_INFO("moveitModeStart");
     colObjArrows_pub = n17.advertise<std_msgs::Int32>("colisionObjectMovement",1000);
-    ROS_INFO("Init publisher colision object movement");
+    ROS_INFO("colisionObjectMovement");
     displayRealColObj_pub = n20.advertise<std_msgs::Bool>("displayRealColisionObject",1000);
-    ROS_INFO("Init publisher display real colision object");
+    ROS_INFO("displayRealColisionObject");
     displayCustomColObj_pub = n21.advertise<std_msgs::Bool>("displayCustomColisionObject",1000);
-    ROS_INFO("Init publisher display custom colision object");
+    ROS_INFO("displayCustomColisionObject");
     setPrecision_pub = n22.advertise<std_msgs::Float64>("setPrecision",1000);
-    ROS_INFO("Init publisher set precision");
+    ROS_INFO("setPrecision");
     setCustomObjPos_pub = n23.advertise<geometry_msgs::Point>("CustomObjectPosition",1000);
-    ROS_INFO("Init publisher set custom object position");
+    ROS_INFO("CustomObjectPosition");
     setCustomColObjSize_pub = n24.advertise<geometry_msgs::Point>("CustomObjectSize",1000);
-    ROS_INFO("Init publisher set custom object size");
+    ROS_INFO("CustomObjectSize");
     setRealColObjSize_pub = n25.advertise<geometry_msgs::Point>("RealObjectSize",1000);
-    ROS_INFO("Init publisher set custom object position");
-    //novy publisheri
+    ROS_INFO("RealObjectSize");
 
-
-    ROS_INFO("...............................................");
-    ROS_INFO("...............................................");
+    ROS_INFO(".........................................");
 
     //Subscribers
     //demo_rviz.launch
     //jointStates_sub = nn1.subscribe("move_group/fake_controller_joint_states",1000,&MainWindow::jointStatesCallback, this);
     //ROS_INFO("Init subscriber jointStates");
     //demo_matlab_mfile
-    jointStates_sub = nn1.subscribe("scara_jointStates",1000,&MainWindow::jointStatesCallback, this);
-    ROS_INFO("Init subscriber jointStates");
-
-    actualAcc_sub = nn2.subscribe("actualAcceleration",1000,&MainWindow::actualAccCallback, this);
+    ROS_WARN("Init subscribers:");
+    //Pre realnu scaru
+//    jointStates_sub = nn1.subscribe("scara_jointStates",1000,&MainWindow::jointStatesCallback, this);
+//    ROS_INFO("scara_jointStates");
+    //Pre simulaciu
+    jointStates_sub = nn1.subscribe("planned_poses_and_velocities",1000,&MainWindow::posesAndVelocitiesCallback, this);
+    ROS_INFO("planned_poses_and_velocities");
+    //actualAcc_sub = nn2.subscribe("actualAcceleration",1000,&MainWindow::actualAccCallback, this);    //zrychlenia od realnej scary
+    actualAcc_sub = nn2.subscribe("/planned_accelerations",1000,&MainWindow::actualAccCallback, this);  //Simulacia
+    ROS_INFO("planned_accelerations");
     getInfo_sub = nn3.subscribe("getInfoValues",1000,&MainWindow::getInfoCallback, this);
-    ROS_INFO("Init subscriber getInfo");
+    ROS_INFO("getInfoValues");
     actualPose_sub = nn4.subscribe("actualPose",1000,&MainWindow::actualPoseCallback, this);
-    ROS_INFO("Init subscriber actualPose");
+    ROS_INFO("actualPose");
     errorMessage_sub = nn5.subscribe("errorCode",1000,&MainWindow::errorCodeCallback, this);
+    ROS_INFO("errorCode");
     gripperCommand_sub = nn6.subscribe("gripperCommand",1000,&MainWindow::gripperCommandCallback, this);
+    ROS_INFO("gripperCommand");
     pushButton_sub = nn7.subscribe("scara_pushbutton",1000,&MainWindow::pushButtonCallback, this);
+    ROS_INFO("scara_pushbutton");
     lightBarrier_sub = nn8.subscribe("scara_lightbarrier",1000,&MainWindow::lightBarrierCallback, this);
+    ROS_INFO("scara_lightbarrier");
     desiredPose_sub = nn9.subscribe("desiredPoseGUI",1000,&MainWindow::desiredPoseCallback, this);
-    shit_sub = nn10.subscribe("hovadina",1000,&MainWindow::kktinaCallback, this);
-
+    ROS_INFO("desiredPoseGUI");
+    //shit_sub = nn10.subscribe("hovadina",1000,&MainWindow::kktinaCallback, this);
+    moveit_jointStates = nn10.subscribe("joint_states",1000, &MainWindow::moveitJointStatesCallback, this);
+    ROS_INFO("joint_states");
+    torqJ1_sub = nn11.subscribe("torque_J1",1000, &MainWindow::torqueJ1Callback, this); //simulacia
+    ROS_INFO("torque_J1");
+    torqJ2_sub = nn12.subscribe("torque_J2",1000, &MainWindow::torqueJ2Callback, this); //simulacia
+    ROS_INFO("torque_J2\n");
     ROS_WARN("GUI init complete");
-    ROS_WARN("STARTING NOW");
+
 }
 
 MainWindow::~MainWindow()
@@ -118,13 +131,14 @@ void MainWindow::on_jointControl_Start_PushButton_3_clicked(){
     //Display on GUI
     ui->jointControl_J1_LineEdit->setText(QString::number(ui->jointControl_J1_Slider_3->value() / 100.0) + "rad");
     ui->jointControl_J2_LineEdit->setText(QString::number(ui->jointControl_J2_Slider_3->value() / 100.0) + "rad");
-    ui->jointControl_J3_LineEdit->setText(QString::number(ui->jointControl_J3_Slider_3->value() / 100.0) + "cm");
+    ui->jointControl_J3_LineEdit->setText(QString::number(ui->jointControl_J3_Slider_3->value()) + "cm");
     ui->status_gripper_OnOff_3->display(gripperState);
 
     //Send to ROS
     jointControl_Values_msg.point.x = ui->jointControl_J1_Slider_3->value() / 100.0;
     jointControl_Values_msg.point.y = ui->jointControl_J2_Slider_3->value() / 100.0;
-    jointControl_Values_msg.point.z = -(ui->jointControl_J3_Slider_3->value() / 100.0) + 0.04;
+    //jointControl_Values_msg.point.z = -(ui->jointControl_J3_Slider_3->value() / 100.0) + 0.04;
+    jointControl_Values_msg.point.z = (ui->jointControl_J3_Slider_3->value() / 100.0);
     if (gripperState)
         gripperState_msg.data = true;
     else
@@ -149,7 +163,7 @@ void MainWindow::on_jointControl_J2_Slider_3_actionTriggered(int action){
 }
 
 void MainWindow::on_jointControl_J3_Slider_3_actionTriggered(int action){
-    ui->jointControl_J3_LineEdit->setText(QString::number(ui->jointControl_J3_Slider_3->value() / 100.0) + "cm");
+    ui->jointControl_J3_LineEdit->setText(QString::number(ui->jointControl_J3_Slider_3->value()) + "cm");
 }
 
 void MainWindow::on_jointControl_Gripper_Checkbox_3_toggled(bool checked){
@@ -190,7 +204,7 @@ void MainWindow::on_jointControl_Reset_PushButton_3_clicked(){
     ui->jointControl_J3_Slider_3->setValue(0);
     ui->jointControl_J1_LineEdit->setText(QString::number(0.0) + "rad");
     ui->jointControl_J2_LineEdit->setText(QString::number(0.0) + "rad");
-    ui->jointControl_J3_LineEdit->setText(QString::number(0.0) + "m");
+    ui->jointControl_J3_LineEdit->setText(QString::number(0.0) + "cm");
     ui->jointControl_Gripper_Checkbox_3->setChecked(false);
     ui->jointControl_gripper_LineEdit->setText("OFF!");
 
@@ -198,7 +212,8 @@ void MainWindow::on_jointControl_Reset_PushButton_3_clicked(){
     //Send to ROS
     jointControl_Values_msg.point.x = 0.0;
     jointControl_Values_msg.point.y = 0.0;
-    jointControl_Values_msg.point.z = 0.04;
+    //jointControl_Values_msg.point.z = 0.04;
+    jointControl_Values_msg.point.z = 0.0;
     gripperState_msg.data = false;
     startState_msg.data = true;
     for (int i=0;i<100;i++){
@@ -266,7 +281,7 @@ void MainWindow::on_positionControlCustom_Reset_PushButton_5_clicked(){
     //Start Pose of SCARA
     positionControl_Values_msg.x = 0.7;
     positionControl_Values_msg.y = 0.57;
-    positionControl_Values_msg.z = 1.0196;
+    positionControl_Values_msg.z = 1.04;
     gripperState_msg.data = false;
     startState_msg.data = true;
     for (int i=0;i<100;i++){
@@ -471,18 +486,18 @@ void MainWindow::on_teachMode_teachButtonHand_4_clicked(){
             jointControl_Values_msg.point.z = actualJointStates.position[2];
 
             if (teachModeIndexHand == 0){
-                ui->teachMode_infoHand_textEdit_4->setText("X = " + QString::number(jointControl_Values_msg.point.x) + " Y= " +
-                                                           QString::number(jointControl_Values_msg.point.y) + " Z= " +
+                ui->teachMode_infoHand_textEdit_4->setText("J1= " + QString::number(jointControl_Values_msg.point.x) + " J2= " +
+                                                           QString::number(jointControl_Values_msg.point.y) + " J3= " +
                                                            QString::number(jointControl_Values_msg.point.z) + " ] \n" + "Operation type = Pick");
                 ui->teachMode_modeDisplayHand_lcdnumber_->display(0.0);
             }else if(teachModeIndexHand%2 == 0){
-                ui->teachMode_infoHand_textEdit_4->setText("[ X = " + QString::number(jointControl_Values_msg.point.x) + " Y= " +
-                                                           QString::number(jointControl_Values_msg.point.y) + " Z= " +
+                ui->teachMode_infoHand_textEdit_4->setText("[ J1 = " + QString::number(jointControl_Values_msg.point.x) + " J2= " +
+                                                           QString::number(jointControl_Values_msg.point.y) + " J3= " +
                                                            QString::number(jointControl_Values_msg.point.z) + " ] \n" + "Operation type = Pick");
                 ui->teachMode_modeDisplayHand_lcdnumber_->display(0.0);
             }else{
-                ui->teachMode_infoHand_textEdit_4->setText("[ X = " + QString::number(jointControl_Values_msg.point.x) + " Y= " +
-                                                           QString::number(jointControl_Values_msg.point.y) + " Z= " +
+                ui->teachMode_infoHand_textEdit_4->setText("[ J1= " + QString::number(jointControl_Values_msg.point.x) + " J2= " +
+                                                           QString::number(jointControl_Values_msg.point.y) + " J3= " +
                                                            QString::number(jointControl_Values_msg.point.z) + " ] \n" + "Operation type = Place");
                 ui->teachMode_modeDisplayHand_lcdnumber_->display(1.0);
             }
@@ -604,6 +619,12 @@ void MainWindow::on_moveit_checkBox_toggled(bool checked){
     for (int i=0;i<100;i++){
         moveitMode_pub.publish(moveitMode_msg);
     }
+    if (checked){
+        ui->moveit_lineEdit->setText("Movement in Moveit! enabled");
+    }else{
+        ui->moveit_lineEdit->setText("Movement in Moveit! disabled");
+    }
+
 }
 
 void MainWindow::on_moveit_gripper_checkBox_toggled(bool checked){
@@ -649,7 +670,7 @@ void MainWindow::on_basicInfo_GetInfo_PushButton_3_clicked(){
 //*************************** Set information *******************************//
 void MainWindow::on_setParameters_Torque_PushButton_3_clicked(){
     setParamFloat_msg.data = ui->setParameters_Torque_LineEdit_3->text().toFloat();
-    for (int i=0;i<100;i++) {
+    for (int i=0;i<5;i++) {
         setTorq_pub.publish(setParamFloat_msg);
     }
 
@@ -659,7 +680,7 @@ void MainWindow::on_setParameters_Precision_PushButton_4_clicked(){
 
     setParamFloat_msg.data = ui->setParameters_Precision_LineEdit_4->text().toFloat();
 
-    for (int i=0;i<100;i++) {
+    for (int i=0;i<5;i++) {
         setPrecision_pub.publish(setParamFloat_msg);
     }
 }
@@ -667,7 +688,7 @@ void MainWindow::on_setParameters_Precision_PushButton_4_clicked(){
 void MainWindow::on_setParameters_Velocity_PushButton_3_clicked(){
     //ROS
     setParamFloat_msg.data = ui->setParameters_Velocity_LineEdit_3->text().toFloat();
-    for (int i=0;i<100;i++) {
+    for (int i=0;i<5;i++) {
         setVel_pub.publish(setParamFloat_msg);
     }
 
@@ -676,7 +697,7 @@ void MainWindow::on_setParameters_Velocity_PushButton_3_clicked(){
 void MainWindow::on_setParameters_Acceleration_PushButton_3_clicked(){
     //ROS
     setParamFloat_msg.data = ui->setParameters_Acceleration_LineEdit_3->text().toFloat();
-    for (int i=0;i<100;i++) {
+    for (int i=0;i<5;i++) {
         setAcc_pub.publish(setParamFloat_msg);
     }
 }
@@ -684,7 +705,7 @@ void MainWindow::on_setParameters_Acceleration_PushButton_3_clicked(){
 void MainWindow::on_setParameters_PlanningTime_PushButton_3_clicked(){
     //ROS
     setParamFloat_msg.data = ui->setParameters_PlanningTime_LineEdit_3->text().toFloat();
-    for (int i=0;i<100;i++) {
+    for (int i=0;i<5;i++) {
         setPlanTime_pub.publish(setParamFloat_msg);
     }
 }
@@ -692,7 +713,7 @@ void MainWindow::on_setParameters_PlanningTime_PushButton_3_clicked(){
 void MainWindow::on_setParameters_NumOfAttempts_PushButton_3_clicked(){
     //ROS
     setParamInt_msg.data = ui->setParameters_NumOfAttempts_LineEdit_3->text().toInt();
-    for (int i=0;i<100;i++) {
+    for (int i=0;i<5;i++) {
         setNumOfAttempts_pub.publish(setParamInt_msg);
     }
 }
@@ -859,7 +880,7 @@ void MainWindow::on_centralStop_clicked(){
     ui->error_lineEdit->setText("CENTRAL STOP PUSHED! Matlab and ROS stopped!");
 
     //kill GUI
-    sleep(5);
+    sleep(3);
     QApplication::quit();
 
 
@@ -888,89 +909,99 @@ void MainWindow::jointStatesCallback(const sensor_msgs::JointState jointState){
 
     //Save current joint state -> for teach mode
     //ROS_INFO("new joint states!!!!");
-    actualJointStates = jointState;
-
-    //ROS_INFO("Joint states %f %f %f",jointState.position[1], jointState.position[2], jointState.position[3]);
-    ui->status_joint1pos_rad_3->display(jointState.position[0]*RAD_TO_DEG);
-    ui->status_joint2pos_rad_3->display(jointState.position[1]*RAD_TO_DEG);
-    ui->status_joint3pos_rad_3->display(jointState.position[2]*100.0);
-    ui->status_joint1pos_deg_3->display(jointState.position[0]);
-    ui->status_joint2pos_deg_3->display(jointState.position[1]);
-    ui->status_joint3pos_deg_3->display(jointState.position[2]*100.0);
-
-    //TEACH MODE
-    ui->teachModeHand_J1_LCD->display(jointState.position[0]*RAD_TO_DEG);
-    ui->teachModeHand_J2_LCD->display(jointState.position[1]*RAD_TO_DEG);
-    ui->teachModeHand_J3_LCD->display(jointState.position[2]*100.0);
-    //
-
-    //Neskor doplnit rychlosti a momenty
-    if (jointState.velocity.size() >= 3){
-        if (filterValues(jointState.velocity[0])){
-            ui->status_joint1vel_3->display(0.0);
-        }else{
-            ui->status_joint1vel_3->display(jointState.velocity[0]);
-        }
-
-        if (filterValues(jointState.velocity[1])){
-            ui->status_joint2vel_3->display(0.0);
-        }else{
-            ui->status_joint2vel_3->display(jointState.velocity[1]);
-        }
-
-        if (filterValues(jointState.velocity[2])){
-            ui->status_joint3vel_3->display(0.0);
-        }else{
-            ui->status_joint3vel_3->display(jointState.velocity[2]);
-        }
-
-//        if ((jointState.velocity[0] > -MIN_DISPLAY_VALUE) && (jointState.velocity[0] < MIN_DISPLAY_VALUE))
+//    actualJointStates = jointState;
+//
+//    //ROS_INFO("Joint states %f %f %f",jointState.position[1], jointState.position[2], jointState.position[3]);
+//    ui->status_joint1pos_rad_3->display(jointState.position[0]*RAD_TO_DEG);
+//    ui->status_joint2pos_rad_3->display(jointState.position[1]*RAD_TO_DEG);
+//    ui->status_joint3pos_rad_3->display(jointState.position[2]*100.0);
+//    ui->status_joint1pos_deg_3->display(jointState.position[0]);
+//    ui->status_joint2pos_deg_3->display(jointState.position[1]);
+//    ui->status_joint3pos_deg_3->display(jointState.position[2]*100.0);
+//
+//    //TEACH MODE
+//    ui->teachModeHand_J1_LCD->display(jointState.position[0]*RAD_TO_DEG);
+//    ui->teachModeHand_J2_LCD->display(jointState.position[1]*RAD_TO_DEG);
+//    ui->teachModeHand_J3_LCD->display(jointState.position[2]*100.0);
+//    //
+//
+//    //Neskor doplnit rychlosti a momenty
+//    if (jointState.velocity.size() >= 3){
+//        if (filterValues(jointState.velocity[0])){
 //            ui->status_joint1vel_3->display(0.0);
-//        else
+//        }else{
 //            ui->status_joint1vel_3->display(jointState.velocity[0]);
+//        }
 //
-//        if ((jointState.velocity[1] > -MIN_DISPLAY_VALUE) && (jointState.velocity[1] < MIN_DISPLAY_VALUE))
+//        if (filterValues(jointState.velocity[1])){
 //            ui->status_joint2vel_3->display(0.0);
-//        else
+//        }else{
 //            ui->status_joint2vel_3->display(jointState.velocity[1]);
+//        }
 //
-//        if ((jointState.velocity[2] > -MIN_DISPLAY_VALUE) && (jointState.velocity[2] < MIN_DISPLAY_VALUE))
+//        if (filterValues(jointState.velocity[2])){
 //            ui->status_joint3vel_3->display(0.0);
-//        else
+//        }else{
 //            ui->status_joint3vel_3->display(jointState.velocity[2]);
+//        }
+//
+////        if ((jointState.velocity[0] > -MIN_DISPLAY_VALUE) && (jointState.velocity[0] < MIN_DISPLAY_VALUE))
+////            ui->status_joint1vel_3->display(0.0);
+////        else
+////            ui->status_joint1vel_3->display(jointState.velocity[0]);
+////
+////        if ((jointState.velocity[1] > -MIN_DISPLAY_VALUE) && (jointState.velocity[1] < MIN_DISPLAY_VALUE))
+////            ui->status_joint2vel_3->display(0.0);
+////        else
+////            ui->status_joint2vel_3->display(jointState.velocity[1]);
+////
+////        if ((jointState.velocity[2] > -MIN_DISPLAY_VALUE) && (jointState.velocity[2] < MIN_DISPLAY_VALUE))
+////            ui->status_joint3vel_3->display(0.0);
+////        else
+////            ui->status_joint3vel_3->display(jointState.velocity[2]);
+//
+//    }else{
+//        ui->status_joint1vel_3->display(0.00);
+//        ui->status_joint2vel_3->display(0.00);
+//        ui->status_joint3vel_3->display(0.00);
+//    }
+//
+//    //ROS_INFO("actual torque: J1 = %f J2 = %f", jointState.effort[0], jointState.effort[1]);
+//    if (jointState.effort.size() >= 3){
+//
+//        if (filterValues(jointState.effort[0])){
+//            ui->status_joint1torq_3->display(0.0);
+//        }else{
+//            ui->status_joint1torq_3->display(jointState.effort[0]);
+//        }
+//
+//        if (filterValues(jointState.effort[1])){
+//            ui->status_joint2torq_3->display(0.0);
+//        }else{
+//            ui->status_joint2torq_3->display(jointState.effort[1]);
+//        }
+//
+////        ui->status_joint1torq_3->display(jointState.effort[0]);
+////        ui->status_joint2torq_3->display(jointState.effort[1]);
+//        ui->status_joint3torq_3->display(0.00);
+//    }else{
+//        ui->status_joint1torq_3->display(0.00);
+//        ui->status_joint2torq_3->display(0.00);
+//        ui->status_joint3torq_3->display(0.00);
+//    }
+//
+//    ui->status_pose_Z->display(1.04-jointState.position[2]);
+//    ui->status_pose_Zdesired->display(1.04-jointState.position[2]);//////
 
-    }else{
-        ui->status_joint1vel_3->display(0.00);
-        ui->status_joint2vel_3->display(0.00);
-        ui->status_joint3vel_3->display(0.00);
-    }
+}
 
-    //ROS_INFO("actual torque: J1 = %f J2 = %f", jointState.effort[0], jointState.effort[1]);
-    if (jointState.effort.size() >= 3){
+void MainWindow::posesAndVelocitiesCallback(const geometry_msgs::Pose poseAndVelocity){
 
-        if (filterValues(jointState.effort[0])){
-            ui->status_joint1torq_3->display(0.0);
-        }else{
-            ui->status_joint1torq_3->display(jointState.effort[0]);
-        }
-
-        if (filterValues(jointState.effort[1])){
-            ui->status_joint2torq_3->display(0.0);
-        }else{
-            ui->status_joint2torq_3->display(jointState.effort[1]);
-        }
-
-//        ui->status_joint1torq_3->display(jointState.effort[0]);
-//        ui->status_joint2torq_3->display(jointState.effort[1]);
-        ui->status_joint3torq_3->display(0.00);
-    }else{
-        ui->status_joint1torq_3->display(0.00);
-        ui->status_joint2torq_3->display(0.00);
-        ui->status_joint3torq_3->display(0.00);
-    }
-
-    ui->status_pose_Z->display(1.04-jointState.position[2]);
-    ui->status_pose_Zdesired->display(1.04-jointState.position[2]);//////
+    //Len pre simulaciu
+    //ROS_INFO("velocities %f %f %f",poseAndVelocity.orientation.x, poseAndVelocity.orientation.y, poseAndVelocity.orientation.z);
+//    ui->status_joint1vel_3->display(poseAndVelocity.orientation.x);
+//    ui->status_joint2vel_3->display(poseAndVelocity.orientation.y);
+//    ui->status_joint3vel_3->display(poseAndVelocity.orientation.z);
 
 }
 
@@ -1007,31 +1038,35 @@ void MainWindow::getInfoCallback(const scara_msgs::robot_info robotInfo){
 void MainWindow::actualPoseCallback(const geometry_msgs::Pose pose){
     //ROS_INFO("Pose callback");
 
+    //Pre realnu scaru
     ui->status_pose_X->display(pose.position.x);
     ui->status_pose_Y->display(pose.position.y);
-    //ui->status_pose_Z->display(pose.position.z+0.02);
+    ui->status_pose_Z->display(pose.position.z);
+
 }
 
 void MainWindow::actualAccCallback(const geometry_msgs::Point accValues){
 
-    if(filterValues(accValues.x)){
-        ui->status_joint1acc_3->display(0.0);
-    }else{
-        ui->status_joint1acc_3->display(accValues.x);
-    }
+    //Pre realnu scaru
+//    if(filterValues(accValues.x)){
+//        ui->status_joint1acc_3->display(0.0);
+//    }else{
+//        ui->status_joint1acc_3->display(accValues.x);
+//    }
+//
+//    if(filterValues(accValues.y)){
+//        ui->status_joint2acc_3->display(0.0);
+//    }else{
+//        ui->status_joint2acc_3->display(accValues.y);
+//    }
+//
+//    if(filterValues(accValues.z)){
+//        ui->status_joint3acc_3->display(0.0);
+//    }else{
+//        ui->status_joint3acc_3->display(accValues.z);
+//    }
 
-    if(filterValues(accValues.y)){
-        ui->status_joint2acc_3->display(0.0);
-    }else{
-        ui->status_joint2acc_3->display(accValues.y);
-    }
-
-    if(filterValues(accValues.z)){
-        ui->status_joint3acc_3->display(0.0);
-    }else{
-        ui->status_joint3acc_3->display(accValues.z);
-    }
-
+    //Pre simulaciu
 //    ui->status_joint1acc_3->display(accValues.x);
 //    ui->status_joint2acc_3->display(accValues.y);
 //    ui->status_joint3acc_3->display(accValues.z);
@@ -1117,6 +1152,7 @@ void MainWindow::errorCodeCallback(const std_msgs::Int32 errorCode){
 }
 
 void MainWindow::kktinaCallback(const geometry_msgs::Pose pose){
+
     ROS_INFO("kktina");
 }
 
@@ -1142,6 +1178,40 @@ void MainWindow::desiredPoseCallback(const geometry_msgs::Point desiredPose){
 
     ui->status_pose_Xdesired->display(desiredPose.x);
     ui->status_pose_Ydesired->display(desiredPose.y);
-    //ui->status_pose_Zdesired->display(desiredPose.z);
+    ui->status_pose_Zdesired->display(desiredPose.z);
+
+}
+
+void MainWindow::moveitJointStatesCallback(const sensor_msgs::JointState jointState){
+
+    //ROS_INFO("Current joint states from moveit J1=%f J2=%f J3 =%f", jointState.position[0], jointState.position[1], jointState.position[2]);
+    actualJointStates = jointState;
+
+    ui->status_joint1pos_rad_3->display(jointState.position[0]*RAD_TO_DEG);
+    ui->status_joint2pos_rad_3->display(jointState.position[1]*RAD_TO_DEG);
+    ui->status_joint3pos_rad_3->display(jointState.position[2]*100.0);
+    ui->status_joint1pos_deg_3->display(jointState.position[0]);
+    ui->status_joint2pos_deg_3->display(jointState.position[1]);
+    ui->status_joint3pos_deg_3->display(jointState.position[2]*100.0);
+
+    //TEACH MODE
+    ui->teachModeHand_J1_LCD->display(jointState.position[0]);
+    ui->teachModeHand_J2_LCD->display(jointState.position[1]);
+    ui->teachModeHand_J3_LCD->display(jointState.position[2]*100.0);
+
+
+    //pridat vel, acc, torq
+
+}
+
+void MainWindow::torqueJ1Callback(const std_msgs::Float64 torque){
+
+    ui->status_joint1torq_3->display(torque.data);
+
+}
+
+void MainWindow::torqueJ2Callback(const std_msgs::Float64 torque){
+
+    ui->status_joint2torq_3->display(torque.data);
 
 }

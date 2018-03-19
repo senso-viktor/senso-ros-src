@@ -13,6 +13,7 @@
   <build_depend>std_msgs</build_depend>
   <build_depend>message_generation</build_depend>
   <build_depend>pose_and_gripperState</build_depend>
+  <build_depend>pose_velocity_direction</build_depend>
   <!--<build_depend>pose_and_gripperState1</build_depend>-->
   <build_depend>robot_info</build_depend>
   <build_depend>genmsgs</build_depend>
@@ -22,6 +23,7 @@
   <run_depend>std_msgs</run_depend>
   <run_depend>message_runtime</run_depend>
   <run_depend>pose_and_gripperState</run_depend>
+  <run_depend>pose_velocity_direction</run_depend>
   <!--<run_depend>pose_and_gripperState1</run_depend>-->
   <run_depend>robot_info</run_depend>
   <run_depend>genmsgs</run_depend>

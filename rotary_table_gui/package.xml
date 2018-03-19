@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package>
+  <name>rotary_table_gui</name>
+  <version>0.0.0</version>
+  <description>The rotary_table_gui package</description>
+  <maintainer email="viktordluhos@gmail.com">viktordluhos</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>rqt_gui</build_depend>
+  <build_depend>rqt_gui_cpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>scara_msgs</build_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>rqt_gui</run_depend>
+  <run_depend>rqt_gui_cpp</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>scara_msgs</run_depend>
+
+  <export>
+  </export>
+</package>

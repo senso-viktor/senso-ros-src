@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: scara_v2_with_gripper
+    relative_path: urdf/rotary_table_v3_urdf.xacro
+  SRDF:
+    relative_path: config/rotary_table_v2.srdf
+  CONFIG:
+    author_name: Viktor Dluhos
+    author_email: viktordluhos@gmail.com
+    generated_timestamp: 1510645286

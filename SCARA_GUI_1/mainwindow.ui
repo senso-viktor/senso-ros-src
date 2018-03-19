@@ -17,10 +17,10 @@
    <widget class="QGroupBox" name="controlGroupBox">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>0</x>
       <y>90</y>
-      <width>361</width>
-      <height>631</height>
+      <width>381</width>
+      <height>611</height>
      </rect>
     </property>
     <property name="layoutDirection">
@@ -60,9 +60,9 @@
     <widget class="QTabWidget" name="workingModes_3">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>20</x>
        <y>60</y>
-       <width>341</width>
+       <width>351</width>
        <height>531</height>
       </rect>
      </property>
@@ -85,21 +85,21 @@
       <widget class="QLabel" name="label_98">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>20</x>
          <y>20</y>
          <width>291</width>
-         <height>421</height>
+         <height>461</height>
         </rect>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Wellcome to SCARA&lt;br/&gt;Graphical User Interface&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Select:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 1 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Joint controll&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 2 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Position controll&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 3 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;DEMO application&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 4 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Teach mode&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 5 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Teach mode with HAND&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 6 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Custom movement in Moveit!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 7 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Get basic information&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 8 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Set parameters&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 9 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Colision object&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; font-style:italic;&quot;&gt;This GUI was provided by SENSODRIVE &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; font-style:italic;&quot;&gt;and Viktor Dluhos&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Wellcome to SCARA&lt;br/&gt;Graphical User Interface&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Select:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 1  : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Joint controll&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 2  : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Position controll&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 3  : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;DEMO application&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 4  : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Teach mode&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 5  : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Teach mode with HAND&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 6  : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Custom movement in Moveit!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 7  : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Get basic information&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 8  : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Set parameters&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 9  : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Colision object&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mode 10 : &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Virtual cube&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; font-style:italic;&quot;&gt;This GUI was provided by SENSODRIVE &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; font-style:italic;&quot;&gt;and Viktor Dluhos&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_157">
        <property name="geometry">
         <rect>
          <x>180</x>
-         <y>400</y>
+         <y>430</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -647,7 +647,7 @@
         </rect>
        </property>
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="tab">
         <attribute name="title">
@@ -873,7 +873,7 @@
         </rect>
        </property>
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="tab_8">
         <attribute name="title">
@@ -2088,6 +2088,24 @@
        </widget>
       </widget>
      </widget>
+     <widget class="QWidget" name="tab_6">
+      <attribute name="title">
+       <string>10</string>
+      </attribute>
+      <widget class="QLabel" name="label_196">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>40</y>
+         <width>331</width>
+         <height>161</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Virtual cube&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;In this mode a virtual cube is displayed &lt;br/&gt;in RViz program in ROS. In this mode&lt;br/&gt;the SCARA robotic arm cannot exceed &lt;br/&gt;this virtual cube.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </widget>
     </widget>
     <widget class="QLabel" name="controlBox_label_5">
      <property name="geometry">
@@ -2109,7 +2127,7 @@
       <x>390</x>
       <y>90</y>
       <width>421</width>
-      <height>631</height>
+      <height>611</height>
      </rect>
     </property>
     <property name="title">
@@ -2518,7 +2536,7 @@
        <x>10</x>
        <y>350</y>
        <width>401</width>
-       <height>141</height>
+       <height>131</height>
       </rect>
      </property>
      <property name="frameShape">
@@ -2672,7 +2690,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>510</y>
+       <y>480</y>
        <width>401</width>
        <height>111</height>
       </rect>
@@ -2786,9 +2804,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>730</y>
-      <width>351</width>
-      <height>191</height>
+      <y>710</y>
+      <width>361</width>
+      <height>151</height>
      </rect>
     </property>
     <property name="text">
@@ -2798,8 +2816,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>730</y>
+      <x>400</x>
+      <y>720</y>
       <width>401</width>
       <height>21</height>
      </rect>
@@ -2831,10 +2849,15 @@
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>750</y>
+      <y>740</y>
       <width>401</width>
-      <height>51</height>
+      <height>61</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
    </widget>
   </widget>

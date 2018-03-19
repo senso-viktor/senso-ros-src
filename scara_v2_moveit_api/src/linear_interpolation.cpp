@@ -69,7 +69,7 @@ bool positionControll (moveit::planning_interface::MoveGroupInterface *move_grou
             ROS_INFO("only aproximate IK solution");
         numberOfAttempts++;
     }
-    success = move_group->plan(my_plan);
+    success = static_cast<bool>(move_group->plan(my_plan));
     if(success){
 
         int size=my_plan.trajectory_.joint_trajectory.points.size();
@@ -222,7 +222,7 @@ int main(int argc, char **argv) {
     countIK(kkt.position.x,kkt.position.y,kkt.position.z, 1);
     move_group.setJointValueTarget(joint_positions);
     kinematic_state->setJointGroupPositions(joint_model_group, joint_positions);
-    success = move_group.plan(my_plan);
+    success = static_cast<bool>(move_group.plan(my_plan));
 
     if (success){
         ROS_INFO("Succesful plan!");

@@ -18,6 +18,7 @@
   <!--<build_depend>map_msgs</build_depend>-->
   <build_depend>message_generation</build_depend>
   <build_depend>pose_and_gripperState</build_depend>
+  <build_depend>pose_velocity_direction</build_depend>
   <build_depend>genmsgs</build_depend>
   <build_depend>scara_msgs</build_depend>
   <build_depend>moveit_msgs</build_depend>
@@ -34,6 +35,7 @@
   <!--<run_depend>map_msgs</run_depend>-->
   <run_depend>message_runtime</run_depend>
   <run_depend>pose_and_gripperState</run_depend>
+  <run_depend>pose_velocity_direction</run_depend>
   <run_depend>genmsgs</run_depend>
   <run_depend>scara_msgs</run_depend>
   <run_depend>tf</run_depend>

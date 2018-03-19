@@ -1,0 +1,9 @@
+<launch>
+    <rosparam file="$(find scara_v2_full_control)/config/rt_v3_full_control.yaml" command="load"/>
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+          output="screen" ns="/rotary_table_v3" args="rt_position_controller joint_state_controller"/> <!-- Dopisat otocny joint -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+          respawn="false" output="screen">
+        <remap from="/joint_states" to="/rotary_table_v3/joint_states" />
+    </node>
+</launch>

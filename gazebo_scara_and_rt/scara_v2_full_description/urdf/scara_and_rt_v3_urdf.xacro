@@ -1,0 +1,859 @@
+<?xml version="1.0"?>
+<robot  name="scara_and_rt" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!--              Constants               -->
+    <xacro:property name="DEG2RAD" value="0.01745329252" />
+    <xacro:property name="RED2DEG" value="57.295779513" />
+    <xacro:property name="M_PI" value="3.141592" />
+    <xacro:property name="baseBox_offset_x" value="0.4" />
+    <xacro:property name="baseBox_offset_y" value="0.15" />
+    <xacro:property name="base_size_x" value="0.125" />
+    <xacro:property name="base_size_y" value="0.245" />
+    <xacro:property name="base_size_z" value="0.03" /> <!-- Zmenil som vysku rotacneho stolika -->
+    <xacro:property name="base_circle_length" value="0.004" />
+    <xacro:property name="base_circle_radius" value="0.045" />
+    <xacro:property name="motor_shaft_length" value="0.01" />
+    <xacro:property name="motor_shaft_radius" value="0.01" />
+    <xacro:property name="rotation_disc_height" value="0.00" />
+    <xacro:property name="pick_hore_radius" value="0.035" />
+    <xacro:property name="pick_offset_z" value="0.02" />
+
+    <!-- ***********************************  -->
+
+    <!-- Import all Gazebo-customization elements, including Gazebo colors -->
+    <xacro:include filename="$(find scara_v2_full_description)/urdf/scara_and_rt_v3_gazebo.gazebo" />
+    <!-- ****************************************************************  -->
+    <!--        Import Material colors        -->
+    <xacro:include filename="$(find scara_v2_full_description)/urdf/materials.xacro" />
+
+
+    <!--*********************** Link and Joint definitions ****************************-->
+
+    <link name="world"/>
+    <joint name="world_to_BaseBox" type="fixed">
+        <parent link="world"/>
+        <child link="BaseBox"/>
+        <origin xyz="0 0 0.965" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+
+    </joint>
+
+    <!--********************** TABLE  *************************-->
+    <link name="BaseBox">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://scara_v2_with_gripper/meshes/baseBox.STL" />
+            </geometry>
+            <material name="sensoGray">
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <!--?????????-->
+                <mesh filename="package://scara_v2_with_gripper/meshes/baseBox_modif.stl" />
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="CentralStop1">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="0" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://scara_v2_with_gripper/meshes/CentralStop1.STL" />
+            </geometry>
+            <material name="red">
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://scara_v2_with_gripper/meshes/CentralStop1_modif.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Joint_CentralStop1" type="fixed">
+        <parent link="BaseBox" />
+        <child link="CentralStop1" />
+        <origin xyz="0.69 0.11 -0.0015" rpy="-3.8218E-18 -1.301E-16 -3.1416" />
+        <axis xyz="1 0 0" />
+    </joint>
+
+    <link name="CentralStop2">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://scara_v2_with_gripper/meshes/CentralStop2.STL" />
+            </geometry>
+            <material name="red">
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://scara_v2_with_gripper/meshes/CentralStop2_modif.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Joint_CentralStop2" type="fixed">
+        <parent link="BaseBox" />
+        <child link="CentralStop2" />
+        <origin xyz="0.69 1.05 -0.0015" rpy="-3.8218E-18 -1.301E-16 -3.1416" />
+        <axis xyz="1 0 0" />
+    </joint>
+    <!--******************************************************-->
+
+    <!--****************** PLACE BOX *************************-->
+    <link name="placeBox">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="0.2 0.12 0.02"/>
+            </geometry>
+            <material name="sensoSilver">
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="0.2 0.12 0.02"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Joint_placeBox" type="fixed">
+        <parent link="BaseBox" />
+        <child link="placeBox" />
+        <origin xyz="0.45 0.90 -0.0015" rpy="-3.8218E-18 -1.301E-16 -3.1416" />
+        <axis xyz="1 0 0" />
+    </joint>
+
+    <link name="placeHole1">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.01" radius="0.015"/>
+            </geometry>
+            <material name="white">
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.01" radius="0.015"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Joint_placeHole1" type="fixed">
+        <parent link="placeBox" />
+        <child link="placeHole1" />
+        <!--<origin xyz="0.06 0.03 0.01" rpy="-3.8218E-18 -1.301E-16 -3.1416" />-->
+        <origin xyz="-0.06 0.03 0.01" rpy="-3.8218E-18 -1.301E-16 -3.1416" />
+        <axis xyz="1 0 0" />
+    </joint>
+
+
+    <link name="placeHole2">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.01" radius="0.015"/>
+            </geometry>
+            <material name="white">
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.01" radius="0.015"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Joint_placeHole2" type="fixed">
+        <parent link="placeBox" />
+        <child link="placeHole2" />
+        <!--<origin xyz="0.06 -0.03 0.01" rpy="-3.8218E-18 -1.301E-16 -3.1416" />-->
+        <origin xyz="-0.06 -0.03 0.01" rpy="-3.8218E-18 -1.301E-16 -3.1416" />
+        <axis xyz="1 0 0" />
+    </joint>
+
+
+    <link name="placeHole3">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.01" radius="0.015"/>
+            </geometry>
+            <material name="white">
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.01" radius="0.015"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Joint_placeHole3" type="fixed">
+        <parent link="placeBox" />
+        <child link="placeHole3" />
+        <!--<origin xyz="0.02 0.03 0.01" rpy="-3.8218E-18 -1.301E-16 -3.1416" />-->
+        <origin xyz="-0.02 0.03 0.01" rpy="-3.8218E-18 -1.301E-16 -3.1416" />
+        <axis xyz="1 0 0" />
+    </joint>
+
+    <link name="placeHole4">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.01" radius="0.015"/>
+            </geometry>
+            <material name="white">
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.01" radius="0.015"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Joint_placeHole4" type="fixed">
+        <parent link="placeBox" />
+        <child link="placeHole4" />
+        <!--<origin xyz="0.02 -0.03 0.01" rpy="-3.8218E-18 -1.301E-16 -3.1416" />-->
+        <origin xyz="-0.02 -0.03 0.01" rpy="-3.8218E-18 -1.301E-16 -3.1416" />
+        <axis xyz="1 0 0" />
+    </joint>
+
+    <link name="placeHole5">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.01" radius="0.015"/>
+            </geometry>
+            <material name="white">
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.01" radius="0.015"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Joint_placeHole5" type="fixed">
+        <parent link="placeBox" />
+        <child link="placeHole5" />
+        <!--<origin xyz="-0.02 0.03 0.01" rpy="-3.8218E-18 -1.301E-16 -3.1416" />-->
+        <origin xyz="0.02 0.03 0.01" rpy="-3.8218E-18 -1.301E-16 -3.1416" />
+        <axis xyz="1 0 0" />
+    </joint>
+
+    <link name="placeHole6">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.01" radius="0.015"/>
+            </geometry>
+            <material name="white">
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.01" radius="0.015"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Joint_placeHole6" type="fixed">
+        <parent link="placeBox" />
+        <child link="placeHole6" />
+        <!--<origin xyz="-0.02 -0.03 0.01" rpy="-3.8218E-18 -1.301E-16 -3.1416" />-->
+        <origin xyz="0.02 -0.03 0.01" rpy="-3.8218E-18 -1.301E-16 -3.1416" />
+        <axis xyz="1 0 0" />
+    </joint>
+
+    <link name="placeHole7">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.01" radius="0.015"/>
+            </geometry>
+            <material name="white">
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.01" radius="0.015"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Joint_placeHole7" type="fixed">
+        <parent link="placeBox" />
+        <child link="placeHole7" />
+        <!--<origin xyz="-0.06 0.03 0.01" rpy="-3.8218E-18 -1.301E-16 -3.1416" />-->
+        <origin xyz="0.06 0.03 0.01" rpy="-3.8218E-18 -1.301E-16 -3.1416" />
+        <axis xyz="1 0 0" />
+    </joint>
+
+
+    <link name="placeHole8">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.01" radius="0.015"/>
+            </geometry>
+            <material name="white">
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.01" radius="0.015"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Joint_placeHole8" type="fixed">
+        <parent link="placeBox" />
+        <child link="placeHole8" />
+        <!--<origin xyz="-0.06 -0.03 0.01" rpy="-3.8218E-18 -1.301E-16 -3.1416" />-->
+        <origin xyz="0.06 -0.03 0.01" rpy="-3.8218E-18 -1.301E-16 -3.1416" />
+        <axis xyz="1 0 0" />
+    </joint>
+    <!-- *********************************************************-->
+
+    <!--********************** Rotary Table **********************-->
+    <link name="base">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="${base_size_x} ${base_size_y} ${base_size_z}"/>
+            </geometry>
+            <material name="sensoGray" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="${base_size_x} ${base_size_y} ${base_size_z}"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="world_to_base" type="fixed">
+        <parent link="BaseBox"/>
+        <child link="base"/>
+        <origin xyz="${baseBox_offset_x} ${baseBox_offset_y} ${base_size_z/2}" rpy="0 0 ${-M_PI/2}" />
+        <axis xyz="1 0 0" />
+    </joint>
+
+
+    <link name="baseCircle">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="${base_circle_length}" radius="${base_circle_radius}"/>
+            </geometry>
+            <material name="sensoSilver" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="${base_circle_length}" radius="${base_circle_radius}"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="base_to_baseCircle" type="fixed">
+        <parent link="base"/>
+        <child link="baseCircle"/>
+        <origin xyz="0 ${base_size_y/4} ${base_circle_length/2 + base_size_z/2}" rpy="0 0 0"/>
+        <axis xyz="1 0 0" />
+    </joint>
+
+
+
+    <link name="motorShaftLink">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="${motor_shaft_length}" radius="${motor_shaft_radius}"/>
+            </geometry>
+            <material name="sensoSilver" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="${motor_shaft_length - 0.002}" radius="${motor_shaft_radius - 0.002}"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="baseCircle_to_motorShaftLink" type="fixed">
+        <parent link="baseCircle"/>
+        <child link="motorShaftLink"/>
+        <origin xyz="0 0 ${motor_shaft_length/2 + base_circle_length/2}" rpy="0 0 0"/>
+        <axis xyz="0 0 1" />
+    </joint>
+
+
+    <link name="rotationDisc">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://scara_v2_with_gripper/meshes/rotaryTablePlate.STL"/>
+            </geometry>
+            <material name="sensoSilver" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://scara_v2_with_gripper/meshes/rotaryTablePlate.STL"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="rotary_table_joint" type="revolute">    <!-- joint name base_link1_to_link1-->
+        <parent link="motorShaftLink"/>
+        <child link="rotationDisc"/>
+        <origin xyz="0 0 ${motor_shaft_length/2 + rotation_disc_height}" rpy="0 0 0"/>
+        <axis xyz="0 0 1" />
+        <limit effort="100" lower="0" upper="${2*M_PI}" velocity="0.5"/>
+    </joint>
+
+
+
+    <link name="pickHole1"/>
+    <joint name="joint_to_pickHole1" type="fixed">
+        <parent link="rotationDisc" />
+        <child link="pickHole1" />
+        <origin xyz="${pick_hore_radius*0} ${pick_hore_radius*1} ${pick_offset_z}" rpy="0 0 ${M_PI/2}" />
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="pickHole2"/>
+    <joint name="joint_to_pickHole2" type="fixed">
+        <parent link="rotationDisc" />
+        <child link="pickHole2" />
+        <origin xyz="${pick_hore_radius*(-0.7071)} ${pick_hore_radius*0.7071} ${pick_offset_z}" rpy="0 0 ${M_PI/4 + M_PI/2}" />
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="pickHole3"/>
+    <joint name="joint_to_pickHole3" type="fixed">
+        <parent link="rotationDisc" />
+        <child link="pickHole3" />
+        <origin xyz="${pick_hore_radius*(-1)} ${pick_hore_radius*0} ${pick_offset_z}" rpy="0 0 ${M_PI}" />
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="pickHole4"/>
+    <joint name="joint_to_pickHole4" type="fixed">
+        <parent link="rotationDisc" />
+        <child link="pickHole4" />
+        <origin xyz="${pick_hore_radius*(-0.7071)} ${pick_hore_radius*(-0.7071)} ${pick_offset_z}" rpy="0 0 ${M_PI/4 + M_PI}" />
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="pickHole5"/>
+    <joint name="joint_to_pickHole5" type="fixed">
+        <parent link="rotationDisc" />
+        <child link="pickHole5" />
+        <origin xyz="${pick_hore_radius*0} ${pick_hore_radius*(-1)} ${pick_offset_z}" rpy="0 0 ${M_PI + M_PI/2}" />
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="pickHole6"/>
+    <joint name="joint_to_pickHole6" type="fixed">
+        <parent link="rotationDisc" />
+        <child link="pickHole6" />
+        <origin xyz="${pick_hore_radius*0.7071} ${pick_hore_radius*(-0.7071)} ${pick_offset_z}" rpy="0 0 ${M_PI + M_PI/4 + M_PI/2}" />
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="pickHole7"/>
+    <joint name="joint_to_pickHole7" type="fixed">
+        <parent link="rotationDisc" />
+        <child link="pickHole7" />
+        <origin xyz="${pick_hore_radius*1} ${pick_hore_radius*0} ${pick_offset_z}" rpy="0 0 ${0}" />
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="pickHole8"/>
+    <joint name="joint_to_pickHole8" type="fixed">
+        <parent link="rotationDisc" />
+        <child link="pickHole8" />
+        <origin xyz="${pick_hore_radius*0.7071} ${pick_hore_radius*0.7071} ${pick_offset_z}" rpy="0 0 ${M_PI/4}" />
+        <axis xyz="0 0 0" />
+    </joint>
+    <!--***************************************************-->
+
+
+
+    <!--******************** SCARA ************************-->
+    <link name="ScaraBase">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0"
+                     iyy="1" iyz="0"
+                     izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://scara_v2_with_gripper/meshes/ScaraBase.STL" />
+            </geometry>
+            <material  name="sensoSilver">
+            </material>
+        </visual>
+        <collision>
+            <origin  xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://scara_v2_with_gripper/meshes/ScaraBase.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Joint_ScaraBase" type="fixed">
+        <parent link="BaseBox" />
+        <child link="ScaraBase" />
+        <origin xyz="0.212 0.58 0.141"  rpy="1.5708 0 0" />
+        <axis  xyz="1 0 0" />
+    </joint>
+
+
+
+    <link name="ScaraLink1">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="3.8063" />
+            <inertia ixx="7.8753E-3" ixy="4.6431E-3" ixz="-1.4702E-5"
+                     iyy="6.1309E-2" iyz="-5.8992E-6"
+                     izz="6.2681E-2" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://scara_v2_with_gripper/meshes/ScaraLink1.STL" />   <!--ScaraLink1.STL-->
+            </geometry>
+            <material name="sensoSilver">
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://scara_v2_with_gripper/meshes/ScaraLink1.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Joint1" type="revolute">
+        <parent link="ScaraBase" />
+        <child link="ScaraLink1" />
+        <origin xyz="0 0.051 0" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <!--<limit effort="0" lower="-1.57079" upper="1.57079" velocity="0"/>-->
+        <limit effort="20" lower="${-85*DEG2RAD}" upper="${85*DEG2RAD}" velocity="100"/>        <!--100-->
+    </joint>
+
+    <link name="ScaraLink2">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1.5020" />
+            <inertia  ixx="5.0471E-2" ixy="3.0689E-4" ixz="-8.5622E-4"
+                      iyy="4.7456E-2" iyz="8.7643E-3"
+                      izz="5.2228E-3" />
+        </inertial>
+        <visual>
+            <origin  xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh  filename="package://scara_v2_with_gripper/meshes/ScaraLink2.STL" />
+            </geometry>
+            <material  name="sensoSilver">
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://scara_v2_with_gripper/meshes/ScaraLink2.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Joint2" type="revolute">
+        <parent link="ScaraLink1" />
+        <child link="ScaraLink2" />
+        <origin xyz="0.24972 -0.081 0" rpy="3.14 -1.5708 0" />
+        <axis xyz="0 1 0" />
+        <!--<limit effort="0" lower="-2.65" upper="2.65" velocity="0"/>-->
+        <limit effort="20" lower="${-170*DEG2RAD}" upper="${170*DEG2RAD}" velocity="100"/><!--100-->
+    </joint>
+    <!--*************************************************-->
+
+
+
+    <!--************ GRIPPER JOINTS DEFINITION **********-->
+    <link name="GripperBase">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass  value="0.5" />
+            <inertia  ixx="0.01" ixy="0.01" ixz="0.01"
+                      iyy="0.01" iyz="0.01"
+                      izz="0.01" />
+        </inertial>
+        <visual>
+            <origin  xyz="0 0 0"  rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://scara_v2_with_gripper/meshes/GripperBase.STL" />
+            </geometry>
+            <material name="sensoDarkGray">
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://scara_v2_with_gripper/meshes/GripperBase.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Joint_GripperBase" type="prismatic">
+        <parent link="ScaraLink2" />
+        <child link="GripperBase" />
+        <origin xyz="0 -0.0424 0.24305" rpy="3.1416 0 3.1416" />
+        <axis xyz="0 1 0" />
+        <limit effort="100.0" lower="-0.04" upper="0.05" velocity="1"/>
+    </joint>
+
+    <!--<joint name="Base_to_tool0" type="fixed">-->
+    <!--<parent link="GripperBase" />-->
+    <!--<child link="tool0" />-->
+    <!--<origin xyz="0 0.0984 0" rpy="0 0 0 " />-->
+    <!--</joint>-->
+
+    <!--<link name="tool0"/>-->
+
+
+
+    <link name="GripperLeft">
+        <inertial>
+            <origin  xyz="0 0 0"  rpy="3.14 0 0" />
+            <mass value="0.1" />
+            <inertia  ixx="0.01" ixy="0.01" ixz="0.01"
+                      iyy="0.01" iyz="0.01"
+                      izz="0.01" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="3.14 0 0" />
+            <geometry>
+                <mesh filename="package://scara_v2_with_gripper/meshes/gripperLeft_full.STL" />
+            </geometry>
+            <material name="sensoDarkGray">
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="3.14 0 0" />
+            <geometry>
+                <mesh  filename="package://scara_v2_with_gripper/meshes/gripperLeft_full.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Joint_Gripper" type="fixed">
+        <parent link="GripperBase" />
+        <child link="GripperLeft" />
+        <origin xyz="-0.0162 0.0984 0" rpy="3.1416 0 0" />
+        <axis xyz="1 0 0" />
+        <!--<limit effort="100.0" lower="0" upper="0.003" velocity="1"/>-->
+    </joint>
+
+
+
+
+    <link name="GripperRight">
+        <inertial>
+            <origin   xyz="0 0 0" rpy="3.14 0 0" />
+            <mass value="0.1" />
+            <inertia  ixx="0.01" ixy="0.01" ixz="0.01"
+                      iyy="0.01" iyz="0.01"
+                      izz="0.01" />
+        </inertial>
+        <visual>
+            <origin  xyz="0 0 0"  rpy="3.14 0 0" />
+            <geometry>
+                <mesh filename="package://scara_v2_with_gripper/meshes/gripperRight_full.STL" />
+            </geometry>
+            <material name="sensoDarkGray">
+            </material>
+        </visual>
+        <collision>
+            <origin  xyz="0 0 0" rpy="3.14 0 0" />
+            <geometry>
+                <mesh  filename="package://scara_v2_with_gripper/meshes/gripperRight_full.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Joint_GripperRight" type="fixed">
+        <parent link="GripperBase" />
+        <child link="GripperRight" />
+        <origin  xyz="0.0165 0.0984 0" rpy="3.1416 0 3.1416" />
+        <axis  xyz="1 0 0" />
+    </joint>
+    <!--*************************************************-->
+    <!--*******************************************************************************-->
+
+
+    <!--*********************** Transmision definitions *******************************-->
+    <!--************ SCARA arm *****************-->
+    <transmission name="tran1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="Joint1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="tran2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="Joint2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="tran3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="Joint_GripperBase">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor3">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>100</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <!--*******************************-->
+
+    <!--******** rotary table *********-->
+    <transmission name="tran1rt">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="rotary_table_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor1">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <!--********************************-->
+
+</robot>
