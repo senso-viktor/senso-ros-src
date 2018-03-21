@@ -3,8 +3,11 @@
 
 #include <pluginlib/class_list_macros.h>
 #include <QStringList>
-#include <std_msgs/Int32.h>
+#include <QtCore>
+#include <pluginlib/class_list_macros.h>
 
+
+#include <std_msgs/Int32.h>
 #include "ros/ros.h"
 
 
@@ -115,6 +118,16 @@ MainWindow::MainWindow(QWidget *parent) :
     torqJ2_sub = nn12.subscribe("torque_J2",1000, &MainWindow::torqueJ2Callback, this); //simulacia
     ROS_INFO("torque_J2\n");
     ROS_WARN("GUI init complete");
+
+    ROS_WARN("Init shared variables");
+    //init_shared_variables();
+    ROS_WARN("Shared variables init complete");
+
+    ROS_WARN("Init paralel thread");
+    timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &MainWindow::displayValues);
+    timer->start(100);
+    ROS_WARN("Paralel thread init complete");
 
 }
 
@@ -1003,6 +1016,10 @@ void MainWindow::posesAndVelocitiesCallback(const geometry_msgs::Pose poseAndVel
 //    ui->status_joint2vel_3->display(poseAndVelocity.orientation.y);
 //    ui->status_joint3vel_3->display(poseAndVelocity.orientation.z);
 
+    disp_curr_joint_vel[0] = poseAndVelocity.orientation.x;
+    disp_curr_joint_vel[1] = poseAndVelocity.orientation.y;
+    disp_curr_joint_vel[2] = poseAndVelocity.orientation.z;
+
 }
 
 void MainWindow::jointControlCallback(const geometry_msgs::PointStamped pointStamped){
@@ -1021,10 +1038,10 @@ void MainWindow::getInfoCallback(const scara_msgs::robot_info robotInfo){
     ROS_INFO_STREAM(effector_link);
     ROS_INFO_STREAM(active_joints);
 
-//    ui->basicInfo_RobotModel_TextBrowser_3->setText(QString::fromStdString(robotInfo.robot_model));
-//    ui->basicInfo_ReferenceFrame_TextBrowser_3->setText(QString::fromStdString(robotInfo.reference_frame));
-//    ui->basicInfo_EffectorLink_TextBrowser_3->setText(QString::fromStdString(robotInfo.efector_link));
-//    ui->basicInfo_ActiveJoints_TextBrowser_3->setText(QString::fromStdString(robotInfo.active_joints));
+    disp_rob_model = robot_model;
+    disp_refer_frame = reference_frame;
+    disp_effect_link = effector_link;
+    disp_active_joints = active_joints;
 
     ui->basicInfo_X_LCDnum_3->display(robotInfo.position_x);
     ui->basicInfo_Y_LCDnum_6->display(robotInfo.position_y);
@@ -1033,15 +1050,28 @@ void MainWindow::getInfoCallback(const scara_msgs::robot_info robotInfo){
     ui->basicInfo_P_LCDnum_3->display(robotInfo.orientation_y);
     ui->basicInfo_Y_LCDnum_5->display(robotInfo.orientation_z);
     ui->basicInfo_W_LCDnum_3->display(robotInfo.orientation_w);
+
+    disp_curr_rob_status[0] = robotInfo.position_x;
+    disp_curr_rob_status[1] = robotInfo.position_y;
+    disp_curr_rob_status[2] = robotInfo.position_z;
+    disp_curr_rob_status[3] = robotInfo.orientation_x;
+    disp_curr_rob_status[4] = robotInfo.orientation_y;
+    disp_curr_rob_status[5] = robotInfo.orientation_z;
+    disp_curr_rob_status[6] = robotInfo.orientation_w;
+
+
 }   //String to QString !!!!!!
 
 void MainWindow::actualPoseCallback(const geometry_msgs::Pose pose){
     //ROS_INFO("Pose callback");
 
     //Pre realnu scaru
-    ui->status_pose_X->display(pose.position.x);
-    ui->status_pose_Y->display(pose.position.y);
-    ui->status_pose_Z->display(pose.position.z);
+//    ui->status_pose_X->display(pose.position.x);
+//    ui->status_pose_Y->display(pose.position.y);
+//    ui->status_pose_Z->display(pose.position.z);
+    disp_curr_carthesian_pos[0] = pose.position.x;
+    disp_curr_carthesian_pos[1] = pose.position.y;
+    disp_curr_carthesian_pos[2] = pose.position.z;
 
 }
 
@@ -1070,6 +1100,11 @@ void MainWindow::actualAccCallback(const geometry_msgs::Point accValues){
 //    ui->status_joint1acc_3->display(accValues.x);
 //    ui->status_joint2acc_3->display(accValues.y);
 //    ui->status_joint3acc_3->display(accValues.z);
+
+    disp_curr_joint_acc[0] = accValues.x;
+    disp_curr_joint_acc[1] = accValues.y;
+    disp_curr_joint_acc[2] = accValues.z;
+
 
 }
 
@@ -1158,27 +1193,32 @@ void MainWindow::kktinaCallback(const geometry_msgs::Pose pose){
 
 void MainWindow::pushButtonCallback(const std_msgs::Byte pushButtonState){
 
-    ui->status_gripper_PushButton_3->display(pushButtonState.data);
-
+//    ui->status_gripper_PushButton_3->display(pushButtonState.data);
+    disp_push_button = pushButtonState.data;
 }
 
 void MainWindow::lightBarrierCallback(const std_msgs::Byte lightBarrierState){
 
-    ui->status_gripper_LightBarrier_3->display(lightBarrierState.data);
-
+//    ui->status_gripper_LightBarrier_3->display(lightBarrierState.data);
+    disp_light_barrier = lightBarrierState.data;
 }
 
 void MainWindow::gripperCommandCallback(const std_msgs::Byte gripperCommandState){
 
-    ui->status_gripper_OnOff_3->display(gripperCommandState.data);
+//    ui->status_gripper_OnOff_3->display(gripperCommandState.data);
+    disp_gripper_state = gripperCommandState.data;
 
 }
 
 void MainWindow::desiredPoseCallback(const geometry_msgs::Point desiredPose){
 
-    ui->status_pose_Xdesired->display(desiredPose.x);
-    ui->status_pose_Ydesired->display(desiredPose.y);
-    ui->status_pose_Zdesired->display(desiredPose.z);
+//    ui->status_pose_Xdesired->display(desiredPose.x);
+//    ui->status_pose_Ydesired->display(desiredPose.y);
+//    ui->status_pose_Zdesired->display(desiredPose.z);
+
+    disp_des_carthesian_pos[0] = desiredPose.x;
+    disp_des_carthesian_pos[1] = desiredPose.y;
+    disp_des_carthesian_pos[2] = desiredPose.z;
 
 }
 
@@ -1187,31 +1227,355 @@ void MainWindow::moveitJointStatesCallback(const sensor_msgs::JointState jointSt
     //ROS_INFO("Current joint states from moveit J1=%f J2=%f J3 =%f", jointState.position[0], jointState.position[1], jointState.position[2]);
     actualJointStates = jointState;
 
-    ui->status_joint1pos_rad_3->display(jointState.position[0]*RAD_TO_DEG);
-    ui->status_joint2pos_rad_3->display(jointState.position[1]*RAD_TO_DEG);
-    ui->status_joint3pos_rad_3->display(jointState.position[2]*100.0);
-    ui->status_joint1pos_deg_3->display(jointState.position[0]);
-    ui->status_joint2pos_deg_3->display(jointState.position[1]);
-    ui->status_joint3pos_deg_3->display(jointState.position[2]*100.0);
+//    ui->status_joint1pos_rad_3->display(jointState.position[0]*RAD_TO_DEG);
+//    ui->status_joint2pos_rad_3->display(jointState.position[1]*RAD_TO_DEG);
+//    ui->status_joint3pos_rad_3->display(jointState.position[2]*100.0);
+//    ui->status_joint1pos_deg_3->display(jointState.position[0]);
+//    ui->status_joint2pos_deg_3->display(jointState.position[1]);
+//    ui->status_joint3pos_deg_3->display(jointState.position[2]*100.0);
+//
+//    //TEACH MODE
+//    ui->teachModeHand_J1_LCD->display(jointState.position[0]);
+//    ui->teachModeHand_J2_LCD->display(jointState.position[1]);
+//    ui->teachModeHand_J3_LCD->display(jointState.position[2]*100.0);
 
-    //TEACH MODE
-    ui->teachModeHand_J1_LCD->display(jointState.position[0]);
-    ui->teachModeHand_J2_LCD->display(jointState.position[1]);
-    ui->teachModeHand_J3_LCD->display(jointState.position[2]*100.0);
-
-
-    //pridat vel, acc, torq
+    disp_curr_joint_pos_DEG[0] = jointState.position[0]*RAD_TO_DEG;
+    disp_curr_joint_pos_DEG[1] = jointState.position[1]*RAD_TO_DEG;
+    disp_curr_joint_pos_DEG[2] = jointState.position[2]*100;
 
 }
 
 void MainWindow::torqueJ1Callback(const std_msgs::Float64 torque){
 
-    ui->status_joint1torq_3->display(torque.data);
+    //ui->status_joint1torq_3->display(torque.data);
+    disp_curr_joint_torq[0] = torque.data;
 
 }
 
 void MainWindow::torqueJ2Callback(const std_msgs::Float64 torque){
 
-    ui->status_joint2torq_3->display(torque.data);
+    //ui->status_joint2torq_3->display(torque.data);
+    disp_curr_joint_torq[1] = torque.data;
 
 }
+
+void MainWindow::displayValues(){
+/*
+    static double last_joint_pos_DEG[] = {999.9,999.9,999.9}, last_joint_vel[] = {999.9,999.9,999.9}, last_joint_acc[] = {999.9,999.9,999.9}, last_joint_torq[] = {999.9,999.9,999.9};
+    static double last_des_carthesian_pos[] = {999.9,999.9,999.9}, last_carthesian_pos[] = {999.9,999.9,999.9}, last_rob_status[] = {999.9,999.9,999.9, 999.9,999.9,999.9, 999.9};
+    static uint8_t last_gripper_state = 0, last_light_barrier= 0, last_push_button=0, init=0, last_err_code = -1;
+    std::string last_rob_model="-1", last_refer_frame = "-1", last_effect_link = "-1", last_active_joints = "-1";
+
+    if (!init){
+        ROS_INFO("Cycle init");
+        for (int i=0;i<3;i++){
+            last_joint_pos_DEG[i] = disp_curr_joint_pos_DEG[i];
+            last_joint_vel[i] = disp_curr_joint_vel[i];
+            last_joint_acc[i] = disp_curr_joint_acc[i];
+            last_joint_torq[i] = disp_curr_joint_torq[i];
+            last_des_carthesian_pos[i] = disp_des_carthesian_pos[i];
+            last_carthesian_pos[i] = disp_curr_carthesian_pos[i];
+        }
+        for (int i =0;i<7;i++) last_rob_status[i] = disp_curr_rob_status[i];
+        last_gripper_state = disp_gripper_state;
+        last_light_barrier = disp_light_barrier;
+        last_push_button = disp_push_button;
+        last_err_code = disp_err_code;
+        last_rob_model = disp_rob_model;
+        last_refer_frame = disp_refer_frame;
+        last_effect_link = disp_effect_link;
+        last_active_joints = disp_active_joints;
+
+        //Display everything in GUI
+        ui->status_joint1pos_rad_3->display(disp_curr_joint_pos_DEG[0]*DEG_TO_RAD);
+        ui->status_joint2pos_rad_3->display(disp_curr_joint_pos_DEG[1]*DEG_TO_RAD);
+        ui->status_joint3pos_rad_3->display(disp_curr_joint_pos_DEG[2]*100.0);
+        ui->status_joint1pos_deg_3->display(disp_curr_joint_pos_DEG[0]);
+        ui->status_joint2pos_deg_3->display(disp_curr_joint_pos_DEG[1]);
+        ui->status_joint3pos_deg_3->display(disp_curr_joint_pos_DEG[2]*100.0);
+        ui->status_joint1vel_3->display(disp_curr_joint_vel[0]);
+        ui->status_joint2vel_3->display(disp_curr_joint_vel[1]);
+        ui->status_joint3vel_3->display(disp_curr_joint_vel[2]);
+        ui->status_joint1acc_3->display(disp_curr_joint_acc[0]);
+        ui->status_joint2acc_3->display(disp_curr_joint_acc[1]);
+        ui->status_joint3acc_3->display(disp_curr_joint_acc[2]);
+        ui->status_joint1torq_3->display(disp_curr_joint_torq[0]);
+        ui->status_joint2torq_3->display(disp_curr_joint_torq[1]);
+        ui->status_joint3torq_3->display(0);    //No torque response in Z-axis
+        ui->status_pose_Xdesired->display(disp_des_carthesian_pos[0]);
+        ui->status_pose_Ydesired->display(disp_des_carthesian_pos[1]);
+        ui->status_pose_Zdesired->display(disp_des_carthesian_pos[2]);
+        ui->status_pose_X->display(disp_curr_carthesian_pos[0]);
+        ui->status_pose_Y->display(disp_curr_carthesian_pos[1]);
+        ui->status_pose_Z->display(disp_curr_carthesian_pos[2]);
+        ui->basicInfo_X_LCDnum_3->display(disp_curr_rob_status[0]); //x
+        ui->basicInfo_Y_LCDnum_6->display(disp_curr_rob_status[1]); //y
+        ui->basicInfo_Z_LCDnum_3->display(disp_curr_rob_status[2]); //z
+        ui->basicInfo_R_LCDnum_3->display(disp_curr_rob_status[3]); //Rx
+        ui->basicInfo_P_LCDnum_3->display(disp_curr_rob_status[4]); //Ry
+        ui->basicInfo_Y_LCDnum_5->display(disp_curr_rob_status[5]); //Rz
+        ui->basicInfo_W_LCDnum_3->display(disp_curr_rob_status[6]); //Rw
+        ui->status_gripper_PushButton_3->display(disp_push_button);
+        ui->status_gripper_LightBarrier_3->display(disp_light_barrier);
+        ui->status_gripper_OnOff_3->display(disp_gripper_state);
+        ROS_WARN("Started publishing text to GUI");
+        ui->basicInfo_RobotModel_TextBrowser_3->setText(QString::fromStdString(disp_rob_model));
+        ui->basicInfo_ReferenceFrame_TextBrowser_3->setText(QString::fromStdString(disp_refer_frame));
+        ui->basicInfo_EffectorLink_TextBrowser_3->setText(QString::fromStdString(disp_effect_link));
+        ui->basicInfo_ActiveJoints_TextBrowser_3->setText(QString::fromStdString(disp_active_joints));
+        ROS_WARN("Publishing text to GUI finished");
+        init = true;
+
+    } else{
+        ROS_INFO("Cycle Not init");
+
+        //Show **JOINT POSITIONS** in GUI
+        if (last_joint_pos_DEG[0] != disp_curr_joint_pos_DEG[0]){
+            ui->status_joint1pos_rad_3->display(disp_curr_joint_pos_DEG[0]*DEG_TO_RAD);
+            ui->status_joint1pos_deg_3->display(disp_curr_joint_pos_DEG[0]);
+            last_joint_pos_DEG[0] = disp_curr_joint_pos_DEG[0];
+        }
+        if (last_joint_pos_DEG[1] != disp_curr_joint_pos_DEG[1]){
+            ui->status_joint2pos_rad_3->display(disp_curr_joint_pos_DEG[1]*DEG_TO_RAD);
+            ui->status_joint2pos_deg_3->display(disp_curr_joint_pos_DEG[1]);
+            last_joint_pos_DEG[1] = disp_curr_joint_pos_DEG[1];
+        }
+        if (last_joint_pos_DEG[2] != disp_curr_joint_pos_DEG[2]){
+            ui->status_joint3pos_rad_3->display(disp_curr_joint_pos_DEG[2]*100.0);
+            ui->status_joint3pos_deg_3->display(disp_curr_joint_pos_DEG[2]*100.0);
+            last_joint_pos_DEG[2] = disp_curr_joint_pos_DEG[2];
+        }
+
+        //Show **JOINT VELOCITIES** in GUI
+        if (last_joint_vel[0] != disp_curr_joint_vel[0]){
+            //Write to GUI
+            last_joint_vel[0] = disp_curr_joint_vel[0];
+        }
+        if (last_joint_vel[1] != disp_curr_joint_vel[1]){
+            //Write to GUI
+            last_joint_vel[1] = disp_curr_joint_vel[1];
+        }
+        if (last_joint_vel[2] != disp_curr_joint_vel[2]){
+            //Write to GUI
+            last_joint_vel[2] = disp_curr_joint_vel[2];
+        }
+
+        //Show **JOINT ACCELERATIONS** in GUI
+        if (last_joint_acc[0] != disp_curr_joint_acc[0]){
+            ui->status_joint1acc_3->display(disp_curr_joint_acc[0]);
+            last_joint_acc[0] = disp_curr_joint_acc[0];
+        }
+        if (last_joint_acc[1] != disp_curr_joint_acc[1]){
+            ui->status_joint2acc_3->display(disp_curr_joint_acc[1]);
+            last_joint_acc[1] = disp_curr_joint_acc[1];
+        }
+        if (last_joint_acc[2] != disp_curr_joint_acc[2]){
+            ui->status_joint3acc_3->display(disp_curr_joint_acc[2]);
+            last_joint_acc[2] = disp_curr_joint_acc[2];
+        }
+
+        //Show **JOINT TORQUES** in GUI
+        if (last_joint_torq[0] != disp_curr_joint_torq[0]){
+            ui->status_joint1torq_3->display(disp_curr_joint_torq[0]);
+            last_joint_torq[0] = disp_curr_joint_torq[0];
+        }
+        if (last_joint_torq[1] != disp_curr_joint_torq[1]){
+            ui->status_joint2torq_3->display(disp_curr_joint_torq[1]);
+            last_joint_torq[1] = disp_curr_joint_torq[1];
+        }
+        if (last_joint_torq[2] != disp_curr_joint_torq[2]){
+            ui->status_joint3torq_3->display(disp_curr_joint_torq[2]);
+            last_joint_torq[2] = disp_curr_joint_torq[2];
+        }
+
+        //Show **DESIRED CARTHESIAN POSITION** in GUI
+        if (last_des_carthesian_pos[0] != disp_des_carthesian_pos[0]){      //x
+            ui->status_pose_Xdesired->display(disp_des_carthesian_pos[0]);
+            last_des_carthesian_pos[0] = disp_des_carthesian_pos[0];
+        }
+        if (last_des_carthesian_pos[1] != disp_des_carthesian_pos[1]){      //y
+            ui->status_pose_Ydesired->display(disp_des_carthesian_pos[1]);
+            last_des_carthesian_pos[1] = disp_des_carthesian_pos[1];
+        }
+        if (last_des_carthesian_pos[2] != disp_des_carthesian_pos[2]){      //z
+            ui->status_pose_Zdesired->display(disp_des_carthesian_pos[2]);
+            last_des_carthesian_pos[2] = disp_des_carthesian_pos[2];
+        }
+
+        //Show **CARTHESIAN POSITION** in GUI
+        if (last_carthesian_pos[0] != disp_curr_carthesian_pos[0]){      //x
+            ui->status_pose_X->display(disp_curr_carthesian_pos[0]);
+            last_carthesian_pos[0] = disp_curr_carthesian_pos[0];
+        }
+        if (last_carthesian_pos[1] != disp_curr_carthesian_pos[1]){      //y
+            ui->status_pose_Y->display(disp_curr_carthesian_pos[1]);
+            last_carthesian_pos[1] = disp_curr_carthesian_pos[1];
+        }
+        if (last_carthesian_pos[2] != disp_curr_carthesian_pos[2]){      //z
+            ui->status_pose_Z->display(disp_curr_carthesian_pos[2]);
+            last_carthesian_pos[2] = disp_curr_carthesian_pos[2];
+        }
+
+        //Show **ROBOT STATUS** in GUI
+        if (last_rob_status[0] != disp_curr_rob_status[0]){      //x
+            ui->basicInfo_X_LCDnum_3->display(disp_curr_rob_status[0]); //x
+            last_rob_status[0] = disp_curr_rob_status[0];
+        }
+        if (last_rob_status[1] != disp_curr_rob_status[1]){      //y
+            ui->basicInfo_Y_LCDnum_6->display(disp_curr_rob_status[1]); //y
+            last_rob_status[1] = disp_curr_rob_status[1];
+        }
+        if (last_rob_status[2] != disp_curr_rob_status[2]){      //z
+            ui->basicInfo_Z_LCDnum_3->display(disp_curr_rob_status[2]); //z
+            last_rob_status[2] = disp_curr_rob_status[2];
+        }
+        if (last_rob_status[3] != disp_curr_rob_status[3]){      //RX
+            ui->basicInfo_R_LCDnum_3->display(disp_curr_rob_status[3]); //Rx
+            last_rob_status[3] = disp_curr_rob_status[3];
+        }
+        if (last_rob_status[4] != disp_curr_rob_status[4]){      //RY
+            ui->basicInfo_P_LCDnum_3->display(disp_curr_rob_status[4]); //Ry
+            last_rob_status[4] = disp_curr_rob_status[4];
+        }
+        if (last_rob_status[5] != disp_curr_rob_status[5]){      //RZ
+            ui->basicInfo_Y_LCDnum_5->display(disp_curr_rob_status[5]); //Rz
+            last_rob_status[5] = disp_curr_rob_status[5];
+        }
+        if (last_rob_status[6] != disp_curr_rob_status[6]){      //RW
+            ui->basicInfo_W_LCDnum_3->display(disp_curr_rob_status[6]); //Rw
+            last_rob_status[6] = disp_curr_rob_status[6];
+        }
+
+        //Show **GRIPPER STATE** in GUI
+        if (last_gripper_state != disp_gripper_state){
+            ui->status_gripper_OnOff_3->display(disp_gripper_state);
+            last_gripper_state = disp_gripper_state;
+        }
+
+        //Show **LIGHT BARRIER** in GUI
+        if (last_light_barrier != disp_light_barrier){
+            ui->status_gripper_LightBarrier_3->display(disp_light_barrier);
+            last_light_barrier = disp_light_barrier;
+        }
+
+        //Show **PUSH BUTTON** in GUI
+        if (last_push_button != disp_push_button){
+            ui->status_gripper_PushButton_3->display(disp_push_button);
+            last_push_button = disp_push_button;
+        }
+
+        //Show **ERROR** in GUI
+        if (last_err_code != disp_err_code){
+            decodeErrorMessage(disp_err_code);
+            last_err_code = disp_err_code;
+        }
+
+        //Show **ROBOT PARAMETERS** in GUI
+        if (last_rob_model != disp_rob_model){
+            ui->basicInfo_RobotModel_TextBrowser_3->setText(QString::fromStdString(disp_rob_model));
+            last_rob_model = disp_rob_model;
+        }
+        if (last_refer_frame != disp_refer_frame){
+            ui->basicInfo_ReferenceFrame_TextBrowser_3->setText(QString::fromStdString(disp_refer_frame));
+            last_refer_frame = disp_refer_frame;
+        }
+        if (last_effect_link != disp_effect_link){
+            ui->basicInfo_EffectorLink_TextBrowser_3->setText(QString::fromStdString(disp_effect_link));
+            last_effect_link = disp_effect_link;
+        }
+        if (last_active_joints != disp_active_joints){
+            ui->basicInfo_ActiveJoints_TextBrowser_3->setText(QString::fromStdString(disp_active_joints));
+            last_active_joints = disp_active_joints;
+        }
+
+    }
+
+
+
+*/
+}
+/*
+void MainWindow::init_shared_variables(){
+
+    disp_curr_joint_pos_DEG.reserve(3);
+    disp_curr_joint_vel.reserve(3);
+    disp_curr_joint_acc.reserve(3);
+    disp_curr_joint_torq.reserve(3);
+    disp_des_carthesian_pos.reserve(3);
+    disp_curr_carthesian_pos.reserve(3);
+    disp_curr_rob_status.reserve(7);
+    for (int i=0;i<3;i++){
+        disp_curr_joint_pos_DEG.push_back(0);
+        disp_curr_joint_vel.push_back(0);
+        disp_curr_joint_acc.push_back(0);
+        disp_curr_joint_torq.push_back(0);
+        disp_des_carthesian_pos.push_back(0);
+        disp_curr_carthesian_pos.push_back(0);
+    }
+    for (int i=0;i<7;i++) disp_curr_rob_status.push_back(0);
+    disp_gripper_state = 0;
+    disp_light_barrier = 0;
+    disp_push_button = 0;
+    disp_err_code = -1;
+    disp_rob_model = "0";
+    disp_refer_frame = "0";
+    disp_effect_link = "0";
+    disp_active_joints = "0";
+}
+
+void MainWindow::decodeErrorMessage(uint8_t error_message){
+
+    switch (error_message){
+        case 0:
+            ui->error_lineEdit->setText("Everything OK!");
+            break;
+        case 1:
+            ui->error_lineEdit->setText("[joint control] : Bad input joint values");
+            break;
+        case 2:
+            ui->error_lineEdit->setText("[joint control] : Bad plan");
+            break;
+        case 3:
+            ui->error_lineEdit->setText("[position control] : Colision warining! changing mode");
+            break;
+        case 4:
+            ui->error_lineEdit->setText("[position control] : Cannot solve IK please enter new positions");
+            break;
+        case 5:
+            ui->error_lineEdit->setText("[position control] : No solution found for desired position");
+            break;
+        case 6:
+            ui->error_lineEdit->setText("[joint control] : Something wrong with the function and cannot execute plan");
+            break;
+        case 7:
+            ui->error_lineEdit->setText("Bad plan or out of bounds ! cannot execute plan");
+            break;
+        case 8:
+            ui->error_lineEdit->setText("[DEMO control] : replanning trajectory");
+            break;
+        case 9:
+            ui->error_lineEdit->setText("[TEACH mode GUI] : teached new position!");
+            break;
+        case 10:
+            ui->error_lineEdit->setText("[TEACH mode GUI] : stopped teaching!");
+        case 11:
+            ui->error_lineEdit->setText("[TEACH mode GUI] : size NOT OK!");
+            break;
+        case 12:
+            ui->error_lineEdit->setText("[TEACH mode HAND] : teached new position!");
+            break;
+        case 13:
+            ui->error_lineEdit->setText("[TEACH mode HAND] : stopped teaching!");
+            break;
+        case 14:
+            ui->error_lineEdit->setText("[TEACH mode HAND] : size NOT OK!");
+            break;
+        case 15:
+            ui->error_lineEdit->setText("[TEACH mode HAND] : size NOT OK!");
+            break;
+        default:
+            break;
+    }
+
+}
+*/

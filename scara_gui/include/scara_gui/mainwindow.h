@@ -15,13 +15,14 @@
 #include "std_msgs/Int32.h"
 #include "std_msgs/Byte.h"
 #include "scara_msgs/robot_info.h"
+#include <stdlib.h>
 
 #define WIDTH 3
 #define HEIGHT 20
 
 const double RAD_TO_DEG = 57.2957795130;
+const double DEG_TO_RAD = 0.0174532925;
 const double MIN_DISPLAY_VALUE = 0.0001;
-
 
 namespace Ui {
     class MainWindow;
@@ -34,6 +35,8 @@ Q_OBJECT
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
+    QTimer *timer;
 
     void jointControlCallback(const geometry_msgs::PointStamped pointStamped);
 
@@ -166,6 +169,12 @@ private slots:
     void on_positionControlCustom_collision_checkbox_toggled(bool checked);
 
     void on_jointControl_collision_checkbox_toggled(bool checked);
+//
+    void displayValues();
+//
+//    void decodeErrorMessage(uint8_t error_message);
+//
+//    void init_shared_variables();
 
 private:
     Ui::MainWindow *ui;
@@ -178,9 +187,16 @@ private:
     int teachModeIndexHand = 0;
     int lastErrorCode = 999;
     double lastValueJ1 = 9.99 , lastValueJ2 = 9.99 ,lastValueJ3 = 9.99;
-
     int j = 0;
 
+    //Shared variables
+    std::vector<double> disp_curr_joint_pos_DEG, disp_curr_joint_vel, disp_curr_joint_acc, disp_curr_joint_torq;
+    std::vector<double> disp_des_carthesian_pos, disp_curr_carthesian_pos, disp_curr_rob_status;
+    uint8_t disp_gripper_state, disp_light_barrier, disp_push_button, disp_err_code;
+    std::string disp_rob_model, disp_refer_frame, disp_effect_link, disp_active_joints;
+
+
+    //std::vector<double> current_joint_positions_DEG(3);
     std_msgs::Bool gripperState_msg, startState_msg, demoState_msg, getInfoState_msg, teachModeState_msg, moveitMode_msg, dispRealObj_msg, dispCustomObj_msg;
     std_msgs::Float64 setParamFloat_msg, realObjSize_msg, customObjSize_msg;
     std_msgs::Int32 setParamInt_msg, modeSelect_msg,teachModeSelect_msg, centralStop_msg, arrows_msg;

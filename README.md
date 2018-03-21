@@ -5,7 +5,7 @@ about sensodrive on* [SENSODRIVEs website](https://www.sensodrive.de/EN/) <br />
 Slovak University of Technology, Faculty of Electrical Engineering and Information
 Technology, [Institute of Robotics and Cybernetics](http://www.urk.fei.stuba.sk/en) 
 with the help of **doc. Ing. František Duchoň, PhD. - frantisek.duchon@stuba.sk** 
-and[**National Centre of Robotics**](http://nacero.sk/language/en/)*
+and [**National Centre of Robotics**](http://nacero.sk/language/en/)*
 
 ## Part 1 - scara_v2_with_gripper - Rviz kinematic simulation
 Run this launchfile for kinematic simulation of **SCARA and Rotary table**

@@ -1341,14 +1341,15 @@ int main(int argc, char **argv){
                         return 0;
                     }
 
-                    //hold position while the movement in moveit isnt started
-                    if (!moveitState){
-                        sendJointPoses(&pose_pub, &acc_pub, &my_plan, 999);
-                        sendPositionToGUI(0,0,0);
-                    }else{
-                        ROS_INFO("Started moving in moveit ! Current joint states: %f %f %f",currentJointStates.position[0],
-                                 currentJointStates.position[1], currentJointStates.position[2]);
-                    }
+                    //Used only with real SCARA
+//                    //hold position while the movement in moveit isnt started
+//                    if (!moveitState){
+//                        sendJointPoses(&pose_pub, &acc_pub, &my_plan, 999);
+//                        sendPositionToGUI(0,0,0);
+//                    }else{
+//                        ROS_INFO("Started moving in moveit ! Current joint states: %f %f %f",currentJointStates.position[0],
+//                                 currentJointStates.position[1], currentJointStates.position[2]);
+//                    }
 
                     //Start or continue for get_and_send_planned_path
 
