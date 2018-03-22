@@ -528,7 +528,7 @@ void setDesiredPosesDEMO(){
     //Pick position
     desiredPositionsDEMO[1].x = 0.4;
     desiredPositionsDEMO[1].y = 0.24;
-    desiredPositionsDEMO[1].z = 1.0;
+    desiredPositionsDEMO[1].z = 1.04;
     //Work position
     desiredPositionsDEMO[2].x = 0.58;
     desiredPositionsDEMO[2].y = 0.59;
@@ -536,35 +536,35 @@ void setDesiredPosesDEMO(){
     //Place position 1
     desiredPositionsDEMO[3].x = 0.51;
     desiredPositionsDEMO[3].y = 0.87;
-    desiredPositionsDEMO[3].z = 1.00;
+    desiredPositionsDEMO[3].z = 1.04;
     //Place position 2
     desiredPositionsDEMO[4].x = 0.51;
     desiredPositionsDEMO[4].y = 0.93;
-    desiredPositionsDEMO[4].z = 1.00;
+    desiredPositionsDEMO[4].z = 1.04;
     //Place position 3
     desiredPositionsDEMO[5].x = 0.47;
     desiredPositionsDEMO[5].y = 0.87;
-    desiredPositionsDEMO[5].z = 1.00;
+    desiredPositionsDEMO[5].z = 1.04;
     //Place position 4
     desiredPositionsDEMO[6].x = 0.47;
     desiredPositionsDEMO[6].y = 0.93;
-    desiredPositionsDEMO[6].z = 1.00;
+    desiredPositionsDEMO[6].z = 1.04;
     //Place position 5
     desiredPositionsDEMO[7].x = 0.43;
     desiredPositionsDEMO[7].y = 0.87;
-    desiredPositionsDEMO[7].z = 1.00;
+    desiredPositionsDEMO[7].z = 1.04;
     //Place position 6
     desiredPositionsDEMO[8].x = 0.43;
     desiredPositionsDEMO[8].y = 0.93;
-    desiredPositionsDEMO[8].z = 1.00;
+    desiredPositionsDEMO[8].z = 1.04;
     //Place position 7
     desiredPositionsDEMO[9].x = 0.39;
     desiredPositionsDEMO[9].y = 0.87;
-    desiredPositionsDEMO[9].z = 1.00;
+    desiredPositionsDEMO[9].z = 1.04;
     //Place position 8
     desiredPositionsDEMO[10].x = 0.39;
     desiredPositionsDEMO[10].y = 0.93;
-    desiredPositionsDEMO[10].z = 1.00;
+    desiredPositionsDEMO[10].z = 1.04;
 
 }
 

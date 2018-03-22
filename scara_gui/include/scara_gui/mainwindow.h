@@ -176,7 +176,7 @@ private slots:
 
     void decodeErrorMessage(uint8_t error_message);
 
-    void init_shared_variables();
+    //void init_shared_variables();
 
 private:
     Ui::MainWindow *ui;
@@ -192,10 +192,22 @@ private:
     int j = 0;
 
     //Shared variables
-    std::vector<double> disp_curr_joint_pos_DEG, disp_curr_joint_vel, disp_curr_joint_acc, disp_curr_joint_torq;
-    std::vector<double> disp_des_carthesian_pos, disp_curr_carthesian_pos, disp_curr_rob_status;
-    uint8_t disp_gripper_state, disp_light_barrier, disp_push_button, disp_err_code;
-    std::string disp_rob_model, disp_refer_frame, disp_effect_link, disp_active_joints;
+    double disp_curr_joint1_pos=9.99, disp_curr_joint2_pos=9.99, disp_curr_joint3_pos=9.99;
+    double disp_curr_joint1_vel=9.99, disp_curr_joint2_vel=9.99, disp_curr_joint3_vel=9.99;
+    double disp_curr_joint1_acc=9.99, disp_curr_joint2_acc=9.99, disp_curr_joint3_acc=9.99;
+    double disp_curr_joint1_torq=9.99, disp_curr_joint2_torq=9.99, disp_curr_joint3_torq=9.99;
+    double disp_des_cart_pos_x=9.99, disp_des_cart_pos_y=9.99, disp_des_cart_pos_z=9.99;
+    double disp_curr_cart_pos_x=9.99, disp_curr_cart_pos_y=9.99, disp_curr_cart_pos_z=9.99;
+    double disp_rob_stat_x=9.99, disp_rob_stat_y=9.99, disp_rob_stat_z=9.99, disp_rob_stat_rx=9.99,disp_rob_stat_ry=9.99, disp_rob_stat_rz=9.99,disp_rob_stat_rw=9.99;
+    uint8_t disp_gripper_state=9, disp_light_barrier=9, disp_push_button, disp_err_code=9;
+    std::string disp_rob_model="9.99", disp_refer_frame="9.99", disp_effect_link="9.99", disp_active_joints="9.99";
+
+
+    //Shared variables
+    //std::vector<double> disp_curr_joint_pos_DEG, disp_curr_joint_vel, disp_curr_joint_acc, disp_curr_joint_torq;
+    //std::vector<double> disp_des_carthesian_pos, disp_curr_carthesian_pos, disp_curr_rob_status;
+//    uint8_t disp_gripper_state, disp_light_barrier, disp_push_button, disp_err_code;
+//    std::string disp_rob_model, disp_refer_frame, disp_effect_link, disp_active_joints;
 
     std_msgs::Bool gripperState_msg, startState_msg, demoState_msg, getInfoState_msg, teachModeState_msg, moveitMode_msg, dispRealObj_msg, dispCustomObj_msg;
     std_msgs::Float64 setParamFloat_msg, realObjSize_msg, customObjSize_msg;

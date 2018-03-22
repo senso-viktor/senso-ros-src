@@ -96,8 +96,9 @@ rosrun scara_gui scara_gui
 ```
 rosrun scara_v2_moveit_api scara_colision_object
 ```
-**Or you can skip step 2, 3, 4 and you can use this launch file:**
+**Or you can skip step 1, 2, 3, 4 and you can use this launch file:**
 ```
+roslaunch scara_v2_moveit_api scara_menu_gui_colision.launch
 ```
 ## Part 6 - Rotary table:
 1. **RViz**
@@ -146,9 +147,13 @@ Or you can ignore steps 4,5,6 and **use lanchfile**
 roslaunch scara_v2_moveit_api rt_menu_and_gui_launch.launch
 ```
 
+## Part 8 - SCARA and RT
+Follow the next steps to run SCARA and RT in cooperation
+1. Manipulate with the Rotary table to be in start position (See in Rotary Table GUI in tab Visualisation)
+2. First start your Rotary Table, like in **_Part 7_**
+3. Launch SCARA visualisation (as shown in **_Part 5_**)
+4. In SCARA GUI choose mode 3 (DEMO) and enjoy your program
 # TO DOs
-- [ ] Part 5 - Add scripts
-- [ ] Add comments to code
 
 
 
