@@ -4,9 +4,11 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
+        - /MotionPlanning1
         - /MotionPlanning1/Scene Robot1
         - /MotionPlanning1/Planning Request1
         - /TF1/Frames1
+        - /RobotModel1
       Splitter Ratio: 0.742560029
     Tree Height: 309
   - Class: rviz/Help
@@ -186,7 +188,7 @@ Visualization Manager:
         Interactive Marker Size: 0.100000001
         Joint Violation Color: 255; 0; 255
         Planning Group: scara_arm
-        Query Goal State: true
+        Query Goal State: false
         Query Start State: false
         Show Workspace: false
         Start State Alpha: 1

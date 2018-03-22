@@ -310,12 +310,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b700e8e-8037-495d-aed6-fe331801a34d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ROTARY_TABLE_GUI_1/ROTARY_TABLE_GUI/ROTARY_TABLE_GUI.pro.user.ce30139" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rotary_table_gui/user_interface/backup/mainwindow.ui" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scara_v2_moveit_api/launch/scara_menu_gui_colision.launch" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/1_Documentation/pcan_instalation.odt" afterPath="$PROJECT_DIR$/1_Documentation/pcan_instalation.odt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_gui/include/scara_gui/mainwindow.h" afterPath="$PROJECT_DIR$/scara_gui/include/scara_gui/mainwindow.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_gui/src/mainwindow.cpp" afterPath="$PROJECT_DIR$/scara_gui/src/mainwindow.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_gui/user_interface/mainwindow.ui" afterPath="$PROJECT_DIR$/scara_gui/user_interface/mainwindow.ui" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/1_Documentation/pcan_instalation" afterPath="$PROJECT_DIR$/1_Documentation/pcan_instalation" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/moveit.rviz" afterPath="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/moveit.rviz" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -328,11 +328,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="mainwindow.h" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mainwindow.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scara_gui/include/scara_gui/mainwindow.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="167" column="0" lean-forward="true" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
+            <state relative-caret-position="1129">
+              <caret line="187" column="27" lean-forward="true" selection-start-line="187" selection-start-column="27" selection-end-line="187" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -341,28 +341,19 @@
       <file leaf-file-name="mainwindow.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scara_gui/src/mainwindow.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26580">
-              <caret line="1329" column="2" lean-forward="false" selection-start-line="1329" selection-start-column="2" selection-end-line="1329" selection-end-column="2" />
-              <folding>
-                <element signature="e#31040#34856#0" expanded="false" />
-                <element signature="e#34858#35495#0" expanded="false" />
-                <element signature="e#35497#35627#0" expanded="false" />
-                <element signature="e#35629#37087#0" expanded="false" />
-                <element signature="e#37118#37552#0" expanded="false" />
-                <element signature="e#37554#38451#0" expanded="false" />
-                <element signature="e#38453#42182#0" expanded="false" />
-                <element signature="e#42184#42275#0" expanded="false" />
-                <element signature="e#42277#42469#0" expanded="false" />
-                <element signature="e#42471#42675#0" expanded="false" />
-                <element signature="e#42677#42883#0" expanded="false" />
-                <element signature="e#42885#43279#0" expanded="false" />
-                <element signature="e#43281#44407#0" expanded="false" />
-                <element signature="e#44409#44575#0" expanded="false" />
-                <element signature="e#44577#44743#0" expanded="false" />
-                <element signature="e#44745#56591#0" expanded="false" />
-                <marker date="1521665110000" expanded="false" signature="56635:57484" ph="{...}" />
-                <marker date="1521665110000" expanded="false" signature="57544:59550" ph="{...}" />
-              </folding>
+            <state relative-caret-position="229">
+              <caret line="1306" column="9" lean-forward="true" selection-start-line="1306" selection-start-column="9" selection-end-line="1306" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="scara_menu_gui_colision.launch" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/launch/scara_menu_gui_colision.launch">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="6" column="127" lean-forward="false" selection-start-line="6" selection-start-column="127" selection-end-line="6" selection-end-column="127" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -416,7 +407,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/gazebo_scara_and_rt/scara_v2_full_description/urdf/scara_v2_gazebo.gazebo" />
         <option value="$PROJECT_DIR$/gazebo_scara_and_rt/scara_v2_full_control/config/scara_and_rt_control.yaml" />
         <option value="$PROJECT_DIR$/gazebo_scara_and_rt/scara_v2_full_description/urdf/scara_v2_xml.xml" />
         <option value="$PROJECT_DIR$/gazebo_scara_and_rt/scara_v2_full_control/config/scara_v2_full_control.yaml" />
@@ -462,11 +452,12 @@
         <option value="$PROJECT_DIR$/rotary_table_gui/src/mainwindow.cpp" />
         <option value="$PROJECT_DIR$/scara_v2_moveit_api/include/rotary_table_menu.h" />
         <option value="$PROJECT_DIR$/scara_v2_moveit_api/launch/rt_menu_and_gui_launch.launch" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/scara_v2_moveit_api/src/scara_menu.cpp" />
         <option value="$PROJECT_DIR$/gazebo_scara_and_rt/scara_v2_full_description/urdf/scara_v2_urdf.xacro" />
         <option value="$PROJECT_DIR$/scara_gui/src/mainwindow.cpp" />
         <option value="$PROJECT_DIR$/scara_gui/include/scara_gui/mainwindow.h" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/scara_v2_moveit_api/launch/scara_menu_gui_colision.launch" />
       </list>
     </option>
   </component>
@@ -575,7 +566,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="include" />
+              <option name="myItemId" value="launch" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -593,121 +584,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="scara_gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scara_gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scara_gui" />
+              <option name="myItemId" value="scara_v2_moveit_api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="include" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scara_gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rotary_table_gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rotary_table_gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rotary_table_gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="include" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rotary_table_gui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -731,16 +612,16 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/scara_v2_moveit_api/include" />
+      <recent name="$PROJECT_DIR$/scara_v2_moveit_api/src" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/scara_v2_moveit_api/launch" />
       <recent name="$PROJECT_DIR$/scara_gui/msg" />
       <recent name="$PROJECT_DIR$/scara_msgs/msg" />
       <recent name="$PROJECT_DIR$/scara_v2_moveit_api/src" />
       <recent name="$PROJECT_DIR$/scara_v2_with_gripper/urdf" />
-      <recent name="$PROJECT_DIR$/cmake-build-debug/senso_scara_demo/baugruppe_asm" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/scara_v2_moveit_api/include" />
-      <recent name="$PROJECT_DIR$/scara_v2_moveit_api/src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -2483,14 +2364,7 @@
       <workItem from="1521458316360" duration="8845000" />
       <workItem from="1521614401589" duration="21353000" />
       <workItem from="1521642895985" duration="863000" />
-      <workItem from="1521704151148" duration="59000" />
-    </task>
-    <task id="LOCAL-00004" summary="Prvy uspesny test hybania s ramenom cez moveit (v pritomnosti kolizneho objektu). Frekvencia 15Hz">
-      <created>1503748336632</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1503748336632</updated>
+      <workItem from="1521704151148" duration="2489000" />
     </task>
     <task id="LOCAL-00005" summary="Prvy uspesny test hybania s ramenom cez C program (v pritomnosti kolizneho objektu). Frekvencia 15Hz">
       <created>1503760304422</created>
@@ -2828,15 +2702,21 @@
       <option name="project" value="LOCAL" />
       <updated>1521643427615</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="SENSODRIVE 21.Mar - scara gui successful modif (paralel thread)">
+      <created>1521705074430</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1521705074430</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="423257000" />
+    <option name="totallyTimeSpent" value="425687000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1212" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19083558" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2865,7 +2745,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="GUI - DEMO mode funguje aj ked pomaly.." />
     <MESSAGE value="GUI - DEMO mode funguje oz naozaj .. teach mode neotestovany.." />
     <MESSAGE value="GUI - teach mode gui ako tak funguje" />
     <MESSAGE value="GUI - teach mode gui funguje dobre (aj s pick and place)" />
@@ -2890,7 +2769,8 @@
     <MESSAGE value="SENSODRIVE 19.Mar - RT fully working on SENSO-PC, modified RT package, created launch-file for RT GUI and RT Menu, modified Readme" />
     <MESSAGE value="SENSODRIVE 21.Mar - README refreshed and updated" />
     <MESSAGE value="SENSODRIVE 21.Mar - SCARA GUI modif - NOT WORKING !" />
-    <option name="LAST_COMMIT_MESSAGE" value="SENSODRIVE 21.Mar - SCARA GUI modif - NOT WORKING !" />
+    <MESSAGE value="SENSODRIVE 21.Mar - scara gui successful modif (paralel thread)" />
+    <option name="LAST_COMMIT_MESSAGE" value="SENSODRIVE 21.Mar - scara gui successful modif (paralel thread)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2899,13 +2779,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scara_and_rt_moveit_config/config/ompl_planning.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="692">
-          <caret line="148" column="28" lean-forward="false" selection-start-line="148" selection-start-column="28" selection-end-line="148" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/multiple_cube_publisher.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-980">
@@ -3048,21 +2921,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="140">
-            <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="823">
-          <caret line="80" column="26" lean-forward="false" selection-start-line="80" selection-start-column="26" selection-end-line="80" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/src/rotary_table_menu.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="940">
@@ -3081,6 +2939,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1757">
           <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3247,37 +3106,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scara_gui/src/mainwindow.cpp">
+    <entry file="file://$PROJECT_DIR$/scara_gui/include/scara_gui/mainwindow.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26580">
-          <caret line="1329" column="2" lean-forward="false" selection-start-line="1329" selection-start-column="2" selection-end-line="1329" selection-end-column="2" />
-          <folding>
-            <element signature="e#31040#34856#0" expanded="false" />
-            <element signature="e#34858#35495#0" expanded="false" />
-            <element signature="e#35497#35627#0" expanded="false" />
-            <element signature="e#35629#37087#0" expanded="false" />
-            <element signature="e#37118#37552#0" expanded="false" />
-            <element signature="e#37554#38451#0" expanded="false" />
-            <element signature="e#38453#42182#0" expanded="false" />
-            <element signature="e#42184#42275#0" expanded="false" />
-            <element signature="e#42277#42469#0" expanded="false" />
-            <element signature="e#42471#42675#0" expanded="false" />
-            <element signature="e#42677#42883#0" expanded="false" />
-            <element signature="e#42885#43279#0" expanded="false" />
-            <element signature="e#43281#44407#0" expanded="false" />
-            <element signature="e#44409#44575#0" expanded="false" />
-            <element signature="e#44577#44743#0" expanded="false" />
-            <element signature="e#44745#56591#0" expanded="false" />
-            <marker date="1521665110000" expanded="false" signature="56635:57484" ph="{...}" />
-            <marker date="1521665110000" expanded="false" signature="57544:59550" ph="{...}" />
-          </folding>
+        <state relative-caret-position="1129">
+          <caret line="187" column="27" lean-forward="true" selection-start-line="187" selection-start-column="27" selection-end-line="187" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scara_gui/include/scara_gui/mainwindow.h">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="640">
+            <caret line="98" column="46" lean-forward="false" selection-start-line="98" selection-start-column="46" selection-end-line="98" selection-end-column="46" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="823">
+          <caret line="80" column="26" lean-forward="false" selection-start-line="80" selection-start-column="26" selection-end-line="80" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scara_gui/src/mainwindow.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="167" column="0" lean-forward="true" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
+        <state relative-caret-position="229">
+          <caret line="1306" column="9" lean-forward="true" selection-start-line="1306" selection-start-column="9" selection-end-line="1306" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scara_v2_moveit_api/launch/scara_menu_gui_colision.launch">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="127" lean-forward="false" selection-start-line="6" selection-start-column="127" selection-end-line="6" selection-end-column="127" />
           <folding />
         </state>
       </provider>

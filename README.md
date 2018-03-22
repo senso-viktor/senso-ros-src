@@ -79,8 +79,26 @@ roslaunch scara_and_rt_moveit_config demo_matlab_mfile.launch
     - DEMO application with joint or position controll in async mode -> *with forcefeddback*
 
 ## Part 5 - SCARA GUI
-* 'TO DO - Add scripts'
-
+To run the SCARA GUI and SCARA menu, follow the next steps (Just simulation):
+1. Run Moveit & Rviz
+```
+roslaunch scara_and_rt_moveit_config demo.launch
+```
+2. Run SCARA menu
+```
+rosrun scara_v2_moveit_api scara_menu
+```
+3. Run SCARA GUI
+```
+rosrun scara_gui scara_gui
+```
+4. Run SCARA_colision_object (support node for colision object visualisation)
+```
+rosrun scara_v2_moveit_api scara_colision_object
+```
+**Or you can skip step 2, 3, 4 and you can use this launch file:**
+```
+```
 ## Part 6 - Rotary table:
 1. **RViz**
 ```

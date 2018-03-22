@@ -1,0 +1,8 @@
+<!--GUI + MENU + REAL SCARA-->
+
+<launch>
+    <include file="$(find scara_and_rt_moveit_config)/launch/demo.launch" />
+    <node name="scara_menu" pkg="scara_v2_moveit_api" type="scara_menu" respawn="false" output="screen"/>
+    <node name="scara_gui" pkg="scara_gui" type="scara_gui" respawn="false" output="screen"/>
+    <node name="scara_colision_object" pkg="scara_v2_moveit_api" type="scara_colision_object" respawn="false" output="screen"/>
+</launch>
