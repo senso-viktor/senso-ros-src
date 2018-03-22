@@ -108,7 +108,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>/home/viktordluhos/catkin_ws/src/scara_gui/Sensodrive-LogoE.gif</pixmap>
+        <pixmap>/home/viktordluhos/catkin_ws/src/scara_gui/user_interface/Sensodrive-LogoE.gif</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -2839,7 +2839,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>/home/viktordluhos/catkin_ws/src/scara_gui/Sensodrive-LogoE.gif</pixmap>
+     <pixmap>/home/viktordluhos/catkin_ws/src/scara_gui/user_interface/Sensodrive-LogoE.gif</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>

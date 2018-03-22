@@ -5,11 +5,10 @@
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
-      <config projectName="Project" targetName="_scara_v2_moveit_api_generate_messages_check_deps_status_rt" />
       <config projectName="Project" targetName="polled_camera_generate_messages_eus" />
       <config projectName="Project" targetName="_scara_v2_moveit_api_generate_messages_check_deps_pose_velocity_direction" />
       <config projectName="Project" targetName="gazebo_ros_diff_drive" />
-      <config projectName="Project" targetName="control_msgs_generate_messages_nodejs" />
+      <config projectName="Project" targetName="camera_synchronizer" />
       <config projectName="Project" targetName="scara_msgs_gencpp" />
       <config projectName="Project" targetName="gazebo_ros_camera_utils" />
       <config projectName="Project" targetName="dynamic_reconfigure_generate_messages_nodejs" />
@@ -21,7 +20,7 @@
       <config projectName="Project" targetName="gazebo_msgs_generate_messages" />
       <config projectName="Project" targetName="trajectory_msgs_generate_messages_cpp" />
       <config projectName="Project" targetName="run_tests_gazebo_plugins" />
-      <config projectName="Project" targetName="gazebo_msgs_generate_messages_eus" />
+      <config projectName="Project" targetName="actionlib_generate_messages_cpp" />
       <config projectName="Project" targetName="tf_generate_messages_nodejs" />
       <config projectName="Project" targetName="run_tests_gazebo_plugins_rostest_test_range_range_plugin.test" />
       <config projectName="Project" targetName="actionlib_msgs_generate_messages_eus" />
@@ -29,9 +28,9 @@
       <config projectName="Project" targetName="rotary_table_gui_generate_messages" />
       <config projectName="Project" targetName="multiple_cube_publisher" />
       <config projectName="Project" targetName="control_msgs_generate_messages_py" />
-      <config projectName="Project" targetName="scara_msgs_genpy" />
+      <config projectName="Project" targetName="_scara_v2_moveit_api_generate_messages_check_deps_status_rt" />
       <config projectName="Project" targetName="gazebo_msgs_genlisp" />
-      <config projectName="Project" targetName="gazebo_ros_video" />
+      <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_ApplyJointEffort" />
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_DeleteModel" />
       <config projectName="Project" targetName="scara_msgs_generate_messages" />
       <config projectName="Project" targetName="control_toolbox_generate_messages_eus" />
@@ -44,6 +43,7 @@
       <config projectName="Project" targetName="scara_msgs_generate_messages_eus" />
       <config projectName="Project" targetName="geometry_msgs_generate_messages_nodejs" />
       <config projectName="Project" targetName="gazebo_ros_joint_trajectory" />
+      <config projectName="Project" targetName="gazebo_ros_depth_camera" />
       <config projectName="Project" targetName="gazebo_msgs_genpy" />
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_GetLinkProperties" />
       <config projectName="Project" targetName="actionlib_generate_messages_nodejs" />
@@ -53,7 +53,7 @@
       <config projectName="Project" targetName="hokuyo_node" />
       <config projectName="Project" targetName="tf_generate_messages_cpp" />
       <config projectName="Project" targetName="gtest_main" />
-      <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_SetPhysicsProperties" />
+      <config projectName="Project" targetName="moveit_ros_manipulation_gencfg" />
       <config projectName="Project" targetName="pub_joint_trajectory_test" />
       <config projectName="Project" targetName="gazebo_ros_projector" />
       <config projectName="Project" targetName="roscpp_generate_messages_py" />
@@ -71,14 +71,12 @@
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_LinkState" />
       <config projectName="Project" targetName="_scara_msgs_generate_messages_check_deps_status_rt" />
       <config projectName="Project" targetName="actionlib_msgs_generate_messages_lisp" />
-      <config projectName="Project" targetName="actionlib_generate_messages_cpp" />
       <config projectName="Project" targetName="gazebo_ros_elevator" />
       <config projectName="Project" targetName="control_msgs_generate_messages_lisp" />
       <config projectName="Project" targetName="nav_msgs_generate_messages_eus" />
-      <config projectName="Project" targetName="actionlib_generate_messages_eus" />
       <config projectName="Project" targetName="bond_generate_messages_lisp" />
       <config projectName="Project" targetName="gazebo_ros_laser" />
-      <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_SetLightProperties" />
+      <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_ModelStates" />
       <config projectName="Project" targetName="scara_menu" />
       <config projectName="Project" targetName="dynamic_reconfigure_generate_messages_py" />
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_BodyRequest" />
@@ -86,7 +84,7 @@
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_SetLinkProperties" />
       <config projectName="Project" targetName="gazebo_msgs_geneus" />
       <config projectName="Project" targetName="gazebo_ros_p3d" />
-      <config projectName="Project" targetName="scara_v2_moveit_api_generate_messages_eus" />
+      <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_SetLightProperties" />
       <config projectName="Project" targetName="scara_msgs_generate_messages_py" />
       <config projectName="Project" targetName="diagnostic_msgs_generate_messages_eus" />
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_ApplyBodyWrench" />
@@ -96,14 +94,14 @@
       <config projectName="Project" targetName="octomap_msgs_generate_messages_eus" />
       <config projectName="Project" targetName="move_group_interface4_position_control" />
       <config projectName="Project" targetName="scara_v2_moveit_api_generate_messages_nodejs" />
+      <config projectName="Project" targetName="gazebo_msgs_generate_messages_eus" />
       <config projectName="Project" targetName="gazebo_ros_paths_plugin" />
-      <config projectName="Project" targetName="control_toolbox_gencfg" />
       <config projectName="Project" targetName="run_tests_gazebo_plugins_rostest" />
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_GetLinkState" />
       <config projectName="Project" targetName="nav_msgs_generate_messages_cpp" />
       <config projectName="Project" targetName="rotary_table_menu" />
       <config projectName="Project" targetName="object_recognition_msgs_generate_messages_py" />
-      <config projectName="Project" targetName="map_msgs_generate_messages_lisp" />
+      <config projectName="Project" targetName="can_interface" />
       <config projectName="Project" targetName="sensor_msgs_generate_messages_lisp" />
       <config projectName="Project" targetName="scara_msgs_gennodejs" />
       <config projectName="Project" targetName="nav_msgs_generate_messages_nodejs" />
@@ -126,7 +124,7 @@
       <config projectName="Project" targetName="std_srvs_generate_messages_eus" />
       <config projectName="Project" targetName="nodelet_generate_messages_eus" />
       <config projectName="Project" targetName="gazebo_ros_ft_sensor" />
-      <config projectName="Project" targetName="actionlib_msgs_generate_messages_cpp" />
+      <config projectName="Project" targetName="tf2_msgs_generate_messages_cpp" />
       <config projectName="Project" targetName="rosgraph_msgs_generate_messages_nodejs" />
       <config projectName="Project" targetName="test_can" />
       <config projectName="Project" targetName="tf2_msgs_generate_messages_eus" />
@@ -139,18 +137,17 @@
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_SetJointProperties" />
       <config projectName="Project" targetName="moveit_msgs_generate_messages_py" />
       <config projectName="Project" targetName="tf_generate_messages_lisp" />
+      <config projectName="Project" targetName="gazebo_msgs_generate_messages_py" />
       <config projectName="Project" targetName="scara_v2_moveit_api_genlisp" />
       <config projectName="Project" targetName="gazebo_ros_joint_pose_trajectory" />
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_SetModelState" />
-      <config projectName="Project" targetName="gmock" />
-      <config projectName="Project" targetName="diagnostic_msgs_generate_messages_nodejs" />
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_DeleteLight" />
-      <config projectName="Project" targetName="matlab_communication_tryout" />
+      <config projectName="Project" targetName="scara_msgs_genpy" />
       <config projectName="Project" targetName="diagnostic_msgs_generate_messages_lisp" />
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_ContactsState" />
       <config projectName="Project" targetName="gazebo_plugins_gencfg" />
       <config projectName="Project" targetName="tf2_msgs_generate_messages_nodejs" />
-      <config projectName="Project" targetName="control_toolbox_generate_messages_nodejs" />
+      <config projectName="Project" targetName="geometry_msgs_generate_messages_py" />
       <config projectName="Project" targetName="gazebo_ros_force" />
       <config projectName="Project" targetName="move_group_interface2" />
       <config projectName="Project" targetName="move_group_interface1" />
@@ -159,39 +156,42 @@
       <config projectName="Project" targetName="gazebo_ros_f3d" />
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_SetModelConfiguration" />
       <config projectName="Project" targetName="controller_manager_msgs_generate_messages_eus" />
+      <config projectName="Project" targetName="matlab_communication_tryout" />
+      <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_SetPhysicsProperties" />
       <config projectName="Project" targetName="map_msgs_generate_messages_eus" />
       <config projectName="Project" targetName="nodelet_generate_messages_cpp" />
       <config projectName="Project" targetName="gazebo_ros_imu" />
       <config projectName="Project" targetName="visualization_msgs_generate_messages_nodejs" />
-      <config projectName="Project" targetName="can_interface" />
+      <config projectName="Project" targetName="control_toolbox_gencfg" />
       <config projectName="Project" targetName="moveit_msgs_generate_messages_lisp" />
       <config projectName="Project" targetName="polled_camera_generate_messages_lisp" />
       <config projectName="Project" targetName="scara_gui" />
       <config projectName="Project" targetName="_run_tests_gazebo_plugins" />
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_ModelState" />
-      <config projectName="Project" targetName="controller_manager_msgs_generate_messages_cpp" />
       <config projectName="Project" targetName="rotary_table_gui" />
       <config projectName="Project" targetName="std_srvs_generate_messages_nodejs" />
+      <config projectName="Project" targetName="gazebo_ros_vacuum_gripper" />
       <config projectName="Project" targetName="bond_generate_messages_eus" />
       <config projectName="Project" targetName="_run_tests_gazebo_plugins_rostest_test_set_model_state_test_set_model_state_test.test" />
       <config projectName="Project" targetName="roscpp_generate_messages_nodejs" />
-      <config projectName="Project" targetName="real_scara_torq_sensor" />
+      <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_ContactState" />
       <config projectName="Project" targetName="gtest" />
       <config projectName="Project" targetName="gazebo_ros_multicamera" />
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_GetJointProperties" />
-      <config projectName="Project" targetName="scara_v2_moveit_api_genpy" />
+      <config projectName="Project" targetName="controller_manager_msgs_generate_messages_cpp" />
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_GetLightProperties" />
-      <config projectName="Project" targetName="geometry_msgs_generate_messages_py" />
+      <config projectName="Project" targetName="object_recognition_msgs_generate_messages_lisp" />
       <config projectName="Project" targetName="roscpp_generate_messages_eus" />
       <config projectName="Project" targetName="clean_test_results_gazebo_plugins" />
       <config projectName="Project" targetName="dynamic_reconfigure_generate_messages_lisp" />
       <config projectName="Project" targetName="controller_manager_msgs_generate_messages_py" />
-      <config projectName="Project" targetName="_scara_v2_moveit_api_generate_messages_check_deps_pose_and_gripperState" />
+      <config projectName="Project" targetName="gazebo_ros_video" />
       <config projectName="Project" targetName="gazebo_ros_prosilica" />
-      <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_ApplyJointEffort" />
+      <config projectName="Project" targetName="actionlib_msgs_generate_messages_cpp" />
       <config projectName="Project" targetName="scara_msgs_genlisp" />
       <config projectName="Project" targetName="scara_colision_object" />
       <config projectName="Project" targetName="_run_tests_gazebo_plugins_rostest_test_range_range_plugin.test" />
+      <config projectName="Project" targetName="std_msgs_generate_messages_cpp" />
       <config projectName="Project" targetName="_catkin_empty_exported_target" />
       <config projectName="Project" targetName="default_robot_hw_sim" />
       <config projectName="Project" targetName="set_model_state-test" />
@@ -201,6 +201,7 @@
       <config projectName="Project" targetName="bond_generate_messages_cpp" />
       <config projectName="Project" targetName="polled_camera_generate_messages_nodejs" />
       <config projectName="Project" targetName="run_tests_gazebo_plugins_rostest_test_set_model_state_test_set_model_state_test.test" />
+      <config projectName="Project" targetName="real_scara_torq_sensor" />
       <config projectName="Project" targetName="move_group_interface6_async_PICKandPLACE" />
       <config projectName="Project" targetName="std_msgs_generate_messages_eus" />
       <config projectName="Project" targetName="scara_v2_moveit_api_gennodejs" />
@@ -208,11 +209,10 @@
       <config projectName="Project" targetName="scara_gui_generate_messages" />
       <config projectName="Project" targetName="visualization_msgs_generate_messages_lisp" />
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_LinkStates" />
+      <config projectName="Project" targetName="_scara_msgs_generate_messages_check_deps_pose_velocity_direction" />
       <config projectName="Project" targetName="tf_readout" />
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_GetModelProperties" />
-      <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_ContactState" />
       <config projectName="Project" targetName="std_srvs_generate_messages_py" />
-      <config projectName="Project" targetName="gazebo_ros_imu_sensor" />
       <config projectName="Project" targetName="std_msgs_generate_messages_nodejs" />
       <config projectName="Project" targetName="roscpp_generate_messages_cpp" />
       <config projectName="Project" targetName="bond_generate_messages_py" />
@@ -222,11 +222,9 @@
       <config projectName="Project" targetName="dynamic_reconfigure_generate_messages_eus" />
       <config projectName="Project" targetName="moveit_ros_planning_gencfg" />
       <config projectName="Project" targetName="gazebo_ros_openni_kinect" />
-      <config projectName="Project" targetName="object_recognition_msgs_generate_messages_lisp" />
       <config projectName="Project" targetName="roscpp_generate_messages_lisp" />
-      <config projectName="Project" targetName="gazebo_ros_joint_state_publisher" />
       <config projectName="Project" targetName="dynamic_reconfigure_gencfg" />
-      <config projectName="Project" targetName="_scara_msgs_generate_messages_check_deps_pose_velocity_direction" />
+      <config projectName="Project" targetName="control_msgs_generate_messages_nodejs" />
       <config projectName="Project" targetName="visualization_msgs_generate_messages_cpp" />
       <config projectName="Project" targetName="MultiCameraPlugin" />
       <config projectName="Project" targetName="rosgraph_msgs_generate_messages_lisp" />
@@ -234,11 +232,12 @@
       <config projectName="Project" targetName="scara_v2_moveit_api_generate_messages_cpp" />
       <config projectName="Project" targetName="gazebo_ros_gpu_laser" />
       <config projectName="Project" targetName="nav_msgs_generate_messages_py" />
+      <config projectName="Project" targetName="scara_msgs_geneus" />
       <config projectName="Project" targetName="std_msgs_generate_messages_lisp" />
       <config projectName="Project" targetName="gazebo_ros_block_laser" />
-      <config projectName="Project" targetName="gazebo_ros_template" />
+      <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_ODEJointProperties" />
       <config projectName="Project" targetName="map_msgs_generate_messages_nodejs" />
-      <config projectName="Project" targetName="std_msgs_generate_messages_cpp" />
+      <config projectName="Project" targetName="diagnostic_msgs_generate_messages_nodejs" />
       <config projectName="Project" targetName="scara_msgs_generate_messages_nodejs" />
       <config projectName="Project" targetName="geometry_msgs_generate_messages_eus" />
       <config projectName="Project" targetName="gazebo_ros_skid_steer_drive" />
@@ -250,12 +249,14 @@
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_GetWorldProperties" />
       <config projectName="Project" targetName="gazebo_ros_range" />
       <config projectName="Project" targetName="moveit_msgs_generate_messages_cpp" />
+      <config projectName="Project" targetName="scara_v2_moveit_api_genpy" />
+      <config projectName="Project" targetName="scara_v2_moveit_api_generate_messages_eus" />
       <config projectName="Project" targetName="dynamic_reconfigure_generate_messages_cpp" />
       <config projectName="Project" targetName="gazebo_ros_bumper" />
       <config projectName="Project" targetName="run_tests" />
+      <config projectName="Project" targetName="std_srvs_generate_messages_lisp" />
       <config projectName="Project" targetName="octomap_msgs_generate_messages_lisp" />
       <config projectName="Project" targetName="tf2_msgs_generate_messages_py" />
-      <config projectName="Project" targetName="moveit_ros_manipulation_gencfg" />
       <config projectName="Project" targetName="scara_v2_moveit_api_generate_messages_lisp" />
       <config projectName="Project" targetName="controller_manager_msgs_generate_messages_lisp" />
       <config projectName="Project" targetName="gazebo_msgs_generate_messages_lisp" />
@@ -264,42 +265,41 @@
       <config projectName="Project" targetName="nodelet_generate_messages_lisp" />
       <config projectName="Project" targetName="map_msgs_generate_messages_cpp" />
       <config projectName="Project" targetName="octomap_msgs_generate_messages_nodejs" />
-      <config projectName="Project" targetName="controller_manager_msgs_generate_messages_nodejs" />
       <config projectName="Project" targetName="control_msgs_generate_messages_eus" />
       <config projectName="Project" targetName="get_and_send_planned_path" />
       <config projectName="Project" targetName="sensor_msgs_generate_messages_eus" />
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_ODEPhysics" />
-      <config projectName="Project" targetName="trajectory_msgs_generate_messages_nodejs" />
       <config projectName="Project" targetName="geometry_msgs_generate_messages_cpp" />
       <config projectName="Project" targetName="object_recognition_msgs_generate_messages_cpp" />
       <config projectName="Project" targetName="actionlib_generate_messages_py" />
-      <config projectName="Project" targetName="gazebo_ros_vacuum_gripper" />
+      <config projectName="Project" targetName="trajectory_msgs_generate_messages_nodejs" />
       <config projectName="Project" targetName="rosgraph_msgs_generate_messages_cpp" />
       <config projectName="Project" targetName="visualization_msgs_generate_messages_eus" />
       <config projectName="Project" targetName="scara_msgs_generate_messages_cpp" />
       <config projectName="Project" targetName="trajectory_msgs_generate_messages_eus" />
-      <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_ModelStates" />
-      <config projectName="Project" targetName="scara_msgs_geneus" />
-      <config projectName="Project" targetName="download_extra_data" />
+      <config projectName="Project" targetName="gazebo_ros_joint_state_publisher" />
+      <config projectName="Project" targetName="gazebo_ros_template" />
+      <config projectName="Project" targetName="controller_manager_msgs_generate_messages_nodejs" />
       <config projectName="Project" targetName="geometry_msgs_generate_messages_lisp" />
       <config projectName="Project" targetName="gazebo_ros_control" />
       <config projectName="Project" targetName="tf2_msgs_generate_messages_lisp" />
       <config projectName="Project" targetName="gazebo_ros_utils" />
       <config projectName="Project" targetName="_scara_msgs_generate_messages_check_deps_pose_and_gripperState" />
       <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_JointRequest" />
+      <config projectName="Project" targetName="download_extra_data" />
       <config projectName="Project" targetName="vision_reconfigure" />
       <config projectName="Project" targetName="_scara_v2_moveit_api_generate_messages_check_deps_SimpleService" />
       <config projectName="Project" targetName="rosgraph_msgs_generate_messages_py" />
-      <config projectName="Project" targetName="_gazebo_msgs_generate_messages_check_deps_ODEJointProperties" />
-      <config projectName="Project" targetName="gazebo_msgs_generate_messages_py" />
+      <config projectName="Project" targetName="gmock" />
+      <config projectName="Project" targetName="actionlib_generate_messages_eus" />
+      <config projectName="Project" targetName="control_toolbox_generate_messages_nodejs" />
       <config projectName="Project" targetName="matlab_ROS_com_tryout" />
       <config projectName="Project" targetName="bond_generate_messages_nodejs" />
       <config projectName="Project" targetName="object_recognition_msgs_generate_messages_nodejs" />
-      <config projectName="Project" targetName="camera_synchronizer" />
-      <config projectName="Project" targetName="std_srvs_generate_messages_lisp" />
-      <config projectName="Project" targetName="gazebo_ros_depth_camera" />
+      <config projectName="Project" targetName="gazebo_ros_imu_sensor" />
+      <config projectName="Project" targetName="map_msgs_generate_messages_lisp" />
+      <config projectName="Project" targetName="_scara_v2_moveit_api_generate_messages_check_deps_pose_and_gripperState" />
       <config projectName="Project" targetName="control_msgs_generate_messages_cpp" />
-      <config projectName="Project" targetName="tf2_msgs_generate_messages_cpp" />
       <config projectName="Project" targetName="sensor_msgs_generate_messages_cpp" />
     </generated>
   </component>
@@ -310,14 +310,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b700e8e-8037-495d-aed6-fe331801a34d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/1_Documentation/usb_to_can0" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ROTARY_TABLE_GUI_1/ROTARY_TABLE_GUI/ROTARY_TABLE_GUI.pro.user.ce30139" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rotary_table_gui/user_interface/backup/mainwindow.ui" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/moveit.rviz" afterPath="$PROJECT_DIR$/scara_and_rt_moveit_config/launch/moveit.rviz" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_gui/include/scara_gui/mainwindow.h" afterPath="$PROJECT_DIR$/scara_gui/include/scara_gui/mainwindow.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_gui/src/mainwindow.cpp" afterPath="$PROJECT_DIR$/scara_gui/src/mainwindow.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_gui/user_interface/mainwindow.ui" afterPath="$PROJECT_DIR$/scara_gui/user_interface/mainwindow.ui" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scara_v2_moveit_api/src/scara_menu.cpp" afterPath="$PROJECT_DIR$/scara_v2_moveit_api/src/scara_menu.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -333,8 +331,8 @@
       <file leaf-file-name="mainwindow.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scara_gui/include/scara_gui/mainwindow.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+            <state relative-caret-position="249">
+              <caret line="167" column="0" lean-forward="true" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -343,8 +341,8 @@
       <file leaf-file-name="mainwindow.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scara_gui/src/mainwindow.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="689">
-              <caret line="1496" column="2" lean-forward="false" selection-start-line="1496" selection-start-column="2" selection-end-line="1496" selection-end-column="2" />
+            <state relative-caret-position="26580">
+              <caret line="1329" column="2" lean-forward="false" selection-start-line="1329" selection-start-column="2" selection-end-line="1329" selection-end-column="2" />
               <folding>
                 <element signature="e#31040#34856#0" expanded="false" />
                 <element signature="e#34858#35495#0" expanded="false" />
@@ -362,8 +360,8 @@
                 <element signature="e#44409#44575#0" expanded="false" />
                 <element signature="e#44577#44743#0" expanded="false" />
                 <element signature="e#44745#56591#0" expanded="false" />
-                <marker date="1521643292478" expanded="false" signature="56635:57484" ph="{...}" />
-                <marker date="1521643292478" expanded="false" signature="57544:59550" ph="{...}" />
+                <marker date="1521665110000" expanded="false" signature="56635:57484" ph="{...}" />
+                <marker date="1521665110000" expanded="false" signature="57544:59550" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -2484,14 +2482,8 @@
       <workItem from="1521449343940" duration="1194000" />
       <workItem from="1521458316360" duration="8845000" />
       <workItem from="1521614401589" duration="21353000" />
-      <workItem from="1521642895985" duration="460000" />
-    </task>
-    <task id="LOCAL-00003" summary="get and send planned path OK!!!">
-      <created>1503741761539</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1503741761539</updated>
+      <workItem from="1521642895985" duration="863000" />
+      <workItem from="1521704151148" duration="59000" />
     </task>
     <task id="LOCAL-00004" summary="Prvy uspesny test hybania s ramenom cez moveit (v pritomnosti kolizneho objektu). Frekvencia 15Hz">
       <created>1503748336632</created>
@@ -2829,11 +2821,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521618859712</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="SENSODRIVE 21.Mar - SCARA GUI modif - NOT WORKING !">
+      <created>1521643427614</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1521643427615</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="422795000" />
+    <option name="totallyTimeSpent" value="423257000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1212" extended-state="6" />
@@ -2866,7 +2865,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="GUI - teach mode hand just GUI (mozno opravene/otestovat! 2)" />
     <MESSAGE value="GUI - DEMO mode funguje aj ked pomaly.." />
     <MESSAGE value="GUI - DEMO mode funguje oz naozaj .. teach mode neotestovany.." />
     <MESSAGE value="GUI - teach mode gui ako tak funguje" />
@@ -2891,7 +2889,8 @@
     <MESSAGE value="SENSODRIVE 19.Mar - Readme modif" />
     <MESSAGE value="SENSODRIVE 19.Mar - RT fully working on SENSO-PC, modified RT package, created launch-file for RT GUI and RT Menu, modified Readme" />
     <MESSAGE value="SENSODRIVE 21.Mar - README refreshed and updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="SENSODRIVE 21.Mar - README refreshed and updated" />
+    <MESSAGE value="SENSODRIVE 21.Mar - SCARA GUI modif - NOT WORKING !" />
+    <option name="LAST_COMMIT_MESSAGE" value="SENSODRIVE 21.Mar - SCARA GUI modif - NOT WORKING !" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3050,17 +3049,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="823">
-          <caret line="80" column="26" lean-forward="false" selection-start-line="80" selection-start-column="26" selection-end-line="80" selection-end-column="26" />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="140">
             <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="823">
+          <caret line="80" column="26" lean-forward="false" selection-start-line="80" selection-start-column="26" selection-end-line="80" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -3082,7 +3081,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1757">
           <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3251,8 +3249,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scara_gui/src/mainwindow.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="689">
-          <caret line="1496" column="2" lean-forward="false" selection-start-line="1496" selection-start-column="2" selection-end-line="1496" selection-end-column="2" />
+        <state relative-caret-position="26580">
+          <caret line="1329" column="2" lean-forward="false" selection-start-line="1329" selection-start-column="2" selection-end-line="1329" selection-end-column="2" />
           <folding>
             <element signature="e#31040#34856#0" expanded="false" />
             <element signature="e#34858#35495#0" expanded="false" />
@@ -3270,16 +3268,16 @@
             <element signature="e#44409#44575#0" expanded="false" />
             <element signature="e#44577#44743#0" expanded="false" />
             <element signature="e#44745#56591#0" expanded="false" />
-            <marker date="1521643292478" expanded="false" signature="56635:57484" ph="{...}" />
-            <marker date="1521643292478" expanded="false" signature="57544:59550" ph="{...}" />
+            <marker date="1521665110000" expanded="false" signature="56635:57484" ph="{...}" />
+            <marker date="1521665110000" expanded="false" signature="57544:59550" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scara_gui/include/scara_gui/mainwindow.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        <state relative-caret-position="249">
+          <caret line="167" column="0" lean-forward="true" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
           <folding />
         </state>
       </provider>

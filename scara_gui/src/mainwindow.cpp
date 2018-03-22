@@ -4,10 +4,8 @@
 #include <pluginlib/class_list_macros.h>
 #include <QStringList>
 #include <QtCore>
-#include <pluginlib/class_list_macros.h>
-
-
 #include <std_msgs/Int32.h>
+
 #include "ros/ros.h"
 
 
@@ -22,8 +20,9 @@ MainWindow::MainWindow(QWidget *parent) :
     int argc;
     char **argv;
     ros::init(argc, argv, "scara_gui_node");
-    ros::NodeHandle n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21,n22,n23,n24,n25;
-    ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6,nn7,nn8,nn9,nn10,nn11,nn12;
+    //ros::NodeHandle n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21,n22,n23,n24,n25;
+    //ros::NodeHandle nn1,nn2,nn3,nn4,nn5,nn6,nn7,nn8,nn9,nn10,nn11,nn12;
+    ros::NodeHandle n,nn;
     ros::Rate loop_rate(10);
 
     ROS_INFO("spinner for GUI start\n");
@@ -32,51 +31,51 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ROS_WARN("Init publishers:");
     //Publishers
-    jointControl_pub = n1.advertise<geometry_msgs::PointStamped>("jointControl",1000);
+    jointControl_pub = n.advertise<geometry_msgs::PointStamped>("jointControl",1000);
     ROS_INFO("jointControl");
-    positionControl_pub = n2.advertise<geometry_msgs::Point>("positionControl",1000);
+    positionControl_pub = n.advertise<geometry_msgs::Point>("positionControl",1000);
     ROS_INFO("positionControl");
-    demo_pub = n3.advertise<std_msgs::Bool>("demoControl",1000);                //nepouziva sa potom ho dat prec!!!!
+    demo_pub = n.advertise<std_msgs::Bool>("demoControl",1000);                //nepouziva sa potom ho dat prec!!!!
     ROS_INFO("demoControl");
-    getInfo_pub = n4.advertise<std_msgs::Bool>("getInfo",1000);
+    getInfo_pub = n.advertise<std_msgs::Bool>("getInfo",1000);
     ROS_INFO("getInfo");
-    setVel_pub = n5.advertise<std_msgs::Float64>("setVelocity",1000);
+    setVel_pub = n.advertise<std_msgs::Float64>("setVelocity",1000);
     ROS_INFO("setVelocity");
-    setAcc_pub = n6.advertise<std_msgs::Float64>("setAcceleration",1000);
+    setAcc_pub = n.advertise<std_msgs::Float64>("setAcceleration",1000);
     ROS_INFO("setAcceleration");
-    setPlanTime_pub = n7.advertise<std_msgs::Float64>("setPlanningTime",1000);
+    setPlanTime_pub = n.advertise<std_msgs::Float64>("setPlanningTime",1000);
     ROS_INFO("setPlanningTime");
-    setNumOfAttempts_pub = n8.advertise<std_msgs::Int32>("setNumberOfAttempts",1000);
+    setNumOfAttempts_pub = n.advertise<std_msgs::Int32>("setNumberOfAttempts",1000);
     ROS_INFO("setNumberOfAttempts");
-    gripperState_pub = n9.advertise<std_msgs::Bool>("gripperState",1000);
+    gripperState_pub = n.advertise<std_msgs::Bool>("gripperState",1000);
     ROS_INFO("gripperState");
-    start_pub = n10.advertise<std_msgs::Bool>("startState",1000);
+    start_pub = n.advertise<std_msgs::Bool>("startState",1000);
     ROS_INFO("startState");
-    mode_pub = n11.advertise<std_msgs::Int32>("modeSelectGUI",1000);
+    mode_pub = n.advertise<std_msgs::Int32>("modeSelectGUI",1000);
     ROS_INFO("modeSelectGUI");
-    teachMode_pub = n12.advertise<std_msgs::Int32>("teachModeGUI",1000);
+    teachMode_pub = n.advertise<std_msgs::Int32>("teachModeGUI",1000);
     ROS_INFO("teachModeGUI");
-    teachMode_startState = n13.advertise<std_msgs::Bool>("teachModeStartState",1000);
+    teachMode_startState = n.advertise<std_msgs::Bool>("teachModeStartState",1000);
     ROS_INFO("teachModeStartState");
-    setTorq_pub = n14.advertise<std_msgs::Float64>("setTorque",1000);
+    setTorq_pub = n.advertise<std_msgs::Float64>("setTorque",1000);
     ROS_INFO("setTorque");
-    centralStop_pub = n15.advertise<std_msgs::Int32>("centralStop",1000);
+    centralStop_pub = n.advertise<std_msgs::Int32>("centralStop",1000);
     ROS_INFO("centralStop");
-    moveitMode_pub = n16.advertise<std_msgs::Bool>("moveitModeStart",1000);
+    moveitMode_pub = n.advertise<std_msgs::Bool>("moveitModeStart",1000);
     ROS_INFO("moveitModeStart");
-    colObjArrows_pub = n17.advertise<std_msgs::Int32>("colisionObjectMovement",1000);
+    colObjArrows_pub = n.advertise<std_msgs::Int32>("colisionObjectMovement",1000);
     ROS_INFO("colisionObjectMovement");
-    displayRealColObj_pub = n20.advertise<std_msgs::Bool>("displayRealColisionObject",1000);
+    displayRealColObj_pub = n.advertise<std_msgs::Bool>("displayRealColisionObject",1000);
     ROS_INFO("displayRealColisionObject");
-    displayCustomColObj_pub = n21.advertise<std_msgs::Bool>("displayCustomColisionObject",1000);
+    displayCustomColObj_pub = n.advertise<std_msgs::Bool>("displayCustomColisionObject",1000);
     ROS_INFO("displayCustomColisionObject");
-    setPrecision_pub = n22.advertise<std_msgs::Float64>("setPrecision",1000);
+    setPrecision_pub = n.advertise<std_msgs::Float64>("setPrecision",1000);
     ROS_INFO("setPrecision");
-    setCustomObjPos_pub = n23.advertise<geometry_msgs::Point>("CustomObjectPosition",1000);
+    setCustomObjPos_pub = n.advertise<geometry_msgs::Point>("CustomObjectPosition",1000);
     ROS_INFO("CustomObjectPosition");
-    setCustomColObjSize_pub = n24.advertise<geometry_msgs::Point>("CustomObjectSize",1000);
+    setCustomColObjSize_pub = n.advertise<geometry_msgs::Point>("CustomObjectSize",1000);
     ROS_INFO("CustomObjectSize");
-    setRealColObjSize_pub = n25.advertise<geometry_msgs::Point>("RealObjectSize",1000);
+    setRealColObjSize_pub = n.advertise<geometry_msgs::Point>("RealObjectSize",1000);
     ROS_INFO("RealObjectSize");
 
     ROS_INFO(".........................................");
@@ -91,37 +90,39 @@ MainWindow::MainWindow(QWidget *parent) :
 //    jointStates_sub = nn1.subscribe("scara_jointStates",1000,&MainWindow::jointStatesCallback, this);
 //    ROS_INFO("scara_jointStates");
     //Pre simulaciu
-    jointStates_sub = nn1.subscribe("planned_poses_and_velocities",1000,&MainWindow::posesAndVelocitiesCallback, this);
+    jointStates_sub = nn.subscribe("planned_poses_and_velocities",1000,&MainWindow::posesAndVelocitiesCallback, this);
     ROS_INFO("planned_poses_and_velocities");
     //actualAcc_sub = nn2.subscribe("actualAcceleration",1000,&MainWindow::actualAccCallback, this);    //zrychlenia od realnej scary
-    actualAcc_sub = nn2.subscribe("/planned_accelerations",1000,&MainWindow::actualAccCallback, this);  //Simulacia
+    actualAcc_sub = nn.subscribe("/planned_accelerations",1000,&MainWindow::actualAccCallback, this);  //Simulacia
     ROS_INFO("planned_accelerations");
-    getInfo_sub = nn3.subscribe("getInfoValues",1000,&MainWindow::getInfoCallback, this);
+    getInfo_sub = nn.subscribe("getInfoValues",1000,&MainWindow::getInfoCallback, this);
     ROS_INFO("getInfoValues");
-    actualPose_sub = nn4.subscribe("actualPose",1000,&MainWindow::actualPoseCallback, this);
+    actualPose_sub = nn.subscribe("actualPose",1000,&MainWindow::actualPoseCallback, this);
     ROS_INFO("actualPose");
-    errorMessage_sub = nn5.subscribe("errorCode",1000,&MainWindow::errorCodeCallback, this);
+    errorMessage_sub = nn.subscribe("errorCode",1000,&MainWindow::errorCodeCallback, this);
     ROS_INFO("errorCode");
-    gripperCommand_sub = nn6.subscribe("gripperCommand",1000,&MainWindow::gripperCommandCallback, this);
+    gripperCommand_sub = nn.subscribe("gripperCommand",1000,&MainWindow::gripperCommandCallback, this);
     ROS_INFO("gripperCommand");
-    pushButton_sub = nn7.subscribe("scara_pushbutton",1000,&MainWindow::pushButtonCallback, this);
+    pushButton_sub = nn.subscribe("scara_pushbutton",1000,&MainWindow::pushButtonCallback, this);
     ROS_INFO("scara_pushbutton");
-    lightBarrier_sub = nn8.subscribe("scara_lightbarrier",1000,&MainWindow::lightBarrierCallback, this);
+    lightBarrier_sub = nn.subscribe("scara_lightbarrier",1000,&MainWindow::lightBarrierCallback, this);
     ROS_INFO("scara_lightbarrier");
-    desiredPose_sub = nn9.subscribe("desiredPoseGUI",1000,&MainWindow::desiredPoseCallback, this);
+    desiredPose_sub = nn.subscribe("desiredPoseGUI",1000,&MainWindow::desiredPoseCallback, this);
     ROS_INFO("desiredPoseGUI");
     //shit_sub = nn10.subscribe("hovadina",1000,&MainWindow::kktinaCallback, this);
-    moveit_jointStates = nn10.subscribe("joint_states",1000, &MainWindow::moveitJointStatesCallback, this);
+    moveit_jointStates = nn.subscribe("joint_states",1000, &MainWindow::moveitJointStatesCallback, this);
     ROS_INFO("joint_states");
-    torqJ1_sub = nn11.subscribe("torque_J1",1000, &MainWindow::torqueJ1Callback, this); //simulacia
+    torqJ1_sub = nn.subscribe("torque_J1",1000, &MainWindow::torqueJ1Callback, this); //simulacia
     ROS_INFO("torque_J1");
-    torqJ2_sub = nn12.subscribe("torque_J2",1000, &MainWindow::torqueJ2Callback, this); //simulacia
+    torqJ2_sub = nn.subscribe("torque_J2",1000, &MainWindow::torqueJ2Callback, this); //simulacia
     ROS_INFO("torque_J2\n");
     ROS_WARN("GUI init complete");
 
     ROS_WARN("Init shared variables");
-    //init_shared_variables();
+    init_shared_variables();
     ROS_WARN("Shared variables init complete");
+
+    sleep(2);
 
     ROS_WARN("Init paralel thread");
     timer = new QTimer(this);
@@ -144,7 +145,7 @@ void MainWindow::on_jointControl_Start_PushButton_3_clicked(){
     //Display on GUI
     ui->jointControl_J1_LineEdit->setText(QString::number(ui->jointControl_J1_Slider_3->value() / 100.0) + "rad");
     ui->jointControl_J2_LineEdit->setText(QString::number(ui->jointControl_J2_Slider_3->value() / 100.0) + "rad");
-    ui->jointControl_J3_LineEdit->setText(QString::number(ui->jointControl_J3_Slider_3->value()) + "cm");
+    ui->jointControl_J3_LineEdit->setText(QString::number(ui->jointControl_J3_Slider_3->value()) + "mm");
     ui->status_gripper_OnOff_3->display(gripperState);
 
     //Send to ROS
@@ -1010,12 +1011,6 @@ void MainWindow::jointStatesCallback(const sensor_msgs::JointState jointState){
 
 void MainWindow::posesAndVelocitiesCallback(const geometry_msgs::Pose poseAndVelocity){
 
-    //Len pre simulaciu
-    //ROS_INFO("velocities %f %f %f",poseAndVelocity.orientation.x, poseAndVelocity.orientation.y, poseAndVelocity.orientation.z);
-//    ui->status_joint1vel_3->display(poseAndVelocity.orientation.x);
-//    ui->status_joint2vel_3->display(poseAndVelocity.orientation.y);
-//    ui->status_joint3vel_3->display(poseAndVelocity.orientation.z);
-
     disp_curr_joint_vel[0] = poseAndVelocity.orientation.x;
     disp_curr_joint_vel[1] = poseAndVelocity.orientation.y;
     disp_curr_joint_vel[2] = poseAndVelocity.orientation.z;
@@ -1043,14 +1038,6 @@ void MainWindow::getInfoCallback(const scara_msgs::robot_info robotInfo){
     disp_effect_link = effector_link;
     disp_active_joints = active_joints;
 
-    ui->basicInfo_X_LCDnum_3->display(robotInfo.position_x);
-    ui->basicInfo_Y_LCDnum_6->display(robotInfo.position_y);
-    ui->basicInfo_Z_LCDnum_3->display(robotInfo.position_z);
-    ui->basicInfo_R_LCDnum_3->display(robotInfo.orientation_x);
-    ui->basicInfo_P_LCDnum_3->display(robotInfo.orientation_y);
-    ui->basicInfo_Y_LCDnum_5->display(robotInfo.orientation_z);
-    ui->basicInfo_W_LCDnum_3->display(robotInfo.orientation_w);
-
     disp_curr_rob_status[0] = robotInfo.position_x;
     disp_curr_rob_status[1] = robotInfo.position_y;
     disp_curr_rob_status[2] = robotInfo.position_z;
@@ -1058,132 +1045,25 @@ void MainWindow::getInfoCallback(const scara_msgs::robot_info robotInfo){
     disp_curr_rob_status[4] = robotInfo.orientation_y;
     disp_curr_rob_status[5] = robotInfo.orientation_z;
     disp_curr_rob_status[6] = robotInfo.orientation_w;
-
-
 }   //String to QString !!!!!!
 
 void MainWindow::actualPoseCallback(const geometry_msgs::Pose pose){
-    //ROS_INFO("Pose callback");
 
-    //Pre realnu scaru
-//    ui->status_pose_X->display(pose.position.x);
-//    ui->status_pose_Y->display(pose.position.y);
-//    ui->status_pose_Z->display(pose.position.z);
     disp_curr_carthesian_pos[0] = pose.position.x;
     disp_curr_carthesian_pos[1] = pose.position.y;
     disp_curr_carthesian_pos[2] = pose.position.z;
-
 }
 
 void MainWindow::actualAccCallback(const geometry_msgs::Point accValues){
 
-    //Pre realnu scaru
-//    if(filterValues(accValues.x)){
-//        ui->status_joint1acc_3->display(0.0);
-//    }else{
-//        ui->status_joint1acc_3->display(accValues.x);
-//    }
-//
-//    if(filterValues(accValues.y)){
-//        ui->status_joint2acc_3->display(0.0);
-//    }else{
-//        ui->status_joint2acc_3->display(accValues.y);
-//    }
-//
-//    if(filterValues(accValues.z)){
-//        ui->status_joint3acc_3->display(0.0);
-//    }else{
-//        ui->status_joint3acc_3->display(accValues.z);
-//    }
-
-    //Pre simulaciu
-//    ui->status_joint1acc_3->display(accValues.x);
-//    ui->status_joint2acc_3->display(accValues.y);
-//    ui->status_joint3acc_3->display(accValues.z);
-
     disp_curr_joint_acc[0] = accValues.x;
     disp_curr_joint_acc[1] = accValues.y;
     disp_curr_joint_acc[2] = accValues.z;
-
-
 }
 
 void MainWindow::errorCodeCallback(const std_msgs::Int32 errorCode){
 
-    if (lastErrorCode != errorCode.data){
-
-        lastErrorCode = errorCode.data;
-
-        switch (errorCode.data){
-            case 0:
-                //ROS_INFO("Everything OK!");
-                ui->error_lineEdit->setText("Everything OK!");
-                break;
-            case 1:
-                //ROS_INFO("[joint control] : Bad input joint values");
-                ui->error_lineEdit->setText("[joint control] : Bad input joint values");
-                break;
-            case 2:
-                //ROS_INFO("[position control] : Bad plan");
-                ui->error_lineEdit->setText("[joint control] : Bad plan");
-                break;
-            case 3:
-                //ROS_INFO("[position control] : Colision warining! changing mode");
-                ui->error_lineEdit->setText("[position control] : Colision warining! changing mode");
-                break;
-            case 4:
-                //ROS_INFO("[position control] : Cannot solve IK please enter new positions");
-                ui->error_lineEdit->setText("[position control] : Cannot solve IK please enter new positions");
-                break;
-            case 5:
-                //ROS_INFO("[position control] : No solution found for desired position");
-                ui->error_lineEdit->setText("[position control] : No solution found for desired position");
-                break;
-            case 6:
-                //ROS_INFO("[position control] : No solution found for desired position");
-                ui->error_lineEdit->setText("[joint control] : Something wrong with the function and cannot execute plan");
-                break;
-            case 7:
-                //ROS_INFO("[position control] : No solution found for desired position");
-                ui->error_lineEdit->setText("Bad plan or out of bounds ! cannot execute plan");
-                break;
-            case 8:
-                //ROS_INFO("[position control] : No solution found for desired position");
-                ui->error_lineEdit->setText("[DEMO control] : replanning trajectory");
-                break;
-            case 9:
-                //ROS_INFO("[position control] : No solution found for desired position");
-                ui->error_lineEdit->setText("[TEACH mode GUI] : teached new position!");
-                break;
-            case 10:
-                //ROS_INFO("[position control] : No solution found for desired position");
-                ui->error_lineEdit->setText("[TEACH mode GUI] : stopped teaching!");
-            case 11:
-                //ROS_INFO("[position control] : No solution found for desired position");
-                ui->error_lineEdit->setText("[TEACH mode GUI] : size NOT OK!");
-                break;
-            case 12:
-                //ROS_INFO("[position control] : No solution found for desired position");
-                ui->error_lineEdit->setText("[TEACH mode HAND] : teached new position!");
-                break;
-            case 13:
-                //ROS_INFO("[position control] : No solution found for desired position");
-                ui->error_lineEdit->setText("[TEACH mode HAND] : stopped teaching!");
-                break;
-            case 14:
-                //ROS_INFO("[position control] : No solution found for desired position");
-                ui->error_lineEdit->setText("[TEACH mode HAND] : size NOT OK!");
-                break;
-            case 15:
-                //ROS_INFO("[position control] : No solution found for desired position");
-                ui->error_lineEdit->setText("[TEACH mode HAND] : size NOT OK!");
-                break;
-            default:
-                break;
-        }
-    }
-
-
+    disp_err_code = errorCode.data;
 }
 
 void MainWindow::kktinaCallback(const geometry_msgs::Pose pose){
@@ -1193,51 +1073,30 @@ void MainWindow::kktinaCallback(const geometry_msgs::Pose pose){
 
 void MainWindow::pushButtonCallback(const std_msgs::Byte pushButtonState){
 
-//    ui->status_gripper_PushButton_3->display(pushButtonState.data);
     disp_push_button = pushButtonState.data;
 }
 
 void MainWindow::lightBarrierCallback(const std_msgs::Byte lightBarrierState){
 
-//    ui->status_gripper_LightBarrier_3->display(lightBarrierState.data);
     disp_light_barrier = lightBarrierState.data;
 }
 
 void MainWindow::gripperCommandCallback(const std_msgs::Byte gripperCommandState){
 
-//    ui->status_gripper_OnOff_3->display(gripperCommandState.data);
     disp_gripper_state = gripperCommandState.data;
-
 }
 
 void MainWindow::desiredPoseCallback(const geometry_msgs::Point desiredPose){
 
-//    ui->status_pose_Xdesired->display(desiredPose.x);
-//    ui->status_pose_Ydesired->display(desiredPose.y);
-//    ui->status_pose_Zdesired->display(desiredPose.z);
-
     disp_des_carthesian_pos[0] = desiredPose.x;
     disp_des_carthesian_pos[1] = desiredPose.y;
     disp_des_carthesian_pos[2] = desiredPose.z;
-
 }
 
 void MainWindow::moveitJointStatesCallback(const sensor_msgs::JointState jointState){
 
     //ROS_INFO("Current joint states from moveit J1=%f J2=%f J3 =%f", jointState.position[0], jointState.position[1], jointState.position[2]);
     actualJointStates = jointState;
-
-//    ui->status_joint1pos_rad_3->display(jointState.position[0]*RAD_TO_DEG);
-//    ui->status_joint2pos_rad_3->display(jointState.position[1]*RAD_TO_DEG);
-//    ui->status_joint3pos_rad_3->display(jointState.position[2]*100.0);
-//    ui->status_joint1pos_deg_3->display(jointState.position[0]);
-//    ui->status_joint2pos_deg_3->display(jointState.position[1]);
-//    ui->status_joint3pos_deg_3->display(jointState.position[2]*100.0);
-//
-//    //TEACH MODE
-//    ui->teachModeHand_J1_LCD->display(jointState.position[0]);
-//    ui->teachModeHand_J2_LCD->display(jointState.position[1]);
-//    ui->teachModeHand_J3_LCD->display(jointState.position[2]*100.0);
 
     disp_curr_joint_pos_DEG[0] = jointState.position[0]*RAD_TO_DEG;
     disp_curr_joint_pos_DEG[1] = jointState.position[1]*RAD_TO_DEG;
@@ -1247,27 +1106,22 @@ void MainWindow::moveitJointStatesCallback(const sensor_msgs::JointState jointSt
 
 void MainWindow::torqueJ1Callback(const std_msgs::Float64 torque){
 
-    //ui->status_joint1torq_3->display(torque.data);
     disp_curr_joint_torq[0] = torque.data;
-
 }
 
 void MainWindow::torqueJ2Callback(const std_msgs::Float64 torque){
 
-    //ui->status_joint2torq_3->display(torque.data);
     disp_curr_joint_torq[1] = torque.data;
-
 }
 
 void MainWindow::displayValues(){
-/*
+
     static double last_joint_pos_DEG[] = {999.9,999.9,999.9}, last_joint_vel[] = {999.9,999.9,999.9}, last_joint_acc[] = {999.9,999.9,999.9}, last_joint_torq[] = {999.9,999.9,999.9};
     static double last_des_carthesian_pos[] = {999.9,999.9,999.9}, last_carthesian_pos[] = {999.9,999.9,999.9}, last_rob_status[] = {999.9,999.9,999.9, 999.9,999.9,999.9, 999.9};
     static uint8_t last_gripper_state = 0, last_light_barrier= 0, last_push_button=0, init=0, last_err_code = -1;
     std::string last_rob_model="-1", last_refer_frame = "-1", last_effect_link = "-1", last_active_joints = "-1";
-
     if (!init){
-        ROS_INFO("Cycle init");
+
         for (int i=0;i<3;i++){
             last_joint_pos_DEG[i] = disp_curr_joint_pos_DEG[i];
             last_joint_vel[i] = disp_curr_joint_vel[i];
@@ -1285,7 +1139,6 @@ void MainWindow::displayValues(){
         last_refer_frame = disp_refer_frame;
         last_effect_link = disp_effect_link;
         last_active_joints = disp_active_joints;
-
         //Display everything in GUI
         ui->status_joint1pos_rad_3->display(disp_curr_joint_pos_DEG[0]*DEG_TO_RAD);
         ui->status_joint2pos_rad_3->display(disp_curr_joint_pos_DEG[1]*DEG_TO_RAD);
@@ -1325,12 +1178,9 @@ void MainWindow::displayValues(){
         ui->basicInfo_ActiveJoints_TextBrowser_3->setText(QString::fromStdString(disp_active_joints));
         ROS_WARN("Publishing text to GUI finished");
         init = true;
-
     } else{
-        ROS_INFO("Cycle Not init");
 
-        //Show **JOINT POSITIONS** in GUI
-        if (last_joint_pos_DEG[0] != disp_curr_joint_pos_DEG[0]){
+        if (last_joint_pos_DEG[0] != disp_curr_joint_pos_DEG[0]){           //Show **JOINT POSITIONS** in GUI
             ui->status_joint1pos_rad_3->display(disp_curr_joint_pos_DEG[0]*DEG_TO_RAD);
             ui->status_joint1pos_deg_3->display(disp_curr_joint_pos_DEG[0]);
             last_joint_pos_DEG[0] = disp_curr_joint_pos_DEG[0];
@@ -1345,9 +1195,7 @@ void MainWindow::displayValues(){
             ui->status_joint3pos_deg_3->display(disp_curr_joint_pos_DEG[2]*100.0);
             last_joint_pos_DEG[2] = disp_curr_joint_pos_DEG[2];
         }
-
-        //Show **JOINT VELOCITIES** in GUI
-        if (last_joint_vel[0] != disp_curr_joint_vel[0]){
+        if (last_joint_vel[0] != disp_curr_joint_vel[0]){                     //Show **JOINT VELOCITIES** in GUI
             //Write to GUI
             last_joint_vel[0] = disp_curr_joint_vel[0];
         }
@@ -1359,9 +1207,7 @@ void MainWindow::displayValues(){
             //Write to GUI
             last_joint_vel[2] = disp_curr_joint_vel[2];
         }
-
-        //Show **JOINT ACCELERATIONS** in GUI
-        if (last_joint_acc[0] != disp_curr_joint_acc[0]){
+        if (last_joint_acc[0] != disp_curr_joint_acc[0]){                     //Show **JOINT ACCELERATIONS** in GUI
             ui->status_joint1acc_3->display(disp_curr_joint_acc[0]);
             last_joint_acc[0] = disp_curr_joint_acc[0];
         }
@@ -1373,9 +1219,7 @@ void MainWindow::displayValues(){
             ui->status_joint3acc_3->display(disp_curr_joint_acc[2]);
             last_joint_acc[2] = disp_curr_joint_acc[2];
         }
-
-        //Show **JOINT TORQUES** in GUI
-        if (last_joint_torq[0] != disp_curr_joint_torq[0]){
+        if (last_joint_torq[0] != disp_curr_joint_torq[0]){                   //Show **JOINT TORQUES** in GUI
             ui->status_joint1torq_3->display(disp_curr_joint_torq[0]);
             last_joint_torq[0] = disp_curr_joint_torq[0];
         }
@@ -1387,10 +1231,8 @@ void MainWindow::displayValues(){
             ui->status_joint3torq_3->display(disp_curr_joint_torq[2]);
             last_joint_torq[2] = disp_curr_joint_torq[2];
         }
-
-        //Show **DESIRED CARTHESIAN POSITION** in GUI
-        if (last_des_carthesian_pos[0] != disp_des_carthesian_pos[0]){      //x
-            ui->status_pose_Xdesired->display(disp_des_carthesian_pos[0]);
+        if (last_des_carthesian_pos[0] != disp_des_carthesian_pos[0]){        //Show **DESIRED CARTHESIAN POSITION** in GUI
+            ui->status_pose_Xdesired->display(disp_des_carthesian_pos[0]);  //x
             last_des_carthesian_pos[0] = disp_des_carthesian_pos[0];
         }
         if (last_des_carthesian_pos[1] != disp_des_carthesian_pos[1]){      //y
@@ -1401,7 +1243,6 @@ void MainWindow::displayValues(){
             ui->status_pose_Zdesired->display(disp_des_carthesian_pos[2]);
             last_des_carthesian_pos[2] = disp_des_carthesian_pos[2];
         }
-
         //Show **CARTHESIAN POSITION** in GUI
         if (last_carthesian_pos[0] != disp_curr_carthesian_pos[0]){      //x
             ui->status_pose_X->display(disp_curr_carthesian_pos[0]);
@@ -1415,7 +1256,6 @@ void MainWindow::displayValues(){
             ui->status_pose_Z->display(disp_curr_carthesian_pos[2]);
             last_carthesian_pos[2] = disp_curr_carthesian_pos[2];
         }
-
         //Show **ROBOT STATUS** in GUI
         if (last_rob_status[0] != disp_curr_rob_status[0]){      //x
             ui->basicInfo_X_LCDnum_3->display(disp_curr_rob_status[0]); //x
@@ -1445,31 +1285,26 @@ void MainWindow::displayValues(){
             ui->basicInfo_W_LCDnum_3->display(disp_curr_rob_status[6]); //Rw
             last_rob_status[6] = disp_curr_rob_status[6];
         }
-
         //Show **GRIPPER STATE** in GUI
         if (last_gripper_state != disp_gripper_state){
             ui->status_gripper_OnOff_3->display(disp_gripper_state);
             last_gripper_state = disp_gripper_state;
         }
-
         //Show **LIGHT BARRIER** in GUI
         if (last_light_barrier != disp_light_barrier){
             ui->status_gripper_LightBarrier_3->display(disp_light_barrier);
             last_light_barrier = disp_light_barrier;
         }
-
         //Show **PUSH BUTTON** in GUI
         if (last_push_button != disp_push_button){
             ui->status_gripper_PushButton_3->display(disp_push_button);
             last_push_button = disp_push_button;
         }
-
         //Show **ERROR** in GUI
         if (last_err_code != disp_err_code){
             decodeErrorMessage(disp_err_code);
             last_err_code = disp_err_code;
         }
-
         //Show **ROBOT PARAMETERS** in GUI
         if (last_rob_model != disp_rob_model){
             ui->basicInfo_RobotModel_TextBrowser_3->setText(QString::fromStdString(disp_rob_model));
@@ -1487,16 +1322,12 @@ void MainWindow::displayValues(){
             ui->basicInfo_ActiveJoints_TextBrowser_3->setText(QString::fromStdString(disp_active_joints));
             last_active_joints = disp_active_joints;
         }
-
     }
 
-
-
-*/
 }
-/*
-void MainWindow::init_shared_variables(){
 
+
+void MainWindow::init_shared_variables(){
     disp_curr_joint_pos_DEG.reserve(3);
     disp_curr_joint_vel.reserve(3);
     disp_curr_joint_acc.reserve(3);
@@ -1523,8 +1354,8 @@ void MainWindow::init_shared_variables(){
     disp_active_joints = "0";
 }
 
-void MainWindow::decodeErrorMessage(uint8_t error_message){
 
+void MainWindow::decodeErrorMessage(uint8_t error_message){
     switch (error_message){
         case 0:
             ui->error_lineEdit->setText("Everything OK!");
@@ -1576,6 +1407,4 @@ void MainWindow::decodeErrorMessage(uint8_t error_message){
         default:
             break;
     }
-
 }
-*/
