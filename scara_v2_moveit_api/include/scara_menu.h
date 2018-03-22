@@ -22,6 +22,7 @@
 #include <tf/transform_listener.h>
 #include "scara_msgs/robot_info.h"
 #include "scara_v2_moveit_api/pose_and_gripperState.h"
+#include "scara_v2_moveit_api/pose_velocity_direction.h"
 
 //Global variables
 bool success;
@@ -57,6 +58,7 @@ geometry_msgs::Pose endEffectorPose, pos_and_vel;
 geometry_msgs::PoseStamped ws1;
 sensor_msgs::JointState currentJointStates;
 scara_v2_moveit_api::pose_and_gripperState manipulationWithCubesMsg;
+scara_v2_moveit_api::pose_velocity_direction rt_msg;
 
 moveit::planning_interface::MoveGroupInterface::Plan my_plan;
 moveit::planning_interface::MoveGroupInterface *mg;

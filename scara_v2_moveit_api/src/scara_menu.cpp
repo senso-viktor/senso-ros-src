@@ -94,6 +94,11 @@ int main(int argc, char **argv){
     ros::Publisher displayCubes_pub = n14.advertise<std_msgs::Bool>("displayCubes",1000);  //Simulacia
     ros::Publisher gripperState_pub =  n15.advertise<scara_v2_moveit_api::pose_and_gripperState>("gripper_state", 1000);  //Simulacia
     ros::Publisher numOfCubes_pub = n16.advertise<std_msgs::Int32>("numberOfTeachedPoints",1000); //Simulacia
+    ros::Publisher rotateCommand_pub = n1.advertise<scara_v2_moveit_api::pose_velocity_direction>("rotate_DEC_RT",1000);
+    rt_msg.rotation = 450;
+    rt_msg.velocity = 60;
+    rt_msg.direction = true;
+
     ROS_INFO("Init subscribers");
     //Subscriber
     ros::Subscriber modeSelect_sub = nn1.subscribe("modeSelectGUI",1000,modeSelectCallback);
@@ -586,9 +591,13 @@ int main(int argc, char **argv){
                                      desiredJointsDEMO[DEMO_mode][2]);
                             sendPositionToGUI(desiredPositionsDEMO[DEMO_mode].x, desiredPositionsDEMO[DEMO_mode].y, desiredPositionsDEMO[DEMO_mode].z);
                             sleep(1);
+
                             demoControl_counter = 0;
                             satisfieJointLimits = move_group.setJointValueTarget(desiredJointsDEMO[DEMO_mode]);
                             jointModeControll(&move_group);
+                            sleep(0.5);
+                            //************ Rotary table ***********//
+                            if (DEMO_mode> 2) rotateCommand_pub.publish(rt_msg);
 
                         }
 
