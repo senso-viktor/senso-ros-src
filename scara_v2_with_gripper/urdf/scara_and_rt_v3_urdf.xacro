@@ -6,7 +6,7 @@
     <xacro:property name="RED2DEG" value="57.295779513" />
     <xacro:property name="M_PI" value="3.141592" />
     <xacro:property name="baseBox_offset_x" value="0.4" />
-    <xacro:property name="baseBox_offset_y" value="0.15" />
+    <xacro:property name="baseBox_offset_y" value="0.25" />
     <xacro:property name="base_size_x" value="0.125" />
     <xacro:property name="base_size_y" value="0.245" />
     <xacro:property name="base_size_z" value="0.03" /> <!-- Zmenil som vysku rotacneho stolika -->
@@ -422,7 +422,7 @@
             <geometry>
                 <box size="${base_size_x} ${base_size_y} ${base_size_z}"/>
             </geometry>
-            <material name="sensoGray" />
+            <material name="sensoSilver" />
         </visual>
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
@@ -731,13 +731,13 @@
         <limit effort="100.0" lower="-0.04" upper="0.05" velocity="1"/>
     </joint>
 
-    <!--<joint name="Base_to_tool0" type="fixed">-->
-    <!--<parent link="GripperBase" />-->
-    <!--<child link="tool0" />-->
-    <!--<origin xyz="0 0.0984 0" rpy="0 0 0 " />-->
-    <!--</joint>-->
+    <joint name="Base_to_tool0" type="fixed">
+    <parent link="GripperBase" />
+    <child link="tool0" />
+    <origin xyz="0 0.0984 0" rpy="0 0 0 " />
+    </joint>
 
-    <!--<link name="tool0"/>-->
+    <link name="tool0"/>
 
 
 

@@ -1,11 +1,5 @@
 #include "../include/rotary_table_gui/mainwindow.h"
 #include "ui_mainwindow.h"
-#include <pluginlib/class_list_macros.h>
-#include <QStringList>
-#include <QtCore>
-#include <std_msgs/Int32.h>
-#include <std_msgs/String.h>
-#include "ros/ros.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -49,10 +43,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ROS_WARN("");
     ROS_WARN("************************* Init end  ********************************");
     ROS_WARN("");
-
-    pose_velocity_direction_msg.velocity = (int) 360;
-    ui->maxVelocityDeg_LCD->display(360);
-    ui->maxVelocityRad_LCD->display(360*DEGREES_per_SECOND_TO_ROTATIONperMINUTE);
 
     ui->direction_RIGHT_CB->setChecked(true);
     ui->direction_LEFT_CB->setChecked(false);
@@ -273,7 +263,7 @@ void MainWindow::on_smooth_plusHalf_PB_clicked(){
     ui->desiredPositionDeg_LCD->display(desiredAngleInt/10.0 * DEG_TO_RAD);
     //ROS
     pose_velocity_direction_msg.rotation = 10; //deg=step*10
-    pose_velocity_direction_msg.velocity = 60; //deg/s -> ot/min
+    pose_velocity_direction_msg.velocity = 30; //deg/s -> ot/min
     pose_velocity_direction_msg.direction = true;
     rotate_DEC_pub.publish(pose_velocity_direction_msg);
     //ROS_INFO_STREAM(pose_velocity_direction_msg);
@@ -286,13 +276,13 @@ void MainWindow::on_smooth_plusOne_PB_clicked(){
     desiredAngleInt = normalizeToRange2PI(desiredAngleInt);
 
     //GUI
-    //ROS_INFO("desiredAngleInt = %d",desiredAngleInt);
+    //ROS_INFO("[RT-GUI] : desiredAngleInt = %d",desiredAngleInt);
     ui->status_TE->append("Moving[relative] to " + QString::number(0.1) + " deg in direction RIGHT");
     ui->desiredPositionDeg_LCD->display(desiredAngleInt/10.0);
     ui->desiredPositionDeg_LCD->display(desiredAngleInt/10.0 * DEG_TO_RAD);
     //ROS
     pose_velocity_direction_msg.rotation = 100; //deg=step*10
-    pose_velocity_direction_msg.velocity = 60; //deg/s -> ot/min
+    pose_velocity_direction_msg.velocity = 30; //deg/s -> ot/min
     pose_velocity_direction_msg.direction = true;
     rotate_DEC_pub.publish(pose_velocity_direction_msg);
     //ROS_INFO_STREAM(pose_velocity_direction_msg);
@@ -305,16 +295,17 @@ void MainWindow::on_smooth_minusHalf_PB_clicked(){
     desiredAngleInt = normalizeToRange2PI(desiredAngleInt);
 
     //GUI
-    //ROS_INFO("desiredAngleInt = %d",desiredAngleInt);
+    //ROS_INFO("[RT-GUI] : desiredAngleInt = %d",desiredAngleInt);
     ui->status_TE->append("Moving[relative] to " + QString::number(0.1) + " deg in direction RIGHT");
     ui->desiredPositionDeg_LCD->display(desiredAngleInt/10.0);
     ui->desiredPositionDeg_LCD->display(desiredAngleInt/10.0 * DEG_TO_RAD);
     //ROS
     pose_velocity_direction_msg.rotation = 10; //deg=step*10
-    pose_velocity_direction_msg.velocity = 60; //deg/s -> ot/min
+    pose_velocity_direction_msg.velocity = 30; //deg/s -> ot/min
     pose_velocity_direction_msg.direction = false;
     rotate_DEC_pub.publish(pose_velocity_direction_msg);
     //ROS_INFO_STREAM(pose_velocity_direction_msg);
+
 
 }
 
@@ -325,13 +316,13 @@ void MainWindow::on_smooth_minusOne_PB_clicked(){
     desiredAngleInt = normalizeToRange2PI(desiredAngleInt);
 
     //GUI
-    //ROS_INFO("desiredAngleInt = %d",desiredAngleInt);
+    //ROS_INFO("[RT-GUI] : desiredAngleInt = %d",desiredAngleInt);
     ui->status_TE->append("Moving[relative] to " + QString::number(0.1) + " deg in direction RIGHT");
     ui->desiredPositionDeg_LCD->display(desiredAngleInt/10.0);
     ui->desiredPositionDeg_LCD->display(desiredAngleInt/10.0 * DEG_TO_RAD);
     //ROS
     pose_velocity_direction_msg.rotation = 100; //deg=step*10
-    pose_velocity_direction_msg.velocity = 60; //deg/s -> ot/min
+    pose_velocity_direction_msg.velocity = 30; //deg/s -> ot/min
     pose_velocity_direction_msg.direction = false;
     rotate_DEC_pub.publish(pose_velocity_direction_msg);
     //ROS_INFO_STREAM(pose_velocity_direction_msg);
@@ -489,7 +480,7 @@ int MainWindow::hex2dec(char hex_value[]){
 
 void MainWindow::rotateImg(double angle) {
 
-    QPixmap pixmap("/home/viktordluhos/catkin_ws/src/rotary_table_gui/pictures/rt/rt_gif.gif");
+    QPixmap pixmap("/home/viktor/catkin_ws/src/rotary_table_gui/pictures/rt/rt_gif.gif");
     QMatrix rm;
     rm.rotate(angle);
     pixmap = pixmap.transformed(rm);
@@ -619,7 +610,7 @@ void MainWindow::displayCurrentWorkingStatus(int num1, int num2, int num3, int n
         }
         default:
         {
-            //ROS_ERROR("Not specified 3");
+            ROS_ERROR("Not specified 3");
             break;
         }
     }
@@ -643,7 +634,7 @@ void MainWindow::displayCurrentWorkingStatus(int num1, int num2, int num3, int n
         }
         default:
         {
-            //ROS_ERROR("Not specified 2");
+            ROS_ERROR("Not specified 2");
             break;
         }
     }
@@ -688,7 +679,7 @@ void MainWindow::displayCurrentWorkingStatus(int num1, int num2, int num3, int n
         }
         default:
         {
-            //ROS_ERROR("Not specified 1");
+            ROS_ERROR("Not specified 1");
             break;
         }
     }
@@ -714,7 +705,7 @@ void MainWindow::displayCurrentWorkingError(int num1, int num2, int num3, int nu
         }
         default:
         {
-            //ROS_ERROR("Not specified 4 (%x)",num4);
+            ROS_ERROR("Not specified 4 (%x)",num4);
             break;
         }
     }
@@ -752,7 +743,7 @@ void MainWindow::displayCurrentWorkingError(int num1, int num2, int num3, int nu
         }
         default:
         {
-            //ROS_WARN("Not specified 3 (%x)",num3);
+            ROS_WARN("Not specified 3 (%x)",num3);
             break;
         }
     }
@@ -790,7 +781,7 @@ void MainWindow::displayCurrentWorkingError(int num1, int num2, int num3, int nu
         }
         default:
         {
-            //ROS_ERROR("Not specified 2  (%x)",num2);
+            ROS_ERROR("Not specified 2  (%x)",num2);
             break;
         }
     }
@@ -836,7 +827,7 @@ void MainWindow::displayCurrentWorkingError(int num1, int num2, int num3, int nu
         }
         default:
         {
-            //ROS_ERROR("Not specified 1  (%x)",num1);
+            ROS_ERROR("Not specified 1  (%x)",num1);
             break;
         }
     }
@@ -844,7 +835,7 @@ void MainWindow::displayCurrentWorkingError(int num1, int num2, int num3, int nu
     if (num4 == 0 && num3 == 0 && num2 == 0 && num1 == 0){
         //ui->status_error_TE->setTextColor(QColor("green"));
         //ui->status_error_TE->append(" No errors");
-        //ROS_INFO("No errors");
+        ROS_INFO("No errors");
     }
 
 
@@ -997,6 +988,6 @@ void MainWindow::CurrentStatusCallback(const scara_msgs::status_rt status){
     chopper_temperature = status.chopper_temperature;
     filtered_motor_current = status.filtered_motor_current;
 
-}   /** Bude treba preratat hodnotu  statusu na realne jednotky stupne a mA **/
+}
 /*****************************************************/
 

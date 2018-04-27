@@ -817,7 +817,7 @@
         </joint>
         <actuator name="motor1">
             <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
+            <mechanicalReduction>101</mechanicalReduction>
         </actuator>
     </transmission>
 
@@ -828,7 +828,7 @@
         </joint>
         <actuator name="motor2">
             <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
+            <mechanicalReduction>101</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="tran3">

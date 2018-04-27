@@ -31,6 +31,8 @@ bool start_state = false, teach_start_state = false, button_state = false, colis
 
 int IK_mode = 1, DEMO_mode = -1, teach_mode = -1, current_mode = 999, count1 = 0, last_trajectory_size = -5;
 int jointControl_counter = 0, positionControl_counter = 0, demoControl_counter = 0, teachMode_counter = 0, teachModeHand_counter = 0;
+int DEMO_pick_sequence[3] = {1,2,1};
+int DEMO_place_sequence[3] = {4,5,4};
 
 double x_offset, y_offset, z_offset, J3_position = 0.0;
 double max_torque_value = 3.5, torque_value = 0.0, maxJointDeviation = 0.1;
@@ -44,15 +46,16 @@ std::vector<double> positionControl_lastValues {9.99,9.99,9.99};
 std::vector<double> link_length(2);
 std::vector<double> joint_positions(3);
 
-std::vector<std::vector<double>> desiredJointsDEMO(11, std::vector<double>(3));
+std::vector<std::vector<double>> desiredJointsDEMO(20, std::vector<double>(3));
 std::vector<std::vector<double>> desiredJointsTeach;
 std::vector<std::vector<double>> teachPositionsHand;
-std::vector<geometry_msgs::Point> desiredPositionsDEMO(11);
+std::vector<geometry_msgs::Point> desiredPositionsDEMO(20);
 std::vector<geometry_msgs::Point> teachPositions, cubePositions;
 
 std_msgs::Bool moveitMode, displayVirtualCube, displayCube;
-std_msgs::Byte selectedMode, gripper_state;
+std_msgs::Byte selectedMode, gripper_state, attachToGripper_msg;
 std_msgs::Int32 centralStop_msg, errorCodeMsg, numOfCubesMsg;
+std_msgs::String string_msg;
 geometry_msgs::Point point, desiredPositions, acc, currentTeachPoint, lastTeachPoint, teachCubePositions;
 geometry_msgs::Pose endEffectorPose, pos_and_vel;
 geometry_msgs::PoseStamped ws1;
@@ -76,7 +79,7 @@ bool jointModeControll (moveit::planning_interface::MoveGroupInterface *move_gro
     //   If it fails to create plan it returns false, otherwise it creates plan and executes it in assynchronous mode  //
     //*****************************************************************************************************************//
 
-    ROS_INFO("joint mode controll");
+    //ROS_INFO("joint mode controll");
     success = static_cast<bool>(move_group->plan(my_plan));
     if (!success){
         ROS_ERROR("Could not create a plan!");
@@ -230,8 +233,8 @@ bool calculateIK(double x, double y, double z,  int mode, int working_mode, int 
     //pre simulaciu
     joint_positions[2] = -z + 1.04;
 
-    if (joint_positions[2] <=0.0){
-        joint_positions[2] =0.0;
+    if (joint_positions[2] <=-0.04){
+        joint_positions[2] =-0.04;
     }else if (joint_positions[2] >=0.04){
         joint_positions[2] =0.04;
     }
@@ -251,6 +254,8 @@ bool calculateIK(double x, double y, double z,  int mode, int working_mode, int 
             desiredJointsTeach[index][i] = joint_positions[i];
         }
     return true;
+
+
 
 }
 
@@ -527,46 +532,90 @@ void setDesiredPosesDEMO(){
     desiredPositionsDEMO[0].x = 0.7;
     desiredPositionsDEMO[0].y = 0.57;
     desiredPositionsDEMO[0].z = 1.04;
+    //PrePick position
+    desiredPositionsDEMO[1].x = 0.49;
+    desiredPositionsDEMO[1].y = 0.26;
+    desiredPositionsDEMO[1].z = 1.08;
     //Pick position
-    desiredPositionsDEMO[1].x = 0.4;
-    desiredPositionsDEMO[1].y = 0.24;
-    desiredPositionsDEMO[1].z = 1.04;
+    desiredPositionsDEMO[2].x = 0.49;
+    desiredPositionsDEMO[2].y = 0.26;
+    desiredPositionsDEMO[2].z = 1.06;
     //Work position
-    desiredPositionsDEMO[2].x = 0.58;
-    desiredPositionsDEMO[2].y = 0.59;
-    desiredPositionsDEMO[2].z = 1.04;
-    //Place position 1
-    desiredPositionsDEMO[3].x = 0.51;
-    desiredPositionsDEMO[3].y = 0.87;
-    desiredPositionsDEMO[3].z = 1.04;
-    //Place position 2
-    desiredPositionsDEMO[4].x = 0.51;
-    desiredPositionsDEMO[4].y = 0.93;
+    desiredPositionsDEMO[3].x = 0.58;
+    desiredPositionsDEMO[3].y = 0.59;
+    desiredPositionsDEMO[3].z = 1.08;
+
+    //PrePlace position 1
+    desiredPositionsDEMO[4].x = 0.508;
+    desiredPositionsDEMO[4].y = 0.865;
     desiredPositionsDEMO[4].z = 1.04;
-    //Place position 3
-    desiredPositionsDEMO[5].x = 0.47;
-    desiredPositionsDEMO[5].y = 0.87;
-    desiredPositionsDEMO[5].z = 1.04;
-    //Place position 4
-    desiredPositionsDEMO[6].x = 0.47;
-    desiredPositionsDEMO[6].y = 0.93;
+    //Place position 1
+    desiredPositionsDEMO[5].x = 0.508;
+    desiredPositionsDEMO[5].y = 0.865;
+    desiredPositionsDEMO[5].z = 1.00;
+
+    //PrePlace position 2
+    desiredPositionsDEMO[6].x = 0.508;
+    desiredPositionsDEMO[6].y = 0.92;
     desiredPositionsDEMO[6].z = 1.04;
-    //Place position 5
-    desiredPositionsDEMO[7].x = 0.43;
-    desiredPositionsDEMO[7].y = 0.87;
-    desiredPositionsDEMO[7].z = 1.04;
-    //Place position 6
-    desiredPositionsDEMO[8].x = 0.43;
-    desiredPositionsDEMO[8].y = 0.93;
+    //Place position 2
+    desiredPositionsDEMO[7].x = 0.508;
+    desiredPositionsDEMO[7].y = 0.92;
+    desiredPositionsDEMO[7].z = 1.00;
+
+    //PrePlace position 3
+    desiredPositionsDEMO[8].x = 0.468;
+    desiredPositionsDEMO[8].y = 0.87;
     desiredPositionsDEMO[8].z = 1.04;
-    //Place position 7
-    desiredPositionsDEMO[9].x = 0.39;
+    //Place position 3
+    desiredPositionsDEMO[9].x = 0.468;
     desiredPositionsDEMO[9].y = 0.87;
-    desiredPositionsDEMO[9].z = 1.04;
-    //Place position 8
-    desiredPositionsDEMO[10].x = 0.39;
-    desiredPositionsDEMO[10].y = 0.93;
+    desiredPositionsDEMO[9].z = 1.00;
+
+    //PrePlace position 4
+    desiredPositionsDEMO[10].x = 0.465;
+    desiredPositionsDEMO[10].y = 0.92;
     desiredPositionsDEMO[10].z = 1.04;
+    //Place position 4
+    desiredPositionsDEMO[11].x = 0.465;
+    desiredPositionsDEMO[11].y = 0.92;
+    desiredPositionsDEMO[11].z = 1.00;
+
+    //PrePlace position 5
+    desiredPositionsDEMO[12].x = 0.43;
+    desiredPositionsDEMO[12].y = 0.87;
+    desiredPositionsDEMO[12].z = 1.04;
+    //Place position 5
+    desiredPositionsDEMO[13].x = 0.43;
+    desiredPositionsDEMO[13].y = 0.87;
+    desiredPositionsDEMO[13].z = 1.00;
+
+    //PrePlace position 6
+    desiredPositionsDEMO[14].x = 0.426;
+    desiredPositionsDEMO[14].y = 0.925;
+    desiredPositionsDEMO[14].z = 1.04;
+    //Place position 6
+    desiredPositionsDEMO[15].x = 0.426;
+    desiredPositionsDEMO[15].y = 0.925;
+    desiredPositionsDEMO[15].z = 1.00;
+
+    //PrePlace position 7
+    desiredPositionsDEMO[16].x = 0.39;
+    desiredPositionsDEMO[16].y = 0.87;
+    desiredPositionsDEMO[16].z = 1.04;
+    //Place position 7
+    desiredPositionsDEMO[17].x = 0.39;
+    desiredPositionsDEMO[17].y = 0.87;
+    desiredPositionsDEMO[17].z = 1.00;
+
+    //PrePlace position 8
+    desiredPositionsDEMO[18].x = 0.39;
+    desiredPositionsDEMO[18].y = 0.928;
+    desiredPositionsDEMO[18].z = 1.04;
+    //Place position 8
+    desiredPositionsDEMO[19].x = 0.39;
+    desiredPositionsDEMO[19].y = 0.928;
+    desiredPositionsDEMO[19].z = 1.00;
 
 }
 
@@ -816,8 +865,8 @@ void jointControlCallback(const geometry_msgs::PointStamped pointStamped){
     jointControl_jointValues[1] = pointStamped.point.y;
     if (pointStamped.point.z > 0.04)
         jointControl_jointValues[2] = 0.04;
-    else if (pointStamped.point.z < 0.0)
-        jointControl_jointValues[2] = 0.0;
+    else if (pointStamped.point.z < -0.04)
+        jointControl_jointValues[2] = -0.04;
     else
         jointControl_jointValues[2] = pointStamped.point.z;
 

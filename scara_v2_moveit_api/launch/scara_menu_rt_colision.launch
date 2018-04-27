@@ -1,0 +1,9 @@
+<!--MOVEIT + SCARA menu + SCARA GUI + RT control + Colision object publisher-->
+
+<launch>
+    <include file="$(find scara_rt_v3_moveit_config)/launch/demo.launch" />
+    <node name="move_group_interface5_rt" pkg="scara_v2_moveit_api" type="move_group_interface5_rt" respawn="false" output="screen"/>
+    <node name="scara_menu" pkg="scara_v2_moveit_api" type="scara_menu" respawn="false" output="screen"/>
+    <node name="scara_gui" pkg="scara_gui" type="scara_gui" respawn="false" output="screen"/>
+    <node name="scara_colision_object" pkg="scara_v2_moveit_api" type="scara_colision_object" respawn="false" output="screen"/>
+</launch>

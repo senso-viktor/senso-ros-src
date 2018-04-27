@@ -52,7 +52,7 @@ void sendDesiredWorkingState(int inputNumber){
     switch (inputNumber){
         case 1: //OFF
         {
-            ROS_INFO("desired state OFF");
+            //ROS_INFO("desired state OFF");
             frame.data[0] = 0x0;
             for (int i = 1; i < 8; i++) frame.data[i] = 0;
             //ROS_WARN("Zapis CAN:  id %x dlc %x", frame.can_id, frame.can_dlc);
@@ -67,7 +67,7 @@ void sendDesiredWorkingState(int inputNumber){
         }
         case 2: //READY
         {
-            ROS_INFO("desired state READY");
+            //ROS_INFO("desired state READY");
            frame.data[0] = 0x12;
             for (int i = 1; i < 8; i++) frame.data[i] = 0;
             //ROS_WARN("Zapis CAN:  id %x dlc %x", frame.can_id, frame.can_dlc);
@@ -77,7 +77,7 @@ void sendDesiredWorkingState(int inputNumber){
         }
         case 3: //ON
         {
-            ROS_INFO("desired state ON");
+            //ROS_INFO("desired state ON");
             frame.data[0] = 0x14;
             for (int i = 1; i < 8; i++) frame.data[i] = 0;
             //ROS_WARN("Zapis CAN:  id %x dlc %x", frame.can_id, frame.can_dlc);
@@ -87,7 +87,7 @@ void sendDesiredWorkingState(int inputNumber){
         }
         case 4: //ERROR
         {
-            ROS_INFO("desired state ERROR");
+            //ROS_INFO("desired state ERROR");
             frame.data[0] = 0x1f;
             for (int i = 1; i < 8; i++) frame.data[i] = 0;
             //ROS_WARN("Zapis CAN:  id %x dlc %x", frame.can_id, frame.can_dlc);
@@ -97,7 +97,7 @@ void sendDesiredWorkingState(int inputNumber){
         }
         default:
         {
-            ROS_ERROR("Invalid number");
+            //ROS_ERROR("Invalid number");
             frame.data[0] = 0x12;
             for (int i = 1; i < 8; i++) frame.data[i] = 0;
             //ROS_WARN("Zapis CAN:  id %x dlc %x", frame.can_id, frame.can_dlc);
@@ -133,6 +133,7 @@ void decodeCANmsg(can_frame *frame){
             //for (int i = 0; i < 8; i++) ROS_INFO("%X", frame->data[i]);
             int32_msg.data = 0;                                         //Send STATUS
             memcpy(&int32_msg.data,frame->data,2*sizeof(uint8_t));    //Posibility 2 (Status msg)
+
             currentWorkingState_pub.publish(int32_msg);                       //Send status msg
             //ROS_INFO("Sending STATUS msg dec=%d (hex=%x)",int32_msg.data,int32_msg.data);
 
@@ -145,7 +146,7 @@ void decodeCANmsg(can_frame *frame){
         case 0x211:     //Position and Velocity answer
         {
             //ROS_INFO("*** Received CAN msg *** [id = %x]",frame->can_id);
-            //for (int i = 0; i < 8; i++) ROS_INFO("%X", frame->data[i]);
+            //for (int i = 0; i <  8; i++) ROS_INFO("%X", frame->data[i]);
             int32_msg.data = 0;                                         //Current Position
             memcpy(&int32_msg.data,frame->data,2*sizeof(uint8_t));    //Posibility 2
             currentRotationInDeg_pub.publish(int32_msg);
@@ -217,10 +218,10 @@ void requestTemperature(){
 float inLimits_float(float inputNumber, float downLimit, float upLimit){
 
     if (inputNumber < downLimit){
-        ROS_WARN("down limit(%f) reached !",downLimit);
+        //ROS_WARN("down limit(%f) reached !",downLimit);
         return downLimit;
     }else if (inputNumber >= upLimit){
-        ROS_WARN("up limit(%f) reached !",upLimit);
+        //ROS_WARN("up limit(%f) reached !",upLimit);
         return upLimit;
     }else{
         return inputNumber;
@@ -232,10 +233,10 @@ float inLimits_float(float inputNumber, float downLimit, float upLimit){
 int inLimits_int(int inputNumber, int downLimit, int upLimit){
 
     if (inputNumber <= downLimit){
-        ROS_WARN("down limit(%d) reached !",downLimit);
+        //ROS_WARN("down limit(%d) reached !",downLimit);
         return downLimit;
     }else if (inputNumber >= upLimit){
-        ROS_WARN("up limit(%d) reached !",upLimit);
+        //ROS_WARN("up limit(%d) reached !",upLimit);
         return upLimit;
     }else{
         return inputNumber;
@@ -248,18 +249,18 @@ int normalizeToRange2PI(int inputNumber){
     int modifiedAngleInt = inputNumber, k=0;
 
     if (modifiedAngleInt < 0){
-        ROS_INFO("Current angle less than 0 (%d)",modifiedAngleInt);
+        //ROS_INFO("Current angle less than 0 (%d)",modifiedAngleInt);
         k = -(modifiedAngleInt/3600);
         modifiedAngleInt = (k+1)*3600 + modifiedAngleInt;
-        ROS_INFO("Current angle modified to (%d)",modifiedAngleInt);
+        //ROS_INFO("Current angle modified to (%d)",modifiedAngleInt);
     }
 
     if (modifiedAngleInt >= 3600){
-        ROS_INFO("Angle is over 3600 (%d)",modifiedAngleInt);
+        //ROS_INFO("Angle is over 3600 (%d)",modifiedAngleInt);
         modifiedAngleInt = modifiedAngleInt % 3600;
-        ROS_INFO("Angle is over 3600, modif angle is %d",modifiedAngleInt);
+        //ROS_INFO("Angle is over 3600, modif angle is %d",modifiedAngleInt);
     }else{
-        ROS_INFO("Angle OK %d",modifiedAngleInt);
+        //ROS_INFO("Angle OK %d",modifiedAngleInt);
     }
 
     return modifiedAngleInt;
@@ -314,7 +315,7 @@ void workingStateCommandCallback(const std_msgs::Int32 mode){
     /**      mode == 4  =>  0x1f                             **/
     /**********************************************************/
 
-    ROS_INFO("workingStateCommandCallback : desired mode=%d",mode.data);
+    //ROS_INFO("workingStateCommandCallback : desired mode=%d",mode.data);
     sendDesiredWorkingState(mode.data);
 
 }

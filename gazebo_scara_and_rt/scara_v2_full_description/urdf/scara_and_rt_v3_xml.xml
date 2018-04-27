@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<robot name="scara_and_rt" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="scara_and_rt">
 
     <gazebo>
         <plugin filename="libgazebo_ros_control.so" name="ros_control">
@@ -943,7 +943,7 @@
         </joint>
         <actuator name="motor1">
             <hardwareInterface>EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
+            <mechanicalReduction>101</mechanicalReduction>
         </actuator>
     </transmission>
 
@@ -954,7 +954,7 @@
         </joint>
         <actuator name="motor2">
             <hardwareInterface>EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
+            <mechanicalReduction>101</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="tran3">

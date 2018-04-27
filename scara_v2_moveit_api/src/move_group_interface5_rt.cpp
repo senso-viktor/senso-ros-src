@@ -82,6 +82,8 @@ int main(int argc, char **argv){
     int counter = 0;
     bool success;
     static const std::string PLANNING_GROUP = "rt";
+    //static const std::string PLANNING_GROUP = "rotation_group";
+
     geometry_msgs::Pose target_pose1;
 
     geometry_msgs::PoseStamped ws1;

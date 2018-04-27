@@ -1,0 +1,812 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 84
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /MotionPlanning1
+        - /MotionPlanning1/Scene Robot1
+      Splitter Ratio: 0.742560029
+    Tree Height: 305
+  - Class: rviz/Help
+    Name: Help
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.0299999993
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Class: moveit_rviz_plugin/MotionPlanning
+      Enabled: true
+      Move Group Namespace: ""
+      MoveIt_Goal_Tolerance: 0
+      MoveIt_Planning_Attempts: 10
+      MoveIt_Planning_Time: 5
+      MoveIt_Use_Constraint_Aware_IK: true
+      MoveIt_Warehouse_Host: 127.0.0.1
+      MoveIt_Warehouse_Port: 33829
+      MoveIt_Workspace:
+        Center:
+          X: 0
+          Y: 0
+          Z: 0
+        Size:
+          X: 2
+          Y: 2
+          Z: 2
+      Name: MotionPlanning
+      Planned Path:
+        Color Enabled: false
+        Interrupt Display: false
+        Links:
+          All Links Enabled: true
+          BaseBox:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          CentralStop1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          CentralStop2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          Expand Joint Details: false
+          Expand Link Details: false
+          Expand Tree: false
+          GripperBase:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          GripperLeft:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          GripperRight:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          Link Tree Style: Links in Alphabetic Order
+          ScaraBase:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          ScaraLink1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          ScaraLink2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          base:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          baseCircle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          motorShaftLink:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          pickHole1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          pickHole2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          pickHole3:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          pickHole4:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          pickHole5:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          pickHole6:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          pickHole7:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          pickHole8:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          placeBox:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          placeHole1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          placeHole2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          placeHole3:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          placeHole4:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          placeHole5:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          placeHole6:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          placeHole7:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          placeHole8:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          rotationDisc:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          tool0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          world:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+        Loop Animation: true
+        Robot Alpha: 0.5
+        Robot Color: 150; 50; 150
+        Show Robot Collision: false
+        Show Robot Visual: false
+        Show Trail: false
+        State Display Time: REALTIME
+        Trail Step Size: 1
+        Trajectory Topic: move_group/display_planned_path
+      Planning Metrics:
+        Payload: 1
+        Show Joint Torques: false
+        Show Manipulability: false
+        Show Manipulability Index: false
+        Show Weight Limit: false
+        TextHeight: 0.0799999982
+      Planning Request:
+        Colliding Link Color: 255; 0; 0
+        Goal State Alpha: 1
+        Goal State Color: 250; 128; 0
+        Interactive Marker Size: 0
+        Joint Violation Color: 255; 0; 255
+        Planning Group: scara_arm
+        Query Goal State: false
+        Query Start State: false
+        Show Workspace: false
+        Start State Alpha: 1
+        Start State Color: 0; 255; 0
+      Planning Scene Topic: move_group/monitored_planning_scene
+      Robot Description: robot_description
+      Scene Geometry:
+        Scene Alpha: 1
+        Scene Color: 50; 230; 50
+        Scene Display Time: 0.00100000005
+        Show Scene Geometry: true
+        Voxel Coloring: Z-Axis
+        Voxel Rendering: Occupied Voxels
+      Scene Robot:
+        Attached Body Color: 150; 50; 150
+        Links:
+          All Links Enabled: true
+          BaseBox:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          CentralStop1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          CentralStop2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          Expand Joint Details: false
+          Expand Link Details: false
+          Expand Tree: false
+          GripperBase:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          GripperLeft:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          GripperRight:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          Link Tree Style: Links in Alphabetic Order
+          ScaraBase:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          ScaraLink1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          ScaraLink2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          base:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          baseCircle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          motorShaftLink:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          pickHole1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          pickHole2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          pickHole3:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          pickHole4:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          pickHole5:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          pickHole6:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          pickHole7:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          pickHole8:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          placeBox:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          placeHole1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          placeHole2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          placeHole3:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          placeHole4:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          placeHole5:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          placeHole6:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          placeHole7:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          placeHole8:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          rotationDisc:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          tool0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          world:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+        Robot Alpha: 1
+        Show Robot Collision: false
+        Show Robot Visual: false
+      Value: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        BaseBox:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        CentralStop1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        CentralStop2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        GripperBase:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        GripperLeft:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        GripperRight:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        Link Tree Style: Links in Alphabetic Order
+        ScaraBase:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ScaraLink1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ScaraLink2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        baseCircle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        motorShaftLink:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        pickHole1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        pickHole2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        pickHole3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        pickHole4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        pickHole5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        pickHole6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        pickHole7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        pickHole8:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        placeBox:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        placeHole1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        placeHole2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        placeHole3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        placeHole4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        placeHole5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        placeHole6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        placeHole7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        placeHole8:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rotationDisc:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tool0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        world:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+      Name: RobotModel
+      Robot Description: robot_description
+      TF Prefix: ""
+      Update Interval: 0.00100000005
+      Value: true
+      Visual Enabled: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: custom_colision_object
+      Name: Marker
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: real_colision_object
+      Name: Marker
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: cube_object
+      Name: Marker
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: visualization_marker
+      Name: Marker
+      Namespaces:
+        namespace0: true
+        namespace1: true
+        namespace12: true
+        namespace13: true
+        namespace14: true
+        namespace15: true
+        namespace16: true
+        namespace17: true
+        namespace18: true
+        namespace2: true
+        namespace3: true
+        namespace4: true
+        namespace5: true
+        namespace6: true
+        namespace7: true
+        namespace8: true
+      Queue Size: 100
+      Value: true
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        BaseBox:
+          Value: false
+        CentralStop1:
+          Value: false
+        CentralStop2:
+          Value: false
+        GripperBase:
+          Value: false
+        GripperLeft:
+          Value: false
+        GripperRight:
+          Value: false
+        ScaraBase:
+          Value: false
+        ScaraLink1:
+          Value: false
+        ScaraLink2:
+          Value: false
+        base:
+          Value: false
+        baseCircle:
+          Value: false
+        motorShaftLink:
+          Value: false
+        pickHole1:
+          Value: false
+        pickHole2:
+          Value: false
+        pickHole3:
+          Value: false
+        pickHole4:
+          Value: false
+        pickHole5:
+          Value: false
+        pickHole6:
+          Value: false
+        pickHole7:
+          Value: false
+        pickHole8:
+          Value: false
+        placeBox:
+          Value: false
+        placeHole1:
+          Value: false
+        placeHole2:
+          Value: false
+        placeHole3:
+          Value: false
+        placeHole4:
+          Value: false
+        placeHole5:
+          Value: false
+        placeHole6:
+          Value: false
+        placeHole7:
+          Value: false
+        placeHole8:
+          Value: false
+        rotationDisc:
+          Value: false
+        tool0:
+          Value: false
+        world:
+          Value: false
+      Marker Scale: 0.200000003
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        world:
+          BaseBox:
+            CentralStop1:
+              {}
+            CentralStop2:
+              {}
+            ScaraBase:
+              ScaraLink1:
+                ScaraLink2:
+                  GripperBase:
+                    GripperLeft:
+                      {}
+                    GripperRight:
+                      {}
+                    tool0:
+                      {}
+            base:
+              baseCircle:
+                motorShaftLink:
+                  rotationDisc:
+                    pickHole1:
+                      {}
+                    pickHole2:
+                      {}
+                    pickHole3:
+                      {}
+                    pickHole4:
+                      {}
+                    pickHole5:
+                      {}
+                    pickHole6:
+                      {}
+                    pickHole7:
+                      {}
+                    pickHole8:
+                      {}
+            placeBox:
+              placeHole1:
+                {}
+              placeHole2:
+                {}
+              placeHole3:
+                {}
+              placeHole4:
+                {}
+              placeHole5:
+                {}
+              placeHole6:
+                {}
+              placeHole7:
+                {}
+              placeHole8:
+                {}
+      Update Interval: 0
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Default Light: true
+    Fixed Frame: world
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+  Value: true
+  Views:
+    Current:
+      Class: rviz/XYOrbit
+      Distance: 2.55941534
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.0599999987
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: 0.0959236622
+        Y: 0.592972398
+        Z: 2.23517986e-07
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.0500000007
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.00999999978
+      Pitch: 0.854797542
+      Target Frame: world
+      Value: XYOrbit (rviz)
+      Yaw: 0.001774312
+    Saved: ~
+Window Geometry:
+  Displays:
+    collapsed: true
+  Height: 1028
+  Help:
+    collapsed: false
+  Hide Left Dock: true
+  Hide Right Dock: false
+  MotionPlanning:
+    collapsed: true
+  MotionPlanning - Slider:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd0000000100000000000002b8000003befc0200000007fb000000100044006900730070006c0061007900730000000028000001c6000000d700fffffffb0000000800480065006c00700000000342000000bb0000007300fffffffb0000000a0056006900650077007300000003b0000000b0000000ad00fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb0000002e004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d00200053006c00690064006500720000000000ffffffff0000004a00fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e006700000001f4000001f2000001cc00ffffff000003a0000003be00000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Views:
+    collapsed: false
+  Width: 928
+  X: 992
+  Y: 24

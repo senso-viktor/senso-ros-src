@@ -63,7 +63,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_1">
      <attribute name="title">
@@ -95,7 +95,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>/home/viktordluhos/catkin_ws/src/rotary_table_gui/pictures/IMG_20171006_175133_preview.jpeg</pixmap>
+       <pixmap>/home/viktor/catkin_ws/src/rotary_table_gui/pictures/IMG_20171006_175133_preview.jpeg</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -114,7 +114,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>/home/viktordluhos/catkin_ws/src/rotary_table_gui/pictures/IMG_20171006_175125_preview.jpeg</pixmap>
+       <pixmap>/home/viktor/catkin_ws/src/rotary_table_gui/pictures/IMG_20171006_175125_preview.jpeg</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -138,7 +138,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>/home/viktordluhos/catkin_ws/src/rotary_table_gui/pictures/Screenshot from 2017-10-11 16-52-30.png</pixmap>
+       <pixmap>/home/viktor/catkin_ws/src/rotary_table_gui/pictures/Screenshot from 2017-10-11 16-52-30.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -398,7 +398,7 @@
             </size>
            </property>
            <property name="text">
-            <string>-1°</string>
+            <string>-10°</string>
            </property>
           </widget>
          </item>
@@ -411,7 +411,7 @@
             </size>
            </property>
            <property name="text">
-            <string>-0.1°</string>
+            <string>-1°</string>
            </property>
           </widget>
          </item>
@@ -437,7 +437,7 @@
             </size>
            </property>
            <property name="text">
-            <string>+0.1°</string>
+            <string>+1°</string>
            </property>
           </widget>
          </item>
@@ -450,7 +450,7 @@
             </size>
            </property>
            <property name="text">
-            <string>+1°</string>
+            <string>+10°</string>
            </property>
           </widget>
          </item>
@@ -472,11 +472,7 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_5">
          <item>
-          <widget class="QLineEdit" name="MaxVelocity_input_LE">
-           <property name="text">
-            <string>360</string>
-           </property>
-          </widget>
+          <widget class="QLineEdit" name="MaxVelocity_input_LE"/>
          </item>
          <item>
           <widget class="QPushButton" name="MaxVelocity_input_PB">
@@ -1116,7 +1112,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>/home/viktordluhos/catkin_ws/src/rotary_table_gui/pictures/rt/rt_stol_gif.gif</pixmap>
+       <pixmap>/home/viktor/catkin_ws/src/rotary_table_gui/pictures/rt/rt_stol_gif.gif</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -1135,7 +1131,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>/home/viktordluhos/catkin_ws/src/rotary_table_gui/pictures/rt/rt_gif.gif</pixmap>
+       <pixmap>/home/viktor/catkin_ws/src/rotary_table_gui/pictures/rt/rt_gif.gif</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -1154,7 +1150,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>/home/viktordluhos/catkin_ws/src/rotary_table_gui/pictures/sensodrive_rgb kopie.gif</pixmap>
+       <pixmap>/home/viktor/catkin_ws/src/rotary_table_gui/pictures/sensodrive_rgb kopie.gif</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -1175,7 +1171,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>/home/viktordluhos/catkin_ws/src/rotary_table_gui/pictures/sensodrive_rgb kopie.gif</pixmap>
+     <pixmap>/home/viktor/catkin_ws/src/rotary_table_gui/pictures/sensodrive_rgb kopie.gif</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -1270,4 +1266,3 @@
  <resources/>
  <connections/>
 </ui>
-

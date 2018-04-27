@@ -98,6 +98,10 @@ add_executable(multiple_cube_publisher ../scara_v2_moveit_api/src/multiple_cube_
 target_link_libraries(multiple_cube_publisher ${catkin_LIBRARIES})
 add_dependencies(multiple_cube_publisher beginner_tutorials_generate_messages_cpp)
 
+add_executable(multiple_cylinder_publisher_scara_v3 ../scara_v2_moveit_api/src/multiple_cylinder_publisher_scara_v3.cpp)
+target_link_libraries(multiple_cylinder_publisher_scara_v3 ${catkin_LIBRARIES})
+add_dependencies(multiple_cylinder_publisher_scara_v3 beginner_tutorials_generate_messages_cpp)
+
 add_executable(gripper_control ../scara_v2_moveit_api/src/gripper_control.cpp)
 target_link_libraries(gripper_control ${catkin_LIBRARIES})
 add_dependencies(gripper_control beginner_tutorials_generate_messages_cpp)
